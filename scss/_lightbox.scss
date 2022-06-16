@@ -5,8 +5,9 @@
   display: none;
   position:fixed;top:3vw;left:3vw;
   width:94vw; height: calc(100vh - 6vw); z-index:999;
-  padding:0; margin:0 auto; overflow: auto;overflow-y: auto;
-  background:#000; box-shadow:rgba(0,0,0,.6) 0 0 28px; 
+  padding:40px 0 0; margin:0 auto; overflow: auto;overflow-y: auto;
+  background:#000; box-shadow:rgba(0,0,0,.6) 0 0 28px;
+  color: #fff;
 
   .closeThis{
     position: absolute; right:0; top: 0; z-index:99;
@@ -51,4 +52,13 @@
   z-index: 995;
   position: fixed; left: 0;right: 0;top: 0;bottom: 0;
   background: rgba(0,0,0,.6);
+}
+
+
+.popMessage{
+  width: 90%; margin: 0 auto;
+  color: $fontInvert;
+  a{
+    color: $fontInvert;
+  }
 }
