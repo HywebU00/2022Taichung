@@ -35,7 +35,7 @@
       p{margin: .6em 0;}
       a{
         display: inline-block; margin: 0 .3em; padding: 0 3px;
-        color: $hiLight; text-decoration: underline;
+        color: lighten($linkColor, 55%); text-decoration: underline;
         &:hover, &:focus{
           text-decoration: none;
           box-shadow: $hiLight 0 0 0 1px;  
@@ -51,6 +51,8 @@
 
     .badges{ display: none; }
   }
+
+  #CapModule_T300100_Extreme_66{display: none;}
 
 
   @media screen and (min-width: $wwNormal){
@@ -129,7 +131,7 @@
 
     .base{
       position: relative;
-       width: $normalWidth; padding-top: 25px;  padding-right: 380px;
+       width: $normalWidth; padding-top: 25px;  padding-right: 410px;
        border-top: 1px solid $hiLight;
  
       .visitAndDate{
@@ -152,11 +154,11 @@
 
         .badgeA{
           float: left; margin-right: 12px;
-          img{width: 184px; }
+          img{ width: 184px; }
         }
         .egov{
           float: left; margin-right: 12px;
-          img{width: 43px;}
+          img{ width: 43px; }
         }
 
         .qrCode{
@@ -166,9 +168,68 @@
           }
         }
       }
-
-
     }
+
+    // 
+    #CapModule_T300100_Extreme_66{
+      display: block; width: 400px !important;
+      position: absolute; right: 0; bottom: 0;
+
+      ul.innerfade{
+        width: 100%; padding: 0; margin: 0; height: 130px !important;
+        li{height: auto !important; width: 100%; padding: 0; margin: 0;}
+      }
+    
+      .alertCAP_banner{
+        display: flex !important; width: 100% !important;
+      }
+      .block_up{
+        flex: 0 0 100px; width: 100px; min-height:100px; height:auto !important;
+        position: relative;
+        &::after{
+          content: ''; position: absolute; right: -9px; top: 50%; margin-top: -10px; z-index: 9;
+          width: 0; height: 0; border-style: solid;
+          border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #d0b685;
+        }
+
+        .alertCAP_Area{display: none;}
+        .alertCAP_titleicon{
+          height:auto !important;
+          img{ display: block; margin: 0 auto; width: 88px; height: 80px; object-fit: contain;}
+          .alertCAP_title {
+            display: block; margin: 0;
+            text-align: center; font-size: .9375rem !important; color: #0d5261;
+          }
+        }
+
+      }
+
+      .block_down{
+        flex: 1 1 calc(100% - 100px);
+        padding: 12px 15px 30px 20px; position: relative; height: auto !important;
+        .alertCAP_logo{
+          position: absolute; bottom: 10px; right: 15px;
+          img{ display: none;}
+          a{
+            display: block; position: relative; padding-right: 16px;
+            &::before{content: 'MORE';}
+            &::after{ 
+              content: ''; position: absolute; right: 0; top: 4px;
+               width: 6px; height: 6px; transform: rotate(45deg);
+              border: 1px solid #fff; border-left: none; border-bottom: none;
+            }
+          }
+        }
+        .alertCAP_con {
+          font-size: 15px; line-height: 1.5;
+          .alertCAP_time{
+            margin-top: 6px;
+          }
+        }
+      }
+    }
+  
+  
   }
 
   @media screen and (min-width: $wwMaximum){
