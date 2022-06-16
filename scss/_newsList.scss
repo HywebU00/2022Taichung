@@ -44,7 +44,7 @@
         }
 
         &:hover, &:focus{
-          &::before{background-color: darken($hiLight, 25%);}
+          &::before{background-color:$hiLight2;}
         }
       }
     }

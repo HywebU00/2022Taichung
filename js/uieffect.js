@@ -5,20 +5,20 @@ $(function(){
   var _window = $(window);
 
   var ww = _window.width();
-  var wh = _window.height();
-  var wwNew = ww;
+  // var wh = _window.height();
+  // var wwNew = ww;
 
-  const wwSlim = 480;
-  const wwMedium = 700; //此值以下是手機
-  const wwNormal = 960;  //此值以上是電腦
-  const wwMaximum = 1200;
+  // const wwSlim = 480;
+  // const wwMedium = 700; //此值以下是手機
+  const wwNormal = 1000;  //此值以上是電腦
+  // const wwMaximum = 1200;
 
   var _menu = $('.webHeader .menu');
   var _sidebar = $('.sidebar');
   var _sidebarCtrl = $('.sidebarCtrl');
   var _webHeader = $('.webHeader');
-  var _webFooter = $('.webFooter');
-
+  // var _webFooter = $('.webFooter');
+  
   _html.removeClass('no-js');
 
   // 外掛套件 slick 參數設定 ////////////////////////////
@@ -110,6 +110,37 @@ $(function(){
     }).parent().addClass('active').siblings().removeClass('active');
   }
   // font size 和 cookie 結束 ////////////////////////////
+
+
+
+
+
+  // 固定版頭 ////////////////////////////
+  var hh = _webHeader.innerHeight();
+  function fixHeader(){
+    if (_window.scrollTop() > hh ) {
+      _webHeader.addClass('fixed');
+      _body.offset( {top : hh});
+    } else {
+      _webHeader.removeClass('fixed');
+        _body.offset({top : 0})
+    }
+  }
+
+  // 清除固定版頭時產生的 style 屬性
+  function fxH_clearStyle() {
+    _webHeader.removeClass('fixed');
+    _body.removeAttr('style');
+  }
+
+  if (ww >= wwNormal) {
+    _window.on('scroll.fixHeader' , fixHeader);
+  } else {
+    _window.off('.fixHeader');
+    fxH_clearStyle();
+  }
+
+
 
 
   // 可收合區 ////////////////////////////
@@ -308,13 +339,19 @@ $(function(){
     clearTimeout(winResizeTimer0);
     ww = _window.width();
     winResizeTimer = setTimeout(function () {
-      if(ww >= wwNormal && _sidebar.hasClass('reveal')) {
-        _sidebarMask.hide(10, function(){
-          _body.removeClass('noScroll');
-        });
-        _sidebar.removeClass('reveal');
-        _sidebarCtrl.removeClass('closeIt');
-      } 
+      if(ww >= wwNormal ) {
+        _window.on('scroll.fixHeader' , fixHeader);
+        if (_sidebar.hasClass('reveal')) {
+          _sidebarMask.hide(10, function(){
+            _body.removeClass('noScroll');
+          });
+          _sidebar.removeClass('reveal');
+          _sidebarCtrl.removeClass('closeIt');
+        }
+      } else {
+        _window.off('.fixHeader');
+        fxH_clearStyle();
+      }
     }, 200);
   });
 

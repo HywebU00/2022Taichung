@@ -102,7 +102,7 @@
   }
 
   @media screen and (min-width: $wwMaximum){
-    right:calc( 50vw - #{$wwMaximum}/2);
+    margin-right: calc(50vw - #{$wwMaximum}*.41)
   }
 
 }
