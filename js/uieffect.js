@@ -21,7 +21,7 @@ $(function(){
 
   _html.removeClass('no-js');
 
-  // --------------------- 外掛套件 slick 參數設定
+  // 外掛套件 slick 參數設定 ////////////////////////////
   // 首頁大圖輪播
   $('.bigBanner').slick({
     slidesToShow: 1,
@@ -59,11 +59,11 @@ $(function(){
     ]
 
   });
-  // --------------------- slick 參數設定：結束
+  // slick 參數設定：結束 ////////////////////////////
 
 
 
-  // /////////// font size 和 cookie ///////////////
+  // font size 和 cookie ////////////////////////////
   // font size：顯示所選項目
   var _fontSize = $('.fontSize');
   var _fontSizeBtn = _fontSize.find('button');
@@ -109,18 +109,10 @@ $(function(){
       return $(this).attr( "class" ) === cookie;
     }).parent().addClass('active').siblings().removeClass('active');
   }
-  ///////////// font size 和 cookie 結束 ///////////////
+  // font size 和 cookie 結束 ////////////////////////////
 
 
-
-
-
-
-
-
-
-
-  // 可收合區
+  // 可收合區 ////////////////////////////
   _drawer = $('.drawer');
   _drawer.each(function () {
     let _this = $(this);
@@ -139,9 +131,9 @@ $(function(){
       }
     })
   })
+  ////////////////////////////////////////////////////////
 
-
-  // rwd Table
+  // rwd Table ////////////////////////////
   // 把 th 的內容複製到對應的td的 data-th 屬性值
   _rwdTable = $('.rwdTable');
   _rwdTable.each( function(){
@@ -157,6 +149,7 @@ $(function(){
         }
       })
   })
+  ////////////////////////////////////////////////////////
 
 
 
@@ -164,7 +157,7 @@ $(function(){
 
 
   //////////////////////////////////////////////
-  // 燈箱 ---------------------------------------
+  // 燈箱 ////////////////////////////
   var _lightbox = $('.lightbox');
   var _hideLightbox = _lightbox.find('.closeThis');
   const lbxSpeed = 400;
@@ -181,11 +174,7 @@ $(function(){
   // 關燈箱
   _hideLightbox.click(function(){
     let _targetLbx = $(this).parents('.lightbox');
-    _targetLbx.stop(true, false).fadeOut(lbxSpeed,
-      function(){
-        _cpBigPhoto.find('.flowList').find('li').hide();
-      }
-    );
+    _targetLbx.stop(true, false).fadeOut(lbxSpeed);
     _targetLbx.prev(_cover).fadeOut(lbxSpeed);
     _body.removeClass('noScroll');
   })
@@ -194,226 +183,18 @@ $(function(){
     let _targetLbx = $(this).next('.lightbox');
     $(this).fadeOut(lbxSpeed);
     _body.removeClass('noScroll');
-    _targetLbx.stop(true, false).fadeOut(lbxSpeed,
-      function(){
-        _cpBigPhoto.find('.flowList').find('li').hide();
-      }
-    );
+    _targetLbx.stop(true, false).fadeOut(lbxSpeed);
   })
 
 
-  //////////////////////////////////////
-  // .photoflow：cp頁的相關圖片（Related Photos）
-  // 點擊圖片要開燈箱並顯示大圖
-  var _photoflow = $('.photoflow');
-  var _cpBigPhoto = $('.lightbox.bigPhotos');
-  var photoIndex;
-  
-  _photoflow.each(function () {
-    let _this = $(this);
-    let _floxBox = _this.find('.flowBox');
-    let _flowList = _floxBox.find('.flowList');
-    let _flowItem = _flowList.children('li');
-    let slideDistance = _flowItem.first().outerWidth(true);
-    let slideCount = _flowItem.length;
-    let _btnRight = _this.find('.diskBtn.next');
-    let _btnLeft = _this.find('.diskBtn.prev');
-    const speed = 400;
-    const actClassName = 'active';
-    let i = 0;
-    let j;
-    let _dots = '';
-
-    // 產生 indicator 和 自訂屬性 data-index
-    _floxBox.append('<div class="flowNav"><ul></ul></div>');
-    let _indicator = _this.find(".flowNav>ul");
-    for (let n = 0; n < slideCount; n++) {
-      _dots = _dots + '<li></li>';
-      _flowItem.eq(n).attr('data-index', n);
-    }
-    _indicator.append(_dots);
-
-    // 複製到燈箱中 *** //
-    _floxBox.clone().insertBefore(_skipToClose);
-
-    let _indicatItem = _indicator.find('li');
-    _indicatItem.eq(i).addClass(actClassName);
-    _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
-
-
-    // 依據可視的 slide 項目，決定 indicator 樣式
-    indicatReady();
-    function indicatReady() {
-      _indicatItem.removeClass(actClassName);
-      _indicatItem.eq(i).addClass(actClassName);
-      // _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
-      if (ww < wwMedium) {
-        if (slideCount > 1) {
-          flownavShow();
-        } else {
-          flownavHide();
-        }
-      }
-      if (ww >= wwMedium) {
-        if (slideCount <= 2) {
-          flownavHide();
-        } else {
-          flownavShow();
-          _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
-          // _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
-        }
-      }
-      if (ww >= wwNormal) {
-        if (slideCount <= 4) {
-          flownavHide();
-        } else {
-          flownavShow();
-          _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
-          _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
-          _indicatItem.eq((i + 3) % slideCount).addClass(actClassName);
-        }
-      }
-    }
-    function flownavShow(){
-      _indicator.add(_btnRight).add(_btnLeft).show();
-    }
-    function flownavHide(){
-      _indicator.add(_btnRight).add(_btnLeft).hide();
-    }
-
-    function slideForward(){
-      _flowList.stop(true, false).animate({'margin-left': -1 * slideDistance }, speed, function(){
-        j = (i + 1) % slideCount;
-        _flowItem.eq(i).appendTo(_flowList);
-        _indicatItem.eq(i).removeClass(actClassName);
-        _indicatItem.eq(j).addClass(actClassName);
-        _flowList.css('margin-left', 0);
-        if (ww >= wwMedium) {
-          _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
-        }
-        if (ww >= wwNormal) {
-          _indicatItem.eq((j + 3) % slideCount).addClass(actClassName);
-        }
-        i = j;
-      });
-    }
-    function slideBackward() {
-      j = (i - 1) % slideCount;
-      _flowItem.eq(j).prependTo(_flowList);
-      _flowList.css("margin-left", -1 * slideDistance);
-
-      _flowList.stop(true, false).animate({ "margin-left": 0 }, speed, function () {
-          _indicatItem.eq(j).addClass(actClassName);
-          if (ww >= wwNormal) {
-            _indicatItem.eq((i + 3) % slideCount).removeClass(actClassName);
-          } else if (ww >= wwMedium) {
-            _indicatItem.eq((i + 1) % slideCount).removeClass(actClassName);
-          } else {
-            _indicatItem.eq(i).removeClass(actClassName);
-          }
-          i = j;
-        });
-    }
-
-    // 點擊向右箭頭
-    _btnRight.click(function () { slideForward(); });
-
-    // 點擊向左箭頭
-    _btnLeft.click(function () { slideBackward(); });
-
-    // touch and swipe 左右滑動
-    _floxBox.swipe({
-      swipeRight: function () {slideBackward();},
-      swipeLeft: function () {slideForward();},
-      threshold: 20,
-    });
 
 
 
 
-    /////////////////************************** *//
-    // 點擊.photoflow的圖片，開燈箱顯示大圖
-    _flowItem.children('a').click(function(){
-      photoIndex = $(this).parent().attr('data-index');
-      //console.log(photoIndex);
-      _cpBigPhoto.stop(true, false).fadeIn().find('.flowList').find('li').filter( function(){
-        return $(this).attr('data-index') == photoIndex;
-      }).show();
-      _hideLightbox.focus();
-      _cover.stop(true, false).fadeIn();
-    })
-
-    let winResizeTimer;
-    _window.resize(function () {
-      clearTimeout(winResizeTimer);
-      winResizeTimer = setTimeout(function () {
-        ww = _window.width();
-        slideDistance = _flowItem.first().outerWidth(true);
-        indicatReady();
-      }, 200);
-    });
-
-  });
-
-
-
-  // cp 頁大圖燈箱
-  _cpBigPhoto.each(function(){
-    let _this = $(this);
-    let _photoBox = _this.find('.flowBox');
-    let _photoList = _photoBox.find('.flowList');
-    let _photoItem = _photoList.children('li');
-    let photoCount = _photoItem.length;
-    let _btnRight = _this.find('.diskBtn.next');
-    let _btnLeft = _this.find('.diskBtn.prev');
-    const speed = 400;
-    let i, j;
-
-    _photoItem.hide();
-
-    // 點擊向右箭頭
-    _btnRight.click(function(){
-      i = Number( _photoItem.filter(':visible').attr('data-index') );
-      j = (i+1) % photoCount;
-
-      // console.log(i, j);
-
-      _photoItem.filter( function(){
-        return $(this).attr('data-index') == i;
-      }).stop(true, false).fadeOut(speed, function(){
-        $(this).hide();
-      });
-      _photoItem.filter( function(){
-        return $(this).attr('data-index') == j;
-      }).stop(true, false).fadeIn(speed);
-    })
-    
-    // 點擊向左箭頭
-    _btnLeft.click(function(){
-      i = Number(_photoItem.filter(':visible').attr('data-index'));
-      j = (i-1+photoCount) % photoCount;
-
-      _photoItem.filter(function(){
-        return $(this).attr('data-index') == i;
-      }).stop(true, false).fadeOut(speed, function(){
-        $(this).hide();
-      });
-      _photoItem.filter( function(){
-        return $(this).attr('data-index') == j;
-      }).stop(true, false).fadeIn(speed);
-    })
-  })
-
-
-  // 製作側欄選單遮罩
-  _body.append('<div class="sidebarMask"></div>');
-
+  // 主選單 ////////////////////////////
   // 找出_menu中有次選單的li
   _menu.find('li').has('ul').addClass('hasChild');
-
-
-
-  // 寬版主選單 -----------------------------------------------------
+  // 寬版主選單 ////////////////////////////
   _menu.each( function(){
     let _this = $(this);
     let _hasChild = _this.find('.hasChild');
@@ -473,9 +254,13 @@ $(function(){
 
 
 
-  // 行動版側欄選單
+  // 行動版側欄選單 //////////////////////////////
+  // 製作側欄選單遮罩
+  _body.append('<div class="sidebarMask"></div>');
+
   // 複製「主選單」到側欄給行動版用
   _menu.clone().prependTo(_sidebar);
+
   $('.topLinks').clone().appendTo(_sidebar);
   var _sidebarMenu = _sidebar.find('.menu');
   var _hasChild = _sidebarMenu.find('.hasChild>a');
@@ -497,7 +282,6 @@ $(function(){
       }
     }
   )
-
 
   _sidebarCtrl.click(function(){
     if (_sidebar.hasClass('reveal')) {
@@ -524,20 +308,19 @@ $(function(){
     clearTimeout(winResizeTimer0);
     ww = _window.width();
     winResizeTimer = setTimeout(function () {
-      if(ww >= wwNormal) {
-        _sidebarMask.hide();
-        _body.removeClass('noScroll');
+      if(ww >= wwNormal && _sidebar.hasClass('reveal')) {
+        _sidebarMask.hide(10, function(){
+          _body.removeClass('noScroll');
+        });
         _sidebar.removeClass('reveal');
         _sidebarCtrl.removeClass('closeIt');
-      } else {
-        _menu.hide().removeAttr('style');
-      }
+      } 
     }, 200);
   });
 
 
 
-  // 查詢區開合 -----------------------------------------------------
+  // 查詢區開合 //////////////////////////////
   var _searchCtrl = $('.searchCtrl');
   var _search = $('.search');
   const srSpeed = 510;
@@ -548,23 +331,13 @@ $(function(){
     } else {
       _search.css('display', 'flex');
       setTimeout (function(){ _search.addClass('reveal')}, 10);
-      // _search.show(0, function(){
-      // });
-      // .addClass('reveal');
-      // _search.addClass('reveal', function(){
-      //   _search.show().addClass('reveal');
-      //   setTimeout (function(){_search.find('input[type="text"]').focus()}, srSpeed);
-      // });
     }
   })
-  // _search.find('input[type="text"]').focus(function(){
-  //   _search.css('transform', ' translateX(0)');
-  // })
 
-  // --end of-- 查詢區 -----------------------------------------------------
+  // --end of-- 查詢區 //////////////////////////////
 
 
-  // fatfooter 開合 -----------------------------------------------------
+  // fatfooter 開合 //////////////////////////////
   var _fatFootCtrl = $('.fatFootCtrl');
   var _footSiteTree = $('.fatFooter').find('.siteTree>ul>li>ul');
   const text1 = _fatFootCtrl.text();
@@ -579,10 +352,10 @@ $(function(){
       $(this).removeClass('closed').text(text1);
     }
   })
-  // --end of-- fatfooter 開合 -----------------------------------------------------
+  // --end of-- fatfooter 開合 //////////////////////////////
 
 
-  // 向上捲動箭頭 -----------------------------------------------------
+  // 向上捲動箭頭 //////////////////////////////
   var _goTop = $('.goTop');
 
   _goTop.click(function(){
@@ -596,14 +369,13 @@ $(function(){
       _goTop.removeClass('show');
     }
   });
-  // --end of-- 向上捲動箭頭 -----------------------------------------------------
+  // --end of-- 向上捲動箭頭 //////////////////////////////
 
 
 
 
-
-
-  // ======================================================================
+  ////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
 
   // 頁籤，March 2022 新做  ////////////////////////////
   var _tabset = $('.tabset');

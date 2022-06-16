@@ -1,33 +1,16 @@
-// 燈箱（.lightbox）
-// 燈箱模組：需要燈箱效果的區塊可在原 class name 之後加 lightbox 即可有燈箱效果
-// 原來的 class name 只用來控制樣式
+// 燈箱（.lightbox）//////////////////////////////
 .lightbox{ 
   display: none;
-  position:fixed;top:3vw;left:3vw;
-  width:94vw; height: calc(100vh - 6vw); z-index:999;
-  padding:40px 0 0; margin:0 auto; overflow: auto;overflow-y: auto;
+  position:fixed;top:5vw;left:5vw;
+  width:90vw; height: calc(100vh - 10vw); z-index:998;
+  padding:50px 0 0; margin:0 auto; overflow: auto;overflow-y: auto;
   background:#000; box-shadow:rgba(0,0,0,.6) 0 0 28px;
   color: #fff;
 
   .closeThis{
-    position: absolute; right:0; top: 0; z-index:99;
-    margin: 0; padding: 0; border-radius: 0;
-    background-color: rgba(0,0,0,.6);
-    &:hover { background-color: $assistant; }
-    &:focus{background-color: $btnBg2; box-shadow:none;}
+    position: fixed; right:5vw; top: 5vw; z-index:999;
   }
 
-  .head {
-    padding: 30px 0 .2em; margin-bottom: 15px; overflow: hidden;
-    border-bottom: 3px solid $borderColorLight;
-    h3 {
-      margin: 0; padding: 0; color: $fontColor;
-      .subhead {
-        display: inline-block; margin-left: 1em; font-size: .8em;
-        .pre { color: $fontColor; font-size: .8em; }
-      }
-    }
-  }
 
   .skip{
     position: absolute; right: 0; bottom: 0;
@@ -36,29 +19,43 @@
   }
  
   @media screen and (min-width:$wwNormal){
-    top: $wwNormal*.03; height: calc(100vh - #{$wwNormal}*.06);
+    height: auto; max-height: calc(100vh - #{$wwNormal}*.06);
+    top: 50%; transform: translateY(-50%);
+
+    .closeThis{position: absolute; right: 0; top: 0;}
   }
   
-  @media screen and (min-width: $wwMaximum){
-    width: $wwMaximum*.94; left:calc(50vw - #{$wwMaximum}*.47);
+  @media screen and (min-width: $wwMaximum ){
+    width: $wwMaximum*.9; left:calc(50vw - #{$wwMaximum}*.45);
+
   }
 
 }
 
 
-// ---------- 燈箱遮罩
+// 燈箱遮罩 //////////////////////////////
 .coverAll{ 
   display: none; 
   z-index: 995;
   position: fixed; left: 0;right: 0;top: 0;bottom: 0;
-  background: rgba(0,0,0,.6);
+  background: rgba(160,160,160,.8);
 }
 
 
+// 彈出訊息 //////////////////////////////
 .popMessage{
-  width: 90%; margin: 0 auto;
+  width: 90%; max-width: 800px; margin: 0 auto; padding: 2em 0;
+  line-height: 1.8;
   color: $fontInvert;
   a{
-    color: $fontInvert;
+    margin: 0 .3em;
+    text-decoration: none; color: $hiLight;
+    box-shadow: $hiLight 0 2px 0 -1px ;
+    &:hover, &:focus{
+      color: $hiLight; box-shadow: $hiLight 0 0 0 1px;
+    }
+  }
+  p{
+    margin: 1em 0;
   }
 }

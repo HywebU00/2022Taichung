@@ -127,12 +127,14 @@ a:focus{outline: none;}
 // 關閉 「X」 ////////////////////////////////////
 button.closeThis{
   position: relative;
-  height: 44px; width: 44px; padding: 0; margin: 0;
+  height: 48px; width: 48px; padding: 0; margin: 0;
   text-indent: -20em; overflow: hidden;
-  background-color: rgba(0,0,0,.8);box-shadow: none;border: none;
+  background-color: rgba(60,60,60,.8);
+  box-shadow: none; border: none; outline: none;
+  cursor: pointer; transition: .2s;
   &::before, &::after{
-    content: ''; position: absolute; left: 11px; top: 21px;
-    width: 24px; height: 2px; background-color: #fff;
+    content: ''; position: absolute; left: 10px; top: 23px;
+    width: 28px; height: 2px; background-color: #fff;
   }
   &::before{
     transform: rotate(45deg);
@@ -141,8 +143,9 @@ button.closeThis{
     transform: rotate(-45deg);
   }
 
-  &:hover{ background-color: $btnBg2; box-shadow: none; }
-  &:focus{ background-color: $btnBg1; box-shadow: $btnBg1 0 0 0 2px}
+  &:hover, &:focus{ background-color: $hiLight; box-shadow: none;
+    &::before, &::after{ background-color: #000;}
+  }
 }
 
 
