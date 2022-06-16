@@ -1,0 +1,106 @@
+// 右上連結 ////////////////////////
+.topLinks{
+  a{text-decoration: none; display: block;}
+  ul{list-style: none; margin: 0;padding: 0;}
+
+  .fontSize{ display: none; }
+}
+
+// 一般版 topLinks 在版頭中//////
+.webHeader .topLinks{
+  display: none;
+
+  @media screen and (min-width: $wwNormal){
+    display: block; width: auto; margin: 0 9vw 0 40vw; padding:11px 0 0;
+    text-align: right; font-size: .865em;
+    &>ul{
+      display:inline-block; line-height: 1.1;
+      &>li{
+        float: left; position: relative;
+        margin: 0 0 0 18px;  padding: 0 19px 0 0;
+        &::after{
+          content: ''; position: absolute; right: 0; top: 50%;
+          width: 1px; height: 12px; margin-top: -8px;
+          background-color: $fontColor;
+        }
+        &>a{
+          display: block; position: relative; padding: 2px 0 4px;
+          color: $fontColor;
+          &::after{
+            content: ''; position: absolute; left: 0; right: 0; bottom: 3px;
+            height: 0; background-color: $primaryColor;
+            transition: .16s;
+          }
+          &:hover, &:focus{
+            &::after{height: 3px; bottom: 0;}
+          }
+        }
+      }
+      &::after{content: ''; display: block; clear: both;}
+
+    }
+
+
+    // fontSize ////////////////////////
+    .fontSize{
+      display:inline-block; vertical-align: bottom; margin:0 0 5px 15px;
+      ul{ overflow: hidden; display: flex; align-items: flex-end; }
+      li{
+        flex: 0 0 auto;
+        margin: 0 2px; padding: 0;
+        button{
+          position: relative; padding: 2px 4px 1px; line-height: 1;
+          border: none; background-color: transparent; cursor: pointer; outline: none;
+          box-shadow: transparent 0 0 0 1px;
+          &.smallFont{font-size: .8rem;}
+          &.mediumFont{ font-size: 1rem;}
+          &.largeFont{ font-size: 1.4rem;}
+
+          &::after{
+            content: ''; position: absolute; left: 3px; right: 3px; bottom: 1px; height: 1px; 
+            background-color: transparent; transition: .2s;
+          }
+          &:focus, &:hover{
+            box-shadow: $fontColorLight 0 0 0 1px inset;
+          }
+        }
+
+        &.active{
+          button::after{ background-color: $fontColor;width: calc(100% - 6px);}
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+  }
+}
+
+
+// 行動版 topLinks 在側欄中 //////////////////
+.sidebar .topLinks{
+  .searchCtrl, .menuCtrl { display: none;}
+
+  &>ul{
+    position: relative;
+    display: flex; flex-flow: row wrap; justify-content: center;
+    margin: 20px auto 0; padding-bottom: 60px; width: 94%;
+    
+    &>li{
+      flex: 1 1 45%; margin: 5px;
+      a{
+        box-shadow: rgba(255,255,255,.5) 0 0 0 1px;
+        transition: .2s;
+        &:hover, &:focus{ box-shadow: #fff 0 0 0 1px; }
+      }
+
+      &[class]{
+        position: absolute; bottom: 0;
+        &.sitemapIcon{ left: 44px;}
+        &.langCh{ right: 44px;}
+      }
+    }
+  }
+
+}
+

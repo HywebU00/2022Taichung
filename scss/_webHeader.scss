@@ -1,0 +1,64 @@
+@import "_search";      // 快速查詢
+@import "_topLink";     // 右上連結
+
+.webHeader{
+  position: relative; padding: 0; width: 100vw;
+  background:$assistant;
+  &::before{
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; 
+    background:url(../images/webHeader_bg.jpg) no-repeat right 0;
+    background-size: auto ;
+  }
+
+  h1{
+    position: relative;
+    margin: 0 64px; padding: 10px 0; font-size: 1rem;
+    a{
+      display: block;
+      &:focus img{ box-shadow: $linkColor 0 0 0 2px inset; }
+    }
+    img{ 
+      display: block; height: 40px;margin: 0 auto;
+      object-fit: contain;
+    }
+  }
+
+
+
+  // 行動版側欄開關和快速查詢區開關  
+  .searchCtrl, .sidebarCtrl{
+     position: absolute; top: 4px;z-index: 990;
+  }
+  .sidebarCtrl{left: 4px;}
+  .searchCtrl{ right: 4px;}
+
+
+  @media screen and (min-width: $wwNormal){
+    &::before{ width: calc(9vw + 320px);}
+
+    h1{
+      position: absolute; left:  9vw;
+      padding: 40px 0 30px; margin: 0;
+      img{ height: 50px; margin: 0;}
+    }
+
+
+
+    .searchCtrl, .sidebarCtrl{ display: none; }
+    &::after{ bottom: -18px; height: 18px; width: 40vw;}
+
+    .sidebarCtrl{ display: none;}
+    .searchCtrl{ position: relative; right: auto; top: 0;}
+    .searchCtrl{
+      &:hover {background-color: transparent; box-shadow: rgba(255,255,255,.5) 0 0 0 1px;}
+      &:focus{background-color: transparent; box-shadow: #fff 0 0 0 1px;}
+    }
+  }
+  @media screen and (min-width: $wwMaximum){
+    &::before{
+      width: auto; left: 0; right: calc( 50% + 172px);
+    }
+    h1{ left: calc(50vw - #{$wwMaximum}*.41)}
+
+  }
+}

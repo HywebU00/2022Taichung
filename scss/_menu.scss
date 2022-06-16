@@ -1,0 +1,149 @@
+// 主選單，行動版＋寬版 /////////////////////////////////////
+.menu{
+  ul{
+    list-style: none; margin: 0; padding: 0; line-height: 1.4;
+    li{ margin: 0; padding: 0;}
+    a{ display: block; text-decoration: none;}
+  }
+}
+
+// 行動版側欄 ////////////////////////////////////////
+.sidebar{ position: fixed; z-index: 990;
+  width: $sideBarWidth; margin-left:$sideBarWidth * (-1);
+  top: 60px; bottom: 0; overflow: auto;
+  background: $sidebarBg; color: $fontInvert;
+  transition: .5s;
+
+  &.reveal{ margin-left:0; }
+
+  a{ color: $fontInvert; text-decoration: none;}
+
+  .menu{ font-size: 1.15em;
+    &>ul{ line-height: 1.4;border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+      li{ border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        &:last-child{ border-bottom: none;}
+        a{ padding: .9em .8em .8em;
+          transition: .2s;
+          &:hover{ background-color: rgba(0, 0, 0, 0.2) }
+        }
+
+        &.hasChild{
+          &>a{padding-right: 36px; position: relative;
+            &::after{ content: ''; position: absolute; right: 15px; top: 1.2em;
+              width: 8px; height: 8px; border: 2px solid #fff;
+              transform: rotate(45deg); border-left: none; border-top: none;
+              transition: .2s;
+            }
+          }
+          &.closeIt>a{
+            &::after{ transform: rotate(225deg); top: 1.5em; }
+          }
+        }
+
+        ul{ 
+          display: none; font-size: 1rem;margin: 0 0 6px 1.2em;
+          border: 1px solid rgba(255, 255, 255, 0.2); border-right: none;
+        }
+      }
+    }
+  }
+
+  // topNav
+  .topLinks{
+    ul{ list-style: none; margin: 0; padding: 0;}
+    &>ul{
+      display: flex; flex-flow: row wrap;
+      margin: 20px auto 0; width: 92%; line-height: 1.4;
+      &>li{ flex: 1 1 45%; margin: 3px;
+        a{
+          display: block; padding: .7em .5em .5em; height: 100%;
+          border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: none; text-align: center;
+          transition: .2s;
+          &:hover, &:focus{ border-color: $hiLight; box-shadow: $hiLight 0 0 0 1px;}
+        }
+
+        img.deco{display: none;}
+
+      }
+    }
+  }
+}
+
+// 寬版主選單 ////////////////////////////////////////
+.webHeader .menu{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; position: relative; z-index: 19;
+    background-color: $secondaryColor; color: $fontInvert;
+    ul{list-style: none; margin: 0; padding: 0;}
+    li{ margin: 0; padding: 0;position: relative; 
+      a{ display: block; text-decoration: none; position: relative;}
+    }
+
+    &>ul{
+      margin: 0 auto; width: $normalWidth;
+      display: flex; flex-flow: row nowrap;
+      font-size: 1.125rem;
+      &>li{
+        flex: 1 1 auto; margin: 0 1px; max-width: 9em;
+        position: relative; line-height: 1.1;
+        &>a{
+          padding: 13px .5em; max-width: 100%;
+          color: $fontInvert; text-align: center;
+          white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+          &:hover, &:focus{
+            background-color: $hiLight; color: $fontColor;
+          }
+        }
+        &>ul{
+          min-width: 100%;
+        }
+
+        ul{
+          display: none; position: absolute; left: 0; top: auto;
+          background-color: rgba(0, 0, 0, 0.9); line-height: 1.4;
+          font-size: 1rem;
+          a{
+            padding: .8em 15px .7em; width: 10em;
+            color: $fontInvert;
+            &:hover, &:focus{
+              background-color: $hiLight; color: $fontColor;
+            }
+          }
+          li{
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            &:last-child{ border-bottom: none; }
+          }
+
+          li.hasChild{
+            &>a{
+              padding-right: 32px;
+              &::after{
+                content: ''; position: absolute; right: 12px; top: 1em;
+                width: 9px; height: 9px; border: 1px solid $fontInvert;
+                border-left: none; border-bottom: none; transform: rotate(45deg);
+              }
+              &:hover, &:focus{
+                &::after{ border-color: #000; }
+              }
+            }
+
+            ul{
+              left: auto; top: 0;
+              border-left: 3px solid $primaryColor;
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &>ul{
+      width: $wwMaximum * .82;
+    }
+  }
+
+}

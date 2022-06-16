@@ -1,0 +1,108 @@
+// 快速查詢（版頭區）
+.search {
+  display: none;
+  flex-flow: row nowrap;
+  position: absolute; z-index: 19;
+  left: 0; top: auto; width: 100vw; padding: 16px;
+  background-color: rgba(243, 243, 243, 0.88);
+  transform: translateX(100%); transition: .5s;
+
+  &.reveal{transform: translateX(0);}
+
+  a{ color: $fontColor; }
+
+  form{
+    position: relative; flex: 1 1 40%;
+    padding: 0 2.8em 0 0; margin: 0;
+    overflow: hidden; background: #fff; 
+  }
+  input[type="text"],
+  input[type="button"], input[type="submit"] {
+    margin: 0;
+    font-size: 1rem; height: 2.8em; line-height: 2.8;
+    border: none; border-radius: 0;
+    box-shadow: none; outline: none;
+  }
+  input[type="text"]{
+    width: 100%; padding: 0 .6em; 
+    background-color: transparent;
+    &:hover{
+      box-shadow:$borderColor 0 0 0 1px inset;
+    }
+    &:focus{
+      box-shadow:$borderColorDark 0 0 0 1px inset;
+    }
+  }
+  input[type="button"], input[type="submit"] {
+    position: absolute;width: 2.8em; right: 0; padding: 0;
+    text-indent: -20em; overflow: hidden; cursor: pointer;
+    background: url(../images/icon_search.svg) no-repeat center center;
+    background-size: 50%;
+    &:hover{ box-shadow:$hiLight 0 0 0 1px inset;}
+    &:focus{ background-color: $hiLight;}
+  }
+
+  // 熱門關鍵字
+  .hotKeywords{
+    flex: 0 0 auto;
+    display: inline-block; vertical-align: top;
+    list-style: none; margin: 0 10px; padding: 0; line-height: 1.1;
+    li{
+       margin:0; padding: 0; display: inline-block;
+       &+li{margin-left: .3em;}
+      a{ 
+        display: block; text-decoration: none; cursor: pointer;
+        height: 2.8em; line-height: 2.8;
+        &:hover, &:focus{ text-decoration: underline;}
+      }
+    }
+  }
+
+  .linkBtn{
+    flex: 0 0 auto;
+    a{
+      display: block; padding: 0 .6em;height: 2.8em; line-height: 2.9; 
+      background-color: $secondaryColor; color: $fontInvert;
+      text-decoration: none; transition: .2s;
+      &:hover, &:focus{ background-color: $primaryColor;}
+      &:focus{box-shadow: $primaryColor 0 0 0 1px;}
+    }
+  }
+
+
+  @media screen and (min-width: $wwNormal){
+    display: flex; justify-content: flex-end; align-items: center;
+    position: static; width: auto; transform: none;
+    margin: 0 9vw 0 50vw; padding:26px 0;
+    
+    // outline: 1px solid red;
+    form{ flex: 0 0 auto; width: 220px; padding-right: 2em;}
+    input[type="text"],
+    input[type="button"], input[type="submit"] {
+      height: 2em; line-height: 2; width: 2em;
+    }
+    input[type="text"]{
+      width: 100%; padding: 0 .6em; 
+      background-color: transparent;
+      &:hover{
+        box-shadow:$borderColor 0 0 0 1px inset;
+      }
+      &:focus{
+        box-shadow:$borderColorDark 0 0 0 1px inset;
+      }
+    }
+
+    .hotKeywords{
+      li a{ height: 2em; line-height: 2;}
+    }
+    .linkBtn{
+      a{height: 2em; line-height: 2; width: auto;}
+    }
+  
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    right:calc( 50vw - #{$wwMaximum}/2);
+  }
+
+}

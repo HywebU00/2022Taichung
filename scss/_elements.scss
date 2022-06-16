@@ -1,0 +1,243 @@
+a:focus{outline: none;}
+
+
+
+// 快捷鍵 ////////////////////////////////////
+.accesskey{ display: none; }
+@media screen and (min-width: $wwNormal){
+  a.accesskey{ 
+    display: block; position: absolute; left: 0; top: 0;
+    text-decoration: none; padding: 3px;
+    &:focus, &:hover { box-shadow: $primaryColor 0 0 0 2px inset;}
+  }
+  .webFooter .accesskey{
+    &:focus, &:hover { box-shadow: #fff 0 0 0 2px inset;}
+  }
+}
+@media screen and (min-width: $wwMaximum){
+}
+
+
+//  ////////////////////////////////////
+.more{
+  text-align: center; margin: 1.5em auto 0;
+  a{
+    display: inline-block;
+    height: 2.2em; line-height: 2.2; min-width: 11em; padding: 0 .8em;
+    border: 1px solid $fontColor; color: $fontColor; text-decoration: none;
+    transition: .2s;
+    &:hover, &:focus {
+      background-color: $fontColor; color: $fontInvert;
+    }
+    &:focus{
+      box-shadow: $fontColor 0 0 0 2px;
+    }
+  }
+}
+
+
+// 跳至內容區 ----------------------------------------------
+.goCenter{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; position: absolute; top: -2em; left: 0; z-index: 99;
+    padding: 0 1em; margin-left: 2em; border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    font-size: .9rem; height: 1.6em; line-height: 1.6;
+    background-color: $primaryColor; color: $fontInvert;
+    text-decoration: none; outline: none;  cursor: pointer;
+    transition:top .3s; 
+    &:focus{ top: 0;}
+    &:hover, &:focus{  opacity: 1; }
+  }
+  @media screen and (min-width: $wwMaximum){
+    left: calc(50vw  - #{$wwMaximum}*.5);
+  }
+}
+
+
+// 行動版查詢圖示 and 行動版側欄開關  ////////////////////////////////////
+.searchCtrl, .sidebarCtrl{
+  position: relative; width: 52px; height: 52px;
+  text-indent: -20em; overflow: hidden; outline: none;
+  border-radius: 0; background-color: transparent; border: none;
+  cursor: pointer; transition: .2s;
+
+  &:hover, &:focus{
+    background-color: rgba(0,0,0,.7);
+  }
+  &:focus{
+    box-shadow: rgba(0,0,0,.7) 0 0 0 4px;
+  }
+}
+.searchCtrl{ 
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    left: calc(50% - 12px); top: calc(50% - 12px);
+    width: 16px; height: 16px; border: 2px solid #000; border-radius: 50%;
+  }
+  &::after{
+    width: 12px; height: 3px; background-color: #000; border-radius: 0 2px 2px 0;
+    left: calc(50% + 2px); top: calc(50% + 6px);
+    transform: rotate(45deg);
+  }
+
+  &:hover, &:focus{
+    &::before{ border-color: #fff;}
+    &::after{ background-color: #fff;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: 42px; height: 42px;
+    &::before{ border-color: #fff;}
+    &::after{background: #fff;}
+  }
+}
+
+
+// 行動版側欄開關  ////////////////////////////////////
+.sidebarCtrl{
+  &::before{
+    content: ''; position: absolute; left: 14px;top: 16px;
+    height: 2px; width: 24px; 
+    background: #000; box-shadow: #000 0 9px 0, #000 0 18px 0;
+    transition: .2s;
+  }
+  &:hover, &:focus{ 
+    &::before{background: #fff; box-shadow: #fff 0 9px 0, #fff 0 18px 0;}
+  }
+
+  &.closeIt{
+    background-color: $secondaryColor;
+    &::before{background: #fff; box-shadow: #fff 0 9px 0, #fff 0 18px 0;}
+  }
+
+}
+
+
+// 側欄遮罩  ////////////////////////////////////
+.sidebarMask {
+  display: none;z-index: 980;
+  position: fixed;left: 0;right: 0;top: 0;bottom: 0;
+  background-color: rgba(100,100,100,.8);
+}
+
+// 關閉 「X」 ////////////////////////////////////
+button.closeThis{
+  position: relative;
+  height: 44px; width: 44px; padding: 0; margin: 0;
+  text-indent: -20em; overflow: hidden;
+  background-color: rgba(0,0,0,.8);box-shadow: none;border: none;
+  &::before, &::after{
+    content: ''; position: absolute; left: 11px; top: 21px;
+    width: 24px; height: 2px; background-color: #fff;
+  }
+  &::before{
+    transform: rotate(45deg);
+  }
+  &::after{
+    transform: rotate(-45deg);
+  }
+
+  &:hover{ background-color: $btnBg2; box-shadow: none; }
+  &:focus{ background-color: $btnBg1; box-shadow: $btnBg1 0 0 0 2px}
+}
+
+
+
+
+// slick套件  ////////////////////////////////////
+// slick套件: 左右箭頭
+.slick-arrow{
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 9;
+  width: 48px; height: 72px; 
+  text-indent: -20em; overflow: hidden; margin: 0; border: none;
+  background-color: rgba(255,255,255,.1);
+  cursor: pointer; outline: none; transition: .2s;
+  &::before{
+    content: ''; position: absolute; width: 28px; height: 28px;
+    left: 50%; top: 50%; margin-top: -15px;
+    border: 2px solid #000;border-top: none; border-right: none;
+    transform: rotate(45deg);
+  }
+  &.slick-prev{ left: 0; 
+    &::before{ margin-left: -5px; }
+  }
+  &.slick-next{ right: 0;
+      &::before{transform: rotate(225deg); margin-left: -22px;}
+  }
+
+  &:hover, &:focus{
+    background-color: rgba(255,255,255,.88);
+    box-shadow: rgba(0,0,0,.3) 0 0 9px;
+  }
+  &:focus{
+    box-shadow:$primaryColor 0 0 0 2px, rgba(0,0,0,.3) 0 0 9px;;
+  }
+}
+
+// slick套件: 點點 indicators
+.slick-dots{
+  $dotDia: 6px; // 圓點直徑
+  clear: both; z-index: 9;
+  display: flex; justify-content: center;
+  list-style: none; margin: 0 auto; padding: 0;
+  li{ 
+    flex: 0 0 auto; margin: 0 8px; padding: 0;
+    button{
+      width: $dotDia; height: $dotDia; border-radius: 50%;
+      padding: 0; margin: 0; font-size: 0; border: none; box-shadow: none;
+      background: darken($gray, 10%); transition: .3s;
+    }
+    &.slick-active{
+      button{background-color: $fontColor; box-shadow: $fontColor 0 0 0 2px;}
+    }
+  }
+}
+
+
+
+
+// 回頁面最上方 ////////////////////////////////////
+.goTop{
+  position: fixed; bottom: -120px; right: 10px;  z-index: 90; cursor: pointer;
+  padding:30px 0 0;margin: 0; width: 1.5em; height:calc(5em + 30px);
+  font-size: .85rem; line-height: 1.5; font-weight: bold; 
+  border: none;outline: none;
+  background: rgba(255,255,255,.5); color: $fontColor;
+  transition:bottom 1s, box-shadow .3s;
+
+  &:hover{
+    background: rgba(255,255,255,.8);
+    box-shadow:$primaryColor 0 0 5px 1px;
+  }
+  &:focus{
+    box-shadow:$primaryColor 0 0 0 2px, #fff 0 0 0 3px;
+  }
+
+  &::before, &::after{content: ''; position: absolute;}
+  &::before{
+    width: 1px; height: 1px; left: calc(50% - 4px); top: 4px;
+    border-style: solid; border-width: 0 4px 5px 4px;
+    border-color: transparent transparent $fontColor transparent;
+  }
+  &::after{
+    width: 1px; height: 22px; top: 6px; left: 50%;
+    background-color: $fontColor;
+  }
+
+  &.show{bottom: 30px;}
+
+  @media screen and (min-width: $wwNormal){
+    right: 20px;
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    right: calc(50vw - #{$wwMaximum}*.41 - 86px);
+  }
+
+
+
+}

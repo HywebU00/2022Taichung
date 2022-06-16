@@ -1,0 +1,23 @@
+h2.blockHeader{
+  margin: 0 auto .8em; width: $mobileWidth;
+  line-height: 1.2; text-align: center; letter-spacing: 3px;
+  font-size: 2rem; font-family: 'Times New Roman', Times, serif;
+
+  &+.subheader{margin-top: 1.5em;}
+}
+.subheader{
+  width: $mobileWidth; margin: .9em auto 1.5em;
+  font-size: 1em; line-height: 1.6;text-align: center;
+}
+@media screen and (min-width: $wwNormal){
+  h2.blockHeader , .subheader{
+    width: $normalWidth;
+  }
+}
+
+@import "_newsList";      // 最新消息（頁籤組）
+@import "_disks";         // 圓形圖示
+@import "_links";         // 相關連結
+@import "_bulletin";      // 市府訊息
+@import "_banners";      // 文化藝術，輪播
+@import "_freeZone";      // html 編輯器產生的內容

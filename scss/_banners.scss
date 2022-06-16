@@ -1,0 +1,104 @@
+// 首頁：文化藝術
+.banners{
+  // position: relative;
+  margin: 0 auto; padding: 50px 0;
+
+  .bannerloop{
+    margin: 0 auto;
+
+    .slick-list{ padding: 15px 12px 30px; }
+
+    .slick-slide{
+      margin: 0 12px; overflow: hidden;outline: none;
+      background-color: #fff; box-shadow: rgba(0,0,0,.15) 0 5px 15px;
+      transition: .3s;
+      img{
+        width: 100%; height: calc((50vw - 36px)*5/13); object-fit: cover; 
+        transition: .3s;
+      }
+      p{
+        margin: 0; padding: .7em .6em .6em; line-height: 1.1;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+    }
+
+    a{
+      display: block; position: relative;
+      color: $fontColor; text-decoration: none; outline: none;
+      &::before{
+        content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+      }
+      &:hover, &:focus{
+        img{transform: scale(1.06);}
+      }
+      &:focus{
+        &::before{
+          z-index: 9;
+          box-shadow: $primaryColor 0 0 0 2px inset;
+        }
+      }
+    }
+
+    .slick-arrow{
+      margin-top: -8px;
+      &.slick-prev { left: 0;}
+      &.slick-next { right: 0;}
+    }
+  }
+
+  @media screen and (min-width: $wwMedium + 60px){
+    .bannerloop{
+      .slick-slide{
+        img{
+          height: calc((500vw - 480px)/39)
+        }
+      }
+    }
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding-bottom: 90px;
+    &::before{
+      content: ''; position: absolute; bottom: 0; right: 0; 
+      left: calc(9vw + 200px); height: 240px;
+      background: url(../images/banners_bg.jpg) no-repeat left bottom;
+      background-size: cover;
+    }
+
+    .blockHeader, .subheader{ z-index: 9; position: relative;}
+
+    .bannerloop {
+      position: relative;
+      width:calc(#{$normalWidth} + 48px);
+  
+      .slick-slide {
+        box-shadow: rgba(0, 0, 0, .2) 0 6px 24px -8px;
+        img {
+          height: calc((#{$normalWidth}*5 - 240px)/39);
+        }
+
+        &[aria-hidden="true"]{ box-shadow: none;}
+      }
+      .slick-arrow{
+        &.slick-prev { left: -48px;}
+        &.slick-next { right: -48px;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &::before{ left: calc(50vw - #{$wwMaximum}*.41 + 200px);}
+
+    .bannerloop {
+      width: calc(#{$wwMaximum}*.82 + 48px);
+
+      .slick-slide {
+        img{
+          height: calc((#{$wwMaximum}*4.1 - 240px)/39);
+        }
+      }
+    }
+  }
+   
+}

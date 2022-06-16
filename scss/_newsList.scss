@@ -1,0 +1,142 @@
+// 首頁：最新消息（頁籤組）
+.news{
+  padding: 50px 0; margin: 0 auto;
+  ul{ list-style: none; margin: 0; padding: 0; }
+  li{ margin: 0; padding: 0; }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 70px 0 92px; 
+    background: url(../images/newsList_bg.jpg) no-repeat center bottom;
+  }
+
+  @media screen and (min-width: $wwMaximum){
+  }
+}
+
+.news .tabset {
+  width: $mobileWidth; margin: 0 auto;
+  .tabItems{
+    overflow: hidden;margin: 0 auto 15px;
+    display: flex; flex-flow: row nowrap; 
+    button{
+      flex: 1 1 auto;
+      line-height: 1.1; margin: 3px 1px 5px;padding:.6em 1em;
+      color: $fontColor; background-color: $assistant;
+      border-radius: 0; box-shadow: none; border: none; cursor: pointer;
+      font-size: inherit; text-overflow: ellipsis; white-space: nowrap;
+      transition: .2s;
+      &:hover, &:focus{
+        box-shadow: $fontColor 0 0 0 1px inset; outline: none;
+      }
+      &.active{
+        position: relative;
+        background-color: $secondaryColor; color:$fontInvert;
+        &::after, &::before{
+          content: ''; position: absolute;
+        }
+        &::after{
+          left: 50%; bottom: -4px;
+          border-style: solid; border-width: 4px 5px 0 5px; margin-left: -5px;
+          border-color: $secondaryColor transparent transparent transparent;
+        }
+        &::before{
+          top: -3px; left: 0; right: 0; height: 3px;
+        }
+
+        &:hover, &:focus{
+          &::before{background-color: darken($hiLight, 25%);}
+        }
+      }
+    }
+  }
+  .tabContent {
+    display: none; position: relative;
+
+    button.skip{
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; right: 0;bottom: 0; border: none;
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: $normalWidth;
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum*.82;
+
+  }
+
+}
+
+
+// eventList /////////////////
+.eventList{
+  padding: 35px 6vw;
+  background-color: $mainBg;
+  box-shadow: rgba(0,0,0,.25) 0 5px 25px;
+  ul{ list-style: none; margin: 0; padding: 0;}
+  li{
+    overflow: hidden;
+    a{
+      display: flex; flex-flow: row nowrap;align-items: center;
+      position: relative; padding: 5px 30px 5px 0; min-height: 50px;
+      text-decoration: none; color: $fontColor;
+      border-bottom: 1px solid $borderColor;
+      &::after{
+        content: ''; position: absolute; right: 10px; top: 50%; margin-top: -7px;
+        width: 15px; height: 15px; border: 1px solid $borderColorDark;
+        border-left: none; border-bottom: none;
+        transform: rotate(45deg); transition: .2s;
+      }
+      &::before{
+        content: ''; position: absolute; width: 3.5rem; height: 2px; left: 0; bottom: -1px;
+        background-color: $fontColor; ;
+      }
+      &:hover, &:focus{
+        &::after{ right: 5px;}
+        border-bottom-color:  $borderColorDark;
+      }
+    }
+    p{
+      flex: 1 1 auto; margin: 0;
+      display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    img{
+      display: none;
+      flex: 0 0 80px; margin: 0 15px 0 0;
+      width: 80px; height: 50px; object-fit: cover;
+    }
+    time{
+      flex: 0 0 3.5rem; margin-right: 18px;
+      width: 3.5rem; height: 50px; padding-top: 3px;
+      line-height: 1;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: .95rem; font-weight: bold; text-align: center;
+      transform: scaleY(90%);
+     
+     .date{
+       display: block;text-align: center;
+       font-style: normal;font-weight: bold; font-size: 2.2rem; 
+     }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    li {
+      p{
+        display: block;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      img{
+        display: block;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 35px 60px;
+  }
+}
+

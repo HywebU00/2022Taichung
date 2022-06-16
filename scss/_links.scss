@@ -1,0 +1,88 @@
+// 首頁：相關連結
+.links{
+  padding: 50px 0; margin: 0 auto;
+  .linkGroup{
+    position: relative;
+    width: $mobileWidth; max-width: 500px;
+    padding: 0 0 0 140px; margin: 30px auto;
+    background: #fff; box-shadow: rgba(0,0,0,.15) 5px 5px 30px;
+    h3{
+      position: absolute; left: 0; top: 0; bottom: 0; width: 140px;
+      margin: 0; padding: 0; font-size: 1em; line-height: 1;
+      .header{
+        position: absolute;left: -12px; bottom: 12px;
+        padding:7px .8em 6px; width: 7.6em;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        background: rgba(0, 0, 0, 0.86); color: #fff;transition: .2s;
+      }
+      img{
+        display: block; width: 140px; height: 100%;
+        object-fit: cover;
+      }
+      a{
+        display: block; height: 100%; 
+        &:hover, &:focus{
+          .header{
+            box-shadow: rgba(255, 255, 255, 0.7) 0 0 0 1px, #000 0 0 0 3px;
+          }
+        }
+      }
+    }
+
+    ul{
+      list-style: none; margin: 0; padding:20px 12px 17px 15px;
+      line-height: 1.2;
+    }
+    li{
+      margin: 5px 0; padding: 0;
+      a {
+        display: block; position: relative; padding: 6px 0 2px 22px;
+        white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+        color: $fontColor; text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: .2s;
+        &::before, &::after{
+          content: ''; position: absolute;
+        }
+        &::before{
+          left: 2px; top: 8px; width: 15px; height: 15px;
+          background-color: $fontColor; border-radius: 50%;
+          transition: .2s;
+        }
+        &::after{
+          width: 4px; height: 4px; left: 6px; top: 13px;
+          border: 1px solid $fontInvert; border-left: none; border-bottom: none;
+          transform: rotate(45deg);
+        }
+
+        &:hover, &:focus{
+          border-bottom-color: $fontColor;
+          &::before{
+            box-shadow: $fontColor 0 0 0 1px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    text-align: center;
+    .linkGroup{
+      width: calc(#{$normalWidth}/2 - 22px); max-width: none; margin-right: 40px; 
+      display: inline-block; vertical-align: top;
+      
+      &+.linkGroup{ margin-right: 0;}
+      
+      ul{
+        text-align: left;
+      }
+    }
+  }
+
+
+  @media screen and (min-width: $wwMaximum){
+    .linkGroup{
+      width: calc(#{$wwMaximum}*.41 - 22px); 
+    }
+  }
+}

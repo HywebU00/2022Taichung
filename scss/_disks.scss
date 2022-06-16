@@ -1,0 +1,81 @@
+// 首頁：圓形圖示
+.disks{
+  padding: 50px 0; margin: 0 auto;
+  ul{ list-style: none; margin: 0 auto; padding: 0; }
+
+  ul{
+    display: flex; flex-flow: row wrap; justify-content: center;
+    li{
+      flex: 1 0 33.33%; margin: 0 0 15px; padding: 0; text-align: center;
+      
+      img{
+        display: block; width: 100px; height: 100px; border-radius: 50%;
+        margin: 0 auto .4em;
+        background-color: #fff;
+        box-shadow:transparent 0 0 0 1px inset, transparent 0 0 0 3px, rgba(0,10,20,.2) 0 10px 30px;
+        transition: .2s;
+      }
+      a{
+        display: block; text-decoration: none; color: $fontColor;
+        &:hover, &:focus{
+          img{
+            box-shadow:transparent 0 0 0 1px inset, $primaryColor 0 0 0 3px, rgba(0,10,20,.2) 0 0 36px;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+
+  &.invert{
+    ul li{
+      img{
+        background-color: $primaryColor;
+      }
+      a{
+        &:hover, &:focus{
+          img{
+            box-shadow: #fff 0 0 0 1px inset, $primaryColor 0 0 0 3px, rgba(0,10,20,.4) 0 0 36px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    ul{
+      li{
+        flex-basis: 16.66%;
+        &:nth-child(6n + 7),
+        &:nth-child(6n + 8),
+        &:nth-child(6n + 9),
+        &:nth-child(6n + 10),
+        &:nth-child(6n + 11) {
+          flex-grow: 0;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    ul{
+      width: $normalWidth;
+    }
+
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    ul{
+      width: $wwMaximum*.82;
+    }
+
+  }
+
+}
+
+// 與其他區塊的位置關係
+@media screen and (min-width: $wwNormal){
+  .news + .disks{
+    margin-top: -100px;
+  }
+}

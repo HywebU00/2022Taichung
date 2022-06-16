@@ -1,0 +1,40 @@
+// html 編輯器產生的內容
+.freeZone{
+  padding: 50px 0; position: relative;
+
+  .contentBox{
+    line-height: 1.8; width: $mobileWidth; margin: 0 auto;
+    img{
+      display: block; max-width: 100%; margin: 1.5em auto;
+    }
+    table{
+      border: 2px solid $borderColor; line-height: 1.5;
+      border-collapse: collapse; margin: 1em auto; width: 100%;
+      th, td{
+        padding: .5em;border: 1px solid $borderColorLight;
+      }
+      th{
+        background-color: $grayLight;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    &::before{
+      content: ''; position: absolute; top: 0; bottom: 0; right: 0;
+      width: calc(9vw - 40px);
+      background: url(../images/fz_bg.jpg) repeat-y center 0;
+    }
+    .contentBox{
+      width: $normalWidth;
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &::before{ width: calc(50vw - #{$wwMaximum}*.41 - 40px);}
+    .contentBox{
+      width: $wwMaximum*.82;
+    }
+  }
+  
+}

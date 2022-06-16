@@ -1,0 +1,128 @@
+// 首頁：市府訊息
+.bulletin{
+  padding: 50px 0; margin: 0 auto;
+  .boards{
+    width: $mobileWidth; margin: 0 auto;
+    list-style: none; padding: 0;
+    &>li{
+      margin: 25px 0;
+
+      header{
+        padding: 24px 20px 20px; line-height: 1.46;
+        h3{
+          margin: 0; padding: 0; font-size: 1.1em;
+          display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+        time{
+          display: block; margin: .4em 0 0; font-size: .86em;
+        }
+      }
+
+      article{
+        padding: 1px 20px 0; margin-bottom: 28px; line-height: 1.8;
+        display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+      
+      img{
+        float: left; width: 50%; height: 46vw; object-fit: cover;
+        transition: .2s;
+        &+header {
+          padding: 24px 10px 20px 15px;
+          float: left; width: 50%;
+        }
+      }
+
+      a{
+        display: block; position: relative; overflow: hidden;
+        padding: 6px 0 0;
+        color: $fontColor; background: #fff; text-decoration: none;
+        box-shadow: rgba(0,0,0,.15) 5px 5px 30px;
+        &::before{
+          content: ''; z-index: 9;
+          position: absolute; left: 0;right: 0;top: 0; height: 6px;
+          background-color: $primaryColor;
+        }
+
+        &:hover, &:focus{
+          text-decoration: underline;
+          header{
+            text-decoration: underline;
+          }
+          img{
+            transform: scale(1.06);
+          }
+        }
+      }
+    }
+  }
+
+
+  @media screen and (min-width: $wwMedium){
+    .boards{
+      display: flex; flex-flow: row wrap;
+      &>li{
+        flex: 0 0 calc(50% - 10px); margin:10px 20px 10px 0;
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+
+        img{
+          float: none; display: block; width: 100%;
+          height: calc(#{$mobileWidth}/3 - 10px);
+
+          &+header{
+            width: 100%; float: none; padding: 24px 20px 20px; 
+          }
+        }
+        article{
+          -webkit-line-clamp: 6;
+        }
+
+        &>a{
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    position: relative;
+    &::before{
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 22vw;
+      background: url(../images/bulletin_bg.jpg) no-repeat right top;
+      background-size: auto 100%;
+    }
+    .boards{
+      width: $normalWidth;
+      &>li{
+        flex-basis: calc(25% - 12px); width: calc(25% - 12px);
+        &:nth-child(n) { margin-right: 16px;}
+        &:nth-child(4n) { margin-right: 0;}
+
+        img{
+          float: none; display: block; width: 100%;
+          height: calc(#{$normalWidth}/4 - 12px);
+        }
+        article{
+          -webkit-line-clamp: 6;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &::before{
+      width: calc(50vw - 336px);
+    }
+    .boards{
+      width: $wwMaximum * ($normalWidth / 100vw);
+      &>li{
+        img{
+          height: calc( #{$wwMaximum }*.205 - 12px)
+        }
+      } 
+    }
+  }
+}
