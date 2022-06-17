@@ -129,7 +129,7 @@ button.closeThis{
   position: relative;
   height: 48px; width: 48px; padding: 0; margin: 0;
   text-indent: -20em; overflow: hidden;
-  background-color: rgba(60,60,60,.8);
+  background-color: rgba(100,100,100,.6);
   box-shadow: none; border: none; outline: none;
   cursor: pointer; transition: .2s;
   &::before, &::after{
@@ -143,8 +143,11 @@ button.closeThis{
     transform: rotate(-45deg);
   }
 
-  &:hover, &:focus{ background-color: $hiLight; box-shadow: none;
+  &:hover, &:focus{ background-color: rgba(255,255,255,.7); box-shadow: none;
     &::before, &::after{ background-color: #000;}
+  }
+  &:focus{
+    &:hover{ background-color:#fff}
   }
 }
 

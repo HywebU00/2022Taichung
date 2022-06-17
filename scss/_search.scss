@@ -27,17 +27,17 @@
     width: 100%; padding: 0 .6em; 
     background-color: transparent;
     &:hover{
-      box-shadow:$borderColor 0 0 0 1px inset;
+      box-shadow:$hiLight 0 0 0 1px inset;
     }
     &:focus{
-      box-shadow:$borderColorDark 0 0 0 1px inset;
+      box-shadow:$hiLight 0 0 0 1px inset;
     }
   }
   input[type="button"], input[type="submit"] {
     position: absolute;width: 2.8em; right: 0; padding: 0;
     text-indent: -20em; overflow: hidden; cursor: pointer;
     background: url(../images/icon_search.svg) no-repeat center center;
-    background-size: 50%;
+    background-size: 60%;
     &:hover{ box-shadow:$hiLight 0 0 0 1px inset;}
     &:focus{ background-color: $hiLight;}
   }
