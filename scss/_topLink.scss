@@ -16,7 +16,7 @@
     &>ul{
       display:inline-block; line-height: 1.1;
       &>li{
-        float: left; position: relative;
+        float: left; position: relative; line-height: 1;
         margin: 0 0 0 18px;  padding: 0 19px 0 0;
         &::after{
           content: ''; position: absolute; right: 0; top: 50%;
@@ -84,14 +84,15 @@
 
 // fontSize ////////////////////////
 .fontSize{
-  ul{ overflow: hidden; display: flex; align-items: flex-end; }
+  // background: #bbb; 
+  ul{  display: flex; align-items: flex-end; line-height: 1;}
   li{
     flex: 0 0 auto;
-    margin: 0 2px; padding: 0;
+    margin: 0 2px; padding: 0; line-height: 1;
     button{
-      position: relative; padding: 2px 4px 1px; line-height: 1;
+      position: relative; padding: 2px 4px 1px; margin: 0; line-height: 1; height: 1.2em;
       border: none; background-color: transparent; cursor: pointer; outline: none;
-      box-shadow: transparent 0 0 0 1px;
+      box-shadow: transparent 0 0 0 1px; vertical-align: bottom;
       &.smallFont{font-size: .8rem;}
       &.mediumFont{ font-size: 1rem;}
       &.largeFont{ font-size: 1.4rem;}
