@@ -1,5 +1,35 @@
 /*資料大類*/
+.category{width: 96%;margin: 0 auto 1em;}
+.category a{text-decoration: none;}
+.category ul{list-style: none;margin: 0;padding:2px;overflow: hidden;line-height: 1.1;}
+.category li{margin: 0 5px 5px 0;padding: 0;float: left;}
+.category li a{display:block;padding:0 .7em;height: 2.3em;line-height: 2.3em;background:none;color:#000;text-decoration:none;border:1px solid #ccc;transition: .2s;}
+.category li.here a{background:#0bf;color:#fff;border-color:#0bf;}
+.category a.here{display:none;}
+.category li a:hover,
+.category li a:focus{outline:none}
+.cateCtrl{display:none;}
 
+
+@media screen and (max-width: 1000px) {
+	.category{margin-top: 1em;}	
+}
+@media screen and (max-width: 800px) {
+	.category{width: auto;position:relative;margin: 0 0 1em;overflow:hidden;padding:.8em 52px .8em .8em;box-shadow:rgba(0,0,0,.6) 0 3px 7px inset;z-index:700;}
+	.category ul{display: none;}
+	.category li{margin-bottom:8px;}
+	.category li a{display:block;padding:0 .4em;border: none;}
+	.category a.here{display:block;}
+	.category a.here:before{content:'資料大類：';font-size:.9em;margin-right:.2em;display: inline-block;}
+	.cateCtrl{display: block;position:absolute;right:5px;bottom:5px;width: 44px;height: 44px;line-height: 44px;text-align: center;background: none;}
+	.cateCtrl:before{content: '';display: inline-block;width:16px;height:16px;border: 3px solid #333;border-left: none;border-top: none;transform:rotate(45deg);transition: .3s;}
+	.cateCtrl.close:before{transform:rotate(225deg);margin-top: 16px;}
+}
+@media screen and (max-width: 600px) {
+	.category li{ float: none;margin:0 0 6px;}
+}
+
+/* 
 .category{padding:8px 0;}
 .category a{text-decoration:none;}
 .category ul{list-style:none;margin:0;padding:0;line-height:1.1;overflow:hidden;}
@@ -27,4 +57,4 @@
 	.cateCtrl{position:absolute;right:0;bottom:0;width:44px;height:44px;}
 	.cateCtrl:before{content:'';position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-10px 0 0 -7px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg);transition:.3s}
 	.cateCtrl.close:before{transform:rotate(225deg);margin-top:-3px;}
-}
+} */

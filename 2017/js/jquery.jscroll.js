@@ -24,7 +24,7 @@
             debug: false,
             autoTrigger: true,
             autoTriggerUntil: false,
-            loadingHtml: '<small><img src="images/loading.gif" />資料下載中...</small>',
+            loadingHtml: '<small><img src="2017/images/loading.gif" />資料下載中...</small>',
             loadingFunction: false,
             padding: 0,
             nextSelector: '.nextPage>a',

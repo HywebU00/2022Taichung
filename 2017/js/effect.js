@@ -12,8 +12,8 @@ var _window = $(window),
 			wwSmall = 600,
 			wwxs = 420;
 
-// $( '.main' ).append( '<div class="overlay"></div>' );//產生遮罩
-// var _overlay = $('.overlay');
+$( 'div.main' ).append( '<div class="overlay"></div>' );//產生遮罩
+var _overlay = $('.overlay');
 
 
 $(document).ready(function(){
@@ -69,8 +69,8 @@ $(document).ready(function(){
 	})
 
 
-	webSiteMenu();
-	fixHeader();
+	// webSiteMenu();
+	// fixHeader();
 	// fatfootCtrl();
 	share();	
 	popMessage();
@@ -93,7 +93,6 @@ $(document).ready(function(){
 		});
 	}
 	rwdTable();
-	
 });
 
 
