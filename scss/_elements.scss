@@ -37,7 +37,7 @@ a:focus{outline: none;}
 
 
 // 跳至內容區 ----------------------------------------------
-.goCenter{
+a.goCenter{
   display: none;
   @media screen and (min-width: $wwNormal){
     display: block; position: absolute; top: -2em; left: 0; z-index: 99;
@@ -48,7 +48,7 @@ a:focus{outline: none;}
     text-decoration: none; outline: none;  cursor: pointer;
     transition:top .3s; 
     &:focus{ top: 0;}
-    &:hover, &:focus{  opacity: 1; }
+    &:hover, &:focus{  opacity: 1; color: $fontInvert;}
   }
   @media screen and (min-width: $wwMaximum){
     left: calc(50vw  - #{$wwMaximum}*.5);
