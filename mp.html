@@ -11,6 +11,53 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="slick/slick.min.js"></script><!-- slick 套件 -->
   <script src="js/uieffect.js"></script>
+
+  <style>
+    /* 更改各區塊背景圖 */
+
+    /* 版頭 */
+    .webHeader::before{
+      /*background-image: none;  去除底圖 */
+      background-image: url(publicData/webHeader_bg2.jpg); /* 更換底圖 */
+    }
+
+    /* 大圖輪播 */
+    .bigBanner::before{
+      /* background-image: none;  去除底圖 */
+      background-image: url(publicData/webHeader_bg2.jpg); /* 更換底圖 */
+    }
+
+    /* 最新消息 */
+    .news::before {
+      /*background-image: none;  去除底圖 */      
+      background-image: url(publicData/newsList_bg2.jpg);
+    }
+
+    /* html 編輯區產出的內容 */
+    .freeZone::before{
+      /* background-image: none;  去除底圖 */
+      background-image: url(publicData/webHeader_bg2.jpg);
+    }
+
+    /* 市府訊息 */
+    .bulletin::before{
+      /* background-image: none;  去除底圖 */
+      background-image: url(publicData/webHeader_bg2.jpg);
+    }
+
+    /* 小廣告圖輪播 */
+    .banners::before{
+      /* background-image: none;  去除底圖 */
+      background-image: url(publicData/newsList_bg2.jpg);
+    }
+
+    /* 頁腳 */
+    .webFooter{
+      background-image: none; /* 去除底圖 */
+      /* background-image: url(publicData/footer_bg.jpg); 更換底圖 */
+    }
+
+  </style>
 </head>
 <body>
   <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
@@ -226,7 +273,7 @@
     </nav>
 
   </header>
-  
+
   <!-- 大圖輪播 -->
   <section class="bigBanner">
     <div>
@@ -247,6 +294,7 @@
     <div><img src="publicData/bigBanner3.jpg" alt="3333"></div>
     <div><img src="publicData/bigBanner4.png" alt="4444"></div>
   </section>
+  
 
   <!-- 行動版側欄選單容器 -->
   <aside class="sidebar">
@@ -582,6 +630,7 @@
       </section>
     </section>
 
+    <!-- 市府訊息 -->
     <section class="bulletin">
       <h2 class="blockHeader">市府訊息</h2>
       <ul class="boards">
@@ -618,6 +667,7 @@
 
     </section>
 
+    <!-- 小廣告圖輪播 -->
     <section class="banners">
       <h2 class="blockHeader">文化藝術</h2>
       <div class="subheader">臺中市素有文化城之美譽，文風鼎盛，教育事業發達，對於各項文化活動的推展，不遺餘力。</div>
@@ -632,9 +682,6 @@
       </section>
     </section>
   </main>
-
-
-
 
 
   <footer class="webFooter">
@@ -870,13 +917,13 @@
   </section>
 
   <!-- 模擬燈箱（彈跳訊息）開啟 -->
-  <!-- <script>
+  <script>
     $(function(){
       $('.lightbox').add('.coverAll').show();
       $('.lightbox').find('.closeThis').focus();
       $('body').addClass('noScroll');
     })
-  </script> -->
+  </script>
 
 </body>
 </html>

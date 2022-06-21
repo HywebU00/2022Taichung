@@ -6,7 +6,7 @@
   background:$assistant;
   &::before{
     content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; 
-    background:url(../images/webHeader_bg.jpg) no-repeat right 0;
+    background:url(../images/webHeader_bg.jpg) no-repeat center 0;
     background-size: auto ;
   }
 

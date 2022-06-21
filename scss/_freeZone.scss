@@ -23,7 +23,7 @@
     &::before{
       content: ''; position: absolute; top: 0; bottom: 0; right: 0;
       width: calc(9vw - 40px);
-      background: url(../images/fz_bg.jpg) repeat-y center 0;
+      background: url(../images/fz_bg.jpg) no-repeat center 0;
     }
     .contentBox{
       width: $normalWidth;

@@ -59,11 +59,12 @@
   }
 
   .linkBtn{
-    flex: 0 0 auto;
+    flex: 0 0 auto; line-height: 1; font-size: 1rem; margin: 0;
     a{
       display: block; padding: 0 .6em;height: 2.8em; line-height: 2.9; 
-      background-color: $secondaryColor; color: $fontInvert;
+      background-color: $secondaryColor; color: $fontInvert; border-radius: 0;
       text-decoration: none; transition: .2s;
+      box-shadow: none;
       &:hover, &:focus{ background-color: $primaryColor;}
       &:focus{box-shadow: $primaryColor 0 0 0 1px;}
     }
