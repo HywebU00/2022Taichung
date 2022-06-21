@@ -325,7 +325,7 @@
 	.list tr:nth-child(odd){background-color: transparent;}
 	.list td:before{content:attr(data-title) '：';display:inline-block; color:#999;vertical-align: top;}
 	.list td[data-title="序號"]:before{display:none;}
-	.list td[data-title="序號"]{float:right;margin:0 0 0 .5em;/*position:absolute;top:0;right:0;*/min-width:1.4em;height:1.2em;line-height:.9em ;background:#5d666f;color:#fff;font-size:1.2em;text-align:center;box-shadow:rgba(0,0,0,.4) 0 0 10px;border:none !important;}
+	.list td[data-title="序號"]{float:right;margin:0 0 0 .5em;/*position:absolute;top:0;right:0;*/min-width:2.3em;height:2.3em;line-height:1em ; background:#5d666f;color:#fff;font-size:1.2em;text-align:center;box-shadow:rgba(0,0,0,.4) 0 0 10px;border:none !important;}
 	/*.list td[data-title="序號"] + td{padding-right:4em;}*/
 	.list td.title a{font-size:1.25em;}
 	.list td span{display:inline;}
@@ -430,7 +430,7 @@
 }
 /* 20190509 訊息條列重要標示*/
 .stress {position: relative;display: inline-block !important;height:36px;width: 36px; line-height: 29px;color: #f40;padding:0;text-decoration: none;vertical-align: middle;margin:-5px 0 -3px 10px;font-size: 13px;text-align: center;background: #fff; box-shadow:rgba(0,0,0,.4) 1px 1px 4px	;border: 2px solid #f50;border-radius: 50%;}
-.stress:before{content: '';position: absolute;left: -9px;top:11px; width:0;height:0;border: 3px solid #f50;border-width:7px 9px 7px 0;border-color:transparent #f50 transparent transparent;}
+.stress:before{content: '';position: absolute;left: -9px;top:50%; margin-top: -7px; width:0;height:0;border: 3px solid #f50;border-width:7px 9px 7px 0;border-color:transparent #f50 transparent transparent;}
 .stress:after{content: attr(title); line-height: 34px;}
 
 

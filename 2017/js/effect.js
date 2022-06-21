@@ -19,31 +19,6 @@ var _overlay = $('.overlay');
 $(document).ready(function(){
 
 	$('html').removeClass('no-js');
- 
-	// 2022
-	// // gotop
-	// var _goTop = $('.goTop');
-	// _goTop.on('click keydown', function(){
-	// 	$('html,body').stop(true,false).animate({scrollTop:0},700, function () { 
-	// 		$('.goCenter').focus();//20191224
-	// 	 });
-	// });
-	// _window.scroll(function(){
-	// 	if ( $(this).scrollTop() > 250){
-	// 		_goTop.stop(true,false).fadeIn('fast');
-	// 	} else {
-	// 		_goTop.stop(true,false).fadeOut('fast');
-	// 	}
-	// });
-
-
-	// 2022
-	// // 按 Enter 到主內容區
-	// $('a.goCenter').keydown(function(e){
-	// 	if(e.which == 13) { 
-	// 		$('.goCenter').focus();
-	// 	}
-	// });
 
 	// 20190628 社群有多層選單
 	var snsSpeed = 240;
@@ -68,7 +43,40 @@ $(document).ready(function(){
 		})
 	})
 
-
+	// 行動版資料大類開合
+	var _category = $('.category');
+	_category.each( function(){
+		let _this = $(this);
+		_this.append('<button class="cateCtrl"></button>');
+		_this.prepend('<span class="cateNow"></span>');
+		let _cateCtrl = _this.find('.cateCtrl');
+		let	_cateNow = _this.find('.cateNow');
+		_cateNow.text(_this.find('.here a').text());
+		let	_cateList = _category.find('ul');
+		const speed = 400;
+		_cateCtrl.add(_cateNow).click(function(){
+			if (_cateList.is(':hidden')) {
+				_cateCtrl.addClass('close');
+				_cateList.stop(true, false).slideDown();
+				_cateNow.stop(true, false).slideUp();
+			} else {
+				_cateCtrl.removeClass('close');
+				_cateList.stop(true, false).slideUp();
+				_cateNow.stop(true, false).slideDown();
+			}
+		})
+		_cateList.find('li>a').click(function(){
+			_cateNow.text($(this).text());
+			$(this).parent('li').addClass('here').siblings().removeAttr('class');
+			if (ww <= wwMedium) {
+				_cateCtrl.removeClass('close');
+				_cateList.stop(true, false).slideUp(speed, function(){
+					$(this).removeAttr('style');
+				});
+				_cateNow.stop(true, false).slideDown();
+			}
+		})
+	})
 	// webSiteMenu();
 	// fixHeader();
 	// fatfootCtrl();
@@ -76,7 +84,7 @@ $(document).ready(function(){
 	popMessage();
 
 	// mobileSearch();	
-	mobileCategory();
+	// mobileCategory();
 
 	clickToSlide();
 	photoShow();
@@ -104,6 +112,7 @@ $(window).resize(function(){
 		ww = $(window).width();
 		tabSet();
 		evenColH();
+		// mobileCategory();
 		// searchTop();
  	} , 250);
 });
@@ -298,31 +307,9 @@ $(window).resize(function(){
 // 	else {_search.attr('style','');}
 // }
 
-// 行動版資料大類開合
-function mobileCategory(){
-	if(ww<=wwMedium){
-		var _category = $('.category'),
-				_cateList = _category.find('ul');
-		_category.find('.here a').clone().insertBefore(_cateList).addClass('here');
-		_category.append('<button class="cateCtrl"></button>');
-		var _cateCtrl = _category.find('.cateCtrl'),
-				_cateHere = _category.find('a.here');
 
-		_cateCtrl.add(_cateHere).click(function(){
-			_cateCtrl.toggleClass('close');
-			_cateList.add(_cateHere).slideToggle();
-		});
-		_cateList.find('li>a').click(function(){
-			_cateList.find('.here').removeClass('here');
-			$(this).parent('li').addClass('here');
-			_cateHere.text($(this).text());
-			if(_cateList.is(':visible')){
-				_cateList.slideUp();
-				_cateHere.slideDown()};
-				_cateCtrl.removeClass('close');
-		});
-	}
-}
+
+
 
 // 分享
 function share(){
@@ -764,24 +751,3 @@ function optionGp(){
 			}
 		});
 	})
-
-
-
-// 取副檔名
-// function attIcons(){
-// 	var _attIconList = $('.list').find('td').find('.attIcons');
-// 	var _attIcon = _attIconList.children('li').children('a');
-
-// 	_attIcon.each(function(){
-// 		var filename = $(this).attr('title').toString();
-// 		var n = filename.indexOf(".")+1;
-// 		fileType = filename.slice(n);
-// 		$(this).text(fileType).addClass(fileType);
-
-// 	});
-// }
-
-
-// function snsMenu(){
-
-// }
