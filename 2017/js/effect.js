@@ -80,7 +80,7 @@ $(document).ready(function(){
 	// webSiteMenu();
 	// fixHeader();
 	// fatfootCtrl();
-	share();	
+	// share();	
 	popMessage();
 
 	// mobileSearch();	
@@ -309,49 +309,26 @@ $(window).resize(function(){
 
 
 
-
-
 // 分享
-function share(){
+var _share = $('.share');
+var _shareTo = _share.find('li');
+_share.addClass('reveal');
+setTimeout( function(){	_share.removeClass('reveal')} , 3000);
+_share.hover(
+	function(){
+		$(this).addClass('reveal');
+	},
+	function(){
+		$(this).removeClass('reveal');
+	}
+)
+_shareTo.find('a').focus(function(){
+	_share.addClass('reveal');
+})
+_shareTo.last().find('a').blur(function(){
+	_share.removeClass('reveal');
+})
 
-	var _share = $('.share');
-	$('.shareThis').click(function(){
-		_share.show();
-		_overlay.show().fadeTo('300', 0.5);
-	});
-
-	var svt;
-	_share.append('<span class="after">《</span>');
-	_share.find('.after').hide();
-	_share.children('span').first().wrap('<a href="#"></a>');
-
-	function miniShare(){
-		_share.stop(true, true).animate({ width:"1.1em"}, 600).find('ul').stop(true, true).slideUp(600, function(){
-			_share.find('.after').show(200);
-		});
-	}
-	function showShare(){
-		_share.find('.after').hide();
-		_share.stop(true, true).animate({ width:"48px"},300).find('ul').stop(true, true).slideDown(300);
-	}
-	if (ww > wwNormal) {
-		svt = setTimeout(miniShare , 2000);		
-		_share.hover(showShare,miniShare);
-		_share.children('a').focusin(showShare);
-		_share.find('li').last().children('a').focusout(miniShare);
-	}
-	if (ww <= wwNormal) {
-		clearTimeout(svt);
-		_share.find('ul').append( '<li class="close">離開</li>' );
-		_share.find('li').click(function(){
-			_share.hide();
-			_overlay.fadeTo('300', 0, function(){$(this).hide();});
-		});
-		_overlay.click(function() {
-			_share.hide();
-		});
-	}
-}
 
 // 頁籤
 function tabSet(){

@@ -1,19 +1,53 @@
 @charset "UTF-8";
 /* CSS Document 台中機關網 */
+.share{display: none}
+@media screen and (min-width: 1000px){
+	.share{
+		display: block;padding:0; z-index:9000;
+		position:fixed;right:0;top:236px;text-align:center;
+		color:#727d7f; box-shadow:rgba(0,0,0,0) 0 0 10px;
+		transform: translateX(100%); transition: .8s;
+	}
+	.share a{text-decoration:none;}
+	.share span {
+	  display: block;padding: 8px 5px 22px;
+		position: absolute; top: 0; left: 0; width: calc(1em + 10px);
+		transform: translateX(-100%);
+		cursor: pointer;
 
-.share{position:fixed;right:0;top:236px;text-align:center;background:#fff;color:#727d7f;padding:5px;z-index:9000;box-shadow:rgba(0,0,0,.4) -1px 3px 10px 1px;min-height:3.2em;}
-.share a{text-decoration:none;}
-.share span{display:block;font-weight:normal;font-size:1em;line-height:1.1;color:#727d7f;}
-.share ul{list-style:none;margin:3px 0 0;padding:0;overflow:hidden;}
-.share li{margin:0;padding:0;width:48px;}
-.share li a{display:block;width:48px;height:48px;overflow:hidden;position:relative;}
-.share li a:after{display:none;content:'';position:absolute;left:0;top:0;width:44px;height:44px;border:2px solid #fc3;}
-.share li a:focus:after{display:block;}
-.share li a img{width:48px;height:48px;}
-.share li.close{display:none;} 
-.share .after {position:absolute;left:2px;bottom:1px;}
-.no-js .share{display:none;}
+	  font-weight: normal;font-size: 1em;line-height: 1.1;text-align: center;
+	  
+	  color: #727d7f; background: #fff;
+		box-shadow:rgba(0,0,0,.3) 0 0 10px;
+	}
+	.share span::after{
+		content: ''; position: absolute; bottom: 7px; left: 9px;
+		width: 0; height: 0; border-style: solid; border-width: 6px 7px 6px 0;
+		border-color: transparent #000 transparent transparent;
+		transition: .4s;
+	}
+	.share ul{list-style:none;margin:0;padding:5px;overflow:hidden; background: #fff; position: relative}
+	.share li{margin:0;padding:0;}
+	.share li a{display:block;width:48px;height:48px;overflow:hidden;position:relative;}
+	.share li a::after{
+		content:'';position:absolute;left:0;top:0;right: 0;bottom: 0;
+		box-shadow: transparent 0 0 0 2px inset;
+	}
+	.share li a:hover::after, .share li a:focus::after{box-shadow:#000 0 0 0 1px inset, #fff 0 0 0 3px inset;}
+	.share li a img{display: block;width:100%;height:100%;}
+	.share li.close{display:none;} 
+	.share .after {position:absolute;left:1px;bottom:3px;}
+	.no-js .share{display:none;}
 
+	.share.reveal{
+		transform: translateX(0);
+		box-shadow:rgba(0,0,0,.3) -1px 3px 10px 1px;
+		transition: .4s;
+	}
+	.share.reveal span::after{
+		transform: rotate(180deg); left: 11px;
+	}
+}
 
 
 
@@ -24,7 +58,7 @@
 .cpArticle figure{float:left;width:400px;margin:0 2em 1em 0;padding:9px;border:1px solid #ccc;box-shadow:rgba(0,0,0,.3) 0 1px 3px;}
 .cpArticle figcaption{line-height:1.5;margin:9px 0 0;display:block;color:#888;font-size:.94em;}
 .cpArticle figcaption:empty{display:none;}
-.cpArticle figure img{display:block;width:400px;height:auto;margin:0 auto;}
+.cpArticle figure img{display:block;width:100%;height:auto;margin:0 auto;}
 .cpArticle figure>a{display:inline-block;}
 .cpArticle figure>a:focus{box-shadow:#e30 0 0 0 2px;outline:none;}
 /*table*/
@@ -63,7 +97,7 @@
 .attachment ul,
 .seeAlso ul{margin:0;padding:0;list-style:none;line-height:1.4;font-size:1em;}
 .attachment ul li,
-.seeAlso ul li{margin:0 0 .5em;padding:.5em 0 0;border-bottom:1px dotted #bbb;min-height:2em;}
+.seeAlso ul li{margin:0 0 .5em;padding:.5em 0 0;border-bottom:1px dotted #bbb;min-height:2.55em;}
 .attachment li a,
 .seeAlso li a{text-decoration:none;margin-left:.15em;display:inline-block;}
 .attachment li a:hover,
@@ -76,7 +110,7 @@
 
 /*附件格式*/
 .fileType,
-.fileSize{display:inline-block;margin:0 .2em;padding:0 .4em;min-width:2.4em;height:1.7em;line-height:1.6em;font-size:1em;border-radius:4px;vertical-align:middle;text-align:center;}
+.fileSize{display:inline-block;margin:0 .2em;padding:0 .4em;min-width:2.4em;height:1.7em;line-height:1.7em;font-size:1em;border-radius:4px;vertical-align:middle;text-align:center;}
 .fileSize{color:#777;border:1px solid #ccc;box-sizing:border-box;}
 .fileType{font-family:monospace, "Courier New", Courier, monospace;color:#fff;font-weight:normal;}
 .fileType.zip{background:#444;}
@@ -96,23 +130,31 @@
 .attachment .images li a{display:block;margin:0 auto;height: 100%;} 
 .attachment .images li a:hover{text-decoration:none;}
 .attachment .images li img{display:block;margin:0 auto;width:100%;}
-.attachment .images li p{line-height: 1.5;padding: .4em .5em .2em;margin:0;font-size:1em;text-align: left;}
+.attachment .images li p{line-height: 1.5;padding: .4em .5em;margin:0;font-size:1em;text-align: left;}
 
 @media screen and (min-width:800px){
 	.attachment .images{overflow:hidden;}
 	.attachment .images li{position: relative;float: left;width: 49%;height: 50vw;}
 	.attachment .images li:nth-child(even){float: right;}
 	.attachment .images li img{height: 100%;object-fit: contain}
-	.attachment .images li p{position:absolute;left:0;right: 0;bottom: 0;max-height: 4.2em;overflow: hidden;background: rgba(255,255,255,.82)}
+	.attachment .images li p {
+	  position: absolute;left: 0;right: 0;bottom: 0; max-height: 5.1em;
+	  background: rgba(255, 255, 255, .82)
+	}
 }
 @media screen and (min-width:1000px){
 	.attachment .images{width: 99%;margin:1em 0;}
 	.attachment .images li{position:relative;float:left;width:220px;height:220px;margin:0 10px 10px 0;padding:0;overflow:hidden;}
 	.attachment .images li:nth-child(even){float: left;}
 	.attachment .images li img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;}
-	.attachment .images li p{bottom:-4.8em;background:rgba(0,0,0,.6);color:#fff;font-size:.87em;text-align:left;transition:.3s;}
+	.attachment .images li p {
+		display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    transform: translateY(100%);transition: .3s;
+	  background: rgba(0, 0, 0, .6); color: #fff;
+	  font-size: .87em;text-align: left;
+	}
 	.attachment .images li a:hover p,
-	.attachment .images li a:focus p{bottom:0;}
+	.attachment .images li a:focus p{transform: translateY(0);}
 	.attachment .images li a:before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;border:2px solid #d00;display:none;z-index:9;}
 	.attachment .images li a:focus:before{display:block;}
 
