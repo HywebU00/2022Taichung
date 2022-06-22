@@ -21,7 +21,7 @@
 .page li a{display:block;min-width: 42px;height: 40px;line-height: 40px;margin:4px 0;padding: 0;border:1px solid #ccc;text-decoration: none;transition:.15s;}
 .page li a:hover,
 .page li a:focus{background:#1f7a8c;text-decoration:none;outline:none;}
-.page li.here a{color:#fff;background:#1f7a8c;border-color:#1f7a8c;box-shadow:#1f7a8c 0 0 0 1px ;font-weight:bold;cursor:default; position:relative;z-index:99;}
+.page li.here a{color:#fff;background:#1f7a8c;border-color:#1f7a8c;box-shadow:#1f7a8c 0 0 0 1px ;font-weight:bold;cursor:default; position:relative;z-index:29;}
 .page li.prevTen + li,
 .page li.prev + li,
 .page li.first + li {margin-left:12px;}
