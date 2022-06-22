@@ -397,12 +397,25 @@ select:focus{border-color:#93c622;box-shadow:#93c622 0 0 0 2px;} */
 .category li a:focus{background-color:#fff;color:#000;border-color:#18959a;box-shadow:#18959a 0 0 0 1px;outline:none}
 .category li.here a{background:#18959a;color:#fff;border-color:#18959a;box-shadow:#18959a 0 0 0 2px;}
 .category li.here a:hover,
-.category li.here a:focus{background:#fff;border-color:#fff;color: #000;}
+.category li.here a:focus{box-shadow:#18959a 0 0 0 2px; border-color: #fff}
+
 .page li a:hover,
-.page li a:focus{background-color:#93c622;color:#000;}
-.page li.here a{color:#fff;background:#18959a;border-color:#18959a;box-shadow:#18959a 0 0 0 1px;}
+.page li a:focus{box-shadow:#18959a 0 0 0 2px inset; background-color: #fff;}
+.page li.here a{color:#fff;background-color:#18959a;border-color:#18959a;box-shadow:#18959a 0 0 0 1px;}
 .page li.here a:hover,
-.page li.here a:focus{background-color:#93c622;color:#000;}
+.page li.here a:focus{border-color:#fff}
+.page li.first a:hover,
+.page li.last a:hover,
+.page li.prev a:hover,
+.page li.prevTen a:hover,
+.page li.next a:hover,
+.page li.nextTen a:hover,
+.page li.first a:focus,
+.page li.last a:focus,
+.page li.prev a:focus,
+.page li.prevTen a:focus,
+.page li.next a:focus,
+.page li.nextTen a:focus{ background-color: #18959a;box-shadow:#18959a 0 0 0 1px;}
 .page select + input[type="submit"]:hover,
 .page select + input[type="button"]:hover,
 .page select + input[type="submit"]:focus,
@@ -410,7 +423,7 @@ select:focus{border-color:#93c622;box-shadow:#93c622 0 0 0 2px;} */
 
 .condition a{background-color:#e3e6dd}
 .condition a:hover,
-.condition a:focus{background-color:#93c622;color:#fff;}
+.condition a:focus{box-shadow:#18959a 0 0 0 2px; color:#0c688d; background-color: #fff; }
 
 .list li{border-color:#c7cdbe;}
 .list li:nth-child(even),

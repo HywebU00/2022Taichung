@@ -5,7 +5,7 @@
 .category li{margin: 0 5px 5px 0;padding: 0;float: left;}
 .category li a{display:block;padding:0 .7em;height: 2.3em;line-height: 2.3em;background:none;color:#000;text-decoration:none;border:1px solid #ccc;transition: .2s;}
 .category li.here a{background:#0bf;color:#fff;border-color:#0bf;}
-.category a.here{display:none;}
+/* .category a.here{display:none;} */
 .category li a:hover,
 .category li a:focus{outline:none}
 .category .cateCtrl, .category .cateNow{display:none;}
