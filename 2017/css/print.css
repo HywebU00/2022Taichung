@@ -2,14 +2,44 @@
 /* CSS Document */
 
 html {background:none;}
-body { background:none; background-color:#fff; color:#000; margin:0 2%; font-size:1em;}
-@media print {
-.accesskey, .menu, .function, .navigation, .friendly, .fontSize, .share, .search, .footer, .sidebar, .sidebarCtrl, .backHome, .navi, .gmap, iframe { display:none !important;}
-.header { padding:8px 0; position:relative !important; box-shadow:none !important;}
+body { position: static !important; background:#fff; color:#000; margin:0 2%; font-size:1em;}
+.accesskey,
+.menu,
+.function,
+.topLinks,
+.friendly,
+.fontSize,
+.share,
+.search,
+.searchCtrl,
+.footer,
+.sidebar,
+.sidebarCtrl,
+.backHome,
+.navi,
+.navbar,
+.gmap,
+.seeAlso,
+.bigBanner::before,
+.news::before,
+.freeZone::before,
+.webHeader::before,
+.goTop,
+.webFooter { display: none !important; }
+
+.webHeader { position: static; padding:20px 0 10px !important; margin: 0 auto 20px !important; background: none !important; border-bottom: 3px solid #bbb;}
+.webHeader.fixed{position: static; height: auto;padding:16px 0;}
+.webHeader h1 { position: static;  display: block; margin: 0 auto; padding: 0; background: none; }
+.webHeader h1 img, .webHeader.fixed h1 img { height: 50px !important; width: auto !important;}
+
 .center>header { display:block; margin:1em 0 0;}
 .pubInfo { background:none; border:1px solid #bbb; color:#888;}
 .pubInfo li em { color:#000;}
 ol.policies { max-width:100%; background-size:contain;}
 .cpArticle figure{width:48%; float:left; margin-right:1em;}
-.cpArticle figure img{ width:100%;}
+.cpArticle figure img{ width:100%; }
+
+
+.attachment .images li{
+  position:relative;float:left;width:160px;height:auto;margin:0 8px 8px 0;padding:0;overflow:hidden;
 }
