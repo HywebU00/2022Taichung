@@ -2,7 +2,8 @@
 @import "_topLink";     // 右上連結
 
 .webHeader{
-  position: relative; padding: 0; width: 100vw;
+  position: relative; padding: 0; 
+  // width: 100vw;
   background:$assistant;
   &::before{
     content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; 
