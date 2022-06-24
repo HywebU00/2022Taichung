@@ -78,7 +78,7 @@
 }
 
 .albumType4{max-width:600px;margin:0 auto;}
-.albumType4.tabs .tabItem a{/*padding:1em 0 0;height:2.4em;font-size: 1em;*/}
+/* .albumType4.tabs .tabItem a{padding:1em 0 0;height:2.4em;font-size: 1em;} */
 .albumType4 .tabItem a:after{display:none;}
 
 .albumType4 .tabContent{display:block;/*width:100vw;*/height:auto;padding:0;margin-bottom: 1em;background:none;}

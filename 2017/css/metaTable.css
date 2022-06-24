@@ -1,0 +1,68 @@
+/* .meta */
+/* 從 cp.css 獨立出來 */
+.meta{width:96%;margin:0 auto; }
+.meta table{width:100%;margin:.2em auto;border-collapse:collapse;line-height:1.8;border:2px solid #999;font-size:1em;}
+.meta a:hover{text-decoration:none;background:#de6;}
+.meta a:focus{outline: 1px solid red;text-decoration:none;}
+.meta tr:hover{background:#f6f8f9;}
+.meta th, .meta td{vertical-align:top;padding:.7em .5em .6em;border:1px solid #ccc;}
+.meta th{min-width:5em;text-align:right;font-weight:normal;color:#888;}
+.meta td{vertical-align:top;word-break:break-strict;}
+.meta td img{max-width:100%;display:block;}
+.meta td a{ word-break:break-all;}
+.meta td iframe {display:block;padding:0;margin:0;width:1000px;max-width:100%;height:600px;border:none;}
+
+
+.meta ul,
+.meta ol{list-style:none;margin:0;padding:0;color:#888;line-height:1.5;font-size:1.1em;}
+.meta li{margin:0;padding:.6em 0;border-bottom:1px solid #ccc;}
+.meta li:first-child{border-top:1px solid #ccc;}
+.meta li em{color:#111;margin-left:.1em;font-weight:normal;}
+.meta li em:before{content:'：';color:#888;}
+.meta.resume{overflow:hidden;}
+.meta.resume table{width:68%;float:left;margin:10px 0 0 0;}
+.meta.resume figure{max-width:28%;float:right;margin:10px 1% 20px auto;}
+.meta.resume figure img{display:block;max-width:96%;background:#fff;padding:5px;box-shadow:#999 0 0 7px;}
+
+
+/* 2022
+//{} 拍片景點、場館內容頁
+.album .meta{width:100%}
+.album .meta {padding:2em 0;}
+.album .meta td ol,
+.album .meta td ul{font-size:inherit;color:inherit;}
+.album .meta td ol{list-style:decimal;margin:-.3em auto -.4em 2.5em;}
+.album .meta td li{border:none;}
+
+.album article{padding:70px 3% 2em;margin:0;background:#d9ebee;}
+*/
+
+
+
+
+@media screen and (max-width:800px) {
+
+	.meta{margin:1em 0 0;padding-left:0;padding-right:0;width:100vw}
+	.cpArticle .meta{margin-left:-15px;margin-right:-15px;}
+
+	.meta h2{margin:0 16px;font-size:1em;}
+	.meta table{border:none;}
+	.meta tr{display:block;border-top:1px solid #bbb;padding:.8em 16px;}
+	.meta th, .meta td{display:inline-block;text-align:left;border:none;width:auto;padding:.2em 0;}
+	.meta th{min-width:0;background:#e0e8ee;color: #111;border-radius:0 2em 2em  0;padding-left:16px;padding-right:.9em;margin-left:-16px;margin-right:.5em;}
+	.meta td iframe{margin:.5em auto 0;height:400px;}
+	.meta.resume table{width:100vw;float:none;margin:0;border-bottom:1px solid #bbb}
+	.meta.resume figure{max-width:none;width:100vw;float:none;margin:8px auto 1.5em;text-align:center;}
+	.meta.resume figure img{width:auto;max-width:96%;display:inline-block;}
+	.album .meta table {width:100%;}
+}
+
+@media screen and (max-width:600px) {
+	.meta{margin:1em 0 0;}
+	.meta h2{margin:0 16px;font-size:1em;}
+	.meta table{border:none;}
+	.meta tr{display:block;border-top:1px solid #bbb;padding:.8em 16px;}
+	.meta td iframe{ margin:.5em auto 0;height:400px;}
+	.meta.resume table{width:100%;float:none;margin:0;}
+	.meta.resume figure{width:92%;max-width:none;float:none;margin:10px auto 2em;}
+}

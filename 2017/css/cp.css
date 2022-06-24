@@ -1,56 +1,8 @@
 @charset "UTF-8";
 /* CSS Document 台中機關網 */
-.share{display: none}
-@media screen and (min-width: 1000px){
-	.share{
-		display: block;padding:0; z-index:9000;
-		position:fixed;right:0;top:200px;text-align:center;
-		color:#727d7f; box-shadow:rgba(0,0,0,0) 0 0 10px;
-		transform: translateX(100%); transition: .8s;
-	}
-	.share a{text-decoration:none;}
-	.share span {
-	  display: block;padding: 8px 5px 22px;
-		position: absolute; top: 0; left: 0; width: calc(1em + 10px);
-		transform: translateX(-100%);
-		cursor: pointer;
-
-	  font-weight: normal;font-size: 1em;line-height: 1.1;text-align: center;
-	  
-	  color: #727d7f; background: #fff;
-		box-shadow:rgba(0,0,0,.3) 0 0 10px;
-	}
-	.share span::after{
-		content: ''; position: absolute; bottom: 7px; left: 9px;
-		width: 0; height: 0; border-style: solid; border-width: 6px 7px 6px 0;
-		border-color: transparent #000 transparent transparent;
-		transition: .4s;
-	}
-	.share ul{list-style:none;margin:0;padding:5px;overflow:hidden; background: #fff; position: relative}
-	.share li{margin:0;padding:0;}
-	.share li a{display:block;width:48px;height:48px;overflow:hidden;position:relative;}
-	.share li a::after{
-		content:'';position:absolute;left:0;top:0;right: 0;bottom: 0;
-		box-shadow: transparent 0 0 0 2px inset;
-	}
-	.share li a:hover::after, .share li a:focus::after{box-shadow:#000 0 0 0 1px inset, #fff 0 0 0 3px inset;}
-	.share li a img{display: block;width:100%;height:100%;}
-	.share li.close{display:none;} 
-	.share .after {position:absolute;left:1px;bottom:3px;}
-	.no-js .share{display:none;}
-
-	.share.reveal{
-		transform: translateX(0);
-		box-shadow:rgba(0,0,0,.3) -1px 3px 10px 1px;
-		transition: .4s;
-	}
-	.share.reveal span::after{
-		transform: rotate(180deg); left: 11px;
-	}
-}
-
-
-
+@import url("metaTable.css"); /* 表格型資料 */
+@import url("cpPhoto.css"); /* 表格型資料 */
+@import url("share.css"); 		/* 分享 */
 
 
 .cpArticle{width:96%;margin:0 auto;padding:16px 0 0;line-height:1.7;font-size:1.1em;overflow:hidden;}
@@ -157,7 +109,6 @@
 	.attachment .images li a:focus p{transform: translateY(0);}
 	.attachment .images li a:before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;border:2px solid #d00;display:none;z-index:9;}
 	.attachment .images li a:focus:before{display:block;}
-
 }
 
 
@@ -166,144 +117,13 @@
 .pubInfo li{margin:0 .5em .6em;padding:0;display:inline-block;color:#666;vertical-align: top}
 .pubInfo li em{font-weight:normal;color:#111;}
 
-.meta{width:96%;margin:0 auto;}
-.meta table{width:100%;margin:.2em auto;border-collapse:collapse;line-height:1.8;border:2px solid #999;font-size:1em;}
-.meta a:hover{text-decoration:none;background:#de6;}
-.meta a:focus{outline: 1px solid red;text-decoration:none;}
-.meta tr:hover{background:#f6f8f9;}
-.meta th, .meta td{vertical-align:top;padding:.7em .5em .6em;border:1px solid #ccc;}
-.meta th{min-width:5em;text-align:right;font-weight:normal;color:#888;}
-.meta td{vertical-align:top;word-break:break-strict;}
-.meta td img{max-width:100%;display:block;}
-.meta td a{ word-break:break-all;}
-.meta td iframe {display:block;padding:0;margin:0;width:1000px;max-width:100%;height:600px;border:none;}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {/*修正 IE10 和 IE11*/
-	.meta td iframe { width:820px; }
-}
-
-
 a.mapMarker {display:inline-block;padding:0 .5em 0 2.2em;background:#fff url(../images/bubble.png) no-repeat .3em center;background-size:1.6em auto;margin-left:1em;min-height:2.4em;line-height:2.4em;border-radius:6px;border:1px solid #65adbb;text-decoration:none;}
 
 a.mapMarker:hover,
 a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 
-.meta ul,
-.meta ol{list-style:none;margin:0;padding:0;color:#888;line-height:1.5;font-size:1.1em;}
-.meta li{margin:0;padding:.6em 0;border-bottom:1px solid #ccc;}
-.meta li:first-child{border-top:1px solid #ccc;}
-.meta li em{color:#111;margin-left:.1em;font-weight:normal;}
-.meta li em:before{content:'：';color:#888;}
-.meta.resume{overflow:hidden;}
-.meta.resume table{width:68%;float:left;margin:10px 0 0 0;}
-.meta.resume figure{max-width:28%;float:right;margin:10px 1% 20px auto;}
-.meta.resume figure img{display:block;max-width:96%;background:#fff;padding:5px;box-shadow:#999 0 0 7px;}
 
-
-/*拍片景點、場館內容夜頁*/
-/* .album{width:96%;margin:30px auto;} */
-.album .meta{width:100%}
-.album .meta {padding:2em 0;}
-.album .meta td ol,
-.album .meta td ul{font-size:inherit;color:inherit;}
-.album .meta td ol{list-style:decimal;margin:-.3em auto -.4em 2.5em;}
-.album .meta td li{border:none;}
-
-.album article{padding:70px 3% 2em;margin:0;background:#d9ebee;}
-
-
-
-
-/*mobile first*/
-
-.photoThumb{display:none;}
-.photoShow{position: relative;padding:0;background:#333;transition: .3s;}
-/* .photoShow:hover{background: #444} */
-.photoShow ul{list-style:none;margin:0;padding:0;text-align:center;}
-.photoShow li{
-	position:absolute;top:0;left:0;width: 100vw; height: 100vw; margin:0;padding:0;line-height:1.6;
- /* border: 3px dotted #ccc; */
-}
-.photoShow li a{display: block; z-index: 0; width: 100%; height: 100%; transition:.3s;}
-.photoShow li img{display:none;height:calc(100% - 20px); width:calc(100% - 20px);margin:10px auto;object-fit:contain;}
-.photoShow li .caption {
-	/* display:block; */
-	position: absolute; left: 0; right: 0; bottom: 0; padding:50px 10px 10px;
-	min-height:3em; line-height: 1.4;
-	background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, .9) 80%);
-	color:#fff;
-}
-.photoShow .photoCount{position:absolute;right:10px;top:10px;border-radius:2em;padding:0 .4em 0 .7em;font-size:.85em;height:1.8em;line-height:1.3;background:rgba(240,243,244,.7);color:#333;border:1px solid #fff;z-index: 90;}
-.photoShow .photoCount em{font-size:1.25em;}
-.photoShow li:first-child {display:list-item;}
-.photoShow li:first-child img,
-.photoShow li:first-child .photoCount{display:block;}
-
-.photoShow .arbtn{width:44px;height:60px;position:absolute;top:50%;cursor:pointer;z-index:99;}
-.photoShow .arbtn:hover,
-.photoShow .arbtn:focus{background:rgba(0,0,0,.6);}
-.photoShow .arbtn:before{border-color:#fff;}
-
-.album{margin: 0 auto;}
-.album .ppause {
-	position:absolute;left:50%; top: 100vw; margin:10px auto 0 -26px;
-}
-.ppause{display:block;width:52px;height:52px;margin:0 auto;background:rgba(0,0,0,.4);border-radius:50%;transition:.3s;}
-.ppause:hover{box-shadow:rgba(250,0,0,.4) 0 0 0 4px;background-color:rgba(200,0,0,.8) }
-.ppause:before,
-.ppause:after {content:'';position:absolute;top:17px;left:18px;width:5px;height:18px;background:#fff}
-.ppause:after {left:30px}
-.ppause.pplay{background-color: rgba(200,0,0,.8);}
-.ppause.pplay:before{ border:10px solid transparent;border-left:16px solid #fff;height:18px;box-sizing:border-box;background:transparent;left:21px}
-.ppause.pplay:after{display:none;}
-
-@media screen and (min-width:601px) {
-	.photoShow {
-		width:100%;height:560px;margin:0 auto; padding:0;
-		background:#fff;
-	}
-	.photoShow:hover{background: #fff;}
-	.photoShow li{position:absolute;top:20px;left:60px;height:calc(100% - 40px);width:calc(100% - 120px);}
-	.photoShow li>a {display: block; height: 100%;}
-	.photoShow li img {
-		position: relative; top: 50%; transform: translateY(-50%);
-	  width: auto;height: auto; margin: 0 auto;
-		max-width: calc(100% - 10px);  max-height: calc(100% - 10px);
-	  border: 5px solid #fff; box-shadow: rgba(0, 0, 0, .3) 0 0 9px;
-	  transition: box-shadow .3s;
-	}
-	.photoShow a:hover img{box-shadow:rgba(0,0,0,.6) 0 0 24px;}
-
-	.photoShow li .caption{
-		display: block;
-		position: static; padding:8px 0; background-image: none; color:#000;
-		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-	}
-
-	.photoShow li a:focus img{border-color: #333}
-
-	.photoShow .arbtn{background:rgba(0,0,0,.3);}
-	.photoShow .arbtn.left{left:10px;}
-	.photoShow .arbtn.right{right:10px;}
-
-	.photoThumb{display: block;margin:40px auto 0;padding:8px;background:#333;}
-	.photoThumb ul{padding:1px 2px;text-align:center;overflow:hidden;}
-	.photoThumb li{position:relative;margin: 1px 0;float:left;}
-	.photoThumb li a{display:block;outline:none;}
-	.photoThumb li img {display:block;width:76px;height:76px;object-fit:cover;margin:0;padding:0;border: 1px solid #333;}
-	.photoThumb li.active:before {
-	  content: '';position: absolute;left: 0;top: 0;z-index: 99;
-	  width: 76px;height: 76px;
-		box-shadow: #c9f91d 0 0 0 2px;
-	}
-
-	.album .ppause { display: none}
-	.album article{padding-top: 2em;}
-}
-@media screen and (min-width:1001px) {
-	.album{width: 96%;}
-	.photoShow{margin-top: -15px}
-}
-
+/* 前言、後記 */
 .preface{width:96%; padding:2em 3% 1em;margin:0 auto 1em;overflow:hidden;background:#f3f5f6;}
 .page + .preface{margin-top:-40px;margin-bottom:40px;}
 .preface h2{float:left;margin-bottom:1em;font-size:1.8em;font-weight:normal;}
@@ -324,8 +144,26 @@ a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 .preface .info li, .preface .count li{margin:0 0 .8em 1.4em;display:inline-block;}
 .preface .info li:first-child, .preface .count li:first-child{margin-left:0;}
 .preface .count li.hot{padding-right:20px;background:url(../images/hot.png) no-repeat right 0;}
+@media screen and (max-width: 1000px){
+	.preface{width:auto;}
+	.page + .preface{margin-bottom:0;}
+}
+@media screen and (max-width: 800px){
+	.preface{margin:0;padding-top:.8em;}
+	.preface h2{font-size:1.4em;}
+	.preface .info, .preface .count{font-size:.9em;display:block;}
+	.preface .info li{margin:0 0 .8em;display:block;}
+	.preface .count{float:none;text-align:left;}
+}
+
+
+
+
+
+
 
 /*當期、單本雜誌*/
+/* 2022 
 .eMag{position:relative;border:1px solid #bbb;padding:1em;margin:0 0 3em;overflow:hidden;box-sizing:border-box;}
 .eMag h2{font-size:1.8em;margin:5px 0 .5em;line-height:1.1;font-weight:normal;clear:right;}
 .eMag .contents{clear:both;padding:1em 0;-moz-column-count:2;-moz-column-gap:4em;-moz-column-rule:1px solid #ddd;-webkit-column-count:2;-webkit-column-gap:4em;-webkit-column-rule:1px solid #ddd;column-count:2;column-gap:4em;column-rule:1px solid #ddd;}
@@ -336,7 +174,6 @@ a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 .contents dt{display:block;font-size:1.25em;margin:.8em 0 .3em;color:#998;}
 .contents dt:first-child{margin-top:0;}
 .contents dd{margin:0 0 .4em;}
-/*.eMag.LatestIssue .contents dl:after{content:'... ... ...'}*/
 .eMag .image{float:left;width:33%;height:auto;padding-right:2%;}
 .eMag .image img{display:block;margin:0 auto;max-width:100%;height:auto;border:1px solid #bbb;}
 .eMag.LatestIssue .image{width:270px;margin-right:10px;}
@@ -348,10 +185,12 @@ a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 .eMag .meta + .buttons{text-align:right;margin:1em 0 0;}
 .eMag .image .buttons{text-align:center;}
 .eMag .image .buttons li{display:inline-block;}
-.eMag .meta{margin-left:35%;}
+.eMag .meta{margin-left:35%;} 
+*/
 
 
-/*市長政見*/
+/*市長政見 （市府主站）*/
+/* 2022 
 ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;width:768px;height:670px;background:url(../../main/images/policies.png) no-repeat 0 0;}
 .policies>li {margin:0;padding:0;}
 .policies>li>a{position:absolute;width:250px;height:80px;border-radius:80px;text-indent:-12em;overflow:hidden;}
@@ -370,8 +209,11 @@ ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;widt
 .policies>li>a[title="青年政策"]{width:250px;height:66px;left:143px;top:434px;}
 .policies>li>a[title="客家政策"]{width:220px;height:66px;left:445px;top:465px;}
 .policies>li>a[title="中彰投區域聯合共治"]{width:370px;height:64px;left:12px;top:508px;}
-.policies>li>a[title="原住民族政策"]{width:280px;height:70px;left:442px;top:540px;}
+.policies>li>a[title="原住民族政策"]{width:280px;height:70px;left:442px;top:540px;} 
+*/
 
+/* 市府主站：市長政見 */
+/* 2022
 .pHilight{ margin:0 0 4em;padding:0 32px;}
 .pHilight h2 {margin:1em -32px -1.5em;padding:0;font-size:1.6em;}
 .pHilight h2 em{display:inline-block;margin:0 .3em 0 0;font-size:2em;}
@@ -397,62 +239,32 @@ ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;widt
 .pHilight a[name="c12"]+h2+ul h3 span{background:#00c3ac;}
 .pHilight a[name="c13"]+h2+ul h3 span{background:#00c3ac;}
 .pHilight a[name="c14"]+h2+ul h3 span{background:#0094a8;}
-
+ */
 
 .videoPlay{width:96%;margin:0 auto;}
 
 @media screen and (max-width:1000px) {
-	.share{top:200px;left:50%;margin:0 auto 0 -180px;padding:1.2em 0 0;width:360px;height:auto;background:rgba(180,180,180,.9);border-radius:8px;box-shadow:rgba(0,0,0,.6) 0 5px 40px;display:none;}
-	.share span{font-size:1.5em;text-align:center;font-weight:normal;color:#333;}
-	.share ul{list-style:none;margin:.3em 0 0;padding:0;font-size:1.5em;text-align:left;}
-	.share li{margin:.3em .6em;width:auto;height:auto;font-weight:normal;}
-	.share li a{display:block;overflow:hidden;width:auto;height:auto;background:#fff;white-space:nowrap;line-height:64px;color:#000;}
-	.share li a img{float:left;width:64px;height:64px;margin-right:.5em;}
-	.share li.close{display:block;text-align:center;width:3em;padding:.4em 1em;margin:.6em auto;background:#fff;border-radius:2em;color:#000;}
-
 	.LatestIssue .contents{-moz-column-count:1;-moz-column-gap:1em;-webkit-column-count:1;-webkit-column-gap:1em;column-count:1;column-gap:1em;}
+	/* 2022
 	.eMag.LatestIssue .buttons li{display:block;width:auto;}
-	.eMag.LatestIssue .buttons li a{display:block;width:auto;margin:0 0 8px;}
+	.eMag.LatestIssue .buttons li a{display:block;width:auto;margin:0 0 8px;} 
+	*/
 
 	.seeAlso ul li a{display:block;padding:.8em 0 .2em;}
 	.seeAlso{margin:30px auto;}
 
-
-	.album{width:100vw}
-
-	.preface{width:auto;}
-	.page + .preface{margin-bottom:0;}
-
 }
 @media screen and (max-width:800px) {
-	.share{top:70px;width:300px;margin-left:-150px;}
-	.share h2, .share ul{font-size:1.15em;}
-
 	.cpArticle{width:92vw;margin:0 auto;}
+	
 	.videoPlay{padding:15px;}
 	.videoPlay object{display:block;max-width:100%;float:none;margin:0 auto 2em;border-bottom:3px solid #bbb;}
 
-	.meta{margin:1em 0 0;padding-left:0;padding-right:0;width:100vw}
-	.cpArticle .meta{margin-left:-15px;margin-right:-15px;}
+	/* 2022
+		.pubInfo ul{font-size:.67em;}
+		.pubInfo li em{font-size:1.25em;} 
+	*/
 
-	.meta h2{margin:0 16px;font-size:1em;}
-	.meta table{border:none;}
-	.meta tr{display:block;border-top:1px solid #bbb;padding:.8em 16px;}
-	.meta th, .meta td{display:inline-block;text-align:left;border:none;width:auto;padding:.2em 0;}
-	.meta th{min-width:0;background:#e0e8ee;color: #111;border-radius:0 2em 2em  0;padding-left:16px;padding-right:.9em;margin-left:-16px;margin-right:.5em;}
-	.meta td iframe{margin:.5em auto 0;height:400px;}
-	.meta.resume table{width:100vw;float:none;margin:0;border-bottom:1px solid #bbb}
-	.meta.resume figure{max-width:none;width:100vw;float:none;margin:8px auto 1.5em;text-align:center;}
-	.meta.resume figure img{width:auto;max-width:96%;display:inline-block;}
-	.pubInfo ul{font-size:.67em;}
-	.pubInfo li em{font-size:1.25em;}
-
-	.album .meta table {width:100%;}
-	.preface{margin:0;padding-top:.8em;}
-	.preface h2{font-size:1.4em;}
-	.preface .info, .preface .count{font-size:.9em;display:block;}
-	.preface .info li{margin:0 0 .8em;display:block;}
-	.preface .count{float:none;text-align:left;}
 
 }
 @media screen and (max-width:600px) {
@@ -465,33 +277,15 @@ ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;widt
 
 	.cpArticle .list  table{border:none;}
 	.cpArticle .list td{border:none;border-bottom:1px dotted #ccc;}
-
-	.meta{margin:1em 0 0;}
-	.meta h2{margin:0 16px;font-size:1em;}
-	.meta table{border:none;}
-	.meta tr{display:block;border-top:1px solid #bbb;padding:.8em 16px;}
-	.meta td iframe{ margin:.5em auto 0;height:400px;}
-	.meta.resume table{width:100%;float:none;margin:0;}
-	.meta.resume figure{width:92%;max-width:none;float:none;margin:10px auto 2em;}
-	.pubInfo ul{font-size:.67em;}
-	.pubInfo li{white-space:normal}
-	.pubInfo li em{font-size:1.25em;}
-
-	.eMag .image, .eMag.LatestIssue .image{float:none;width:100%;height:auto;margin:0;}
-	.eMag .image img, .eMag.LatestIssue .image img{width:100%;max-height:none;}
-	.eMag.LatestIssue .buttons{font-size:1.2em;}
-	.eMag.LatestIssue .buttons li{clear:none;float:left;width:49%;}
-	.eMag.LatestIssue .buttons li:last-child{float:right;}
-	.eMag.LatestIssue .buttons li a{padding-left:0;padding-right:0; min-width:0;}
-	.eMag h2{font-size:1.4em;margin-top:1.5em;}
-	.eMag .meta{float:none;width:100%;margin:.6em 0 0;}
-	.eMag .meta + .buttons{text-align:center;padding-top:0;}
-	.eMag .contents{padding-top:0;-moz-column-count:1;-moz-column-gap:1em;-webkit-column-count:1;-webkit-column-gap:1em;column-count:1;column-gap:1em;}
+	/* 2022
+		.pubInfo ul{font-size:.67em;}
+		.pubInfo li{white-space:normal}
+		.pubInfo li em{font-size:1.25em;} 
+	*/
 }
 
 
-.forwardForm .extraBtn{clear:both;margin:0 0 .5em;overflow:hidden;}
-.forwardForm .extraBtn a{float:right;border-radius:2em;text-align:center;font-size:1em;line-height:2.2em;height:2.2em;padding:0 1em;background-color:#91c000;color:#fff;text-decoration:none;transition:.2s;}
+
 .extraBtn a:hover{background:#639100;color:#fff;}
 .extraBtn a:focus{background:#639100;color:#fff;}
 .note .extraBtn a{background-color:#f80;color:#fff;}
@@ -499,182 +293,30 @@ ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;widt
 .note .extraBtn a:focus{background-color:#e60;}
 .note a{word-break:break-all;}
 
-/*---------------forwardForm , qp */
-.forwardForm {width:96%;margin:0 auto 2em;padding:0 0 1em;overflow:hidden;}
-.forwardForm form{padding:0 0 2.5em;}
-.forwardForm input[type="text"],
-.forwardForm input.text,
-.forwardForm textarea{width:24em;}
-.forwardForm input.short,
-.forwardForm input.captchaTxt{width:8em;}
-.forwardForm textarea{height:9.5em;overflow:auto;}
-.forwardForm select { max-width:25em;}
-.forwardForm caption .must{float:right;font-size:.8em;color:#c00;}
-.refresh{display:inline-block;vertical-align:top;margin:5px 0 0 6px;}
-.refresh a{display:block;background:url(../images/btn_refresh.png) no-repeat 0 0;padding:10px 0 12px 37px;font-size:1em;letter-spacing:0;text-decoration:none;}
-.forwardForm form caption { display:none;}
-.reqMark {text-align:right;margin:0 1em 1em;}
-.forwardForm form td:first-child{max-width: none;}
-
-.magList{margin:0 auto;}
-form td .magList p{margin:0 0 1.5em;line-height:1.6;}
-.magList label{display:block;margin:.5em 0;font-size:1.2em;}
-
-
-
 /* 意見信箱進度查詢*/
-
 .note{margin:0 0 2.5em;padding:2.5em 3% 2.5em;border-width:1px;line-height:1.8;background:#fe8;}
 .note h2{font-size:1.2em;margin:0 0 1em;}
 .note li{margin-bottom:1.2em;}
 .note a{color:#f50;text-decoration:underline;}
 
-.forwardForm .note{position:relative;float:left;width:33%;}
-.forwardForm .note .extraBtn{margin:0 5px 0;}
-.forwardForm .note .extraBtn a{color:#ffc;text-decoration:none;}
-.forwardForm .note + form{width:59.5%;float:right;background:#eee;padding-top:1em;}
-.forwardForm .note + form td label{display:inline-block;width:auto;}
 
 
 
-a[title="換一組驗證碼"],
-a[href="javascript:resetCaptchaA();"]{ display:inline-block; margin:0 2px 5px;width:36px; height:36px;background:#F90 url(../images/refresh.png) no-repeat center center; background-size:60%;border-radius:50%;vertical-align:middle;}
-a[title="換一組驗證碼"]>img,
-a[href="javascript:resetCaptchaA();"]>img { display:none;}
-/* input.captchaTxt,
-input[type="text"][id="strCAPTCHA"],
-input[type="text"][name="aspCaptcha"] {margin-bottom:1em;width: 5em;} */
-img#imgCaptcha + input[type="text"] {height:2.4em;line-height:2.4em;}
-
-
-@media (max-width:1000px){
-	.forwardForm{ margin:1em auto;}
-	.forwardForm .note + form table{width:90%;margin:0 auto;}
-}
-@media (max-width:800px){
-	.forwardForm input[type="text"],
-	.forwardForm input.text,
-	.forwardForm textarea,
-	.forwardForm select {width:100%; max-width:none;}
-
-	/* 20190426 .center .buttonDiv{ margin-left:0; margin-right:0} */
-
-	img#imgCaptcha{width:280px;width: 48%}
-	img#imgCaptcha + input[type="text"] { margin-left:8px; width:12em; vertical-align:top;}
-}
-@media (max-width:600px){
-	.forwardForm{width:100vw;}
-	.forwardForm .note + form table{width:99%;}
-	.forwardForm .note,
-	.forwardForm .note + form{float:none;width:auto;margin:0;padding:1.5em 5vw 1em;}
-	.forwardForm .note + form{padding:1em 4vw 2em;background:none;}
-	img#imgCaptcha{width: 48%}
-
-}
-
-/*---qp 2019 new*/
-.center .qp header{margin:0 3px 3px;border:none;}
-
-.qp{width: 90%;margin:1em auto;padding: 3em 3%;background:#f6f6f6;border-radius: 6px;box-shadow: rgba(0,0,0,.75) 0 1px 5px -2px;}
-.qp form table{width:99%;margin: 0 auto;max-width:560px;}
-.qp td:first-child{padding-bottom: 3px;color: #777;font-weight: bold;}
-.qp tr:first-child td:first-child{border-top: none}
-.qp td:first-child:before{content: "";display: inline-block;width: 4px;height:.9em;background-color: #8cc11f;vertical-align: baseline;margin-bottom: -1px;margin-right:4px;}
-
-.qp td input[value="清除"]{width:24px;height:24px;margin:0 8px 0 0;color:transparent;background:transparent url(../images/btn_reset.png) no-repeat;border:none;}
-.qp caption{text-align: left;font-size: 1.25em;font-weight: bold;overflow: hidden;} 
-.qp caption .subCaption{font-size: .8em;float: right;color: #666;margin-top: .3em}
-.qp caption:after{content:"";display: block;height: 3px;background-color: #ccc;}
-
-.dateRange{display: inline-block;}
-.qp .dateRange input[type="text"]{width: 2em;margin: .1em 3px 3px;height: 2.2em;}
-.qp .dateRange input[type="text"].year{width: 3em;}
-.qp>form td:nth-child(2) .dateRange label{margin-right:0;}
-.optionPool + .optionPool{margin-top:.5em}
-.qp td .optionPool label{white-space: nowrap;display: inline;}
-.optionPool label input[type="checkbox"]{vertical-align: middle;height: 1em;}
-.optionPool label:first-child:before{content: "";display: block;}
-
-.qp>form td:nth-child(2) label{display: inline-block;margin: 0 .9em 5px 2px;border-radius: 4px;padding: 0 3px;}
-.qp>form td:nth-child(2) label:hover,
-.qp>form td:nth-child(2) label:focus{box-shadow:#99c300 0 0 0 2px;}
-.qp td:nth-child(2) .dateRange label:hover{box-shadow: none;background: rgba(185, 220, 0, .5);}
-
-
-.qp>form td input.dateInput {width:calc(100% - 3em);max-width: 14em;}
-.qp>form td input.dateInput+button{margin-left: 5px;}
-.qp input[type="text"][id="strCAPTCHA"],
-.qp input[type="text"][name="aspCaptcha"]{width: 16em}
-
-/* 20190808 */
-.matchingList{position: relative;width: 100%;margin-top: -2px;}
-.matchingList ul{position: absolute;top: 0;background: #fff;border:solid 1px #bbb;border-radius: 4px;padding:0 .4em;width: auto;height: 15.2em;overflow-y: scroll;display: none;width: 96%;width: calc(100% - .8em - 2px)}
-.matchingList li{margin: 2px 0;padding: .2em;}
-.matchingList li:hover{background: #f3f3f3;}
-.qp input[type="text"].showMatching {width: 100%;}
-.qp.onLpTop{padding-top:10px;padding-bottom: 10px;}
-
-@media screen and (min-width:601px){
-	.qp td .optionPool label{display: inline-block;}
-}
-@media screen and (min-width:801px){
-	.qp form table{max-width: 760px;}
-	.qp td:first-child{padding-top: .4em;padding-bottom: 3px;color: #777;}
-	.qp td:nth-child(2){padding-bottom: .4em;width: 70%}
-	.qp td:first-child:before,
-	.qp .optionPool label:first-child:before{display: none}
-	.qp input[type="text"],
-	.qp input[type="password"],
-	.qp input[type="tel"],
-	.qp input[type="email"],
-	.qp input[type="date"],
-	.qp input[type="number"],
-	.qp input[type="time"],
-	.qp input[type="url"],
-	.qp input[type="file"],
-	.qp textarea{width:26em;}
-	.qp select{width:27em;}
-	.qp input.short{width:8em;}
-	.qp td p{width: 27em;}
-	.qp>form td input.dateInput {width:calc(100% - 4em);}
-
-	.matchingList{width: 26.8em;}
-	.matchingList ul{width: 26em;}
-	.qp input[type="text"].showMatching{width: 26em;}
-
-	/* 20190809 */
-	.qp.onLpTop{padding-top:30px;padding-bottom: 10px;}
-	.qp.onLpTop .buttonDiv{margin-top: 10px;}
-}
-@media screen and (min-width:1001px){
-	.qp{margin:1em auto 3em;width: 90%;border-radius: 6px;box-shadow: rgba(0,0,0,.7) 0 1px 5px -2px;}
-	.qp th,
-	.qp td:first-child{min-width:5em;width:24%;}
-}
-
-
-/*----------------------qp forwardForm 共用*/
-.center .qp header,
-.center .forwardForm header{margin:0 3px 3px;border:none;}
-
-
-
-
-
-/* 2019 動保處新增版型 */
-/* 認養事項發問 btn */
+/* 2022
+//{} 2019 動保處新增版型
+//{} 認養事項發問 btn
 .askBtn{display: inline-block;text-align: center;}
 .askBtn>a{display: block;margin: 0 auto;height: 2.6em;line-height: 2.55em;padding: 0 2em;background: #05a3bb;color: #fff;border-radius: 2em;text-decoration: none;transition: .2s;}
 .askBtn>a:hover,
 .askBtn>a:focus{text-decoration: none;color: #fff;background-color: #00b5d0 !important;box-shadow: #6ed9e9 0 0 0 3px;}
-/* 萌指數 button */
+//{} 萌指數 button
 .like{display: inline-block;font-size: 1em;line-height:40px; }
 .like input[type="button"] {color: transparent;padding: 0;margin: 0 4px 0 0;;width: 44px;height: 40px;background:url(../images/iconLovely.png) no-repeat 0 0;  cursor:pointer;background-size:100% auto}
 .like input[type="button"]:hover,
 .like input[type="button"]:focus { background-position:0 -50px;outline: none}
-/* 本日新增 */
+//{} 本日新增
 .newArrival {width:124px; height:72px; background:url(../images/newArrival.png) no-repeat 0 0;font-size: 0;}
-/* 已認養 */
+//{} 已認養
 .adopted {position: absolute;right: 15px;bottom: 135px;width: 100px;height: 100px;background: url(../images/label_adopted.png) no-repeat 0 0;}
 @media screen and (min-width: 601px){
 	.adopted{right:90px;bottom: 80px;}
@@ -682,16 +324,19 @@ img#imgCaptcha + input[type="text"] {height:2.4em;line-height:2.4em;}
 @media screen and (min-width: 801px){
 	.adopted{right:20%;right:calc(30% - 90px);bottom: 50px;}
 }
+ */
 
-
+/* 2022
 .profileList li{position: relative;}
 .profileList li .askBtn{display: block;margin:15px 0;}
 .profileList li .askBtn a{display: inline-block}
 .profileList li .newArrival{position:absolute; right:2px; bottom:8px;}
 .profile .askBtn {display: block;margin:0 5px;padding-top: 15px;}
-.profile .askBtn a{display: inline-block}
+.profile .askBtn a{display: inline-block} 
+*/
 
 /* 動物資料表格與照片列表 */
+/* 2022 
 .profileList,
 .profile{clear:both;width: 96%;margin:0 auto;padding: 15px 0 40px;}
 .profileList .profileList,
@@ -704,9 +349,10 @@ figure.petPicture{display: block;background: url(../images/animalNoPhoto.png) no
 .petPicture>a{display: block;border: 1px solid #fff;}
 .petPicture>a:hover,
 .petPicture>a:focus{box-shadow: #fc3 0 0 0 4px;outline: none;}
+*/
 
 /* 動物保護處: 動物基本資料 */
-
+/* 2022
  table.meta4col,
 .meta4col table{width: 100%;line-height: 1.7;border-collapse: collapse;border: 2px solid #888;margin: 0 auto 1em;}
 .list table.meta4col{width: 100%;line-height: 1.7;border-collapse: collapse;border: 2px solid #888;margin: 0 auto 1em;}
@@ -725,9 +371,13 @@ figure.petPicture{display: block;background: url(../images/animalNoPhoto.png) no
 .meta4col td a:hover,
 .meta4col td a:focus{text-decoration: none;color: #09f}
 .meta4col td a:focus{outline: 1px solid #09f}
+ */
+/* 2022
 .profileList li .askBtn + p.hint{padding: .4em 1em;margin:1em 0 0;border: 1px dashed #bcc;background-color: #eef3f6;border-radius: 4px;font-size:.9em}
 .profileList .petPicture a{ display: block; padding: 0 !important;margin: 0 !important;}
 .profileList .petPicture a>img{display: block;}
+ */
+/* 2022
 @media screen and (max-width:800px){
   .meta4col{clear: both;}
 	.meta4col tr, .meta4col th, .meta4col td{display: block;}
@@ -737,10 +387,14 @@ figure.petPicture{display: block;background: url(../images/animalNoPhoto.png) no
 	.meta4col td, .meta4col td:last-child,  .list .meta4col tr:last-child td{border-bottom: 1px solid #ddd;}
 	.meta4col tr:last-child td:last-child{border: none;}
 	.meta4col th{float: left;clear: both;padding-bottom: 0;padding-right:20px}
-	.meta4col td:before{content: '';display: inline-block;height: 5px;}/* 避免無資料時高度塌陷 */
+	// 避免無資料時高度塌陷 //
+	.meta4col td:before{content: '';display: inline-block;height: 5px;}
   .meta4col th:nth-child(3){border-left: none;clear: both;}
 	.meta4col th:after{width: 4px;height: 12px;margin-right:6px ;top: .8em;background: #fb0;}
 }
+ */
+
+/* 2022
 @media screen and (min-width:601px){
 	.meta4col tr:hover{background: #f4f5f5;}
 	.profileList li .like ,
@@ -765,19 +419,19 @@ figure.petPicture{display: block;background: url(../images/animalNoPhoto.png) no
 	.profileList li .like {float: left;margin-top: 8px;}
 	.profileList.noPicture li .askBtn{float: none;}
 	.profileList li .askBtn,
-	.profile .askBtn{clear: both;}
-
+	.profile .askBtn{clear: both;} 
 	.meta4col tr{display:table-row;}
 	.meta4col th{width: 20%;display: table-cell;}
-	.meta4col td{width: 28%;display: table-cell;}
+	.meta4col td{width: 28%;display: table-cell;} 
 }
 @media screen and (min-width:1001px){
 	.profile{margin-top: 0;}
 }
-
+*/
 
 
 /*文創店家查詢 20190402*/
+/* 2022
 .spSearch{width: 96%;margin:0 auto 20px;padding:30px 0;background:#f1d876;color: #444;}
 .preface + .spSearch{margin-top:-1em;}
 .spSearch table{max-width:94%;}
@@ -816,14 +470,16 @@ td:nth-child(even) .optionGp label{position:relative;display:inline-block;margin
 	.spSearch input[type="text"]{width:100%;}
 	td:nth-child(even) .optionGp label{display:block;width:auto;margin:4px 0;background:rgba(255,255,255,.3);}
 	td:nth-child(even) .optionGp label.isSelected{background:#fff;}
-}
+} 
+*/
 
 /* 店家詳細內容 */
+/* 2022
 .cpArticle .meta,
 .cpArticle .facilities,
 .cpArticle .qrcodeList,
 .cpArticle .pdPhotoList{margin:40px auto;}
-.cpArticle .meta{clear: both;width: 100%;border-top: 1px solid transparent;}/* border will make previous element which contain float child overflow:hidden */
+.cpArticle .meta{clear: both;width: 100%;border-top: 1px solid transparent;}
 .cpArticle .meta table{border:2px solid #999;}
 .cpArticle .meta tr:first-child{border: none;}
 
@@ -864,5 +520,5 @@ td:nth-child(even) .optionGp label{position:relative;display:inline-block;margin
 	.cpArticle .pdPhotoList li img{width: 100%;height: auto;max-height:none;max-width:none;object-fit: contain;}
 	.cpArticle .pdPhotoList li p{display:block;height: auto;width:96%;padding-bottom:12px;}
 	.cpArticle .pdPhotoList li p:empty{background: #f00;display: none;}
-
-}
+} 
+*/

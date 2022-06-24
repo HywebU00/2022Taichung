@@ -1,12 +1,10 @@
-@charset "UTF-8";
-/* CSS Document */
-
+/* 2022 modified */
 html {background:none;}
 body { position: static !important; background:#fff; color:#000; margin:0 2%; font-size:1em;}
 .accesskey,
 .menu,
 .function,
-.topLinks,
+.topLinks, /* 2022 new */
 .friendly,
 .fontSize,
 .share,
@@ -20,26 +18,59 @@ body { position: static !important; background:#fff; color:#000; margin:0 2%; fo
 .navbar,
 .gmap,
 .seeAlso,
-.bigBanner::before,
-.news::before,
-.freeZone::before,
-.webHeader::before,
-.goTop,
-.webFooter { display: none !important; }
+.bigBanner::before, /* 2022 new */
+.news::before, /* 2022 new */
+.freeZone::before, /* 2022 new */
+.webHeader::before, /* 2022 new */
+.goTop, /* 2022 new */
+.webFooter /* 2022 new */
+{ display: none !important; }
 
-.webHeader { position: static; padding:20px 0 10px !important; margin: 0 auto 20px !important; background: none !important; border-bottom: 3px solid #bbb;}
-.webHeader.fixed{position: static; height: auto;padding:16px 0;}
-.webHeader h1 { position: static;  display: block; margin: 0 auto; padding: 0; background: none; }
-.webHeader h1 img, .webHeader.fixed h1 img { height: 50px !important; width: auto !important;}
+.webHeader {
+  position: static;
+  padding: 20px 0 10px !important;
+  margin: 0 auto 20px !important;
+  background: none !important;
+  border-bottom: 3px solid #bbb;
+}
 
-.center>header { display:block; margin:1em 0 0;}
-.pubInfo { background:none; border:1px solid #bbb; color:#888;}
-.pubInfo li em { color:#000;}
-ol.policies { max-width:100%; background-size:contain;}
-.cpArticle figure{width:48%; float:left; margin-right:1em;}
-.cpArticle figure img{ width:100%; }
+.webHeader.fixed {
+  position: static;height: auto;padding: 16px 0;
+}
+.webHeader h1 {
+  position: static;display: block;margin: 0 auto;padding: 0;background: none;
+}
+.webHeader h1 img,
+.webHeader.fixed h1 img {
+  height: 50px !important;width: auto !important;
+}
 
+.center>header {
+  display: block;margin: 1em 0 0;
+}
 
-.attachment .images li{
-  position:relative;float:left;width:160px;height:auto;margin:0 8px 8px 0;padding:0;overflow:hidden;
+.pubInfo {
+  background: none;border: 1px solid #bbb;color: #666;
+}
+.pubInfo li em {
+  color: #000;
+}
+
+/* 
+ol.policies {
+  max-width: 100%; background-size: contain;
+}
+*/
+
+.cpArticle figure {
+  float: left;width: 48%;margin-right: 1em;
+}
+
+.cpArticle figure img {
+  width: 100%;
+}
+
+.attachment .images li {
+  position: relative; float: left; overflow: hidden;
+  width: 160px;height: auto;margin: 0 8px 8px 0;padding: 0;
 }
