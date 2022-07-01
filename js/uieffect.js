@@ -222,67 +222,113 @@ $(function(){
 
 
 
-  // 主選單 ////////////////////////////
+  // 寬版主選單 _menu ////////////////////////////
   // 找出_menu中有次選單的li
   _menu.find('li').has('ul').addClass('hasChild');
   // 寬版主選單 ////////////////////////////
-  _menu.each( function(){
+  var _hasChild = _menu.find('.hasChild');
+  var _hasChildA = _hasChild.children('a');
+  var _topItem = _menu.children('ul').children('li');
+  var liA = _menu.find('li>a');
+
+  _hasChild.each(function(){
     let _this = $(this);
-    let _hasChild = _this.find('.hasChild');
-    let _topItem = _this.children('ul').children('li');
-    let _hasChildA = _hasChild.children('a');
-    let liA = _this.find('li>a');
-    
-    _hasChild.hover(
+    let _thisSubMenu = _this.children('ul');
+    let _xBotton;
+
+    _this.hover(
       function(){
-        let _this = $(this);
-        let _thisSubMenu = _this.children('ul');
+        let offset1 = _window.scrollTop() + _window.height();
+        let offset2;
+        let translate = '';
+        let dd = 0;
+        let disB = 0;
+
+        _this.addClass('here');
 
         if ( _this.is(_topItem) ) {
-          _thisSubMenu.stop(true, false).slideDown(300);
+          if ( _this.offset().left + _thisSubMenu.innerWidth() > _window.innerWidth()) {
+            _thisSubMenu.css( {'left': 'auto', 'right': 0} );
+          } else {
+            _thisSubMenu.css('left', 0);
+          }
         } else {
-          // let _thisSubMenu = $(this).children('ul');
-          _this.addClass('here');
           if ( _this.offset().left + _this.innerWidth() + _thisSubMenu.innerWidth() > _window.innerWidth()) {
             _thisSubMenu.css( 'left', -1*(_thisSubMenu.innerWidth()) );
           } else {
             _thisSubMenu.css('left', _thisSubMenu.parent().innerWidth());
           }
-          _thisSubMenu.stop(true, false).slideDown(300);
         }
+
+        _thisSubMenu.stop(true, true).slideDown(300, function(){
+          offset2 = parseInt(_thisSubMenu.offset().top + _thisSubMenu.innerHeight());
+          const itemHeight = _thisSubMenu.find('li:first-child').innerHeight();
+
+          if (offset2 > offset1) {
+            if (_thisSubMenu.innerHeight() <= _window.height()) {
+              translate = 'translateY(' + String( offset1 - offset2 ) + 'px)';
+            } else {
+              translate = 'translateY(' + String( _window.scrollTop() - _thisSubMenu.offset().top ) + 'px)';
+
+              // 加入控制 button -------------------------------------
+              _this.append('<button class="xButton" type="button"></button>');
+              _xBotton = _this.find('.xButton');
+              _xBotton.css('left', _thisSubMenu.offset().left + _thisSubMenu.width());
+
+              // disB = 選單高度 - 視窗高度
+              disB =  _thisSubMenu.innerHeight() - _window.height();
+            }
+            _thisSubMenu.css('transform', translate );
+
+            _xBotton.click(function(){
+              if ( dd + disB > 0) {
+                dd = dd - itemHeight;
+                if (dd + disB < itemHeight) { dd = dd - disB%itemHeight;}
+                _thisSubMenu.stop(true, false).animate({'margin-top': dd}, 200);
+              }
+            })
+          };
+        });
       },
       function(){
-        $(this).removeClass('here').children('ul').stop(true, false).slideUp(200, function(){
+        _this.removeClass('here').find('.xButton').remove();
+        _thisSubMenu.stop(true, false).slideUp(200, function(){
           $(this).removeAttr('style');
         });
       }
     );
     
-    _hasChildA.focus(function(){
-      let _this = $(this);
-      let _thisSubMenu = $(this).next('ul');
+  })
+  
+  // 鍵盤操作 
+  _hasChildA.focus(function(){
+    let _this = $(this);
+    let _thisSubMenu = $(this).next('ul');
 
-      if ( _this.parent().is(_topItem) ) {
-        _thisSubMenu.show();
+    if ( _this.parent().is(_topItem) ) {
+      _thisSubMenu.show();
+    } else {
+      if (_this.parent().offset().left + _this.innerWidth() + _thisSubMenu.innerWidth() > _window.innerWidth()) {
+        _thisSubMenu.css('left', -1*(_thisSubMenu.innerWidth()) );
       } else {
-        if (_this.parent().offset().left + _this.innerWidth() + _thisSubMenu.innerWidth() > _window.innerWidth()) {
-          _thisSubMenu.css('left', -1*(_thisSubMenu.innerWidth()) );
-        } else {
-          _thisSubMenu.css('left', _thisSubMenu.parent().innerWidth());
-        }
-        _thisSubMenu.show();
+        _thisSubMenu.css('left', _thisSubMenu.parent().innerWidth());
       }
-      _this.parent().addClass('here');
-    })
+      _thisSubMenu.show();
+    }
+    _this.parent().addClass('here');
+  })
 
-    liA.focus(function(){
-      $(this).parent('li').siblings().removeClass('here').find('ul').hide();
-    })
-
-
+  liA.focus(function(){
+    $(this).parent('li').siblings().removeClass('here').find('ul').hide();
   })
 
 
+  // 離開 _menu 隱藏所有次選單
+  $('*').focus(function(){
+    if( $(this).parents('.menu').length == 0 ){
+      _menu.find('.hasChild').removeClass('here').find('ul').removeAttr('style');
+    }
+  })
 
 
   // 行動版側欄選單 //////////////////////////////
