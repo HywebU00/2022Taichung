@@ -117,7 +117,7 @@
       width: calc(50vw - 336px);
     }
     .boards{
-      width: $wwMaximum * ($normalWidth / 100vw);
+      width: $wwMaximum * (calc($normalWidth / 100vw));
       &>li{
         img{
           height: calc( #{$wwMaximum }*.205 - 12px)

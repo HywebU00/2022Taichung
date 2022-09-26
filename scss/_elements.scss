@@ -196,9 +196,16 @@ button.closeThis{
       width: $dotDia; height: $dotDia; border-radius: 50%;
       padding: 0; margin: 0; font-size: 0; border: none; box-shadow: none;
       background: darken($gray, 10%); transition: .3s;
+      cursor: pointer; outline: none;
+      &:focus, &:hover{
+        box-shadow:$mainBg 0 0 0 1px, $fontColor 0 0 0 3px;
+      }
     }
     &.slick-active{
-      button{background-color: $fontColor; box-shadow: $fontColor 0 0 0 2px;}
+      button{
+        background-color: $fontColor; box-shadow: $fontColor 0 0 0 2px;
+        &:focus, &:hover{ box-shadow:$fontColor 0 0 0 2px, $mainBg 0 0 0 3px, $primaryColor 0 0 0 5px;}
+      }
     }
   }
 }

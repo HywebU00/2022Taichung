@@ -62,7 +62,7 @@
 <body>
   <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
   <header class="webHeader">
-    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="upper block" >:::</a>
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="上方標題區" >:::</a>
     <h1><a href="mp.html"><img src="images/h1.png" alt="台中市政府文化局"></a></h1>
 
     <nav class="topLinks">
@@ -277,22 +277,50 @@
   <!-- 大圖輪播 -->
   <section class="bigBanner">
     <div>
-      <picture>
-        <source media="(min-width:1200px)" srcset="publicData/bigBanner1b.jpg">
-        <source media="(min-width:700px)" srcset="publicData/bigBanner1.jpg">
-        <img src="publicData/bigBanner1.jpg" alt="2021臺中文學季">
-      </picture>
+      <a href="#">
+        <picture>
+          <source media="(min-width:1200px)" srcset="publicData/bigBanner1b.jpg">
+          <source media="(min-width:700px)" srcset="publicData/bigBanner1.jpg">
+          <img src="publicData/bigBanner1.jpg" alt="2021臺中文學季">
+        </picture>
+      </a>
     </div>
     <div>
-      <picture>
+      <a href="#">
+        <picture>
         <source media="(min-width:1200px)" srcset="publicData/bigBanner_maximum.jpg"><!-- 最寬版用圖 -->
         <source media="(min-width:700px)" srcset="publicData/bigBanner.jpg"><!-- 一般版用圖 -->
         <img src="publicData/bigBanner_mobile.jpg" alt="圖檔長寬比例示範"><!-- 手機版用圖 -->
       </picture>
+      </a>
     </div>
-    <div><img src="publicData/bigBanner2.jpg" alt="2222"></div>
-    <div><img src="publicData/bigBanner3.jpg" alt="3333"></div>
-    <div><img src="publicData/bigBanner4.png" alt="4444"></div>
+    <div>
+      <a href="#">
+        <picture>
+          <source media="(min-width:1200px)" srcset="publicData/bigBanner2.jpg">
+          <source media="(min-width:700px)" srcset="publicData/bigBanner2.jpg">
+          <img src="publicData/bigBanner2.jpg" alt="2222">
+        </picture>
+      </a>
+    </div>
+    <div>
+      <a href="#">
+        <picture>
+          <source media="(min-width:1200px)" srcset="publicData/bigBanner3.jpg">
+          <source media="(min-width:700px)" srcset="publicData/bigBanner3.jpg">
+          <img src="publicData/bigBanner3.jpg" alt="3333">
+        </picture>
+      </a>
+    </div>
+    <div>
+      <a href="#">
+        <picture>
+          <source media="(min-width:1200px)" srcset="publicData/bigBanner4.png">
+          <source media="(min-width:700px)" srcset="publicData/bigBanner4.png">
+          <img src="publicData/bigBanner4.png" alt="4444">
+        </picture>
+      </a>
+    </div>
   </section>
   
 
@@ -917,13 +945,13 @@
   </section>
 
   <!-- 模擬燈箱（彈跳訊息）開啟 -->
-  <script>
+  <!-- <script>
     $(function(){
       $('.lightbox').add('.coverAll').show();
       $('.lightbox').find('.closeThis').focus();
       $('body').addClass('noScroll');
     })
-  </script>
+  </script> -->
 
 </body>
 </html>
