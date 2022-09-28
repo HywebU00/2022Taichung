@@ -420,6 +420,20 @@ $(function(){
   // --end of-- 查詢區 //////////////////////////////
 
 
+  // 按 altKey + s 要 focus 查詢 input 元件 //////////////////////////////
+  _window.keydown( function(e){
+    if (e.which == 83 && e.altKey ) {
+      if (_window.scrollTop() > hh) {
+        _html.stop(true,false).animate({scrollTop: 0}, 400, function(){
+          _search.find('input[type="text"]').focus();
+        });
+      }
+    }
+  })
+  // --end of--  altKey + s //////////////////////////////
+
+
+
   // fatfooter 開合 //////////////////////////////
   var _fatFootCtrl = $('.fatFootCtrl');
   var _footSiteTree = $('.fatFooter').find('.siteTree>ul>li>ul');
