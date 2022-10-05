@@ -430,7 +430,7 @@ $(function(){
       }
     }
   })
-  // --end of--  altKey + s //////////////////////////////
+  // --end of--  altKey + s //////////////////////////////////////////////
 
 
 
@@ -477,34 +477,123 @@ $(function(){
   ////////////////////////////////////////////////////////////
 
   // 頁籤，March 2022 新做  ////////////////////////////
-  var _tabset = $('.tabset');
-  _tabset.each(function(){
-    let _this = $(this);
-    let _tabItems = _this.find('.tabItems');
-    let _tabButton = _tabItems.find('button');
-    let _tabContent = _this.find('.tabContent');
-    let i = _tabButton.filter('.active').index();
+  // var _tabset = $('.tabset');
+  // _tabset.each(function(){
+  //   let _this = $(this);
+  //   let _tabItems = _this.find('.tabItems');
+  //   let _tabButton = _tabItems.find('button');
+  //   let _tabContent = _this.find('.tabContent');
+  //   let i = _tabButton.filter('.active').index();
 
-    _tabContent.not(':last').append('<button class="skip"></button>')
-    let _skip = _tabContent.find('.skip');
+  //   _tabContent.not(':last').append('<button class="skip"></button>')
+  //   let _skip = _tabContent.find('.skip');
     
-    _tabContent.eq(i).show();
-    _tabButton.attr('tabindex' , '-1' ).eq(i).attr('tabindex' , '0' );
+  //   _tabContent.eq(i).show();
+  //   _tabButton.attr('tabindex' , '-1' ).eq(i).attr('tabindex' , '0' );
 
-    _tabButton.on('click' , function(){
-      i = $(this).index();
-      $(this).addClass('active').attr('tabindex' , '0' ).siblings().removeClass('active').attr('tabindex' , '-1' );
-      _tabContent.hide().eq(i).show();
-    })
+  //   _tabButton.on('click' , function(){
+  //     i = $(this).index();
+  //     $(this).addClass('active').attr('tabindex' , '0' ).siblings().removeClass('active').attr('tabindex' , '-1' );
+  //     _tabContent.hide().eq(i).show();
+  //   })
 
-    _skip.on('focus', function(){
-      _tabButton.eq( $(this).parent().index() ).focus();
-    })
+  //   _skip.on('focus', function(){
+  //     _tabButton.eq( $(this).parent().index() ).focus();
+  //   })
 
-    _tabButton.on('focus', function(){
-      $(this).trigger('click');
-    })
-  })
+  //   _tabButton.on('focus', function(){
+  //     $(this).trigger('click');
+  //   })
+  // })
 
+	// 無障礙頁籤功能，修改 Shift + tab 
+	function tabFun() {
+		var activeClass = 'active'; // 啟動的 class
+		var tabSet = $('.tabset');
+    
+		tabSet.each(function () {
+			var _tabBtnBlock = $(this).find('.tabItems');
+			var _tabBtn = _tabBtnBlock.find('button');
+			var _tabBtnLength = _tabBtn.length;
+			// let _tabContentBlock = $(this).find('.tabContentGroup');
+			var _tabContent =  $(this).find('.tabContent');
+      
+			_tabBtn.removeClass(activeClass).eq(0).addClass(activeClass);
+			_tabContent.eq(0).show();
+
+      // console.log(_tabContent.eq(0).attr('title'));
+
+			for (let i = 0; i < _tabBtnLength; i++) {
+				(
+					function (i) {
+						var _this = _tabBtn.eq(i);
+						var _thisContent = _tabContent.eq(i);
+						var _thisPrevItem = _tabContent.eq(i - 1);
+						var _itemAllA = _thisContent.find('[href], input'); //這一個頁籤內容所有a和input項目
+						var _prevItemAllA = _thisPrevItem.find('[href], input'); //前一個頁籤內容所有a和input項目
+						var _isFirstTab = i === 0; //如果是第一個頁籤
+						var _isLastTab = i === _tabBtnLength - 1; //如果是最後一個頁籤
+						var _itemFirstA = _itemAllA.eq(0); //頁籤內容第一個a或是input
+						var _itemLastA = _itemAllA.eq(-1); //頁籤內容最後一個a或是input
+						var _prevItemLastA = _prevItemAllA.eq(-1); //前一個頁籤的最後一個a或是input
+
+						// _this頁籤觸發focus內容裡的第一個a
+						_this.on('keydown', function (e) {
+							//頁籤第幾個按鈕觸發時無
+							if (e.which === 9 && !e.shiftKey) { // 如果按下 Tab，但沒有按著 shift
+								e.preventDefault();
+								startTab(i); //啟動頁籤切換功能
+								if (_itemAllA.length) { // 如果 _itemAllA.length 不是 0（內容有至少一個 a 或 input）
+									_itemFirstA.focus(); // 內容的第一個 a 或是 input focus
+								} else {
+									_tabBtn.eq(i + 1).focus(); // 當內容沒有 a 或是 input 跳下一個頁籤
+								}
+							} else if (e.which === 9 && e.shiftKey && !_isFirstTab) { // 如果按Tab，同時按著shift，且不是第一個頁籤
+								e.preventDefault();
+								startTab(i - 1); //啟動頁籤切換功能，切換到上一個頁籤
+
+								if (_prevItemAllA.length) { // 如果前ㄧ個頁籤的內容有至少一個 a 或 input
+									_prevItemLastA.focus(); // 前一個頁籤內容的最後一個a或是input focus
+								} else { // 當內容沒有a或是input
+									_tabBtn.eq(i - 1).focus(); // focus 上一個頁籤
+								}
+							}
+						});
+
+						// 當按下shift+tab且為該內容的第一個a或是input
+						// 將focus目標轉回tab頁籤上，呼叫上方功能startTab(i - 1);往前一個頁籤
+						_itemFirstA.on('keydown', function (e) {
+							if (e.which === 9 && e.shiftKey) {
+								e.preventDefault();
+								_tabBtn.eq(i).focus();
+							}
+						});
+
+						//當按下shift+tab且為該內容的最後一個a或是input，focus到下一個頁籤
+						_itemLastA.on('keydown', function (e) {
+							if (e.which === 9 && !e.shiftKey && !_isLastTab) {
+								e.preventDefault();
+								_tabBtn.eq(i + 1).focus();
+							}
+						});
+					})(i);
+
+				//滑鼠點擊事件
+				_tabBtn.on('click', function (e) {
+					e.preventDefault();
+					var _nowBtn = $(this).index();
+					startTab(_nowBtn);
+				});
+
+				//切換tab
+				function startTab(_now) {
+          // console.log(_now);
+					_tabBtn.eq(_now).addClass(activeClass).siblings().removeClass(activeClass);
+					_tabContent.hide().eq(_now).show();
+				}
+			}
+		});
+	}
+	tabFun();
 
 })
