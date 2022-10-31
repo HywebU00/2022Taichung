@@ -1,255 +1,385 @@
 // webFooter 頁腳
-.webFooter{
-  position: relative; padding: 40px 0 30px; margin: 0;
-  background: $footerBg; color: $fontInvert; font-size: .9375rem;
-
-  a{color: $fontInvert; text-decoration: none;}
-
-  ul{list-style: none; margin: 0 ; padding: 0;}
-
-  .fatFooter, .fatFootCtrl{ display: none; }
-
-  .base{
-    width: $mobileWidth; margin: 0 auto; padding: 0;
-    ul{
-      margin: 0 0 1.5em; overflow: hidden; line-height: 1.1;
-      li{
-        float: left; position: relative; margin: 0 .8em .5em 0; padding: 0 .8em 0 0;
-        &::after{
-          content: ''; position: absolute; right: 0; top: 2px; bottom: 2px; width: 1px;
-          background-color: transparentize($fontInvert, .5);
-
-        }
-        &:last-child{ margin-right: 0; padding-right: 0;
-          &:after{ display: none;}
-        }
-        a{
-          display: block; padding: 1px;
-          border-bottom: 1px solid transparent;
-          &:hover, &:focus{ border-bottom-color: $fontInvert;}
-        }
-      }
+.webFooter {
+    position: relative;
+    padding: 40px 0 30px;
+    margin: 0;
+    background: $footerBg;
+    color: $fontInvert;
+    font-size: .9375rem;
+    a {
+        color: $fontInvert;
+        text-decoration: none;
     }
-    .contact{
-      line-height: 1.6;
-      p{margin: .6em 0;}
-      a{
-        display: inline-block; margin: 0 0 0 .5em; padding: 0 3px;
-        color: lighten($linkColor, 55%); text-decoration: underline;
-        &:first-child{margin-left: 0;}
-        &:hover, &:focus{
-          text-decoration: none;
-          box-shadow: $hiLight 0 0 0 1px;  
-        }
-
-        &.mapPin{
-          padding-left: 28px;
-          background: url(../images/icon_mapPin.svg) no-repeat 2px 0;
-          background-size: 24px;
-        }
-
-        &.mail{
-          padding-left: 28px;
-          background: url(../images/icon_mail.svg) no-repeat 0 0;
-          background-size: 24px;
-        }
-
-      }
-    }
-    .visitAndDate{
-      color: $hiLight;
-      p {
-        display: inline-block; margin-right: 1em;
-      }
-    }
-
-    .badges{ display: none; }
-  }
-
-  #CapModule_T300100_Extreme_66{display: none;}
-
-
-
-  @media screen and (min-width: $wwNormal){
-    padding-top: 100px;
-    background: $footerBg url(../images/footer_bg.jpg) no-repeat center top;
-    background-size: cover auto;
-    
-    .fatFootCtrl{
-      display: block; width: 64px; height: 44px;
-      position: absolute; top: 25px; left: 50%; transform: translateX(-50%);
-      background: none; border: none; box-shadow: none;outline: none; 
-      text-indent: -10em; overflow: hidden; cursor: pointer;transition: .2s;
-      &::before{
-        content: ''; position: absolute; top: 15px; left: 50%; margin-left: -12px;
-        width: 25px; height: 25px;
-        border: 1px solid $fontInvert; border-bottom: none; border-right: none;
-        transform: rotate(45deg); transition: .4s;
-      }
-      &.closed{
-        &::before{
-          transform: rotate(225deg); top: 0;
-        }
-      }
-
-      &:hover{
-        box-shadow:rgba(255,255,255,.2) 0 0 0 1px, rgba(255,255,255,.3) 0 0 8px 2px; 
-      }
-      &:focus{
-        box-shadow:rgba(255,255,255,.8) 0 0 0 1px, rgba(255,255,255,.3) 0 0 16px 2px; 
-      }
-    }
-
-    .fatFooter{
-      display: block; margin: 0 auto 30px; padding: 0; width: $normalWidth;
-
-      .siteTree{
+    ul {
+        list-style: none;
         margin: 0;
-        a{ display: block;}
-        &>ul{
-          display: flex; flex-flow: row wrap; line-height: 1.4;
-          margin: 0 -16px; padding: 0;
-          &>li{
-            flex: 1 1 auto; max-width: 8em; margin:0 16px 1em;
-            &>a {
-              font-size: 1rem;
-            }
-            a{
-              border-bottom: 1px solid transparent; transition: .2s;
-              &:hover, &:focus {
-                border-bottom-color: $fontInvert;
-              }
-            }
-            &>ul{
-              padding: 1.2em 0 3.5em; margin: 0;
-              li{
-                margin: 0 0 .5em;
-                a{
-                  position: relative; padding: .4em 0 2px 1em;
-                  &::before{
-                    content: ''; position: absolute; left: 2px; top: .95em;
-                    width: 8px; height: 1px; background-color: $fontInvert;
-                    transition: .2s;
-                  }
-                  &:hover, &:focus{
-                    &::before{ height: 4px;margin-top: -1px;}
-                  }
+        padding: 0;
+    }
+    .fatFooter,
+    .fatFootCtrl {
+        display: none;
+    }
+    .base {
+        width: $mobileWidth;
+        margin: 0 auto;
+        padding: 0;
+        ul {
+            margin: 0 0 1.5em;
+            overflow: hidden;
+            line-height: 1.1;
+            li {
+                float: left;
+                position: relative;
+                margin: 0 .8em .5em 0;
+                padding: 0 .8em 0 0;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 2px;
+                    bottom: 2px;
+                    width: 1px;
+                    background-color: transparentize($fontInvert, .5);
                 }
-              }
-
-              ul{display: none;}
+                &:last-child {
+                    margin-right: 0;
+                    padding-right: 0;
+                    &:after {
+                        display: none;
+                    }
+                }
+                a {
+                    display: block;
+                    padding: 1px;
+                    border-bottom: 1px solid transparent;
+                    &:hover,
+                    &:focus {
+                        border-bottom-color: $fontInvert;
+                    }
+                }
             }
-          }
         }
-      }
-    }
-
-    .base{
-      position: relative;
-       width: $normalWidth; padding-top: 25px;  padding-right: 410px;
-       border-top: 1px solid $hiLight;
- 
-      .visitAndDate{
-        color: $hiLight;
-        p{
-          display: inline-block; margin-right: 1em;
-        }
-      }
-
-      .badges{
-        display: block;
-        position: absolute; right: 0; top: 20px;
-        img{ display: block;}
-        a{
-          display: block; transition: .3s; 
-          &:hover, &:focus{
-            box-shadow: #fff 0 0 0 3px;
-          }
-        }
-
-        .badgeA{
-          float: left; margin-right: 12px;
-          img{ width: 184px; }
-        }
-        .egov{
-          float: left; margin-right: 12px;
-          img{ width: 43px; }
-        }
-
-        .qrCode{
-          float: left; padding: 0;
-          img{
-            width: 100px; background-color: #fff;
-          }
-        }
-      }
-    }
-
-    // 國家災害防救科技中心災害示警資訊 
-    #CapModule_T300100_Extreme_66{
-      display: block; width: 400px !important;
-      position: absolute; right: 0; bottom: 0;
-
-      ul.innerfade{
-        width: 100%; padding: 0; margin: 0; height: 130px !important;
-        li{height: auto !important; width: 100%; padding: 0; margin: 0;}
-      }
-    
-      .alertCAP_banner{
-        display: flex !important; width: 100% !important;
-      }
-      .block_up{
-        flex: 0 0 100px; width: 100px; min-height:100px; height:auto !important;
-        position: relative;
-        &::after{
-          content: ''; position: absolute; right: -9px; top: 50%; margin-top: -10px; z-index: 9;
-          width: 0; height: 0; border-style: solid;
-          border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #d0b685;
-        }
-
-        .alertCAP_Area{display: none;}
-        .alertCAP_titleicon{
-          height:auto !important;
-          img{ display: block; margin: 0 auto; width: 88px; height: 80px; object-fit: contain;}
-          .alertCAP_title {
-            display: block; margin: 0;
-            text-align: center; font-size: .9375rem !important; color: #0d5261;
-          }
-        }
-
-      }
-
-      .block_down{
-        flex: 1 1 calc(100% - 100px);
-        padding: 12px 15px 30px 20px; position: relative; height: auto !important;
-        .alertCAP_logo{
-          position: absolute; bottom: 10px; right: 15px;
-          img{ display: none;}
-          a{
-            display: block; position: relative; padding-right: 16px;
-            &::before{content: 'MORE';}
-            &::after{ 
-              content: ''; position: absolute; right: 0; top: 4px;
-               width: 6px; height: 6px; transform: rotate(45deg);
-              border: 1px solid #fff; border-left: none; border-bottom: none;
+        .contact {
+            line-height: 1.6;
+            p {
+                margin: .6em 0;
             }
-          }
+            a {
+                display: inline-block;
+                margin: 0 0 0 .5em;
+                padding: 0 3px;
+                color: #CFF0FD;
+                text-decoration: underline;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                    box-shadow: $hiLight 0 0 0 1px;
+                }
+                &.mapPin {
+                    padding-left: 28px;
+                    background: url(../images/icon_mapPin.svg) no-repeat 2px 0;
+                    background-size: 24px;
+                }
+                &.mail {
+                    padding-left: 28px;
+                    background: url(../images/icon_mail.svg) no-repeat 0 0;
+                    background-size: 24px;
+                }
+            }
         }
-        .alertCAP_con {
-          font-size: 15px; line-height: 1.5;
-          .alertCAP_time{
-            margin-top: 6px;
-          }
+        .visitAndDate {
+            color: #CFF0FD;
+            p {
+                display: inline-block;
+                margin-right: 1em;
+            }
         }
-      }
+        .badges {
+            display: none;
+        }
     }
-  
-  }
-
-  @media screen and (min-width: $wwMaximum){
-    .fatFooter, .base{
-      width:  $wwMaximum*.82;
+    #CapModule_T300100_Extreme_66 {
+        display: none;
     }
-  }
-
+    @media screen and (min-width: $wwNormal) {
+        padding-top: 100px;
+        background: $footerBg url(../images/footer_bg.jpg) no-repeat center top;
+        background-size: cover auto;
+        .fatFootCtrl {
+            display: block;
+            width: 64px;
+            height: 44px;
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            text-indent: -10em;
+            overflow: hidden;
+            cursor: pointer;
+            transition: .2s;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 15px;
+                left: 50%;
+                margin-left: -12px;
+                width: 25px;
+                height: 25px;
+                border: 1px solid $fontInvert;
+                border-bottom: none;
+                border-right: none;
+                transform: rotate(45deg);
+                transition: .4s;
+            }
+            &.closed {
+                &::before {
+                    transform: rotate(225deg);
+                    top: 0;
+                }
+            }
+            &:hover {
+                box-shadow: rgba(255, 255, 255, .2) 0 0 0 1px, rgba(255, 255, 255, .3) 0 0 8px 2px;
+            }
+            &:focus {
+                box-shadow: rgba(255, 255, 255, .8) 0 0 0 1px, rgba(255, 255, 255, .3) 0 0 16px 2px;
+            }
+        }
+        .fatFooter {
+            display: block;
+            margin: 0 auto 30px;
+            padding: 0;
+            width: $normalWidth;
+            .siteTree {
+                margin: 0;
+                a {
+                    display: block;
+                }
+                &>ul {
+                    display: flex;
+                    flex-flow: row wrap;
+                    line-height: 1.4;
+                    margin: 0 -16px;
+                    padding: 0;
+                    &>li {
+                        flex: 1 1 auto;
+                        max-width: 8em;
+                        margin: 0 16px 1em;
+                        &>a {
+                            font-size: 1rem;
+                        }
+                        a {
+                            border-bottom: 1px solid transparent;
+                            transition: .2s;
+                            &:hover,
+                            &:focus {
+                                border-bottom-color: $fontInvert;
+                            }
+                        }
+                        &>ul {
+                            padding: 1.2em 0 3.5em;
+                            margin: 0;
+                            li {
+                                margin: 0 0 .5em;
+                                a {
+                                    position: relative;
+                                    padding: .4em 0 2px 1em;
+                                    &::before {
+                                        content: '';
+                                        position: absolute;
+                                        left: 2px;
+                                        top: .95em;
+                                        width: 8px;
+                                        height: 1px;
+                                        background-color: $fontInvert;
+                                        transition: .2s;
+                                    }
+                                    &:hover,
+                                    &:focus {
+                                        &::before {
+                                            height: 4px;
+                                            margin-top: -1px;
+                                        }
+                                    }
+                                }
+                            }
+                            ul {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .base {
+            position: relative;
+            width: $normalWidth;
+            padding-top: 25px;
+            padding-right: 410px;
+            border-top: 1px solid $hiLight;
+            .visitAndDate {
+                color: #CFF0FD;
+                p {
+                    display: inline-block;
+                    margin-right: 1em;
+                }
+            }
+            .badges {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 20px;
+                img {
+                    display: block;
+                }
+                a {
+                    display: block;
+                    transition: .3s;
+                    &:hover,
+                    &:focus {
+                        box-shadow: #fff 0 0 0 3px;
+                    }
+                }
+                .badgeA {
+                    float: left;
+                    margin-right: 12px;
+                    img {
+                        width: 184px;
+                    }
+                }
+                .egov {
+                    float: left;
+                    margin-right: 12px;
+                    img {
+                        width: 43px;
+                    }
+                }
+                .qrCode {
+                    float: left;
+                    padding: 0;
+                    img {
+                        width: 100px;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+        // 國家災害防救科技中心災害示警資訊 
+        #CapModule_T300100_Extreme_66 {
+            display: block;
+            width: 400px !important;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            ul.innerfade {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                height: 130px !important;
+                li {
+                    height: auto !important;
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+            .alertCAP_banner {
+                display: flex !important;
+                width: 100% !important;
+            }
+            .block_up {
+                flex: 0 0 100px;
+                width: 100px;
+                min-height: 100px;
+                height: auto !important;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -9px;
+                    top: 50%;
+                    margin-top: -10px;
+                    z-index: 9;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 10px 0 10px 10px;
+                    border-color: transparent transparent transparent #d0b685;
+                }
+                .alertCAP_Area {
+                    display: none;
+                }
+                .alertCAP_titleicon {
+                    height: auto !important;
+                    img {
+                        display: block;
+                        margin: 0 auto;
+                        width: 88px;
+                        height: 80px;
+                        object-fit: contain;
+                    }
+                    .alertCAP_title {
+                        display: block;
+                        margin: 0;
+                        text-align: center;
+                        font-size: .9375rem !important;
+                        color: #0d5261;
+                    }
+                }
+            }
+            .block_down {
+                flex: 1 1 calc(100% - 100px);
+                padding: 12px 15px 30px 20px;
+                position: relative;
+                height: auto !important;
+                .alertCAP_logo {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 15px;
+                    img {
+                        display: none;
+                    }
+                    a {
+                        display: block;
+                        position: relative;
+                        padding-right: 16px;
+                        &::before {
+                            content: 'MORE';
+                        }
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            top: 4px;
+                            width: 6px;
+                            height: 6px;
+                            transform: rotate(45deg);
+                            border: 1px solid #fff;
+                            border-left: none;
+                            border-bottom: none;
+                        }
+                    }
+                }
+                .alertCAP_con {
+                    font-size: 15px;
+                    line-height: 1.5;
+                    .alertCAP_time {
+                        margin-top: 6px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: $wwMaximum) {
+        .fatFooter,
+        .base {
+            width: $wwMaximum*.82;
+        }
+    }
 }
