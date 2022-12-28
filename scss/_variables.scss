@@ -21,7 +21,7 @@ $wwMaximum: 1200px;
     width: $normalWidth;
   }
   @media screen and (min-width: $wwMaximum){
-    width: $wwMaximum*($normalWidth / 100vw);
+    width: $wwMaximum*(calc($normalWidth / 100vw));
   }
 }
 // ---------- 主要內容寬度設定 ----------- //
