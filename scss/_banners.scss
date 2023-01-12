@@ -1,4 +1,4 @@
-// 首頁：文化藝術
+// 首頁：滿版大圖輪播（原設計稿標題：「文化藝術」）
 .banners{
   margin: 0 auto; padding: 50px 0;
   .bannerloop{
@@ -99,4 +99,61 @@
     }
   }
    
+}
+
+// 首頁：文化藝術（2023 一月新增）
+.banner8x4{
+  margin: 0 auto;
+  .bannerloop{
+    margin: 0 auto; padding: 0 0 24px;
+  }
+  .slick-slide{
+    margin: 0;
+    img{
+      display: block; width: 100%; height: 50vw; object-fit: cover;
+    }
+    a{
+      display: block;
+    }
+  }
+
+  .slick-arrow{
+    margin-top: -24px;
+  }
+
+  @media screen and (min-width: $wwMedium){
+    .bannerloop{
+      width: 72vw;
+    }
+    .slick-list{
+      overflow: visible;      
+    }
+    .slick-slide{
+      margin: 0 6px; padding: 0;
+      img{
+        height: calc(36vw - 6px);
+      }
+    }
+    .slick-arrow{
+      &.slick-prev { left: -14vw;}
+      &.slick-next { right: -14vw;}
+    }
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .bannerloop{
+      width: 50vw; max-width: 800px;
+    }
+    .slick-slide{
+      img{
+        height: calc(25vw - 6px); max-height: 394px;
+      }
+    }
+    .slick-arrow{
+      &.slick-prev { left: -25vw;}
+      &.slick-next { right: -25vw;}
+    }
+  }
+
 }

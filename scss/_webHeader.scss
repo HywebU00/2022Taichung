@@ -66,12 +66,9 @@
     &::before{ width: calc(9vw + 320px);}
 
     h1{
-      position: absolute; left:  9vw;
-      padding: 40px 0 30px; margin: 0;
+      position: absolute; left:  2vw; padding: 40px 0 30px; margin: 0;
       img{ height: 50px; margin: 0;}
     }
-
-
 
     .searchCtrl, .sidebarCtrl{ display: none; }
     &::after{ bottom: -18px; height: 18px; width: 40vw;}
@@ -87,7 +84,7 @@
     &::before{
       width: auto; left: 0; right: calc( 50% + 172px);
     }
-    h1{ left: calc(50vw - #{$wwMaximum}*.41)}
+    h1{ left: calc(50vw - #{$wwMaximum}*.48)}
 
   }
 }

@@ -38,7 +38,7 @@ $(function(){
 
 
   // 首頁小 banner 輪播（文化藝術）
-  $('.bannerloop').slick({
+  $('.banners').find('.bannerloop').slick({
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplaySpeed: 5000,
@@ -59,6 +59,22 @@ $(function(){
     ]
 
   });
+
+    // 首頁：８Ｘ４ banner 輪播（2023Jan 新增）
+    $('.banner8x4').find('.bannerloop').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplaySpeed: 5000,
+      speed: 600,
+      autoplay: false,
+      arrows: true,
+      dots: true,
+      centerPadding: 0,
+      fade: false,
+      infinite: true,
+      mobileFirst: true
+  
+    });
   // slick 參數設定：結束 ////////////////////////////
 
 

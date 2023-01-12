@@ -86,7 +86,7 @@
     }
 
     &>ul{
-      margin: 0 auto; width: $normalWidth;
+      margin: 0 auto; width: 96vw;
       display: flex; flex-flow: row nowrap;
       font-size: 1.125rem;
       &>li{
@@ -170,7 +170,7 @@
 
   @media screen and (min-width: $wwMaximum){
     &>ul{
-      width: $wwMaximum * .82;
+      width: $wwMaximum * .96;
     }
   }
   
