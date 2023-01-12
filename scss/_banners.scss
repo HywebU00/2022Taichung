@@ -1,9 +1,8 @@
-// 首頁：滿版大圖輪播（原設計稿標題：「文化藝術」）
+// 首頁：小廣告輪播（原設計稿標題：「文化藝術」）
 .banners{
   margin: 0 auto; padding: 50px 0;
   .bannerloop{
     margin: 0 auto;
-
     .slick-list{ padding: 15px 12px 30px; }
 
     .slick-slide{
@@ -101,10 +100,103 @@
    
 }
 
-// 首頁：文化藝術（2023 一月新增）
-.banner8x4{
-  margin: 0 auto;
-  .bannerloop{
+
+
+// 首頁：相簿 slide（2023 一月新增）
+.albumsFlow{
+  padding: 50px 0;
+  .flow{
+    width: 81vw; margin: 0 auto;padding: 0 0 24px;
+  }
+  .slick-list{
+    overflow: visible; height: 54vw;
+  }
+  .slick-slide{
+    position: relative;
+    margin: 20px 6px 0; width: 66vw;
+    transition: .6s;
+    a, img{ display: block;}
+    a{
+      &:hover{
+        p{
+          background-image: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,1) 80%);
+        }
+      }
+      &:focus{
+        box-shadow: $secondaryColor 0 0 0 2px;
+      }
+    }
+    img{
+      width: 100%; height: 44vw; object-fit: cover;
+      transition: .6s;
+    }
+
+    p{
+      position: absolute; left: 0;bottom: 0; right: 0;
+      font-size: 1.2rem; line-height: 1.5; padding: 50px 20px 15px;margin: 0;
+      color: $fontInvert;
+      background-image: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,1) 130%);
+      white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+      transition: .3s;
+    }
+
+    &.slick-active{
+      width: 81vw; margin-top: 0; z-index: 99;
+      box-shadow: rgba(0, 0, 0, .25) 0 0 30px;
+      img{height: 54vw;}
+      p{ font-size: 1.6rem;}
+    }
+  }
+  .slick-arrow{
+    margin-top: -24px;
+    &.slick-prev { left: -24px;}
+    &.slick-next { right: -24px;}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    .flow{ width: 60vw;}
+    .slick-list{ height: 40vw;}
+    .slick-slide{
+      width: 48vw;
+      img{ height: 32vw;}
+      &.slick-active{
+        width: 60vw;
+        img{ height: 40vw;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .slick-slide{
+      margin-top: 30px;
+      p{ font-size: 1.5;}
+      &.slick-active{
+        p{ font-size: 1.8rem;}
+      }
+    }
+  }
+  @media screen and (min-width: $wwMaximum){
+    .flow{ width: 720px; }
+    .slick-list{ height: 480px; }
+    .slick-slide{
+      width: 576px;
+      img{height: 384px;}
+      &.slick-active{
+        width: 720px;
+        img{height: 480px;}
+      }
+    }
+
+  }
+
+
+}
+
+
+// 首頁：2:1 圖 slide（2023 一月新增）
+.banner2x1{
+  padding: 50px 0;
+  .flow{
     margin: 0 auto; padding: 0 0 24px;
   }
   .slick-slide{
@@ -114,6 +206,12 @@
     }
     a{
       display: block;
+      &:hover{
+        box-shadow: $secondaryColor 0 0 0 1px;
+      }
+      &:focus{
+        box-shadow: $secondaryColor 0 0 0 2px;
+      }
     }
   }
 
@@ -122,11 +220,11 @@
   }
 
   @media screen and (min-width: $wwMedium){
-    .bannerloop{
+    .flow{
       width: 72vw;
     }
     .slick-list{
-      overflow: visible;      
+      overflow: visible;
     }
     .slick-slide{
       margin: 0 6px; padding: 0;
@@ -142,12 +240,12 @@
   }
 
   @media screen and (min-width: $wwNormal){
-    .bannerloop{
-      width: 50vw; max-width: 800px;
+    .flow{
+      width: 50vw; 
     }
     .slick-slide{
       img{
-        height: calc(25vw - 6px); max-height: 394px;
+        height: calc(25vw - 6px);
       }
     }
     .slick-arrow{

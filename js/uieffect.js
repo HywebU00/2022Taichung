@@ -60,21 +60,35 @@ $(function(){
 
   });
 
-    // 首頁：８Ｘ４ banner 輪播（2023Jan 新增）
-    $('.banner8x4').find('.bannerloop').slick({
+    // 首頁：2x1 banner 輪播（2023Jan 新增）
+    $('.banner2x1').find('.flow').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplaySpeed: 5000,
       speed: 600,
       autoplay: false,
       arrows: true,
       dots: true,
       centerPadding: 0,
-      fade: false,
       infinite: true,
       mobileFirst: true
   
     });
+
+    // 首頁：相簿輪播（2023Jan 新增）
+    $('.albumsFlow').find('.flow').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplaySpeed: 4000,
+      speed: 800,
+      autoplay: true,
+      arrows: true,
+      dots: true,
+      centerPadding: 0,
+      infinite: true,
+      mobileFirst: true
+  
+    });
+    
   // slick 參數設定：結束 ////////////////////////////
 
 
