@@ -1,0 +1,53 @@
+// 首頁：2:1 圖 slide（2023 一月新增）
+.banner2x1{
+  padding: 50px 0;
+  .flow{
+    margin: 0 auto; padding: 0 0 24px;
+  }
+  .slick-slide{
+    margin: 0;
+    img{
+      display: block; width: 100%; height: 50vw; object-fit: cover;
+    }
+    a{
+      display: block;
+      &:hover{box-shadow: $secondaryColor 0 0 0 1px;}
+      &:focus{box-shadow: $secondaryColor 0 0 0 2px;}
+    }
+  }
+
+  .slick-arrow{margin-top: -24px;}
+  .slick-dots{margin-top: 8px;}
+
+  @media screen and (min-width: $wwMedium){
+    .flow{width: 72vw;}
+    .slick-list{overflow: visible;}
+    .slick-slide{
+      margin: 0 6px; padding: 0;
+      img{
+        height: calc(36vw - 6px);
+      }
+    }
+    .slick-arrow{
+      &.slick-prev { left: -14vw;}
+      &.slick-next { right: -14vw;}
+    }
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .flow{
+      width: 50vw; 
+    }
+    .slick-slide{
+      img{
+        height: calc(25vw - 6px);
+      }
+    }
+    .slick-arrow{
+      &.slick-prev { left: -25vw;}
+      &.slick-next { right: -25vw;}
+    }
+  }
+
+}
