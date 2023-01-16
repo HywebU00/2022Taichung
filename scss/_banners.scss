@@ -1,8 +1,124 @@
+// 2023年版小廣告圖
+// 手機版全部展開，垂直排例
+.banners2{
+  margin: 0 auto; padding: 50px 0;
+  .bannerloop{
+    margin: 0 auto;
+
+    .loopItem{
+      margin: 24px auto; max-width: 440px;
+      &.slick-slide{ float: none;}
+      img{
+        display: block;width: 100%; height: calc(5*$mobileWidth/13); max-height: 170px;
+        transition: .3s;
+      }
+    }
+
+    a{
+      display: block; position: relative;width: 100%;
+      color: $fontColor; text-decoration: none; outline: none;
+      box-shadow: rgba(0,0,0,.15) 0 5px 12px;
+      transition: .3s;
+      &::before{
+        content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+      }
+      &:hover, &:focus{
+        transform: scale(1.06);
+        box-shadow: rgba(0,0,0,.3) 0 5px 20px;
+      }
+      &:focus{
+        &::before{
+          z-index: 9;
+          box-shadow: $primaryColor 0 0 0 2px inset;
+        }
+      }
+    }
+
+    .slick-arrow{
+      margin-top: -8px;
+      &.slick-prev { left: 0;}
+      &.slick-next { right: 0;}
+    }
+  }
+
+  @media screen and (min-width: 520px){
+    // 此寬度以上螢幕左右滑動輪播
+    .bannerloop{
+      padding: 0 12px;
+      .slick-list{
+        padding: 15px 0 30px; overflow: hidden;
+      }
+      .slick-slide{
+        margin: 0 auto;outline: none;
+        &.loopItem{ margin:0 12px; float: left;}
+        img{height: calc((230vw - 120px)/13)}
+      }
+
+      a{
+        box-shadow: rgba(0,0,0,.2) 0 6px 16px -8px;
+        &:hover{
+          box-shadow: rgba(0,0,0,.5) 0 14px 20px -14px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 760px){
+    .bannerloop{
+      .slick-slide{
+        img{
+          height: calc((500vw - 480px)/39)
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .blockHeader, .subheader{ z-index: 9; position: relative;}
+
+    .bannerloop {
+      position: relative;
+      width:calc(#{$normalWidth} + 48px);
+
+      .slick-slide {
+        img {
+          height: calc((#{$normalWidth}*5 - 240px)/39);
+        }
+
+        &[aria-hidden="true"]{ box-shadow: none;}
+      }
+      .slick-arrow{
+        &.slick-prev { left: -48px;}
+        &.slick-next { right: -48px;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .bannerloop {
+      width: calc(#{$wwMaximum}*.82 + 48px);
+
+      .slick-slide {
+        img{
+          height: calc((#{$wwMaximum}*4.1 - 240px)/39);
+        }
+      }
+    }
+  }
+   
+}
+
+
+
+
+
+
 // 首頁：小廣告輪播（原設計稿標題：「文化藝術」）
 .banners{
   margin: 0 auto; padding: 50px 0;
   .bannerloop{
     margin: 0 auto;
+
     .slick-list{ padding: 15px 12px 30px; }
 
     .slick-slide{
@@ -12,6 +128,7 @@
       img{
         width: 100%; height: calc((50vw - 36px)*5/13); object-fit: fill; 
         transition: .3s;
+        // width:height = 13:5
       }
       p{
         margin: 0; padding: .7em .6em .6em; line-height: 1.1;

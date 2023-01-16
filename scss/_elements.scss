@@ -160,7 +160,7 @@ button.closeThis{
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 9;
   width: 48px; height: 72px; 
   text-indent: -20em; overflow: hidden; margin: 0; border: none;
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(255,255,255,.4);
   cursor: pointer; outline: none; transition: .2s;
   &::before{
     content: ''; position: absolute; width: 28px; height: 28px;
@@ -180,7 +180,7 @@ button.closeThis{
     box-shadow: rgba(0,0,0,.3) 0 0 9px;
   }
   &:focus{
-    box-shadow:$primaryColor 0 0 0 2px, rgba(0,0,0,.3) 0 0 9px;;
+    box-shadow:$primaryColor 0 0 0 2px inset, rgba(0,0,0,.3) 0 0 9px;;
   }
 }
 

@@ -8,8 +8,8 @@ $(function(){
   // var wh = _window.height();
   // var wwNew = ww;
 
-  // const wwSlim = 480;
-  // const wwMedium = 700; //此值以下是手機
+  const wwSlim = 480;
+  const wwMedium = 700; //此值以下是手機
   const wwNormal = 1000;  //此值以上是電腦
   // const wwMaximum = 1200;
 
@@ -31,13 +31,11 @@ $(function(){
     autoplay: true,
     arrows: true,
     dots: true,
-    fade: false,
     infinite: true,
     zIndex:8
   });
 
-
-  // 首頁小 banner 輪播（文化藝術）
+  // 首頁：小廣告圖輪播（文化藝術）
   $('.banners').find('.bannerloop').slick({
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -46,7 +44,6 @@ $(function(){
     autoplay: true,
     arrows: true,
     dots: false,
-    fade: false,
     infinite: true,
     mobileFirst: true,
     responsive: [
@@ -60,35 +57,73 @@ $(function(){
 
   });
 
-    // 首頁：2x1 banner 輪播（2023Jan 新增）
-    $('.banner2x1').find('.flow').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      speed: 600,
-      autoplay: false,
-      arrows: true,
-      dots: true,
-      centerPadding: 0,
-      infinite: true,
-      mobileFirst: true
-  
-    });
+  // 首頁：2x1 banner 輪播（2023Jan 新增）
+  $('.banner2x1').find('.flow').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 600,
+    autoplay: false,
+    arrows: true,
+    dots: true,
+    centerPadding: 0,
+    infinite: true,
+    mobileFirst: true
 
-    // 首頁：相簿輪播（2023Jan 新增）
-    $('.albumsFlow').find('.flow').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplaySpeed: 4000,
-      speed: 800,
-      autoplay: true,
-      arrows: true,
-      dots: true,
-      centerPadding: 0,
-      infinite: true,
-      mobileFirst: true
+  });
+
+  // 首頁：相簿輪播（2023Jan 新增）
+  $('.albumsFlow').find('.flow').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplaySpeed: 4000,
+    speed: 800,
+    autoplay: true,
+    arrows: true,
+    dots: true,
+    centerPadding: 0,
+    infinite: true,
+    mobileFirst: true
+
+  });
+
   
-    });
-    
+  // 首頁：2023年版小廣告圖，
+  // 桌機、平板版輪播，手機垂直展開
+  var _bannersloop2 = $('.banners2').find('.bannerloop');
+  const banners2Count = _bannersloop2.find('.loopItem').length;
+  _bannersloop2.slick({
+    vertical: true,
+    slidesToShow: banners2Count,
+    slidesToScroll: 1,
+    autoplaySpeed: 5000,
+    speed: 600,
+    autoplay: false,
+    arrows: false,
+    dots: false,
+    infinite: true,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 521,
+        settings: {
+          vertical: false,
+          slidesToShow: 2,
+          autoplay: true,
+          arrows: true,
+        }
+      },
+      {
+        breakpoint: 760,
+        settings: {
+          vertical: false,
+          slidesToShow: 3,
+          autoplay: true,
+          arrows: true,
+        }
+      }
+    ]
+  });
+
   // slick 參數設定：結束 ////////////////////////////
 
 
@@ -410,11 +445,11 @@ $(function(){
     $(this).fadeOut(400);
   })
 
-  let winResizeTimer0;
+  let winResizeTimer;
   _window.resize(function () {
-    clearTimeout(winResizeTimer0);
-    ww = _window.width();
-    winResizeTimer = setTimeout(function () {
+    clearTimeout(winResizeTimer);
+    winResizeTime = setTimeout(function () {
+      ww = _window.width();
       if(ww >= wwNormal ) {
         _window.on('scroll.fixHeader' , fixHeader);
         if (_sidebar.hasClass('reveal')) {
