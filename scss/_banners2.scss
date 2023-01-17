@@ -16,6 +16,10 @@
         display: block;width: 100%; height: calc( 5*$mobileWidth/13 );
         transition: .3s;
       }
+      p{
+        margin: 0; padding: .7em .6em .6em; line-height: 1.1;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
     }
 
     a{

@@ -175,12 +175,14 @@ button.closeThis{
       &::before{transform: rotate(225deg); margin-left: -22px;}
   }
 
-  &:hover, &:focus{
+  &:hover {
     background-color: rgba(255,255,255,.88);
     box-shadow: rgba(0,0,0,.3) 0 0 9px;
   }
   &:focus{
-    box-shadow:$primaryColor 0 0 0 2px inset, rgba(0,0,0,.3) 0 0 9px;;
+    background-color: rgba(0,0,0,.88);
+    box-shadow:#fff 0 0 0 1px inset, rgba(0,0,0,.3) 0 0 9px;
+    &:before{border-color: #fff;}
   }
 }
 
