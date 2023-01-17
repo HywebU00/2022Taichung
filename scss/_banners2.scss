@@ -33,7 +33,7 @@
       &:focus{
         &::before{
           z-index: 9;
-          box-shadow: $primaryColor 0 0 0 2px inset;
+          box-shadow: $secondaryColor 0 0 0 2px inset;
         }
       }
     }
