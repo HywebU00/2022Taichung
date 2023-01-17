@@ -90,7 +90,7 @@ $(function(){
   // 首頁：2023年版小廣告圖，
   // 桌機、平板版輪播，手機垂直展開
   var _bannersloop2 = $('.banners2').find('.bannerloop');
-  const banners2Count = _bannersloop2.find('.loopItem').length;
+  var banners2Count = _bannersloop2.find('.loopItem').length;
   _bannersloop2.slick({
     vertical: true,
     slidesToShow: banners2Count,
