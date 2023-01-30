@@ -29,7 +29,7 @@
 
 
 @media screen and (max-width:1000px) {
-	div.main{width:100%;box-shadow:none;}
+	.main{width:100%;box-shadow:none;}
 	/*.row>section:only-child{padding: 50px 0 40px;}*/
 	.cx3a>section,
 	.cx3b>section,

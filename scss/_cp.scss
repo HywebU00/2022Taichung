@@ -1,30 +1,64 @@
-@charset "UTF-8";
+// @charset "UTF-8";
 /* CSS Document 台中機關網 */
-@import url("metaTable.css"); /* 表格型資料 */
-@import url("cpPhoto.css"); /* 表格型資料 */
-@import url("share.css"); 		/* 分享 */
+// @import url("../2017/metaTable.css"); /* 表格型資料 */
+// @import url("../2017/cpPhoto.css"); /* 表格型資料 */
+// @import url("../2017/css/share.css"); 		/* 分享 */
 
 
-.cpArticle{
-	margin:0 auto;padding:16px 0 0;line-height:1.7;font-size:1.1em;overflow:hidden;
+.cpArticle {
+  width: $mobileWidth; margin:0 auto;padding:16px 0 0;
+  line-height:1.7;font-size:1.1em;overflow:hidden;
+  // border: 1px dashed greenyellow;
+  p{line-height:inherit;margin:0 0 1em;padding:0;}
+  &>a{
+    display:inline-block;
+    &:focus{box-shadow:#e30 0 0 0 2px;outline:none;}
+  }
+
+  figure{
+    float:left;width:400px;margin:0 2em 1em 0;padding:9px;
+    border:1px solid #ccc;box-shadow:rgba(0,0,0,.3) 0 1px 3px;
+    figcaption{line-height:1.5;margin:9px 0 0;display:block;color:#888;font-size:.94em;
+      &:empty{display:none;}
+    }
+    img{display:block;width:100%;height:auto;margin:0 auto;}
+  }
+  // table
+  table{
+    width:100%;margin:.2em auto;border-collapse:collapse;line-height:1.8;border:2px solid #999;color:#111;
+    caption{font-weight:bold;text-align:left;font-size:1em;padding:.4em .5em;text-align:left;}
+    th,
+    td{vertical-align:top;padding:.4em .5em;border:1px solid #ccc;}
+    th{color:#888;font-weight:normal;}
+    th[scope="row"]{text-align:right;vertical-align:top;width:15%;}
+    th[scope="col"]{text-align:center;vertical-align:middle;}
+  
+    &.noBorder{
+      width:auto;margin:2em;border:none;
+      th,
+      td{border:none;padding:0}
+    }
+  
+    .list{
+      th, td{text-align:left !important;}
+    }
+  
+  }
+
+  @media screen and (min-width: $wwNormal){
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+  }
 }
-.cpArticle p{line-height:inherit;margin:0 0 1em;padding:0;}
-.cpArticle figure{float:left;width:400px;margin:0 2em 1em 0;padding:9px;border:1px solid #ccc;box-shadow:rgba(0,0,0,.3) 0 1px 3px;}
-.cpArticle figcaption{line-height:1.5;margin:9px 0 0;display:block;color:#888;font-size:.94em;}
-.cpArticle figcaption:empty{display:none;}
-.cpArticle figure img{display:block;width:100%;height:auto;margin:0 auto;}
-.cpArticle figure>a{display:inline-block;}
-.cpArticle figure>a:focus{box-shadow:#e30 0 0 0 2px;outline:none;}
-/*table*/
-.cpArticle table{width:100%;margin:.2em auto;border-collapse:collapse;line-height:1.8;border:2px solid #999;color:#111;}
-.cpArticle table.noBorder{width:auto;margin:2em;border:none;}
-.cpArticle table caption{font-weight:bold;text-align:left;font-size:1em;padding:.4em .5em;text-align:left;}
-.cpArticle th, .cpArticle td{vertical-align:top;padding:.4em .5em;border:1px solid #ccc;}
-.cpArticle .noBorder th, .cpArticle .noBorder td{border:none;padding:0}
-.cpArticle th{color:#888;font-weight:normal;}
-.cpArticle th[scope="row"]{text-align:right;vertical-align:top;width:15%;}
-.cpArticle th[scope="col"]{text-align:center;vertical-align:middle;}
-.cpArticle .list th, .cpArticle .list td{text-align:left !important;}
+
+
+
+
+
+
+
 /*ul , ol*/
 .cpArticle ul, .cpArticle ol{margin:2em 1em;padding:0 0 0 2em;}
 .cpArticle ul{list-style:disc;}

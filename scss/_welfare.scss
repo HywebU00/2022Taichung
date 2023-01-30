@@ -1,0 +1,296 @@
+/*福利及照護*/
+.welfare{
+  margin:0;
+  ul, ol{list-style:none;margin:0;padding:0;}
+  a{ text-decoration:none;color:#000; }
+  nav{
+    position:relative;
+    margin:0;padding:0 0 33vw;
+    background:#93d2f0 url(../images/welf_bgRainbow.png) no-repeat 185% 90%;
+    background-size:68vw;
+    &:before{
+      content: '';position: absolute;right: 0;bottom: 0;left: 0;
+      background:url(../images/welf_bg.png) no-repeat 0 bottom;
+      background-size:90vw auto;height:32vw;
+      
+    }
+    .welfCate{
+      padding: 25px 0 10px .65vw; margin: auto;
+    }
+  }
+
+  // nav{
+  //  padding:0 0 200px; font-size: .94em;
+  //   background:#93d2f0 url(../images/welf_bgRainbow.png) no-repeat right bottom;
+  //   background-size:460px auto;
+  // }
+  // nav:before{
+  //   content:'';position:absolute;right:0;bottom:0;left:0;height:194px;
+  //   background:url(../images/welf_bg.png) no-repeat 0 bottom;background-size:auto 100%;
+  // }
+
+  @media screen and (min-width: $wwMedium){
+    nav{
+      padding-bottom: 22vw;
+      background-size: 60vw auto; background-position: right 0 bottom -20px;
+      &::before{background-size: 65vw;}
+    }
+  }
+  @media screen and (min-width: $wwNormal){
+    nav{
+      padding-bottom: 220px;
+      background-size: 460px auto; background-position: right bottom;
+      &::before{
+        height: 194px; background-size: auto 100%;
+      }
+    }
+  }
+
+}
+
+// .welfare{margin:-15px -15px 0;}
+// .welfare nav{margin:0 0 74px;padding-bottom:33vw;background-size:68vw;background-position:185% 90%;}
+// .welfare nav:before{background-size:90vw auto;height:32vw;}
+// .welfare .welfCate{overflow:auto;padding:20px 0 0;background-position:-10px -20px;}
+// .welfare .welfCate>li,
+// .welfare .welfCate>li.elderly{float:left;width:31.6vw;margin:1.3vw auto 0 1.3vw;background:#fff;border-radius:8px;text-indent:0;}
+// .welfare .welfCate>li:before{left:50%;margin-left:-25px;bottom:auto;top:5px;}
+
+
+// 分類（雲朵選單）//////////////////////
+.welfCate{
+  display: flex; flex-flow: row wrap;
+  background:url(../images/welf_bgSun.png) no-repeat -10px -20px;
+  background-size:93px;
+  &>li{
+    flex: 0 0 31.6vw;
+    width:31.6vw;margin:.65vw;text-indent:0;
+    line-height: 1.3;  
+    &>a {
+      display: block;position: relative;padding: 60px 8px 6px;border-radius:8px;
+      text-align: center; height: 100%;
+      background:#fff; transition: .2s;
+      &:hover{
+        box-shadow: #4885a1 0 0 0 1px;
+      }
+      &:focus{
+        box-shadow: #4885a1 0 0 0 3px;
+      }
+      &:before {
+        content: '';position: absolute;top: 6px; left: 50%;
+        width: 80px;height: 50px; margin-left: -40px;
+        background: url(../images/welfare-icons.png) no-repeat center 0;background-size: 50px auto;
+      }
+    }
+
+    &.kid>a:before{background-position:center 0;}
+    &.elderly>a:before{background-position:center -50px;}
+    &.women>a:before{background-position:center -100px;}
+    &.handicapped>a:before{background-position:center -150px;}
+    &.immigrant>a:before{background-position:center -200px;}
+    &.oneParent>a:before{background-position:center -250px;}
+    &.socialWork>a:before{background-position:center -300px;}
+    &.subsidy>a:before{background-position:center -350px;}
+    &.volunteer>a:before{background-position:center -400px;}
+    &.lottery>a:before{background-position:center -450px;}
+    &.assistance>a:before{background-position:center -500px;}
+    &.group>a:before{background-position:center -550px;}
+    
+  }
+
+  @media screen and (min-width: $wwMedium){
+    display: block;
+    background-position: 20px 10px;
+    &>li{
+      flex: none;display:inline-block;
+      margin:0 8px 15px; padding: 0; width: auto;
+      background-size:100%;background-repeat:no-repeat;background-position:center bottom;
+      transition:.5s;
+
+      &:first-child{margin-left:130px;}
+      &.kid{width:135px;background-image:url(../images/welCloud01.png);top: 20px;}
+      &.elderly{width:125px;background-image:url(../images/welCloud02.png);text-indent:30px;}
+      &.women{width:106px;background-image:url(../images/welCloud03.png);top:20px;}
+      &.handicapped{width:117px;background-image:url(../images/welCloud04.png);top:40px;}
+      &.immigrant{width:105px;background-image:url(../images/welCloud05.png);top:10px;}
+      &.oneParent{width:132px;background-image:url(../images/welCloud06.png);top:22px;}
+      &.socialWork{width:100px;background-image:url(../images/welCloud07.png);top:10px;}
+      &.subsidy{width:133px;background-image:url(../images/welCloud08.png);}
+      &.volunteer{width:115px;background-image:url(../images/welCloud09.png);top:25px;}
+      &.lottery{width:105px;background-image:url(../images/welCloud10.png);top:15px;}
+      &.assistance{width:112px;background-image:url(../images/welCloud11.png);top:36px;}
+      &.group{width:113px;background-image:url(../images/welCloud12.png);top:2px;}
+      &:hover{transform:translate(10px, 0); }
+
+      &>a{
+        background-color: transparent; padding: 53px 0 6px;
+        &::before{width: 50px; top: 6px; left: 0;margin-left: 0;}
+        &:hover{ box-shadow: none;}
+      }
+      &.kid>a:before{left:48px;}
+      &.elderly>a:before{left:20px;bottom:8px; top: auto;}
+      &.women>a:before{left:28px;}
+      &.handicapped>a:before{left:30px}
+      &.immigrant>a:before{left:26px}
+      &.oneParent>a:before{left:44px}
+      &.socialWork>a:before{left:26px}
+      &.subsidy>a:before{left:50px}
+      &.volunteer>a:before{left:35px}
+      &.lottery>a:before{left:23px}
+      &.assistance>a:before{left:35px}
+      &.group>a:before{left:25px}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    margin: 0 auto; max-width: 1000px;
+    &>li{
+      position: relative;
+      &.kid{top: 20px;}
+      &.elderly{text-indent:30px;}
+      &.women{top:20px;}
+      &.handicapped{top:40px;}
+      &.immigrant{top:10px;}
+      &.oneParent{top:22px;}
+      &.socialWork{top:25px; margin-left: 50px;}
+      &.subsidy{ top: 10px;}
+      &.volunteer{top:25px;}
+      &.lottery{top:15px;}
+      &.assistance{top:40px;}
+      &.group{top:25px;}
+    }
+
+  }
+}
+
+// 彩虹下方連結
+.welfLink{
+  position:absolute;bottom:6px;right:34px;
+  li{
+    text-align:right;margin:0 0 8px;
+    a{
+      display:inline-block;height:3.5em;line-height:3.5;background:#fff url(../images/welf_link.png) no-repeat 10px -91px;background-size:36px;border-radius:2em;padding:0 22px 0 60px;transition:.3s;
+      &:hover{box-shadow:#b8e8ff 0 0 0 3px;}
+    }
+    &:first-child a{background-position:10px 9px;}
+  }
+
+}
+
+// 次分類選單
+.welfContent{
+  // font-size:1.067em;
+  &>div{overflow:hidden;border-bottom:1px solid #c0d3dd;padding:18px 20px 14px 10px;min-height:76px;}
+  &>div:nth-child(even){background:#e5f6ff;}
+  h3{
+    position:relative;margin:10px 0;padding:0;
+    float:left;width:31%;
+    line-height:40px;font-size:1.4em; font-weight: normal;
+    &:before{content:"";float:right;width:72px;height:72px;background:#ffc730;border-radius:50%;}
+
+    &:after{
+      content:"";position:absolute;right:11px;top:11px;width:50px;height:50px;z-index: 99;
+      background:url(../images/welfare-icons2.png) no-repeat center top;background-size:50px auto;
+    }
+    &#wel_elderly:after{background-position:center -50px;}
+    &#wel_women::after{background-position:center -100px;}
+    &#wel_handicapped:after{background-position:center -150px;}
+    &#wel_immigrant:after{background-position:center -200px;}
+    &#wel_oneParent:after{background-position:center -250px;}
+    &#wel_socialWork:after{background-position:center -300px;}
+    &#wel_subsidy:after{background-position:center -350px;}
+    &#wel_volunteer:after{background-position:center -400px;}
+    &#wel_lottery:after{background-position:center -450px;}
+    &#wel_assistance:after{background-position:center -500px;}
+    &#wel_group:after{background-position:center -550px;}
+    
+    &>a{
+      display:inline-block;padding:10px;border-radius:6px;
+      &:hover, &:focus{
+        background-color:#029AC5;color:#fff;outline:none;
+      }
+      &:after{
+        content:'click或enter回分類';
+        position:absolute;left:5px;bottom:-1.8em;
+        font-size:.5em;color:transparent;transition:.15s;
+      }
+      &:hover:after,
+      &:focus:after{
+        color:#029AC5;
+      }
+    }
+  }
+  
+  ul{float:right;width:66%;padding-top:1.5em;}
+  li{
+    display:inline-block;width:49%;vertical-align:top;margin-bottom:.7em;
+    a{
+      display:block;line-height:1.5;min-height:2.2em;padding-right:1em;
+      &:hover, &:focus{
+        text-decoration:underline;
+      }
+    }
+  }
+
+}
+
+
+/* 
+
+
+@media screen and (max-width:1120px){
+	.welfare{margin-left:-30px;margin-right:-30px;}
+}
+@media screen and (max-width:1000px){
+	.welfare nav{width:auto;padding-bottom:21vw;background-size:57vw auto;}
+	.welfare nav:before{background-size:60vw auto;height:21vw;}
+	.welfare .welfCate{background-size:80px;width:auto;margin:0;padding:15px 20px 0 15px;text-indent:90px;}
+	.welfare .welfCate>li{text-indent:0;top:auto;margin:0 4px 8px;}
+}
+@media screen and (max-width:800px){	
+	.welfare nav{background-size:64vw auto;}
+	.welfContent{background:#42697a;margin:0;padding:25px 0;}
+	.welfContent>div{width:92%;margin:0 auto 15px;border-radius:20px;padding:0;border:none;overflow:hidden;}
+	.welfContent>div:nth-child(even){background:none;}
+	.welfContent h3{float:none;width:auto;text-align:center;min-height:90px;line-height:90px;font-size:1.2em;font-weight:normal;padding:0 0 0 70px;margin:0;color:#444;letter-spacing:.1em;background:#fff;}
+	.welfContent h3:before{position:absolute;right:auto;left:9px;top:9px;}
+	.welfContent h3:after{right:auto;left:20px;top:20px;}
+	.welfContent ul{float:none;width:auto;background:#2ba7bb;padding:0 12px 20px;line-height:1.5;font-size:1em;border-radius:0 0 20px 20px;}
+	.welfare .welfContent li{display:block;width:auto;margin:0;padding:0;}
+	.welfContent li a{position:relative;color:#fff;padding:1.1em 2em .4em .2em;margin:0;border-bottom:1px solid #55b9c9;height:auto;}
+	.welfContent li a:before{content:'';position:absolute;right:12px;top:50%;margin-top:-.5em;width:1em;height:1em;border:2px solid #fff;transform:rotate(45deg);border-left:none;border-bottom:none;opacity:.5;}
+	.welfContent li a:hover,
+	.welfContent li a:focus{text-decoration:none;border-color:#fff;}
+	.welfContent li a:hover:before,
+	.welfContent li a:focus:before{opacity:1;}
+	.welfContent h3>a:after{display: none;}
+	.welfContent h3>a,
+	.welfContent h3>a:hover,
+	.welfContent h3>a:focus{background: none;padding: 0;color: #000;}
+}
+@media screen and (max-width:600px){
+	.welfare{margin:-15px -15px 0;}
+	.welfare nav{margin:0 0 74px;padding-bottom:33vw;background-size:68vw;background-position:185% 90%;}
+	.welfare nav:before{background-size:90vw auto;height:32vw;}
+	.welfare .welfCate{overflow:auto;padding:20px 0 0;background-position:-10px -20px;}
+	.welfare .welfCate>li,
+	.welfare .welfCate>li.elderly{float:left;width:31.6vw;margin:1.3vw auto 0 1.3vw;background:#fff;border-radius:8px;text-indent:0;}
+	.welfare .welfCate>li:before{left:50%;margin-left:-25px;bottom:auto;top:5px;}
+	.welfare .welfCate>li:hover{transform:none;}
+	.welfLink{left:0;right:0;bottom:-74px;height:74px;overflow:auto;}
+	.welfare .welfLink li{float:left;width:57vw;margin:7px 0 0;text-align:center;}
+	.welfare .welfLink li:first-child{width:42vw;border-right:1px solid #bbb;}
+	.welfLink li a{height:60px;line-height:60px;border-radius:8px;padding:0 12px 0 50px;}
+}
+@media screen and (max-width:420px){
+	.welfare .welfCate{background-size:64px;}
+}
+@media screen and (max-width:320px){
+	.welfare .welfCate{font-size:.833em;}
+	.welfare nav{margin-bottom: 90px;}
+	.welfLink{bottom:-88px;height:88px;}
+	.welfLink li a{background-position: center -95px;padding: 40px 8px 0;line-height:2.4em;height:2.4em}
+	.welfLink li:first-child a{background-position:center 5px;}
+}
+
+*/

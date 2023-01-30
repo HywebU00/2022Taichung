@@ -7,10 +7,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 audio, canvas, video{display:inline-block;}
 
 
-div.main{margin:0 auto;background:#fff;}
+/* .main{margin:0 auto;background:#fff;}
 @media (max-width:520px){
-	div.main{font-size: 1.1rem;}
-}
+	.main{font-size: 1.1rem;}
+} */
 
 
 /*行動版隱藏項目*/
@@ -115,7 +115,7 @@ time{display:inline-block;margin-left:1em;font-family:Courier New;letter-spacing
 
 @media (min-width:1001px){
 
-	div.main{ width:1000px; /* box-shadow:#888 0 0 30px; */}
+	/* .main{ width:1000px; box-shadow:#888 0 0 30px;} */
 
 	/*一般版隱藏項目*/
 	/* .sidebar,
@@ -196,7 +196,7 @@ time{display:inline-block;margin-left:1em;font-family:Courier New;letter-spacing
 	.no-js .function li a{display:inline-block; vertical-align:top;}
 
 	/*內頁文章標題*/
-	.center>header{clear:both;width:96%;margin:0 auto 15px;padding:0;border-bottom:4px solid #ccd4d7;overflow:hidden;}
+	/* .center>header{clear:both;width:96%;margin:0 auto 15px;padding:0;border-bottom:4px solid #ccd4d7;overflow:hidden;}
 	.center>header>h2{font-size:1.8em;display:inline-block;line-height:1.4;}
 	.center>header .rss{float:right;font-size:0;margin-top:5px;}
 	.center>header .rss a{display:block;width:28px;height:28px;background:#c1c4bc url(../images/rss.png) no-repeat center center; margin:0;border-radius:5px;}
@@ -204,7 +204,7 @@ time{display:inline-block;margin-left:1em;font-family:Courier New;letter-spacing
 	.center>header .rss a:focus{background-color:#7c8785;outline:none;}
 	.center>header ul{list-style:none;margin:6px 0 3px;padding:0;color:#999;}
 	.center>header li{margin:0 1em .4em  0;padding:0;display:inline-block;}
-	.center>header li em{color:#555;font-weight:normal;}
+	.center>header li em{color:#555;font-weight:normal;} */
 
 }
 
