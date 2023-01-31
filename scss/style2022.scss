@@ -11,12 +11,12 @@
 @import "_bigBanner";
 @import "_mp";
 @import "_lightbox"; // 燈箱
+@import "_cp"; 
 
 // ------------------------------------------------------------- //
-@import url("../2017/metaTable.css"); /* 表格型資料 */
-@import url("../2017/cpPhoto.css");   /* 表格型資料 */
-@import url("../2017/css/share.css"); /* 分享 */
-@import url("_cp"); 
+@import "../2017/metaTable.css"; /* 表格型資料 */
+@import "../2017/cpPhoto.css";   /* 表格型資料 */
+@import "../2017/css/share.css"; /* 分享 */
 // ------------------------------------------------------------- //
 // 2023 市府主站頁面轉移 ---------------------------------------- //
 @import "_welfare"; // 福利及照護

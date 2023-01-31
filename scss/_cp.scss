@@ -6,9 +6,10 @@
 
 
 .cpArticle {
-  width: $mobileWidth; margin:0 auto;padding:16px 0 0;
+  // width: $mobileWidth; 
+  margin:0 auto;padding:0;
   line-height:1.7;font-size:1.1em;overflow:hidden;
-  // border: 1px dashed greenyellow;
+  
   p{line-height:inherit;margin:0 0 1em;padding:0;}
   &>a{
     display:inline-block;
@@ -16,9 +17,10 @@
   }
 
   figure{
-    float:left;width:400px;margin:0 2em 1em 0;padding:9px;
+    width: 100%;;margin:0 auto 1em;padding:9px;
     border:1px solid #ccc;box-shadow:rgba(0,0,0,.3) 0 1px 3px;
-    figcaption{line-height:1.5;margin:9px 0 0;display:block;color:#888;font-size:.94em;
+    figcaption{
+      line-height:1.5;margin:9px 0 0;display:block;color:#888;font-size:.94em;
       &:empty{display:none;}
     }
     img{display:block;width:100%;height:auto;margin:0 auto;}
@@ -45,11 +47,47 @@
   
   }
 
-  @media screen and (min-width: $wwNormal){
+  /*ul , ol*/
+  &>ul{list-style:disc;}
+  &>ol{list-style:decimal;}
+  &>ul, &>ol{margin:2em 1em;padding:0 0 0 2em;
+    &>li, &>li{margin:0 0 1.5em;
+      a:hover{text-decoration:none;background:#de6;color:#000;}
+      a:focus{outline:1px solid red;text-decoration:none;}
+      
+    }
+    ul{margin-left:0;margin-right:0;list-style:circle;}
+    ol{margin-left:0;margin-right:0;list-style:upper-latin;}
+  }
+  .gmap{margin:2em 0;
+    iframe{display:block;padding:0;margin:0 auto;width:100%;height:600px;border:none;}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    width: auto;
   }
 
   @media screen and (min-width: $wwNormal){
     width: auto;
+    figure{
+      float:left;width:400px;margin:0 2em 1em 0;padding:9px;
+
+    }
+  }
+}
+
+
+// pubInfo //////////////////////////////
+.pubInfo {
+  width: 96%;margin: 30px auto;padding: 1.2em 0 .6em;
+  border: 1px solid #aa9;color: #999;
+  clear: both;
+  ul {margin: 0 .5em;padding: 0;line-height: 1.1;}
+  li {
+    display: inline-block;vertical-align: top;
+    margin: 0 .8em .6em; padding: 0;
+    color: #666;
+    em {font-weight: normal;color: #111;}
   }
 }
 
@@ -59,20 +97,7 @@
 
 
 
-/*ul , ol*/
-.cpArticle ul, .cpArticle ol{margin:2em 1em;padding:0 0 0 2em;}
-.cpArticle ul{list-style:disc;}
-.cpArticle ol{list-style:decimal;}
-.cpArticle ul li,
-.cpArticle ol li{margin:0 0 1.5em;}
-.cpArticle ul ul,
-.cpArticle ol ul{margin-left:0;margin-right:0;list-style:circle;}
-.cpArticle ul ol,
-.cpArticle ol ol{margin-left:0;margin-right:0;list-style:upper-latin;}
-.cpArticle a:hover{text-decoration:none;background:#de6;color:#000;}
-.cpArticle a:focus{outline:1px solid red;text-decoration:none;}
-.cpArticle .gmap{margin:2em 0;}
-.cpArticle .gmap iframe{display:block;padding:0;margin:0 auto;width:100%;height:600px;border:none;}
+
 
 
 
@@ -150,11 +175,10 @@
 	.attachment .images li a:focus:before{display:block;}
 }
 
-
-.pubInfo{width:96%;margin:30px auto;border:1px solid #aa9;padding:1.2em 0 .6em;clear:both;color:#999;}
-.pubInfo ul{margin:0 .5em;padding:0;line-height:1.1;}
-.pubInfo li{margin:0 .5em .6em;padding:0;display:inline-block;color:#666;vertical-align: top}
-.pubInfo li em{font-weight:normal;color:#111;}
+// .pubInfo{width:96%;margin:30px auto;border:1px solid #aa9;padding:1.2em 0 .6em;clear:both;color:#999;}
+// .pubInfo ul{margin:0 .5em;padding:0;line-height:1.1;}
+// .pubInfo li{margin:0 .5em .6em;padding:0;display:inline-block;color:#666;vertical-align: top}
+// .pubInfo li em{font-weight:normal;color:#111;}
 
 a.mapMarker {display:inline-block;padding:0 .5em 0 2.2em;background:#fff url(../images/bubble.png) no-repeat .3em center;background-size:1.6em auto;margin-left:1em;min-height:2.4em;line-height:2.4em;border-radius:6px;border:1px solid #65adbb;text-decoration:none;}
 
@@ -197,104 +221,18 @@ a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 
 
 
-
-
-
-
-/*當期、單本雜誌*/
-/* 2022 
-.eMag{position:relative;border:1px solid #bbb;padding:1em;margin:0 0 3em;overflow:hidden;box-sizing:border-box;}
-.eMag h2{font-size:1.8em;margin:5px 0 .5em;line-height:1.1;font-weight:normal;clear:right;}
-.eMag .contents{clear:both;padding:1em 0;-moz-column-count:2;-moz-column-gap:4em;-moz-column-rule:1px solid #ddd;-webkit-column-count:2;-webkit-column-gap:4em;-webkit-column-rule:1px solid #ddd;column-count:2;column-gap:4em;column-rule:1px solid #ddd;}
-.eMag .meta ~ .contents{padding-top:3em;}
-.eMag.LatestIssue .contents{clear:none;}
-.contents h2{margin:0 0 .6em;padding:0 0 .1em;border-bottom:3px solid #888;}
-.contents dl{overflow:hidden;margin:0;padding:0;color:#555;}
-.contents dt{display:block;font-size:1.25em;margin:.8em 0 .3em;color:#998;}
-.contents dt:first-child{margin-top:0;}
-.contents dd{margin:0 0 .4em;}
-.eMag .image{float:left;width:33%;height:auto;padding-right:2%;}
-.eMag .image img{display:block;margin:0 auto;max-width:100%;height:auto;border:1px solid #bbb;}
-.eMag.LatestIssue .image{width:270px;margin-right:10px;}
-.eMag.LatestIssue .image img{width:270px;}
-.eMag .buttons{margin:.7em auto 0;padding:0;text-align:center !important;overflow:hidden;}
-.eMag .buttons li, .eMag .info li, .eMag .count li{float:none;margin:0;padding:0;display:inline-block;}
-.eMag .buttons li a, .eMag .info li, .eMag .count li a{height:3em;line-height:3em;border-radius:6px;min-width:6em;}
-.eMag .meta ~ .buttons li{display:inline-block;}
-.eMag .meta + .buttons{text-align:right;margin:1em 0 0;}
-.eMag .image .buttons{text-align:center;}
-.eMag .image .buttons li{display:inline-block;}
-.eMag .meta{margin-left:35%;} 
-*/
-
-
-/*市長政見 （市府主站）*/
-/* 2022 
-ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;width:768px;height:670px;background:url(../../main/images/policies.png) no-repeat 0 0;}
-.policies>li {margin:0;padding:0;}
-.policies>li>a{position:absolute;width:250px;height:80px;border-radius:80px;text-indent:-12em;overflow:hidden;}
-.policies>li>a:hover{outline:none;}
-.policies>li>a:focus {outline:none;border:1px solid #fff;box-shadow:#fff 0 0 6px 1px;}
-.policies>li>a[title="經濟發展"]{width:250px;height:80px;left:132px;top:6px;}
-.policies>li>a[title="治安維護"]{width:250px;height:64px;left:445px;top:40px;}
-.policies>li>a[title="交通建設"]{width:270px;height:76px;left:108px;top:94px;}
-.policies>li>a[title="防災治洪"]{width:210px;height:55px;left:445px;top:112px;}
-.policies>li>a[title="國際新都"]{width:200px;height:66px;left:184px;top:195px;}
-.policies>li>a[title="文化教育"]{width:300px;height:80px;left:445px;top:182px;}
-.policies>li>a[title="衛生環保"]{width:260px;height:60px;left:120px;top:276px;}
-.policies>li>a[title="社會福利"]{width:270px;height:90px;left:445px;top:280px;}
-.policies>li>a[title="觀光休閒"]{width:330px;height:72px;left:62px;top:350px;}
-.policies>li>a[title="政府效能"]{width:260px;height:60px;left:445px;top:396px;}
-.policies>li>a[title="青年政策"]{width:250px;height:66px;left:143px;top:434px;}
-.policies>li>a[title="客家政策"]{width:220px;height:66px;left:445px;top:465px;}
-.policies>li>a[title="中彰投區域聯合共治"]{width:370px;height:64px;left:12px;top:508px;}
-.policies>li>a[title="原住民族政策"]{width:280px;height:70px;left:442px;top:540px;} 
-*/
-
-/* 市府主站：市長政見 */
-/* 2022
-.pHilight{ margin:0 0 4em;padding:0 32px;}
-.pHilight h2 {margin:1em -32px -1.5em;padding:0;font-size:1.6em;}
-.pHilight h2 em{display:inline-block;margin:0 .3em 0 0;font-size:2em;}
-.pHilight h3{font-size:22px;font-size:1.4em;}
-.pHilight h3 span{display:inline-block;margin:0 .65em 0 0;padding:0 1em 0 0;width:4.5em;text-align:right;background:#f36d0f;color:#fff;border-radius:2em;}
-.pHilight h3 span em{font-size:1.4em;margin-left:.15em;line-height:1.8em;height:1.8em;font-family:"Times New Roman", Times, serif;}
-.pHilight>ul{list-style:none;margin:0 0 5em;padding:0;line-height:1.7;}
-.pHilight>ul>li {margin:0;padding:1em 0 .6em;border-bottom:1px solid #bbb;}
-.pHilight>ul>li>p, .pHilight>ul>li>ol{padding-left:8.8em}
-.pHilight>ul>li>h3 {padding-left:8em}
-
-.pHilight a[name="c01"]+h2+ul h3 span{background:#ffbf10;color:#584002;}
-.pHilight a[name="c02"]+h2+ul h3 span{background:#00c3ac;}
-.pHilight a[name="c03"]+h2+ul h3 span{background:#0094a8;}
-.pHilight a[name="c04"]+h2+ul h3 span{background:#3ed5de;color:#285258;}
-.pHilight a[name="c05"]+h2+ul h3 span{background:#cce100;color:#314a47;}
-.pHilight a[name="c06"]+h2+ul h3 span{background:#f36d0f;}
-.pHilight a[name="c07"]+h2+ul h3 span{background:#3ed5de;color:#285258;}
-.pHilight a[name="c08"]+h2+ul h3 span{background:#ffbf10;color:#584002;}
-.pHilight a[name="c09"]+h2+ul h3 span{background:#0094a8;}
-.pHilight a[name="c10"]+h2+ul h3 span{background:#cce100;color:#314a47;}
-.pHilight a[name="c11"]+h2+ul h3 span{background:#f36d0f;}
-.pHilight a[name="c12"]+h2+ul h3 span{background:#00c3ac;}
-.pHilight a[name="c13"]+h2+ul h3 span{background:#00c3ac;}
-.pHilight a[name="c14"]+h2+ul h3 span{background:#0094a8;}
- */
-
 .videoPlay{width:96%;margin:0 auto;}
 
 @media screen and (max-width:1000px) {
 	.LatestIssue .contents{-moz-column-count:1;-moz-column-gap:1em;-webkit-column-count:1;-webkit-column-gap:1em;column-count:1;column-gap:1em;}
-	/* 2022
-	.eMag.LatestIssue .buttons li{display:block;width:auto;}
-	.eMag.LatestIssue .buttons li a{display:block;width:auto;margin:0 0 8px;} 
-	*/
+
 
 	.seeAlso ul li a{display:block;padding:.8em 0 .2em;}
 	.seeAlso{margin:30px auto;}
 
 }
 @media screen and (max-width:800px) {
-	.cpArticle{width:92vw;margin:0 auto;}
+	// .cpArticle{width:92vw;margin:0 auto;}
 	
 	.videoPlay{padding:15px;}
 	.videoPlay object{display:block;max-width:100%;float:none;margin:0 auto 2em;border-bottom:3px solid #bbb;}
@@ -339,225 +277,3 @@ ol.policies{position:relative;list-style:none;margin:-20px auto 0;padding:0;widt
 .note a{color:#f50;text-decoration:underline;}
 
 
-
-
-/* 2022
-//{} 2019 動保處新增版型
-//{} 認養事項發問 btn
-.askBtn{display: inline-block;text-align: center;}
-.askBtn>a{display: block;margin: 0 auto;height: 2.6em;line-height: 2.55em;padding: 0 2em;background: #05a3bb;color: #fff;border-radius: 2em;text-decoration: none;transition: .2s;}
-.askBtn>a:hover,
-.askBtn>a:focus{text-decoration: none;color: #fff;background-color: #00b5d0 !important;box-shadow: #6ed9e9 0 0 0 3px;}
-//{} 萌指數 button
-.like{display: inline-block;font-size: 1em;line-height:40px; }
-.like input[type="button"] {color: transparent;padding: 0;margin: 0 4px 0 0;;width: 44px;height: 40px;background:url(../images/iconLovely.png) no-repeat 0 0;  cursor:pointer;background-size:100% auto}
-.like input[type="button"]:hover,
-.like input[type="button"]:focus { background-position:0 -50px;outline: none}
-//{} 本日新增
-.newArrival {width:124px; height:72px; background:url(../images/newArrival.png) no-repeat 0 0;font-size: 0;}
-//{} 已認養
-.adopted {position: absolute;right: 15px;bottom: 135px;width: 100px;height: 100px;background: url(../images/label_adopted.png) no-repeat 0 0;}
-@media screen and (min-width: 601px){
-	.adopted{right:90px;bottom: 80px;}
-}
-@media screen and (min-width: 801px){
-	.adopted{right:20%;right:calc(30% - 90px);bottom: 50px;}
-}
- */
-
-/* 2022
-.profileList li{position: relative;}
-.profileList li .askBtn{display: block;margin:15px 0;}
-.profileList li .askBtn a{display: inline-block}
-.profileList li .newArrival{position:absolute; right:2px; bottom:8px;}
-.profile .askBtn {display: block;margin:0 5px;padding-top: 15px;}
-.profile .askBtn a{display: inline-block} 
-*/
-
-/* 動物資料表格與照片列表 */
-/* 2022 
-.profileList,
-.profile{clear:both;width: 96%;margin:0 auto;padding: 15px 0 40px;}
-.profileList .profileList,
-.profile .profile{width: 100%;}
-.profileList li{clear: both;overflow: hidden;margin: 0 0 25px;padding:15px 10px;border: none;background: #fff;box-shadow: rgba(0,0,0,.6) 0 0 4px;border-radius: 4px;}
-.profileList li:last-child{border-bottom: none;}
-.profileList li:nth-child(n){background-color: #fff;}
-figure.petPicture{display: block;background: url(../images/animalNoPhoto.png) no-repeat center center;border: 4px solid #fff;box-shadow: rgba(0,0,0,.4) 0 0 5px;margin-bottom: 15px;min-height: 200px;}
-.petPicture img{display: block;width: 100%;}
-.petPicture>a{display: block;border: 1px solid #fff;}
-.petPicture>a:hover,
-.petPicture>a:focus{box-shadow: #fc3 0 0 0 4px;outline: none;}
-*/
-
-/* 動物保護處: 動物基本資料 */
-/* 2022
- table.meta4col,
-.meta4col table{width: 100%;line-height: 1.7;border-collapse: collapse;border: 2px solid #888;margin: 0 auto 1em;}
-.list table.meta4col{width: 100%;line-height: 1.7;border-collapse: collapse;border: 2px solid #888;margin: 0 auto 1em;}
-.meta4col caption{text-align: left;}
-.meta4col tr{margin: 0;border: none;}
-.meta4col tr:nth-child(n){background-color: transparent;}
-.meta4col th,
-.meta4col td,
-.meta4col td:last-child{vertical-align: top;padding: .5em 6px .4em;border-bottom: 1px solid #aaa;}
-.meta4col th{text-align: right;padding-right:12px;position: relative;width: 20%;}
-.meta4col th:after{content:'';position: absolute;top: 4px;bottom: 4px;right: 2px;width: 1px;background: #ddd;}
-.meta4col th:nth-child(3){border-left: 1px solid #aaa;}
-.meta4col td{text-align: left; word-break: break-word;}
-.meta4col td a{color: #0a77bb;text-decoration: underline;}
-.list .meta4col td a{display: inline;padding: 0;}
-.meta4col td a:hover,
-.meta4col td a:focus{text-decoration: none;color: #09f}
-.meta4col td a:focus{outline: 1px solid #09f}
- */
-/* 2022
-.profileList li .askBtn + p.hint{padding: .4em 1em;margin:1em 0 0;border: 1px dashed #bcc;background-color: #eef3f6;border-radius: 4px;font-size:.9em}
-.profileList .petPicture a{ display: block; padding: 0 !important;margin: 0 !important;}
-.profileList .petPicture a>img{display: block;}
- */
-/* 2022
-@media screen and (max-width:800px){
-  .meta4col{clear: both;}
-	.meta4col tr, .meta4col th, .meta4col td{display: block;}
-  .meta4col th,
-	.meta4col td{width: auto;padding-left: 2vw;padding-right: 2vw;border-bottom: none;text-align: left;}
-	.meta4col th{border: none;}
-	.meta4col td, .meta4col td:last-child,  .list .meta4col tr:last-child td{border-bottom: 1px solid #ddd;}
-	.meta4col tr:last-child td:last-child{border: none;}
-	.meta4col th{float: left;clear: both;padding-bottom: 0;padding-right:20px}
-	// 避免無資料時高度塌陷 //
-	.meta4col td:before{content: '';display: inline-block;height: 5px;}
-  .meta4col th:nth-child(3){border-left: none;clear: both;}
-	.meta4col th:after{width: 4px;height: 12px;margin-right:6px ;top: .8em;background: #fb0;}
-}
- */
-
-/* 2022
-@media screen and (min-width:601px){
-	.meta4col tr:hover{background: #f4f5f5;}
-	.profileList li .like ,
-	.profileList li .askBtn{margin:0;float: left;}
-	.profileList li .askBtn+.like{margin-left: 10px;}
-	.profileList li .askBtn + p.hint{float:right;width:calc(100% - 12em);}
-}
-@media screen and (min-width:801px){
-	.profile{padding-top: 5px;margin-top:10px;}
-	.profile,
-	.profileList li{overflow: hidden;}
-	
-	.profile .meta4col,
-  .profileList li .meta4col{float: left;width:66%;margin: 0;}
-  .profile .petPicture,
-	.profileList li .petPicture{float: right;width: 31%;}
-	.profile .petPicture{margin-right: 5px;}
-	.profile.noPicture .meta4col,
-  .profileList.noPicture li .meta4col{float: none;width: 100%}
-
-	.profileList li .askBtn,
-	.profileList li .like {float: left;margin-top: 8px;}
-	.profileList.noPicture li .askBtn{float: none;}
-	.profileList li .askBtn,
-	.profile .askBtn{clear: both;} 
-	.meta4col tr{display:table-row;}
-	.meta4col th{width: 20%;display: table-cell;}
-	.meta4col td{width: 28%;display: table-cell;} 
-}
-@media screen and (min-width:1001px){
-	.profile{margin-top: 0;}
-}
-*/
-
-
-/*文創店家查詢 20190402*/
-/* 2022
-.spSearch{width: 96%;margin:0 auto 20px;padding:30px 0;background:#f1d876;color: #444;}
-.preface + .spSearch{margin-top:-1em;}
-.spSearch table{max-width:94%;}
-.spSearch td:first-child{width:22%;min-width:5em;color: #222;}
-.spSearch input[type="text"]{width:32em;border:none;border-radius:3px;margin-left:5px;}
-.spSearch input[type="text"]:focus{box-shadow:#f60 0 0 0 3px;}
-.spSearch .buttonDiv{border:none;margin-top:0;}
-
-td:nth-child(even) .optionGp label{position:relative;display:inline-block;margin:2px 1.2em 2px 0;height:2.2em;line-height:2.2em;min-width:8.5em;overflow:hidden;cursor:pointer;border:1px solid transparent;border-radius:3px;}
-.optionGp label input[type="radio"],
-.optionGp label input[type="checkbox"]{margin-right:2.4em;margin-left:-1.1em;}
-.optionGp label:before{content:'';width:1em;height:1em;position:absolute;top:.55em;left:.5em;border:1px solid #777;background:rgba(255,255,255,.6);border-radius:2px;}
-.optionGp.single label:before{border-radius:50%;width:1.25em;height:1.25em;top:.45em;left:.4em;}
-.optionGp.single label.isSelected:before{background:#f60;border-color:transparent;box-shadow:#f60 0 0 0 1px,#fff 0 0 0 4px inset; }
-.optionGp.multi label.isSelected:before{background:#f60;border-color:transparent;box-shadow:#f60 0 0 0 2px;}
-.optionGp.multi label:after{content:'';position:absolute;left:.7em;top:.75em;width:.6em;height:.4em;border:2px solid #fff;transform:rotate(-45deg);border-top:none;border-right:none; display:none;}
-.optionGp.multi label.isSelected:after{display:block;}
-@media screen and (max-width:1000px){
-	.spSearch{width: auto;margin:0;padding-bottom:60px;}
-}
-@media screen and (max-width:800px){
-	.spSearch{font-size: 1.2em;}
-	.preface + .spSearch{margin-top:0;}
-	.spSearch table,
-	.spSearch tbody,
-	.spSearch tr,
-	.spSearch td{display:block;width:100%;}
-	.spSearch td{padding:1.2em 0;}
-	.spSearch td:nth-child(even){padding-top:0;}
-	.spSearch td:first-child{width:auto;max-width:none;min-width:0;text-align:left;font-weight:bold;padding-bottom:5px;line-height:1.6;font-size: 1.1em;}
-	.spSearch tr:first-child td{border:none;}
-	.spSearch input[type="text"]{margin:0;width:calc(100% - .8em);}
-}
-@media screen and (max-width:600px){
-	.spSearch td:first-child{border-top:1px dotted #fff;}
-	.spSearch input[type="text"]{width:100%;}
-	td:nth-child(even) .optionGp label{display:block;width:auto;margin:4px 0;background:rgba(255,255,255,.3);}
-	td:nth-child(even) .optionGp label.isSelected{background:#fff;}
-} 
-*/
-
-/* 店家詳細內容 */
-/* 2022
-.cpArticle .meta,
-.cpArticle .facilities,
-.cpArticle .qrcodeList,
-.cpArticle .pdPhotoList{margin:40px auto;}
-.cpArticle .meta{clear: both;width: 100%;border-top: 1px solid transparent;}
-.cpArticle .meta table{border:2px solid #999;}
-.cpArticle .meta tr:first-child{border: none;}
-
-.cpArticle h3{margin:2.5em 0 .5em;}
-.cpArticle figure + h3,
-.cpArticle>h3:first-child{margin-top:0;}
-.cpArticle ul, .cpArticle ol{margin:.5em 0 1em 2em;padding:0;}
-.cpArticle ul li, .cpArticle ol li{margin:0 0 .5em 0;}
-.cpArticle .gmap{margin:2em 0;}
-.cpArticle .gmap iframe{display:block;padding:0;margin:0 auto;width:100%;height:600px;border:none;}
-
-.cpArticle .qrcodeList ul{overflow:hidden;list-style:none;margin:0 auto;padding:0;}
-.cpArticle .qrcodeList li{float:left; border:1px dashed #bbb;padding:10px;margin:0 10px 10px 0;width:120px;}
-.cpArticle .qrcodeList li img{width:100%;height:120px;}
-.cpArticle .qrcodeList li p{margin:0;font-size:.86em;width:100%;height:1.6em;overflow:hidden;color:#888;}
-
-.pdPhotoList ul{overflow:hidden;list-style:none;margin:0 0 20px;padding:0 0 1px;}
-.cpArticle .pdPhotoList li{position:relative;float:left;overflow:hidden;margin:0 -1px -1px 0;padding:0;text-align:center;background:#fff;border:1px solid #bbb;height:314px;width: 24.8%;}
-.cpArticle .pdPhotoList li a{display:block;margin:0;padding:15px;height:100%;text-decoration:none;color:#333;transition: .3s;} 
-.cpArticle .pdPhotoList li img{display:block;max-width:100%;max-height:230px;width:100%;height:230px;object-fit:scale-down;margin:0 auto;}
-.cpArticle .pdPhotoList li a:hover{text-decoration:none;background: #e6e6e6;}
-.cpArticle .pdPhotoList li a:focus{text-decoration:none;background: #777;color: #fff}
-
-.cpArticle .pdPhotoList li p{display:inline-block;font-size:.86em;margin:10px auto 0;padding:0;line-height:1.5;height:2.9em;text-align:left;overflow:hidden;}
-@media screen and (max-width:900px) {
-	.cpArticle .pdPhotoList li{width:33%;}
-}
-@media screen and (max-width:700px) {
-	.cpArticle .pdPhotoList li{width:calc(50% - 3px);}
-}
-@media screen and (max-width:500px) {
-	.pdPhotoList ul{padding: 0;margin:0 auto;width: auto;}
-	.cpArticle .pdPhotoList li{float: none;width: auto;height: auto;margin: 0 auto 11px;border: none;border:1px solid #bbb;}
-	.cpArticle .pdPhotoList li:hover{border-color: #555;}
-	.cpArticle .pdPhotoList li a{padding:0;}
-	.cpArticle .pdPhotoList li a:hover,
-	.cpArticle .pdPhotoList li a:focus{background: #fff;}
-	.cpArticle .pdPhotoList li img{width: 100%;height: auto;max-height:none;max-width:none;object-fit: contain;}
-	.cpArticle .pdPhotoList li p{display:block;height: auto;width:96%;padding-bottom:12px;}
-	.cpArticle .pdPhotoList li p:empty{background: #f00;display: none;}
-} 
-*/
