@@ -246,11 +246,11 @@ button.closeThis{
   &.show{bottom: 30px;}
 
   @media screen and (min-width: $wwNormal){
-    right: 20px;
+    // right: 0;
   }
 
-  @media screen and (min-width: $wwMaximum){
-    right: calc(50vw - #{$wwMaximum}*.41 - 86px);
+  @media screen and (min-width: calc($wwMaximum*.96 + 40px + 2.56rem)){
+    right: calc(50vw - #{$wwMaximum}*.48 - 10px - 1.28rem);
   }
 
 

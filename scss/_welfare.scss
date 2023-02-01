@@ -7,14 +7,14 @@
   --welAssistant: #ffc730;
   --white: #fff;
   --border: #c0d3dd;
-  --alternateRowBG: #e5f6ff;
+  --alternateRowBG: #dff1f5;
 
   margin:0;
   ul, ol{list-style:none;margin:0;padding:0;}
   a{ text-decoration:none;color:var(--fontColor); }
-  nav{
-    position:relative;
-    margin:0;padding:0 0 33vw;
+
+  .welfCate{
+    position:relative;margin:0;padding:0 0 33vw;
     background:var(--sky) url(../images/welf_bgRainbow.png) no-repeat 185% 90%;
     background-size:68vw;
     &:before{
@@ -22,18 +22,18 @@
       background:url(../images/welf_bg.png) no-repeat 0 bottom;
       background-size:90vw auto;height:32vw;
     }
-    .welfCate{padding: 25px 0 10px .65vw; margin: auto;}
+    &>ul{padding: 25px 0 10px .65vw; margin: auto;}
   }
 
   @media screen and (min-width: $wwMedium){
-    nav{
+    .welfCate{
       padding-bottom: 22vw;
       background-size: 60vw auto; background-position: right 0 bottom -20px;
       &::before{background-size: 65vw;}
     }
   }
   @media screen and (min-width: $wwNormal){
-    nav{
+    .welfCate{
       padding-bottom: 220px;
       background-size: 460px auto; background-position: right bottom;
       &::before{
@@ -46,101 +46,103 @@
 
 // 分類（雲朵選單）////////////////////////////////////////////
 .welfCate{
-  display: flex; flex-flow: row wrap;
-  background:url(../images/welf_bgSun.png) no-repeat -10px -20px;
-  background-size:93px;
-  &>li{
-    flex: 0 0 31.6vw;
-    width:31.6vw;margin:.65vw;text-indent:0;
-    line-height: 1.3;  
-    &>a {
-      display: block;position: relative;padding: 60px 8px 6px;border-radius:8px;
-      text-align: center; height: 100%;
-      background:var(--white); transition: .2s;
-      &:hover{box-shadow: var(--welBg1) 0 0 0 1px;}
-      &:focus{box-shadow: var(--welBg1) 0 0 0 3px;}
-      &:before {
-        content: '';position: absolute;top: 6px; left: 50%;
-        width: 80px;height: 50px; margin-left: -40px;
-        background: url(../images/welfare-icons.png) no-repeat center 0;background-size: 50px auto;
+  &>ul{
+    display: flex; flex-flow: row wrap;
+    background:url(../images/welf_bgSun.png) no-repeat -10px -20px;
+    background-size:93px;
+    &>li{
+      flex: 0 0 31.6vw;
+      width:31.6vw;margin:.65vw;text-indent:0;
+      line-height: 1.3;  
+      &>a {
+        display: block;position: relative;padding: 60px 8px 6px;border-radius:8px;
+        text-align: center; height: 100%;
+        background:var(--white); transition: .2s;
+        &:hover{box-shadow: var(--welBg1) 0 0 0 1px;}
+        &:focus{box-shadow: var(--welBg1) 0 0 0 3px;}
+        &:before {
+          content: '';position: absolute;top: 6px; left: 50%;
+          width: 80px;height: 50px; margin-left: -40px;
+          background: url(../images/welfare-icons.png) no-repeat center 0;background-size: 50px auto;
+        }
+      }
+  
+      &.kid>a:before{background-position:center 0;}
+      &.elderly>a:before{background-position:center -50px;}
+      &.women>a:before{background-position:center -100px;}
+      &.handicapped>a:before{background-position:center -150px;}
+      &.immigrant>a:before{background-position:center -200px;}
+      &.oneParent>a:before{background-position:center -250px;}
+      &.socialWork>a:before{background-position:center -300px;}
+      &.subsidy>a:before{background-position:center -350px;}
+      &.volunteer>a:before{background-position:center -400px;}
+      &.lottery>a:before{background-position:center -450px;}
+      &.assistance>a:before{background-position:center -500px;}
+      &.group>a:before{background-position:center -550px;}
+      
+    }
+  
+    @media screen and (min-width: $wwMedium){
+      display: block;
+      background-position: 20px 10px;
+      &>li{
+        flex: none;display:inline-block;
+        margin:0 8px 15px; padding: 0; width: auto;
+        background-size:100%;background-repeat:no-repeat;background-position:center bottom;
+        transition:.5s;
+  
+        &:first-child{margin-left:130px;}
+        &.kid{width:135px;background-image:url(../images/welCloud01.png);top: 20px;}
+        &.elderly{width:125px;background-image:url(../images/welCloud02.png);text-indent:30px;}
+        &.women{width:106px;background-image:url(../images/welCloud03.png);top:20px;}
+        &.handicapped{width:117px;background-image:url(../images/welCloud04.png);top:40px;}
+        &.immigrant{width:105px;background-image:url(../images/welCloud05.png);top:10px;}
+        &.oneParent{width:132px;background-image:url(../images/welCloud06.png);top:22px;}
+        &.socialWork{width:100px;background-image:url(../images/welCloud07.png);top:10px;}
+        &.subsidy{width:133px;background-image:url(../images/welCloud08.png);}
+        &.volunteer{width:115px;background-image:url(../images/welCloud09.png);top:25px;}
+        &.lottery{width:105px;background-image:url(../images/welCloud10.png);top:15px;}
+        &.assistance{width:112px;background-image:url(../images/welCloud11.png);top:36px;}
+        &.group{width:113px;background-image:url(../images/welCloud12.png);top:2px;}
+        &:hover{transform:translate(10px, 0); }
+  
+        &>a{
+          background-color: transparent; padding: 53px 0 6px;
+          &::before{width: 50px; top: 6px; left: 0;margin-left: 0;}
+          &:hover{ box-shadow: none;}
+        }
+        &.kid>a:before{left:48px;}
+        &.elderly>a:before{left:20px;bottom:8px;top: auto;}
+        &.women>a:before{left:28px;}
+        &.handicapped>a:before{left:30px}
+        &.immigrant>a:before{left:26px}
+        &.oneParent>a:before{left:44px}
+        &.socialWork>a:before{left:26px}
+        &.subsidy>a:before{left:50px}
+        &.volunteer>a:before{left:35px}
+        &.lottery>a:before{left:23px}
+        &.assistance>a:before{left:35px}
+        &.group>a:before{left:25px}
       }
     }
-
-    &.kid>a:before{background-position:center 0;}
-    &.elderly>a:before{background-position:center -50px;}
-    &.women>a:before{background-position:center -100px;}
-    &.handicapped>a:before{background-position:center -150px;}
-    &.immigrant>a:before{background-position:center -200px;}
-    &.oneParent>a:before{background-position:center -250px;}
-    &.socialWork>a:before{background-position:center -300px;}
-    &.subsidy>a:before{background-position:center -350px;}
-    &.volunteer>a:before{background-position:center -400px;}
-    &.lottery>a:before{background-position:center -450px;}
-    &.assistance>a:before{background-position:center -500px;}
-    &.group>a:before{background-position:center -550px;}
-    
-  }
-
-  @media screen and (min-width: $wwMedium){
-    display: block;
-    background-position: 20px 10px;
-    &>li{
-      flex: none;display:inline-block;
-      margin:0 8px 15px; padding: 0; width: auto;
-      background-size:100%;background-repeat:no-repeat;background-position:center bottom;
-      transition:.5s;
-
-      &:first-child{margin-left:130px;}
-      &.kid{width:135px;background-image:url(../images/welCloud01.png);top: 20px;}
-      &.elderly{width:125px;background-image:url(../images/welCloud02.png);text-indent:30px;}
-      &.women{width:106px;background-image:url(../images/welCloud03.png);top:20px;}
-      &.handicapped{width:117px;background-image:url(../images/welCloud04.png);top:40px;}
-      &.immigrant{width:105px;background-image:url(../images/welCloud05.png);top:10px;}
-      &.oneParent{width:132px;background-image:url(../images/welCloud06.png);top:22px;}
-      &.socialWork{width:100px;background-image:url(../images/welCloud07.png);top:10px;}
-      &.subsidy{width:133px;background-image:url(../images/welCloud08.png);}
-      &.volunteer{width:115px;background-image:url(../images/welCloud09.png);top:25px;}
-      &.lottery{width:105px;background-image:url(../images/welCloud10.png);top:15px;}
-      &.assistance{width:112px;background-image:url(../images/welCloud11.png);top:36px;}
-      &.group{width:113px;background-image:url(../images/welCloud12.png);top:2px;}
-      &:hover{transform:translate(10px, 0); }
-
-      &>a{
-        background-color: transparent; padding: 53px 0 6px;
-        &::before{width: 50px; top: 6px; left: 0;margin-left: 0;}
-        &:hover{ box-shadow: none;}
+  
+    @media screen and (min-width: $wwNormal){
+      margin: 0 auto; max-width: 1000px;
+      &>li{
+        position: relative;
+        &.kid{top: 20px;}
+        &.elderly{text-indent:30px;}
+        &.women{top:20px;}
+        &.handicapped{top:40px;}
+        &.immigrant{top:10px;}
+        &.oneParent{top:22px;}
+        &.socialWork{top:25px; margin-left: 50px;}
+        &.subsidy{ top: 10px;}
+        &.volunteer{top:25px;}
+        &.lottery{top:15px;}
+        &.assistance{top:40px;}
+        &.group{top:25px;}
       }
-      &.kid>a:before{left:48px;}
-      &.elderly>a:before{left:20px;bottom:8px;top: auto;}
-      &.women>a:before{left:28px;}
-      &.handicapped>a:before{left:30px}
-      &.immigrant>a:before{left:26px}
-      &.oneParent>a:before{left:44px}
-      &.socialWork>a:before{left:26px}
-      &.subsidy>a:before{left:50px}
-      &.volunteer>a:before{left:35px}
-      &.lottery>a:before{left:23px}
-      &.assistance>a:before{left:35px}
-      &.group>a:before{left:25px}
-    }
-  }
-
-  @media screen and (min-width: $wwNormal){
-    margin: 0 auto; max-width: 1000px;
-    &>li{
-      position: relative;
-      &.kid{top: 20px;}
-      &.elderly{text-indent:30px;}
-      &.women{top:20px;}
-      &.handicapped{top:40px;}
-      &.immigrant{top:10px;}
-      &.oneParent{top:22px;}
-      &.socialWork{top:25px; margin-left: 50px;}
-      &.subsidy{ top: 10px;}
-      &.volunteer{top:25px;}
-      &.lottery{top:15px;}
-      &.assistance{top:40px;}
-      &.group{top:25px;}
     }
   }
 }
@@ -163,7 +165,7 @@
 // 次分類選單 ////////////////////////////////////////////
 .welfContent{
   background:var(--welBg1);margin:0;padding:25px 0;
-  &>div {
+  .welGroup {
     width: 96%; margin: 0 auto 2vw; padding: 0;
     border-radius: 20px;
     background: var(--white); overflow: hidden;
@@ -243,7 +245,7 @@
 
   @media screen and (min-width: $wwMedium){
     background: none;
-    &>div{
+    .welGroup{
       overflow: hidden;width: auto;
       padding: 22px 20px 9px 10px;margin: 0; min-height: 72px;
       border-radius: 0;border-bottom: 1px solid var(--border);

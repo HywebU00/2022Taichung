@@ -445,26 +445,26 @@ $(function(){
     $(this).fadeOut(400);
   })
 
-  let winResizeTimer;
-  _window.resize(function () {
-    clearTimeout(winResizeTimer);
-    winResizeTime = setTimeout(function () {
-      ww = _window.width();
-      if(ww >= wwNormal ) {
-        _window.on('scroll.fixHeader' , fixHeader);
-        if (_sidebar.hasClass('reveal')) {
-          _sidebarMask.hide(10, function(){
-            _body.removeClass('noScroll');
-          });
-          _sidebar.removeClass('reveal');
-          _sidebarCtrl.removeClass('closeIt');
-        }
-      } else {
-        _window.off('.fixHeader');
-        fxH_clearStyle();
-      }
-    }, 200);
-  });
+  // var winResizeTimer;
+  // _window.resize(function () {
+  //   clearTimeout(winResizeTimer);
+  //   winResizeTime = setTimeout(function () {
+  //     ww = _window.width();
+  //     if(ww >= wwNormal ) {
+  //       _window.on('scroll.fixHeader' , fixHeader);
+  //       if (_sidebar.hasClass('reveal')) {
+  //         _sidebarMask.hide(10, function(){
+  //           _body.removeClass('noScroll');
+  //         });
+  //         _sidebar.removeClass('reveal');
+  //         _sidebarCtrl.removeClass('closeIt');
+  //       }
+  //     } else {
+  //       _window.off('.fixHeader');
+  //       fxH_clearStyle();
+  //     }
+  //   }, 200);
+  // });
 
 
 
@@ -539,37 +539,6 @@ $(function(){
 
 
   ////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////
-
-  // 頁籤，March 2022 新做  ////////////////////////////
-  // var _tabset = $('.tabset');
-  // _tabset.each(function(){
-  //   let _this = $(this);
-  //   let _tabItems = _this.find('.tabItems');
-  //   let _tabButton = _tabItems.find('button');
-  //   let _tabContent = _this.find('.tabContent');
-  //   let i = _tabButton.filter('.active').index();
-
-  //   _tabContent.not(':last').append('<button class="skip"></button>')
-  //   let _skip = _tabContent.find('.skip');
-    
-  //   _tabContent.eq(i).show();
-  //   _tabButton.attr('tabindex' , '-1' ).eq(i).attr('tabindex' , '0' );
-
-  //   _tabButton.on('click' , function(){
-  //     i = $(this).index();
-  //     $(this).addClass('active').attr('tabindex' , '0' ).siblings().removeClass('active').attr('tabindex' , '-1' );
-  //     _tabContent.hide().eq(i).show();
-  //   })
-
-  //   _skip.on('focus', function(){
-  //     _tabButton.eq( $(this).parent().index() ).focus();
-  //   })
-
-  //   _tabButton.on('focus', function(){
-  //     $(this).trigger('click');
-  //   })
-  // })
 
 	// 無障礙頁籤功能，修改 Shift + tab 
 	function tabFun() {
@@ -660,5 +629,107 @@ $(function(){
 		});
 	}
 	tabFun();
+
+
+  ///////////////////////////////////////////////////////////
+  // 舊版內頁移植 ////////////////////////////////////////
+  //「福利及照護」、「常用便民系統」分類平滑捲動錨點
+  
+  // 福利及照護
+  var _welfare = $('.welfare');
+  var _welAnchor = _welfare.find('.welfCate').find('li>a');
+  var _welAnchorTarget = $('.welfContent').find('.welGroup');
+
+  // 常用便民系統
+  var _esvNav = $('.eServices').find('nav');
+  var _esvCate = _esvNav.find('ul');
+  var _esvAnchor = _esvCate.find('li>a');
+  var _esvAnchorTarget = $('.esvContent').children('div');
+  var _esvCtrl = _esvNav.find('.ctrl');
+
+  var welTargetOffsetTop = [];
+  var esvTargetOffsetTop = [];
+
+  _welAnchorTarget.add(_esvAnchorTarget).find('h3').wrapInner('<a href="javascript:;"></a>');
+  _welAnchorTarget.add(_esvAnchorTarget).find('h3>a').attr('aria-label', 'click 或 enter 回分類')
+  _welAnchorTarget.add(_esvAnchorTarget).find('h3>a').click(function(e) {
+      var i = $(this).parent('h3').parent('div').index();
+      $('html').add(_body).stop(true, false).animate({ scrollTop: 0 }, 800, function() {
+          _welAnchor.add(_esvAnchor).parent().eq(i).children('a').focus();
+      });
+      e.preventDefault();
+  });
+
+
+  function getOffsetTop() {
+    var dh;
+    ww >= wwNormal ? dh=50 : dh=0 ;
+    _welAnchorTarget.each(function () {
+      welTargetOffsetTop.push($(this).offset().top - dh);
+    });
+    _esvAnchorTarget.each(function () {
+      esvTargetOffsetTop.push($(this).offset().top - dh);
+    });
+  }
+  getOffsetTop();
+
+  _welAnchor.each(function () {
+    $(this).click(function (e) {
+      let i = $(this).parents('li').index();
+      _html.add(_body).stop(true, false).animate({ scrollTop: welTargetOffsetTop[i] }, 800, function () {
+        // if (ww > 800) { _welAnchorTarget.eq(i).find('h3>a').focus(); }
+        _welAnchorTarget.eq(i).find('h3>a').focus();
+      });
+      e.preventDefault();
+    });
+  });
+  _esvAnchor.each(function () {
+    $(this).click(function (e) {
+      let i = $(this).parents('li').index();
+      _html.add(_body).stop(true, false).animate({ scrollTop: esvTargetOffsetTop[i] }, 600, function () {
+        // if (ww > 800) { _esvAnchorTarget.eq(i).find('h3>a').focus(); }
+        _esvAnchorTarget.eq(i).find('h3>a').focus();
+      });
+      e.preventDefault();
+    });
+  });
+
+  if (ww <= wwMedium) {
+    var widthUl = _esvCate.innerWidth();
+    _esvCate.css('margin-right', -1 * widthUl);
+    _esvCtrl.add(_esvAnchor).click(function () {
+      if (_esvCtrl.hasClass('closed')) {
+        _esvCtrl.removeClass('closed');
+        _esvCate.animate({ 'margin-right': 0 }, 250);
+      } else {
+        _esvCtrl.addClass('closed');
+        _esvCate.animate({ 'margin-right': -1 * widthUl }, 250);
+      }
+    });
+  }
+
+  // resize window
+  var winResizeTimer;
+  _window.resize(function () {
+    clearTimeout(winResizeTimer);
+    winResizeTime = setTimeout(function () {
+      ww = _window.width();
+      if(ww >= wwNormal ) {
+        _window.on('scroll.fixHeader' , fixHeader);
+        if (_sidebar.hasClass('reveal')) {
+          _sidebarMask.hide(10, function(){
+            _body.removeClass('noScroll');
+          });
+          _sidebar.removeClass('reveal');
+          _sidebarCtrl.removeClass('closeIt');
+        }
+      } else {
+        _window.off('.fixHeader');
+        fxH_clearStyle();
+      }
+
+      getOffsetTop();
+    }, 200);
+  });
 
 })
