@@ -1,0 +1,289 @@
+// 常用便民系統
+.eServices{
+
+	--primary: #89d7d3 ;
+	--primaryLight: #d6efee ;
+	--primaryPale: #e7fefb ;
+	--secondary: #54a1d0 ; //var(--secondary)
+
+	--assistant: #f98009 ;
+	--assistantDark: #935c22 ;
+	--linkText: #32444a ;
+	--white: #fff;
+	--black: #000;
+
+	ul{ list-style: none; margin: 0; padding: 0;}
+	li{ margin: 0; padding: 0;}
+	a{text-decoration:none;color:var(--linkText);}
+}
+
+// 本單元查詢和外站連結
+.eServices .servSearch{
+	display: flex; flex-flow: row nowrap; justify-content: space-between;
+	width: $mobileWidth; margin: 0 auto 20px; padding: 15px 0;
+	font-size: 1.15rem;
+	border-bottom: 2px dotted var(--secondary);
+	form {
+		flex: 1 1 65%;
+		input{
+			font-size: inherit;height: 2.8em; margin: 0; border-radius: 4px;
+			border: none; box-shadow: none;outline: none;
+			&[type="submit"]{
+				width:2.8em;text-indent:-10em;margin-left: 3px; border-radius: 1.5em;
+				background: url(../images/esv_search.png) no-repeat center center;
+				background-size:36px;
+				&:hover, &:focus{background-color: var(--primaryPale);}
+				&:hover{box-shadow: var(--primaryPale) 0 0 0 3px;}
+				&:focus{ box-shadow:var(--secondary) 0 0 0 3px;}
+			}
+			&[type="text"]{
+				width: calc(100% - 5em); max-width: 20em;
+				background-color: var(--primaryLight); color: var(--black);
+				border: none;
+				&:focus{
+					background-color: var(--primaryPale);
+					box-shadow: var(--secondary) 0 0 0 3px;
+				}
+			}
+		}
+		label{
+			display:inline-block; font-size: 0; color: transparent;
+			&+input[type="text"] { margin-left: -4px; }
+		}
+	}
+
+	.link{
+		flex: 1 1 35%;
+		a{
+			float: right;position:relative;
+			text-align:left;
+			padding:0 38px 0 16px;height:2.7em;line-height:2.8em;
+			border-radius:6px;outline:none;
+			background:var(--assistant);color:var(--white);
+			box-shadow:var(--assistantDark) 0 4px 0 1px, rgba(0,0,0,.8) 0 5px 5px;
+			transition: .2s;
+			&:before{
+				content:'';position:absolute;top:50%;right:18px;
+				margin-top:-8px;width:14px;height:14px;
+				border:3px solid var(--white);transform:rotate(45deg);border-left:none;border-bottom:none;transition:.2s;}
+			&:hover:before, &:focus:before{right:13px; }
+			&:focus{transform: translateY(2px); background: #d96600;}
+		}
+	}
+
+	@media screen and (min-width: $wwNormal){
+		width: auto;padding:3px 6px 12px;
+		form {
+			width:60%;float:left;white-space:nowrap;
+		}
+		.link{
+			width:38%;float:right;text-align:right;
+			a{padding-left: 2em; min-width: 10em;}
+		}
+	}
+
+}
+
+
+
+
+// 分類選單
+.eServices .servNav{
+	position:fixed; top:270px;right: 0; z-index:99;
+	ul{
+		display: flex; flex-flow: row wrap;
+		padding:8px; width: calc(7.2em + 16px);
+		font-size:1rem; line-height: 1.2;
+		border-radius:0 0 0 6px; background:rgba(47,78,89,.95);
+	}
+	li{
+		flex: 0 0 3.6em; 
+		a{
+			display: block;padding:.4em .8em;border-radius:5px;
+			color:var(--white);
+			&:hover, &:focus{background:rgba(0,0,0,.5);color:var(--white);}
+		}
+	}
+	.ctrl{
+		position:absolute;top:0;left:-40px;width:40px;height:52px;
+		background:rgba(47,78,89,.95);border-radius:6px 0 0 6px;
+		&::before, &::after {content:'';width:24px;height:3px;background:var(--white);position:absolute;left:11px;top:24px;}
+		&::before{transform:rotate(45deg);}
+		&::after{transform:rotate(-45deg);}
+		&.closed{
+			background:rgba(47,78,89,.6);
+			&:hover, &:focus{background:rgba(47,78,89,.95);}
+			&::before, &::after{width:16px;top:30px;}
+			&::after{top:20px;}
+		}
+	}
+	button.ctrl{box-shadow: none;}
+
+	@media screen and (min-width: $wwMedium) {
+		position: static; width: $mobileWidth; margin: 10px auto;
+		ul {
+			width: 100%;padding: 4px;
+			line-height: 1.1;font-size: 1em;border-radius: 1.5em;
+			background-color: var(--primary);color: var(--black);
+		}
+		li {
+			flex-basis: auto; margin: 3px;
+			a {
+				padding:.4em .8em .3em; border-radius: 2em;
+				color: var(--linkText); transition: .2s;
+				&:hover,
+				&:focus {color: var(--linkText); background: var(--primaryPale);}
+				&:focus{box-shadow: var(--primaryPale) 0 0 0 2px; }
+			}
+		}
+		.ctrl {display: none;}
+	}
+
+	@media screen and (min-width: $wwNormal){
+		width: auto; display: flex; justify-content: center;
+		ul{ width: auto;}
+	}
+	
+
+}
+
+// 便民系統完整連結 *********************************
+.esvContent{
+	width: $mobileWidth; margin: 0 auto;
+
+	.servGroup{
+		margin: 0 0 30px;
+		ul{padding:1em 0 0;line-height:1.4;}
+		li{
+			margin: 0 0 .4em;
+			a{
+				position: relative;display:block;padding:.8em 20px .1em 0;
+				// border-bottom:1px solid var(--white);
+				
+				outline:none;
+				transition: .2s;
+				&::before{
+					content: ''; position: absolute; left: 4px; top: 1.3em;
+					width: 0;height: 6px; margin-top: 2px;
+					background-color: var(--secondary);
+					transition: .2s;
+				}
+				&:hover, &:focus {
+					padding-left: 20px; padding-right: 0;
+				}
+				&:hover{box-shadow: var(--secondary)  0 2px 0 -1px;
+					&::before { width: 6px;}
+				}
+				&:focus {box-shadow: var(--secondary)  0 3px 0 -1px;
+					&::before{
+						width: 10px; height: 10px; left: 2px; margin-top: 0;
+						background-color: var(--assistant); 
+					}
+				}
+			}
+		}
+
+		h3{
+			position:relative;
+			padding:.55em 2.5em 4px 2px;
+			line-height:1.1;font-size:1.6rem;font-weight: normal;
+			overflow:hidden; 
+			border-bottom:3px solid var(--secondary);
+	
+			&::before{
+				content:'';position:absolute;right:0;top:0;width:2.3em;height:2.3em;border-radius:50%;
+				background:var(--primary) url(../images/eServices-icons.png) no-repeat center 0;
+				background-size:56px;
+			}
+		}
+		&.it h3::before{background-position:center -60px;}
+		&.police h3::before{background-position:center -120px;}
+		&.busibness h3::before{background-position:center -180px;}
+		&.geography h3::before{background-position:center -240px;}
+		&.traffic h3::before{background-position:center -300px;}
+		&.construction h3::before{background-position:center -360px;}
+		&.environment h3::before{background-position:center -420px;}
+		&.tax h3::before{background-position:center -480px;}
+		&.civil h3::before{background-position:center -540px;}
+		&.land h3::before{background-position:center -600px;}
+		&.law h3::before{background-position:center -660px;}
+	}
+
+
+
+	@media screen and (min-width: $wwMedium){
+		margin:30px auto 0;
+		display: flex; flex-flow: row wrap;justify-content: space-between;
+		&>div{flex: 0 0 calc(50% - 20px);}
+		h3{
+			&>a{
+				display:inline-block;padding:.2em .5em 4px 4px;margin:-.2em -.5em -4px -2px;
+				border-radius:4px 4px 0 0;
+				&::after{
+					content:'click或enter回分類';display:inline-block;
+					font-size:.5em;margin-left:.5em;
+					color:transparent;transition:.15s;
+				}
+				&:hover,
+				&:focus{
+					background:#fe8;outline: none;
+					&::after{color:#555;}
+				}
+			}
+		}
+	}
+
+	@media screen and (min-width: $wwNormal){
+		width: 100%;
+		&>div{
+			flex-basis:calc(33.33% - 30px);
+		}
+		.eServices .secrch{
+			input{
+				&[type="text"]{border:2px solid #a5d4e6; width:24em;max-width:80%;}
+			}
+		}
+
+	}
+	@media screen and (min-width: $wwMaximum){
+		// width: 100%;
+	}
+}
+
+
+// @media screen and (max-width:1000px){
+// 	.eServices>nav{border:none;margin:0;padding-top:10px;}
+// 	.eServices>nav ul{padding:0 10px;border-radius:6px;}
+// 	.eServices{margin-top:-15px;}
+// 	.eServices .secrch{padding:12px 30px;margin-left:-30px;margin-right:-30px;background:#406978}
+// 	.eServices .secrch input[type="text"],
+// 	.eServices .secrch input[type="submit"]{border:none;height:52px;}
+// 	.eServices .secrch input[type="submit"]:hover,
+// 	.eServices .secrch input[type="submit"]:focus{box-shadow:none;background-color:rgba(0,0,0,.5);}
+// }
+// @media screen and (max-width:800px){
+// 	.esvContent>div{width:47%;margin-right:0;}
+// 	.esvContent>div:nth-child(3n){margin-right:0;}
+// 	.esvContent>div:nth-child(3n+1){clear:none;}
+// 	.esvContent>div:nth-child(odd){clear:left;margin-right:6%}
+// 	.esvContent h3>a:after{display: none;}
+// 	.esvContent h3>a{display: inline;}
+// 	.esvContent h3>a:hover,
+// 	.esvContent h3>a:focus{background:none;}
+// }
+// @media screen and (max-width:600px){
+// 	.eServices .secrch input[type="text"]{width:calc(100% - 56px);}
+
+
+
+// 	.esvContent{margin:0 -15px;}
+// 	.esvContent>div{float:none;width:auto;margin:0 0 10px;position:relative;padding:15px 15px 30px;}
+// 	.esvContent>div:nth-child(even){background:#e1f0f0;}
+// 	.esvContent>div:nth-child(odd){margin-right:0;}
+// }
+// @media screen and (max-width:420px){
+// 	.eServices .secrch input[type="submit"]{margin-left:-4px;}
+// 	.eServices .secrch .link a{text-indent:0;text-align:center;}
+// 	.eServices .secrch .link a:before{display:none;}
+// }
+
