@@ -445,28 +445,6 @@ $(function(){
     $(this).fadeOut(400);
   })
 
-  // var winResizeTimer;
-  // _window.resize(function () {
-  //   clearTimeout(winResizeTimer);
-  //   winResizeTime = setTimeout(function () {
-  //     ww = _window.width();
-  //     if(ww >= wwNormal ) {
-  //       _window.on('scroll.fixHeader' , fixHeader);
-  //       if (_sidebar.hasClass('reveal')) {
-  //         _sidebarMask.hide(10, function(){
-  //           _body.removeClass('noScroll');
-  //         });
-  //         _sidebar.removeClass('reveal');
-  //         _sidebarCtrl.removeClass('closeIt');
-  //       }
-  //     } else {
-  //       _window.off('.fixHeader');
-  //       fxH_clearStyle();
-  //     }
-  //   }, 200);
-  // });
-
-
 
   // 查詢區開合 //////////////////////////////
   var _searchCtrl = $('.searchCtrl');
@@ -641,11 +619,12 @@ $(function(){
   var _welAnchorTarget = $('.welfContent').find('.welGroup');
 
   // 常用便民系統
-  var _esvNav = $('.eServices').find('nav');
+  var _eServices = $('.eServices');
+  var _esvNav = _eServices.find('.servNav');
   var _esvCate = _esvNav.find('ul');
   var _esvAnchor = _esvCate.find('li>a');
-  var _esvAnchorTarget = $('.esvContent').children('div');
   var _esvCtrl = _esvNav.find('.ctrl');
+  var _esvAnchorTarget = _esvCate.find('.servGroup');
 
   var welTargetOffsetTop = [];
   var esvTargetOffsetTop = [];
@@ -707,6 +686,7 @@ $(function(){
       }
     });
   }
+
 
   // resize window
   var winResizeTimer;
