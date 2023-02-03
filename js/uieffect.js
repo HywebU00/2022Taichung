@@ -618,30 +618,20 @@ $(function(){
   var _welAnchor = _welfare.find('.welfCate').find('li>a');
   var _welAnchorTarget = $('.welfContent').find('.welGroup');
 
+
   // 常用便民系統
   var _eServices = $('.eServices');
   var _esvNav = _eServices.find('.servNav');
   var _esvCate = _esvNav.find('ul');
   var _esvAnchor = _esvCate.find('li>a');
+  var _esvAnchorTarget = _eServices.find('.servGroup');
   var _esvCtrl = _esvNav.find('.ctrl');
-  var _esvAnchorTarget = _esvCate.find('.servGroup');
 
   var welTargetOffsetTop = [];
   var esvTargetOffsetTop = [];
 
-  _welAnchorTarget.add(_esvAnchorTarget).find('h3').wrapInner('<a href="javascript:;"></a>');
-  _welAnchorTarget.add(_esvAnchorTarget).find('h3>a').attr('aria-label', 'click 或 enter 回分類')
-  _welAnchorTarget.add(_esvAnchorTarget).find('h3>a').click(function(e) {
-      var i = $(this).parent('h3').parent('div').index();
-      $('html').add(_body).stop(true, false).animate({ scrollTop: 0 }, 800, function() {
-          _welAnchor.add(_esvAnchor).parent().eq(i).children('a').focus();
-      });
-      e.preventDefault();
-  });
-
-
   function getOffsetTop() {
-    var dh;
+    let dh;
     ww >= wwNormal ? dh=50 : dh=0 ;
     _welAnchorTarget.each(function () {
       welTargetOffsetTop.push($(this).offset().top - dh);
@@ -652,11 +642,21 @@ $(function(){
   }
   getOffsetTop();
 
+  _welAnchorTarget.add(_esvAnchorTarget).find('h3').wrapInner('<a href="javascript:;"></a>');
+  _welAnchorTarget.add(_esvAnchorTarget).find('h3>a').attr('aria-label', 'click 或 enter 回分類')
+  _welAnchorTarget.add(_esvAnchorTarget).find('h3>a').click(function(e) {
+      let i = $(this).parents('.welGroup, .servGroup').index();
+      $('html').add(_body).stop(true, false).animate({ scrollTop: 0 }, 800, function() {
+          _welAnchor.add(_esvAnchor).parent().eq(i).children('a').focus();
+      });
+      e.preventDefault();
+  });
+
+
   _welAnchor.each(function () {
     $(this).click(function (e) {
       let i = $(this).parents('li').index();
       _html.add(_body).stop(true, false).animate({ scrollTop: welTargetOffsetTop[i] }, 800, function () {
-        // if (ww > 800) { _welAnchorTarget.eq(i).find('h3>a').focus(); }
         _welAnchorTarget.eq(i).find('h3>a').focus();
       });
       e.preventDefault();
@@ -666,29 +666,34 @@ $(function(){
     $(this).click(function (e) {
       let i = $(this).parents('li').index();
       _html.add(_body).stop(true, false).animate({ scrollTop: esvTargetOffsetTop[i] }, 600, function () {
-        // if (ww > 800) { _esvAnchorTarget.eq(i).find('h3>a').focus(); }
         _esvAnchorTarget.eq(i).find('h3>a').focus();
       });
       e.preventDefault();
     });
   });
 
-  if (ww <= wwMedium) {
-    var widthUl = _esvCate.innerWidth();
-    _esvCate.css('margin-right', -1 * widthUl);
-    _esvCtrl.add(_esvAnchor).click(function () {
-      if (_esvCtrl.hasClass('closed')) {
-        _esvCtrl.removeClass('closed');
-        _esvCate.animate({ 'margin-right': 0 }, 250);
-      } else {
-        _esvCtrl.addClass('closed');
-        _esvCate.animate({ 'margin-right': -1 * widthUl }, 250);
-      }
-    });
+  
+  
+  
+  // 「常用便民系統」分類選項在行動可收合
+  var servNavTimeID;
+  function servNavShowHide() {
+    if (ww < wwMedium) {
+      servNavTimeID = setTimeout ( () => { _esvNav.addClass('hide') }, 3000 );
+      _esvAnchor.focus( function(){ _esvNav.removeClass('hide'); });
+    } else {
+      _esvNav.removeClass('hide');
+    }
   }
+  servNavShowHide();
+  
+  _esvCtrl.on('focus, click', function() {
+    _esvNav.toggleClass('hide');
+    clearTimeout(servNavTimeID);
+  })
 
 
-  // resize window
+  // resize window ////////////////////////////////////
   var winResizeTimer;
   _window.resize(function () {
     clearTimeout(winResizeTimer);
@@ -707,8 +712,8 @@ $(function(){
         _window.off('.fixHeader');
         fxH_clearStyle();
       }
-
       getOffsetTop();
+      servNavShowHide();
     }, 200);
   });
 

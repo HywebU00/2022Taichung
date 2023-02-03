@@ -8,6 +8,11 @@
 
 	--assistant: #f98009 ;
 	--assistantDark: #935c22 ;
+	--assistant2: #fe8;
+
+	--servNav: rgba(27, 74, 83, 0.8);
+	--servNavHover: rgba(0,0,0,.3);
+
 	--linkText: #32444a ;
 	--white: #fff;
 	--black: #000;
@@ -85,34 +90,45 @@
 }
 
 
-
-
-// 分類選單
+// 常用便民系統分類選單
 .eServices .servNav{
 	position:fixed; top:270px;right: 0; z-index:99;
+	transition: transform .8s;
+	&.hide{
+		transform: translateX(100%);
+		.ctrl{
+			&::before, &::after{width:16px;top:30px;}
+			&::after{top:20px;}
+		}
+	}
 	ul{
 		display: flex; flex-flow: row wrap;
-		padding:8px; width: calc(7.2em + 16px);
-		font-size:1rem; line-height: 1.2;
-		border-radius:0 0 0 6px; background:rgba(47,78,89,.95);
+		padding:8px; width: calc(7.2em + 20px);
+		font-size:1rem; line-height: 1.1;
+		border-radius:0 0 0 6px; background:var(--servNav);
 	}
 	li{
-		flex: 0 0 3.6em; 
+		flex: 0 0 3.6em; margin: 1px;
+		// background: #000;
 		a{
-			display: block;padding:.4em .8em;border-radius:5px;
+			display: block;padding:.4em .7em .3em;border-radius:5px;text-align: center;
 			color:var(--white);
-			&:hover, &:focus{background:rgba(0,0,0,.5);color:var(--white);}
+			&:hover{background:rgba(0,0,0,.5);color:var(--white);}
+			&:focus{background:rgba(0,0,0,.8);}
+
 		}
 	}
 	.ctrl{
 		position:absolute;top:0;left:-40px;width:40px;height:52px;
-		background:rgba(47,78,89,.95);border-radius:6px 0 0 6px;
+		background:var(--servNav);border-radius:6px 0 0 6px;
 		&::before, &::after {content:'';width:24px;height:3px;background:var(--white);position:absolute;left:11px;top:24px;}
 		&::before{transform:rotate(45deg);}
 		&::after{transform:rotate(-45deg);}
+		&:hover, &:focus{
+			background:rgba(0,0,0,.95);
+		}
 		&.closed{
-			background:rgba(47,78,89,.6);
-			&:hover, &:focus{background:rgba(47,78,89,.95);}
+			&:hover, &:focus{background:var(--servNav);}
 			&::before, &::after{width:16px;top:30px;}
 			&::after{top:20px;}
 		}
@@ -121,6 +137,7 @@
 
 	@media screen and (min-width: $wwMedium) {
 		position: static; width: $mobileWidth; margin: 10px auto;
+		&.hide{ transform: none;}
 		ul {
 			width: 100%;padding: 4px;
 			line-height: 1.1;font-size: 1em;border-radius: 1.5em;
@@ -147,7 +164,8 @@
 
 }
 
-// 便民系統完整連結 *********************************
+
+// 常用便民系統完整連結 
 .esvContent{
 	width: $mobileWidth; margin: 0 auto;
 
@@ -157,24 +175,26 @@
 		li{
 			margin: 0 0 .4em;
 			a{
-				position: relative;display:block;padding:.8em 20px .1em 0;
+				position: relative;display:block;padding:.8em 20px .1em 4px;
 				outline:none;
 				transition: .2s;
 				&::before{
-					content: ''; position: absolute; left: 4px; top: 1.3em;
-					width: 0;height: 6px; margin-top: 2px;
+					content: ''; position: absolute; left: 2px; top: calc(1.3em + 2px);
+					width: 0;height: 6px;
 					background-color: var(--secondary);
 					transition: .2s;
 				}
 				&:hover, &:focus {
 					padding-left: 20px; padding-right: 0;
 				}
-				&:hover{box-shadow: var(--secondary)  0 2px 0 -1px;
+				&:hover{
+					box-shadow: var(--secondary)  0 2px 0 -1px;
 					&::before { width: 6px;}
 				}
-				&:focus {box-shadow: var(--secondary)  0 3px 0 -1px;
+				&:focus {
+					box-shadow: var(--secondary)  0 3px 0 -1px;
 					&::before{
-						width: 10px; height: 10px; left: 2px; margin-top: 0;
+						width: 10px; height: 10px; top: 1.3em;
 						background-color: var(--assistant); 
 					}
 				}
@@ -183,15 +203,31 @@
 
 		h3{
 			position:relative;
-			padding:.55em 2.5em 4px 2px;
+			padding:.55em 2.5em 0 0;
 			line-height:1.1;font-size:1.6rem;font-weight: normal;
 			overflow:hidden; 
 			border-bottom:3px solid var(--secondary);
 	
 			&::before{
-				content:'';position:absolute;right:0;top:0;width:2.3em;height:2.3em;border-radius:50%;
+				content:'';position:absolute;right:0;top:4px;width:2.3em;height:2.3em;border-radius:50%;
 				background:var(--primary) url(../images/eServices-icons.png) no-repeat center 0;
 				background-size:56px;
+			}
+			&>a{
+				display:inline-block;padding:4px;
+				border-radius: 4px;outline: none;
+				&::after{
+					// content:'click 或 enter 回分類';
+					content: attr(aria-label);
+					display:inline-block;padding: 0 5px;
+					font-size:.5em; 
+					color:transparent;
+					transition:.15s;
+				}
+				&:hover,&:focus{
+					background:var(--assistant2);
+					&::after{color:#444;}
+				}
 			}
 		}
 		&.it h3::before{background-position:center -60px;}
@@ -214,36 +250,25 @@
 		display: flex; flex-flow: row wrap;justify-content: space-between;
 		&>div{flex: 0 0 calc(50% - 20px);}
 		h3{
-			&>a{
-				display:inline-block;padding:.2em .5em 4px 4px;margin:-.2em -.5em -4px -2px;
-				border-radius:4px 4px 0 0;
-				&::after{
-					content:'click或enter回分類';display:inline-block;
-					font-size:.5em;margin-left:.5em;
-					color:transparent;transition:.15s;
-				}
-				&:hover,
-				&:focus{
-					background:#fe8;outline: none;
-					&::after{color:#555;}
-				}
-			}
+			// &>a{
+			// 	&::after{
+			// 		// content:'click 或 enter 回分類';
+			// 		content: attr(aria-label);
+			// 		display:inline-block;padding: 0 5px;
+			// 		font-size:.5em; 
+			// 		color:transparent;
+			// 		transition:.15s;
+			// 	}
+			// 	&:hover,&:focus{
+			// 		&::after{color:#444;}
+			// 	}
+			// }
 		}
 	}
 
 	@media screen and (min-width: $wwNormal){
 		width: 100%;
-		&>div{
-			flex-basis:calc(33.33% - 30px);
-		}
-		.eServices .secrch{
-			input{
-				&[type="text"]{border:2px solid #a5d4e6; width:24em;max-width:80%;}
-			}
-		}
+		.servGroup{flex-basis:calc(33.33% - 30px);}
+	}
 
-	}
-	@media screen and (min-width: $wwMaximum){
-		// width: 100%;
-	}
 }
