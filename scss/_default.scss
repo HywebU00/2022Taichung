@@ -13,16 +13,21 @@ body{
   &.smallFont{ font-size: .9em;}
   &.largeFont{ font-size: 1.25em;}
 
+  // .center : 舊版內頁排版用
   .center{
     position: relative;margin: 0 auto;padding: 0 0 50px;
   }
 
   @media screen and (min-width: $wwNormal){
     .center{ 
-      width: $wwNormal;
+      width: 96%;
     }
-    // width: 96%;
-    // max-width: $wwMaximum*.96;
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .center{
+      width: $wwMaximum * .96;
+    }
   }
 }
 
