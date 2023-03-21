@@ -13,15 +13,18 @@ body{
   &.smallFont{ font-size: .9em;}
   &.largeFont{ font-size: 1.25em;}
 
-  @media screen and (min-width: $wwMedium){
+  .center{
+    position: relative;margin: 0 auto;padding: 0 0 50px;
   }
 
   @media screen and (min-width: $wwNormal){
-    width: 96%;
-    max-width: $wwMaximum*.96;
+    .center{ 
+      width: $wwNormal;
+    }
+    // width: 96%;
+    // max-width: $wwMaximum*.96;
   }
 }
-
 
 // 內頁文章標題
 .center>header{

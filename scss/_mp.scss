@@ -11,7 +11,7 @@ h2.blockHeader{
 }
 @media screen and (min-width: $wwNormal){
   h2.blockHeader , .subheader{
-    width: $normalWidth;
+    width: $normalWidth; max-width: 100%
   }
 }
 

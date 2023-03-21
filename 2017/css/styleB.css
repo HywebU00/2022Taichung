@@ -1,4 +1,17 @@
 /*styleB:環保局*/
+:root{
+	--primary:#0e677c;
+	--secondary: #222;
+	--assistant: #f3f3f3;
+	--hiLight:#a7e1e8;
+	--hiLight2:#d6c41b;
+	--notice: #d00;
+
+	--font: #222;
+	--fontLight: #666;
+	--fontInvert: #fff;
+	--linkColor: #0c688d;
+}
 
 /* input[type="text"]:focus,
 input[type="password"]:focus,
