@@ -186,7 +186,61 @@ a.mapMarker:hover,
 a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 
 
-/* 前言、後記 */
+
+
+// 前言、後記
+.preface{
+  padding:2em 3% 1em;margin:0 auto;overflow:hidden;
+  background:#f3f5f6;
+
+  h2{float:left;margin-bottom:1em;font-size:1.4em;font-weight:normal;}
+  p{margin:1.2em 0;line-height:inherit;}
+  li + li{margin-top:.4em;}
+  ol{list-style:decimal;}
+  ul{list-style:disc;}
+  ul, ol{margin:1.2em 0 1.2em 2.1em;line-height:inherit;}
+  .buttons{float:right;overflow:hidden;
+    & + *{clear:both;}
+    li{margin:0;padding:0;
+      &.extraBtn{clear:none;}
+    }
+  }
+  .info, .count{
+    display:block;margin:1.3em 0 0;
+    font-size:.9em;color:#888;
+    em{color:#000}
+  }
+  .info{
+    em{font-weight:normal;}
+    li{margin:0 0 .8em;display:block;}
+  }
+  .count{
+    li.hot{padding-right:20px;background:url(../images/hot.png) no-repeat right 0;}
+  }
+  
+  @media screen and (min-width: $wwMedium){
+    h2{font-size:1.8em;}
+    .info, .count{
+      font-size: 1em;display:inline-block;
+      li{
+        margin:0 0 .8em 1.4em;display:inline-block;
+        &:first-child{margin-left:0;}
+      }
+    }
+    .count{float:right;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding-left: 30px; padding-right: 30px; margin-bottom: 0;
+  }
+}
+
+// 與 .page 相關
+@media screen and (min-width: $wwNormal){
+  .page + .preface{margin-top:-40px;margin-bottom:40px;}
+}
+
+/* 前言、後記 
 .preface{width:96%; padding:2em 3% 1em;margin:0 auto 1em;overflow:hidden;background:#f3f5f6;}
 .page + .preface{margin-top:-40px;margin-bottom:40px;}
 .preface h2{float:left;margin-bottom:1em;font-size:1.8em;font-weight:normal;}
@@ -218,7 +272,7 @@ a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 	.preface .info li{margin:0 0 .8em;display:block;}
 	.preface .count{float:none;text-align:left;}
 }
-
+*/
 
 
 .videoPlay{width:96%;margin:0 auto;}
