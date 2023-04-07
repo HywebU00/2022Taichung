@@ -1,12 +1,12 @@
 h2.blockHeader{
-  margin: 0 auto .8em; width: $mobileWidth;
+  margin: 0 auto .5em; width: $mobileWidth;
   line-height: 1.2; text-align: center; letter-spacing: 3px;
   font-size: 2rem; font-family: 'Times New Roman', Times, serif;
 
-  &+.subheader{margin-top: 1.5em;}
+  &+.subheader{margin-top: .6em;}
 }
 .subheader{
-  width: $mobileWidth; margin: .9em auto 1.5em;
+  width: $mobileWidth; margin: .6em auto 1.8em;
   font-size: 1em; line-height: 1.6;text-align: center;
 }
 @media screen and (min-width: $wwNormal){
