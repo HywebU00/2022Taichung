@@ -1,6 +1,6 @@
 // 首頁：最新消息（頁籤組）
 .news{
-  position: relative;padding: 50px 0; margin: 0 auto;
+  position: relative;padding: 30px 0; margin: 0 auto;
   ul{ list-style: none; margin: 0; padding: 0; }
   li{ margin: 0; padding: 0; }
   &::before{
@@ -8,7 +8,7 @@
     display: none;
   }
   @media screen and (min-width: $wwNormal){
-    padding: 70px 0 92px;
+    padding: 30px 0 80px;
     &::before{
       display: block;  top: 280px;
       background: url(../publicData/newsList_bg.jpg) no-repeat center center;

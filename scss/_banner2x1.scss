@@ -1,6 +1,7 @@
 // 首頁：2:1 圖 slide（2023 一月新增）
 .banner2x1{
-  padding: 50px 0; width: 100%; overflow: hidden;
+  padding: 30px 0; width: 100%; overflow: hidden;
+  &:first-of-type{ padding-top: 0;}
   .flow{
     margin: 0 auto; padding: 0 0 24px;
   }

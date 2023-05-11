@@ -58,7 +58,14 @@ $(function(){
   });
 
   // 首頁：2x1 banner 輪播（2023Jan 新增）
-  $('.banner2x1').find('.flow').slick({
+  var _banner2x1Flow = $('.banner2x1').find('.flow');
+  _banner2x1Flow.each( function(){
+    let _this = $(this);
+    if( _this.children('div').length == 1 ) {
+      _this.children('div').clone().appendTo(_this);
+    }
+  });
+  _banner2x1Flow.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 600,
