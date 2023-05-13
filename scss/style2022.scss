@@ -11,15 +11,19 @@
 @import "_bigBanner";
 @import "_mp";
 @import "_lightbox"; // 燈箱
+@import "_friendly"; // 瀏覽路徑、友善列印、返回上頁 
 @import "_cp"; 
 @import "_np"; //20230321
 @import "_category"; // 資料大類 20230321
 @import "_lp"; //20230321
+@import "_page"; //20230321
+@import "_listOrg"; // 機關通訊錄 20230511
+@import "_thumbnail"; // 縮圖瀏覽 20230511
 
 // ------------------------------------------------------------- //
-@import "../2017/metaTable.css"; /* 表格型資料 */
-@import "../2017/cpPhoto.css";   /* 表格型資料 */
-@import "../2017/css/share.css"; /* 分享 */
+// @import "../2017/metaTable.css"; /* 表格型資料 */
+// @import "../2017/cpPhoto.css";   /* 表格型資料 */
+// @import "../2017/css/share.css"; /* 分享 */
 
 // ------------------------------------------------------------- //
 // 2023 市府主站頁面轉移 ---------------------------------------- //

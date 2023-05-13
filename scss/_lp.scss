@@ -1,5 +1,5 @@
 
-@import url("../2017/css/page.css");
+// @import url("../2017/css/page.css");
 
 
 .list{
@@ -181,9 +181,6 @@
 
 
 
-
-
-
 // linkBtn
 .linkBtn{margin:5px 0;font-size:13px;display: inline-block;line-height: 1.4;
   a{display:block;background: #eeeeee;;padding:.8em 1em;box-shadow:rgba(0,0,0,.4) 0 1px 4px;border-radius:5px;text-decoration:none;color:#fff;
@@ -200,34 +197,6 @@
 .nextPage { display:none;}
 
 
-// 機關通訊錄
-.list.org{
-  td{
-    border-top:1px solid #999;border-bottom:none;padding:.45em 8px .4em;
-    &:first-child{font-size:1.2em;text-align:left;width:33%;}
-
-    &[data-title*="信箱"] a,
-    &[data-title*="簡介"] a { display:inline-block;width:38px;height:30px;background:url(../images/icon_mail.png) no-repeat center center;background-size:30px auto;font-size:0;border-radius:6px;vertical-align:5px;outline:none;}
-    &[data-title*="簡介"] a { background-image:url(../images/icon_detail.png);background-size:36px auto; }
-  
-  }
-  .org2nd td{border-top:1px dotted #ccc;
-    &:first-child{padding-left:2.5em;font-size:1em;}
-     a{border-radius:2em;padding:.3em 1em .2em;}
-  }
-  a{display:inline-block;padding:.4em 1em .35em;}
-
-  tr:hover {
-    td a:hover,
-    td a:focus{text-decoration:none;outline:none;}
-  
-    // td[data-title*="信箱"] a:hover,
-    // td[data-title*="簡介"] a:hover,
-    // td[data-title*="信箱"] a:focus,
-    // td[data-title*="簡介"] a:focus{outline:none;}
-  }
-  
-}
 
 // 市長行程
 .list.schedule{
@@ -537,15 +506,6 @@
 	.list.poll td{margin:0;}
 	.list.poll td.title{display:block;}
 
-	.list.org tr{overflow:hidden;}
-	.list.org td, .list.org .org2nd td, .list.org tr:last-child td{display:inline-block;border:none;line-height: 48px;}
-	.list.org .org2nd td:first-child{padding-left:8px;font-size:1em;}
-	.list.org td:first-child{text-align:center;line-height: 1.8em;}
-	.list.org td:before{display:none;}
-	.list.org td:first-child,
-	.list.org .org2nd td:first-child,
-	.list.org tr:last-child td:first-child{display:block;width:100%;border-bottom:1px solid #ccc;padding-left:0;padding-right:0;}
-	.list.org td:last-child{float:right;}
 	.list.schedule{margin:1em 0;}
 	.list.schedule table {border-collapse:collapse;}
 	.schedule table caption{font-size:1em;margin-top:.5em;}

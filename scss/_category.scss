@@ -30,30 +30,33 @@
   }
 
 
-  @media screen and (min-width: 601px ){
-    ul{margin: 0;padding:6px 2px 2px;overflow: hidden;}
+  @media screen and (min-width: $wwMedium){
+    ul{ display: block; margin: 0;padding:6px 2px 2px;overflow: hidden;}
     li{margin: 0 5px 5px 0;float: left;}
   }
   
 
-  @media screen and (min-width: 801px){
+  @media screen and (min-width: $wwNormal){
     margin-top: 10px;padding: 0; z-index: auto;
     background: none;box-shadow: none;
     .cateCtrl, .cateNow{display:none;}
-    ul{ display: block;}
     li{
       margin:3px;padding: 0;
       a{
-        padding:0 .7em;height: 2.3em;line-height: 2.3em;
-        background:none;color:#000;text-decoration:none;border:1px solid #ccc;
-        border-radius: 0;
+        padding:0 .7em;height: 2.3em;line-height: 2.4em;
+        background:none;color:#000;text-decoration:none; border-radius: 0;outline:none;
+        box-shadow: $borderColorLight 0 0 0 1px;
         transition: .2s;
-        &:hover,
-        &:focus{outline:none}
+        &:hover{ box-shadow: $primaryColor 0 0 0 1px;}
+        &:focus{ box-shadow: $primaryColor 0 0 0 2px;}
+
       }
-      &.here a{color:#fff;}
+      &.here a{color:#fff; background-color: $primaryColor;box-shadow: $primaryColor 0 0 0 1px;
+        &:hover, &:focus{ box-shadow:#fff 0 0 0 1px, $primaryColor 0 0 0 3px;}
+      }
     }
   }
+
   
 
   @media screen and (min-width: $wwMaximum){

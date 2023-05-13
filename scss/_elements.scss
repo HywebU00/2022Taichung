@@ -10,6 +10,7 @@ a:focus{outline: none;}
     text-decoration: none; padding: 3px;
     &:focus, &:hover { box-shadow: $primaryColor 0 0 0 2px inset;}
   }
+  .center  .accesskey{left: -1.5em;}
   .webFooter .accesskey{
     &:focus, &:hover { box-shadow: #fff 0 0 0 2px inset;}
   }
