@@ -65,7 +65,9 @@
       &:focus{text-decoration:underline;color:#006898;}
     }
 
-    img{vertical-align:middle;margin:0 3px;}
+    img{vertical-align:middle;margin:0 3px;
+      &.avatar{ width: 160px; height: 160px; object-fit: cover; }
+    }
     &[data-title="姓名"]{font-size:1.2em;text-decoration:underline;}
     &[data-title*="名稱"],
     &[data-title*="地址"],

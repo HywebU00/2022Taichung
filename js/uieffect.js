@@ -68,8 +68,9 @@ $(function(){
   _banner2x1Flow.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 600,
-    autoplay: false,
+    autoplaySpeed: 4000,
+    speed: 800,
+    autoplay: true,
     arrows: true,
     dots: true,
     centerPadding: 0,
@@ -90,7 +91,6 @@ $(function(){
     centerPadding: 0,
     infinite: true,
     mobileFirst: true
-
   });
 
   
