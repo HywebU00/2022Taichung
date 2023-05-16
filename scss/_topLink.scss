@@ -82,17 +82,18 @@
 
 
 
-// fontSize ////////////////////////
+// fontSize 文字大小 ////////////////////////
 .fontSize{
-  // background: #bbb; 
   ul{  display: flex; align-items: flex-end; line-height: 1;}
   li{
     flex: 0 0 auto;
     margin: 0 2px; padding: 0; line-height: 1;
     button{
-      position: relative; padding: 2px 4px 1px; margin: 0; line-height: 1; height: 1.2em;
-      border: none; background-color: transparent; cursor: pointer; outline: none;
-      box-shadow: transparent 0 0 0 1px; vertical-align: bottom;
+      position: relative; padding: 2px 4px 1px; margin: 0; 
+      line-height: 1; height: 1.2em;vertical-align: bottom;
+      border: none; cursor: pointer; outline: none; border-radius: 0;
+      background-color: transparent; color: $fontColor;
+      box-shadow: transparent 0 0 0 1px; 
       &.smallFont{font-size: .8rem;}
       &.mediumFont{ font-size: 1rem;}
       &.largeFont{ font-size: 1.4rem;}

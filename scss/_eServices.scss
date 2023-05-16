@@ -1,4 +1,4 @@
-// 常用便民系統
+// 常用便民系統css顏色變數
 .eServices{
 
 	--primary: #89d7d3 ;
@@ -109,17 +109,16 @@
 	}
 	li{
 		flex: 0 0 3.6em; margin: 1px;
-		// background: #000;
 		a{
-			display: block;padding:.4em .7em .3em;border-radius:5px;text-align: center;
+			display: block;padding:.8em .7em .7em;border-radius:5px;text-align: center;
 			color:var(--white);
 			&:hover{background:rgba(0,0,0,.5);color:var(--white);}
 			&:focus{background:rgba(0,0,0,.8);}
 
 		}
 	}
-	.ctrl{
-		position:absolute;top:0;left:-40px;width:40px;height:52px;
+	button.ctrl{
+		position:absolute;top:0;left:-40px;width:40px;height:52px; margin: 0;
 		background:var(--servNav);border-radius:6px 0 0 6px;
 		&::before, &::after {content:'';width:24px;height:3px;background:var(--white);position:absolute;left:11px;top:24px;}
 		&::before{transform:rotate(45deg);}

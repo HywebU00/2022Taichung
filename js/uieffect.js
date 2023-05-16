@@ -631,13 +631,15 @@ $(function(){
   var _esvNav = _eServices.find('.servNav');
   var _esvCate = _esvNav.find('ul');
   var _esvAnchor = _esvCate.find('li>a');
-  var _esvAnchorTarget = _eServices.find('.servGroup');
+  var _esvAnchorTarget = $('.esvContent').find('.servGroup');
   var _esvCtrl = _esvNav.find('.ctrl');
-
+  
   var welTargetOffsetTop = [];
   var esvTargetOffsetTop = [];
 
   function getOffsetTop() {
+    welTargetOffsetTop = [];
+    esvTargetOffsetTop = [];
     let dh;
     ww >= wwNormal ? dh=50 : dh=0 ;
     _welAnchorTarget.each(function () {
@@ -669,6 +671,7 @@ $(function(){
       e.preventDefault();
     });
   });
+  
   _esvAnchor.each(function () {
     $(this).click(function (e) {
       let i = $(this).parents('li').index();
