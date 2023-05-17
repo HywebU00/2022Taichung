@@ -1,0 +1,127 @@
+// 附件下載、相關圖檔、相關連結
+.attachment, .seeAlso{
+  @extend %innerWidth;
+  clear:both;margin:3.5em auto;padding:0;
+
+  h3{font-size:1.25em;margin:0 0 5px;padding:0 2px 5px;letter-spacing:.1em;border-bottom:2px solid $borderColor;}
+
+  ul{margin:0;padding:0;list-style:none;font-size:1em;}
+  li{
+    a{text-decoration:none;}
+  }
+}
+
+// 檔案或附件下載
+.attachment .filename{
+  padding-top: 1px;
+  &>li{
+    line-height:1.5; padding: 0 3px .45em; margin: .7em 0;
+    border-bottom:1px dotted $borderColor;
+    a{
+      display:inline-block; color: $fontColor;
+      &+*{margin-right: .8em;}
+      &:hover{text-decoration:underline;}
+      &:focus{
+        text-decoration: none; outline: 2px solid $linkColor;
+      }
+    }
+  }
+}
+
+
+
+// --附件：圖檔
+.attachment .images{
+  margin-top: 16px;
+  &>li{
+    padding: 0;margin: 0 0 3vw;
+    a{
+      display:block;margin:0 auto;height: 100%;text-decoration:none;
+      box-shadow: $borderColor 0 0 0 1px; color: $fontColor;
+      background-color: $grayLight; transition: .2s;
+      &:hover { box-shadow:$borderColorDark 0 0 0 1px, $borderColor 0 0 9px; }
+       &:focus{ box-shadow: $borderColorDark 0 0 0 2px; }
+    }
+    img{display:block;margin:0 auto;width:100%; background-color: $white;}
+    p{line-height: 1.6;padding: 12px 10px 10px;margin:0;font-size:1em;}
+  }
+
+  @media screen and (min-width: $wwSlim){
+    display: flex; flex-flow: row wrap;
+    &>li {
+      flex: 0 0 calc(50% - 6px); margin-left: 12px; margin-bottom: 12px;
+      &:nth-child(odd){margin-left: 0;}
+      img{ height: calc(47vw - 6px); object-fit: contain; }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    display: flex; flex-flow: row wrap;
+    &>li {
+      flex: 0 0 calc(33.33% - 8px);
+      &:nth-child(n) { margin-left: 12px;}
+      &:nth-child(3n + 1){margin-left: 0;}
+      img{ height: calc(31.33vw - 8px);}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    &>li{
+      flex-basis: calc(25% - 9px);
+      &:nth-child(n) { margin-left: 12px;}
+      &:nth-child(4n + 1) {margin-left: 0;}
+      a{ 
+        position: relative;
+        height: calc(24vw - 9px); overflow: hidden;
+        &:hover, &:focus {
+          p{transform: translateY(0);}
+        }
+      }
+      p{
+        position: absolute; left: 0; right: 0; bottom: 0;
+        transform: translateY(102%); transition: .4s;
+        background-color: rgba(0,0,0,.8); color: $white; 
+      }
+      img{ height: calc(24vw - 9px);}
+
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &>li{
+      flex-basis: calc($wwMaximum*.96*.25 - 9px);
+      a{height: calc($wwMaximum*.96*.25 - 9px);}
+      img{ height:100%;}
+    }
+  }
+}
+
+
+// 相關連結（或延伸閱讀）
+.seeAlso ul{
+  &>li{
+    line-height:1.5; margin: 0; padding: 0 3px;
+    a{
+      display:block; position: relative;
+      padding: .7em 3px .6em 15px; margin: 0;
+      color: $fontColor; border-bottom:1px dotted $borderColor;
+      transition: .2s;
+      &::before{
+        content: ''; position: absolute; left: 2px; top: calc(50% - 5px);
+        height: 0; width: 0; border-style: solid; border-width: 5px 0 5px 6px;
+        border-color: transparent transparent transparent $fontColorLight;
+        transition: .2s;
+      }
+      &:hover, &:focus {
+        border-bottom-style: solid; border-bottom-color: $borderColorDark;
+        &::before{ transform: scale(1.5, 1.2); border-left-color: $fontColorDark; }
+      }
+      &:focus{
+        box-shadow: $linkColor 0 0 0 1px; 
+        border-bottom-color: transparent;
+        &::before{ transform: scale(1.5, 1.2);}
+      }
+    }
+  }
+
+}

@@ -1,7 +1,3 @@
-
-// @import url("../2017/css/page.css");
-
-
 .list{
   @extend %innerWidth;
   clear:both;margin:15px auto;
@@ -45,10 +41,7 @@
   // }
 }
 
-
-
-
-/*-------------------------------------list table*/
+// -------------------------------------list table
 .list{
   table {padding:0;margin:0;width:100%;border-collapse:collapse;line-height:150%;}
   tr{
@@ -63,7 +56,11 @@
     border-bottom:1px solid #d8d8d8;max-width:300px;
     a{text-decoration:none;color:#000;
       &:hover,
-      &:focus{text-decoration:underline;color:#006898;}
+      &:focus{text-decoration:underline;}
+      &.fileType { color: #fff;
+        &:hover, &:focus{ text-decoration: none;}
+      }
+
     }
 
     img{vertical-align:middle;margin:0 3px;
@@ -132,11 +129,6 @@
   
 }
 
-
-
-
-
-
 // 用於 bureauG2/qp+lp_table.html，標示副檔名
 .attIcons{
   overflow: hidden; display: inline-block; margin: 0;padding: 0;
@@ -202,28 +194,28 @@
 
 
 // 市長行程
-.list.schedule{
-  border: none;position:relative;
-  caption{ font-size:1.5em;margin:.2em 48px 0;line-height:1.6;min-height:44px;
-    time{display:inline-block;white-space:nowrap;}
-  }
-  table {border-collapse:separate;border-spacing:2px 12px;}
-  th, td, tr:last-child td{border:1px solid #999;}
-  td{padding:0;background:#fff;
-    &.date{padding:.5em 1em;color:#333;text-align:center;
-      em{display:block;margin:0 0 .2em;font-size:1.25em;}
-    }
-    ul li{
-      time{display:inline-block;white-space:nowrap;margin:0 0 0 .8em;color:#676;font-family:"Courier New", Courier, monospace;}
-      a{padding:.5em 1em .4em;margin:0;text-align:left; background:#fff;
-        &:hover,
-        &:focus{background-color:#ac2;color:#fff;outline:none;
-          time{color:#fff;outline:none;}
-        }
-      }
-    }
-  }
-}
+// .list.schedule{
+//   border: none;position:relative;
+//   caption{ font-size:1.5em;margin:.2em 48px 0;line-height:1.6;min-height:44px;
+//     time{display:inline-block;white-space:nowrap;}
+//   }
+//   table {border-collapse:separate;border-spacing:2px 12px;}
+//   th, td, tr:last-child td{border:1px solid #999;}
+//   td{padding:0;background:#fff;
+//     &.date{padding:.5em 1em;color:#333;text-align:center;
+//       em{display:block;margin:0 0 .2em;font-size:1.25em;}
+//     }
+//     ul li{
+//       time{display:inline-block;white-space:nowrap;margin:0 0 0 .8em;color:#676;font-family:"Courier New", Courier, monospace;}
+//       a{padding:.5em 1em .4em;margin:0;text-align:left; background:#fff;
+//         &:hover,
+//         &:focus{background-color:#ac2;color:#fff;outline:none;
+//           time{color:#fff;outline:none;}
+//         }
+//       }
+//     }
+//   }
+// }
 
 
 // .navPrev , .navNext

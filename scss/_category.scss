@@ -1,48 +1,45 @@
 // 資料大類
 .category{
-  @extend %innerWidth;
-  position:relative;padding:0 3em 0 2vw;margin-bottom: 1em;
-  box-shadow:rgba(0,0,0,.6) 0 3px 7px inset;
+  position:relative;margin-bottom: 12px;
+  background: darken($primaryColor, 7%);color: $fontInvert;
   overflow:hidden;z-index:700;
-  a{text-decoration: none;}
+  a{text-decoration: none;color: $fontInvert;}
 
-  ul{ display: none;list-style: none;margin:0; padding:2px; line-height: 1.1;}
-  li{
-    margin:3px 0;
+  ul{ display: none;list-style: none;margin:0; padding:2px 6px; line-height: 1.1;}
+  li{ margin:4px 0; padding: 0;
     a{
-      display:block;padding:0 .4em;border: none;
+      display:block;padding:0 .6em;border: none; border-radius: 4px;
       height: 2.3em;line-height: 2.3;
+      &:hover, &:focus{box-shadow: $white 0 0 0 1px;}
     }
+    &:last-child{margin-right: 48px;}
   }
 
   .cateNow{
-    display: block;color: #fff; height: 2.8em; line-height: 2.7;
+    display: block;height: 2.8em; line-height: 2.7; margin: 0 12px;
     &::before{content:'資料大類：';display: inline-block;font-size:.9em;margin-right:.2em; color: rgba(255,255,255,.75)}
   }
 
   .cateCtrl {
-    position:absolute;right:0;bottom:0;width: 2.8em;height: 2.8em; margin: 0; padding: 0; background: none; box-shadow: none; transition: .2s;
+    position:absolute;right:4px;bottom:0;width: 44px;height: 44px; margin: 0; padding: 0; 
+    background: none; box-shadow: none; transition: .2s;
     &:hover{ background-color: rgba(0,0,0,.3)}
     &::before{
       content: '';position: absolute; top: 11px; left: 16px;
-      width:15px;height:15px;border: 3px solid #fff;border-left: none;border-top: none;transform:rotate(45deg); transition: .4s;
+      width:12px;height:12px;border: 2px solid $white;border-left: none;border-top: none;transform:rotate(45deg); transition: .4s;
     }
     &.close::before{transform:rotate(225deg);top: 19px;}
   }
 
-
   @media screen and (min-width: $wwMedium){
-    ul{ display: block; margin: 0;padding:6px 2px 2px;overflow: hidden;}
-    li{margin: 0 5px 5px 0;float: left;}
-  }
-  
+    width: calc(94vw + 6px); margin: 10px auto 0; padding: 0; 
+    background: none;z-index: auto;
 
-  @media screen and (min-width: $wwNormal){
-    margin-top: 10px;padding: 0; z-index: auto;
-    background: none;box-shadow: none;
     .cateCtrl, .cateNow{display:none;}
+
+    ul{ display: block;padding:3px 0;overflow: hidden;}
     li{
-      margin:3px;padding: 0;
+      margin: 3px;float: left;
       a{
         padding:0 .7em;height: 2.3em;line-height: 2.4em;
         background:none;color:#000;text-decoration:none; border-radius: 0;outline:none;
@@ -57,10 +54,13 @@
       }
     }
   }
-
   
+  @media screen and (min-width: $wwNormal){
+    width:96%;
+  }
 
   @media screen and (min-width: $wwMaximum){
     width: $wwMaximum*.96;
   }
+
 }
