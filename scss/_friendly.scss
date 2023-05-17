@@ -1,5 +1,6 @@
 .friendly{
   display: none;
+  @extend %innerWidth;
 
   @media screen and (min-width: $wwNormal){
     display: block;

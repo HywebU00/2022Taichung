@@ -1,14 +1,8 @@
-// @charset "UTF-8";
-/* CSS Document 台中機關網 */
-// @import url("../2017/metaTable.css"); /* 表格型資料 */
-// @import url("../2017/cpPhoto.css"); /* 表格型資料 */
-// @import url("../2017/css/share.css"); 		/* 分享 */
-
-
 .cpArticle {
-  // width: $mobileWidth; 
-  margin:0 auto;padding:0;
-  line-height:1.7;font-size:1.1em;overflow:hidden;
+  @extend %innerWidth;
+
+  line-height:1.7;font-size:1.1em;
+  // overflow:hidden;
   
   p{line-height:inherit;margin:0 0 1em;padding:0;}
   &>a{
@@ -63,12 +57,8 @@
     iframe{display:block;padding:0;margin:0 auto;width:100%;height:600px;border:none;}
   }
 
-  @media screen and (min-width: $wwMedium){
-    width: auto;
-  }
 
   @media screen and (min-width: $wwNormal){
-    width: auto;
     figure{
       float:left;width:400px;margin:0 2em 1em 0;padding:9px;
 
@@ -79,7 +69,8 @@
 
 // pubInfo //////////////////////////////
 .pubInfo {
-  width: 96%;margin: 30px auto;padding: 1.2em 0 .6em;
+  @extend %innerWidth;
+  margin: 30px auto;padding: 1.2em 0 .6em;
   border: 1px solid $borderColor; color: $fontColorLight;
   clear: both;
   ul {margin: 0 .5em;padding: 0;line-height: 1.1;}
@@ -174,10 +165,7 @@
 	.attachment .images li a:focus:before{display:block;}
 }
 
-// .pubInfo{width:96%;margin:30px auto;border:1px solid #aa9;padding:1.2em 0 .6em;clear:both;color:#999;}
-// .pubInfo ul{margin:0 .5em;padding:0;line-height:1.1;}
-// .pubInfo li{margin:0 .5em .6em;padding:0;display:inline-block;color:#666;vertical-align: top}
-// .pubInfo li em{font-weight:normal;color:#111;}
+
 
 a.mapMarker {display:inline-block;padding:0 .5em 0 2.2em;background:#fff url(../images/bubble.png) no-repeat .3em center;background-size:1.6em auto;margin-left:1em;min-height:2.4em;line-height:2.4em;border-radius:6px;border:1px solid #65adbb;text-decoration:none;}
 
@@ -187,91 +175,8 @@ a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
 
 
 
-// 前言、後記
-.preface{
-  padding:2em 3% 1em;margin:0 auto;overflow:hidden;
-  background:#f3f5f6;
 
-  h2{float:left;margin-bottom:1em;font-size:1.4em;font-weight:normal;}
-  p{margin:1.2em 0;line-height:inherit;}
-  li + li{margin-top:.4em;}
-  ol{list-style:decimal;}
-  ul{list-style:disc;}
-  ul, ol{margin:1.2em 0 1.2em 2.1em;line-height:inherit;}
-  .buttons{float:right;overflow:hidden;
-    & + *{clear:both;}
-    li{margin:0;padding:0;
-      &.extraBtn{clear:none;}
-    }
-  }
-  .info, .count{
-    display:block;margin:1.3em 0 0;
-    font-size:.9em;color:#888;
-    em{color:#000}
-  }
-  .info{
-    em{font-weight:normal;}
-    li{margin:0 0 .8em;display:block;}
-  }
-  .count{
-    li.hot{padding-right:20px;background:url(../images/hot.png) no-repeat right 0;}
-  }
-  
-  @media screen and (min-width: $wwMedium){
-    h2{font-size:1.8em;}
-    .info, .count{
-      font-size: 1em;display:inline-block;
-      li{
-        margin:0 0 .8em 1.4em;display:inline-block;
-        &:first-child{margin-left:0;}
-      }
-    }
-    .count{float:right;}
-  }
 
-  @media screen and (min-width: $wwNormal){
-    padding-left: 30px; padding-right: 30px; margin-bottom: 0;
-  }
-}
-
-// 與 .page 相關
-@media screen and (min-width: $wwNormal){
-  .page + .preface{margin-top:-40px;margin-bottom:40px;}
-}
-
-/* 前言、後記 
-.preface{width:96%; padding:2em 3% 1em;margin:0 auto 1em;overflow:hidden;background:#f3f5f6;}
-.page + .preface{margin-top:-40px;margin-bottom:40px;}
-.preface h2{float:left;margin-bottom:1em;font-size:1.8em;font-weight:normal;}
-.preface p{margin:1.2em 0;line-height:inherit;}
-.preface li + li{margin-top:.4em;}
-.preface ol{list-style:decimal;}
-.preface ul{list-style:disc;}
-.preface ul,
-.preface ol{margin:1.2em 0 1.2em 2.1em;line-height:inherit;}
-.preface .buttons{float:right;overflow:hidden;}
-.preface .buttons + *{clear:both;}
-.preface .buttons li{margin:0;padding:0;}
-.preface .buttons li.extraBtn{clear:none;}
-.preface .info, .preface .count{margin:1.3em 0 0;display:inline-block;color:#888;}
-.preface .info em, .preface .count em{color:#000}
-.preface .info em{font-weight:normal;}
-.preface .count{float:right;}
-.preface .info li, .preface .count li{margin:0 0 .8em 1.4em;display:inline-block;}
-.preface .info li:first-child, .preface .count li:first-child{margin-left:0;}
-.preface .count li.hot{padding-right:20px;background:url(../images/hot.png) no-repeat right 0;}
-@media screen and (max-width: 1000px){
-	.preface{width:auto;}
-	.page + .preface{margin-bottom:0;}
-}
-@media screen and (max-width: 800px){
-	.preface{margin:0;padding-top:.8em;}
-	.preface h2{font-size:1.4em;}
-	.preface .info, .preface .count{font-size:.9em;display:block;}
-	.preface .info li{margin:0 0 .8em;display:block;}
-	.preface .count{float:none;text-align:left;}
-}
-*/
 
 
 .videoPlay{width:96%;margin:0 auto;}

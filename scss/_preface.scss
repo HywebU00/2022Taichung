@@ -1,0 +1,62 @@
+// 前言、後記
+.preface{
+  // @extend %innerWidth; 
+  margin: 0 auto 30px; padding:2em 5vw 1.5em;
+  line-height: 1.6;
+  overflow:hidden;
+  background:#e8edee;
+
+  h2{float:left;margin-bottom:1em;font-size:1.4em;font-weight:normal;}
+  p{margin:1.2em 0;line-height:inherit;}
+  li + li{margin-top:.5em;}
+  // ol{list-style:decimal;}
+  // ul{list-style:disc;}
+  // ul, ol{margin:1.2em 0 1.2em 2.1em;line-height:inherit;}
+  .buttons{
+    float:right;overflow:hidden;
+    & + *{clear:both;}
+    li{margin:0;padding:0;
+      &.extraBtn{clear:none;}
+    }
+  }
+  .info, .count{
+    display:block;margin:1.3em 0 0;
+    font-size:.9em;color:#888;
+    em{color:#000}
+  }
+  .info{
+    em{font-weight:normal;}
+    li{margin:0 0 .8em;display:block;}
+  }
+  .count{
+    li.hot{padding-right:20px;background:url(../images/hot.png) no-repeat right 0;}
+  }
+  
+  @media screen and (min-width: $wwMedium){
+    h2{font-size:1.8em;}
+    .info, .count{
+      font-size: 1em;display:inline-block;
+      li{
+        margin:0 0 .8em 1.4em;display:inline-block;
+        &:first-child{margin-left:0;}
+      }
+    }
+    .count{float:right;}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: 96%;padding-left: 30px; padding-right: 30px;
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum*.96;
+  }
+}
+
+// 在主內容區之後，main 的最後一個子元件
+.page + .preface{ 
+  margin-bottom:0; padding-bottom: 60px;
+  @media screen and (min-width: $wwNormal){
+    margin-bottom:60px; padding-bottom: 1.5em;
+  }
+}

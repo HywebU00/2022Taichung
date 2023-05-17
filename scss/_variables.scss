@@ -14,7 +14,7 @@ $wwMaximum: 1200px;
 // ---------- RWD 斷點 ----------- //
 
 
-// ---------- 主要內容寬度設定 ----------- //
+// ---------- 【首頁】主要內容寬度設定 ----------- //
 %mainWidth {
   width: $mobileWidth; margin: 0 auto;
   @media screen and (min-width: $wwNormal){
@@ -24,7 +24,19 @@ $wwMaximum: 1200px;
     width: $wwMaximum*(calc($normalWidth / 100vw));
   }
 }
-// ---------- 主要內容寬度設定 ----------- //
+// ---------- 【首頁】主要內容寬度設定 ----------- //
+
+// ---------- 【內頁】主要內容寬度設定 ----------- //
+%innerWidth {
+  width: 94vw; margin: 0 auto;
+  @media screen and (min-width: $wwNormal){
+    width:96%;
+  }
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum*.96
+  }
+}
+// ---------- 【內頁】主要內容寬度設定 ----------- //
 
 
 // ---------- 顏色變數 ----------- //

@@ -1,7 +1,10 @@
 .subscribeAndNote{
-  .note, .formA{ margin: 0 auto; padding: 30px 4vw;}
+  // @extend %innerWidth; 
+  margin: 0 auto;
+  .note, .formA{ margin: 0 auto; padding: 40px 4vw;}
   .formA{
-    width: auto; border-radius: 0; background: #eef5f3; box-shadow: none;
+    width: auto; padding-bottom: 60px;border-radius: 0; box-shadow: none;
+    background: #eef5f3; 
     .hint{ float: right;}
     .formLayout{
       clear: both; width: 100%; margin: 0 auto;
@@ -11,14 +14,19 @@
     }
   }
   @media screen and (min-width: $wwNormal){
+    width: 96%; margin-bottom: 60px;
     display: flex; 
-    .note, .formA{padding: 30px 40px;}
+    .note, .formA{padding: 40px;}
     .note{ flex: 0 0 40%;}
     .formA{ flex: 0 0 60%;}
     .captchaSet{
       flex-wrap: wrap;
       input[type="text"]{ max-width: 100%;}
     }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum*.96;
   }
 
 }

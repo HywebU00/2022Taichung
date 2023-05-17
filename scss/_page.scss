@@ -1,6 +1,8 @@
 // 分頁
 .page{
   display: none;
+  @extend %innerWidth;
+  
   @media screen and (min-width: $wwNormal){
     display: block; padding: 10px 0;
     margin:10px auto;overflow:hidden;text-align:center;

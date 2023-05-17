@@ -9,10 +9,11 @@
   --border: #c0d3dd;
   --alternateRowBG: #dff1f5;
 
-  margin:0;
+  margin:0 -3vw;
+  
   ul, ol{list-style:none;margin:0;padding:0;}
   a{ text-decoration:none;color:var(--fontColor); }
-
+  
   .welfCate{
     position:relative;margin:0;padding:0 0 33vw;
     background:var(--sky) url(../images/welf_bgRainbow.png) no-repeat 185% 90%;
@@ -33,6 +34,7 @@
     }
   }
   @media screen and (min-width: $wwNormal){
+    margin: 0 auto;
     .welfCate{
       padding-bottom: 220px;
       background-size: 460px auto; background-position: right bottom;

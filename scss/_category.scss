@@ -1,6 +1,7 @@
 // 資料大類
 .category{
-  position:relative;padding:0 3em 0 2vw;margin: 0 0 1em;
+  @extend %innerWidth;
+  position:relative;padding:0 3em 0 2vw;margin-bottom: 1em;
   box-shadow:rgba(0,0,0,.6) 0 3px 7px inset;
   overflow:hidden;z-index:700;
   a{text-decoration: none;}

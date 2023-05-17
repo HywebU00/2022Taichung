@@ -35,6 +35,7 @@ em{font-style: normal;}
 // 內頁文章標題
 .nodeHeader{
   display: none;
+  @extend %innerWidth;
   @media screen and (min-width: $wwNormal){
     display: block;
     margin:0 auto 15px;padding:0;border-bottom:4px solid #ccd4d7;overflow:hidden;
