@@ -14,6 +14,10 @@ em{font-style: normal;}
   &.smallFont{ font-size: .9em;}
   &.largeFont{ font-size: 1.25em;}
 
+  *::selection{
+    background-color: $primaryColor; color: $fontInvert;
+  }
+
   // .center : 舊版內頁排版用
   .center{
     position: relative;margin: 0 auto;padding: 0 0 50px;

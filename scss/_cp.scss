@@ -23,8 +23,7 @@
 
   // table
   table{
-    clear: both;
-    width:100%;margin:.2em auto;border-collapse:collapse;line-height:1.8;border:2px solid $borderColor;color:#111;
+    clear: both; border-collapse: collapse; border: 2px solid $borderColor;
     caption{font-weight:bold;text-align:left;font-size:1em;padding:.4em .5em;text-align:left;}
     th,
     td{vertical-align:top;padding:.4em .5em;border:1px solid $borderColorLight;}
@@ -55,6 +54,8 @@
     ul{margin-left:0;margin-right:0;list-style:circle;}
     ol{margin-left:0;margin-right:0;list-style:upper-latin;}
   }
+
+  // 以 iframe 嵌入地圖
   .gmap{margin:2em 0;
     iframe{display:block;padding:0;margin:0 auto;width:100%;height:600px;border:none;}
   }
@@ -72,39 +73,26 @@
 
 
 // pubInfo //////////////////////////////
+// 發布日期、發布單位、點閱次數 等資訊
 .pubInfo {
   @extend %innerWidth;
-  margin: 30px auto;padding: 1.2em 0 .6em 1.1em;
+  margin: 30px auto;padding: 1.2em 0 .6em;
   border: 1px solid $borderColor; color: $fontColorLight;
   clear: both;
-  ul {margin: 0 .5em;padding: 0;line-height: 1.1;}
+  ul {margin: 0 ;padding: 0;line-height: 1.1;}
   li {
     display: inline-block;vertical-align: top;
     margin: 0 .8em .6em; padding: 0;
     em, time {font-weight: normal;color: $fontColorDark;}
   }
+  @media screen and (min-width: $wwNormal){
+    &:last-child{ margin-bottom: 60px;}
+  }
 }
 
 
 
-
-
-
-
-
-
-
-
-
-.videoPlay{min-height:32em;}
-.videoPlay object{float:left;margin:0 1.5em 2em 0;height:auto;}
-.videoPlay embed{display:block;max-width:100%;}
-.videoPlay object > a{display:block;font-size:1.3em;margin:.6em 0;}
-
-
-
-
-// 附件格式
+// 附件格式與檔案大小 //////////////////////////////
 .fileType, .fileSize {
   display: inline-block; vertical-align: middle;text-align: center;
   margin: 0 .2em;padding: 0 .4em;min-width: 2.4em;
@@ -130,72 +118,29 @@
 }
 
 
+// 影片播放內容頁 ////////////////////////////////////////////////////////////
+.videoPlay{
+  @extend %innerWidth; margin: 20px auto;
+  line-height: 1.8;
+  iframe{
+    width: 100%; height: 52.875vw; margin: 0 auto 15px; padding: 0;
+  }
+  p{margin: 0 0 1.6em;}
 
-a.mapMarker {display:inline-block;padding:0 .5em 0 2.2em;background:#fff url(../images/bubble.png) no-repeat .3em center;background-size:1.6em auto;margin-left:1em;min-height:2.4em;line-height:2.4em;border-radius:6px;border:1px solid #65adbb;text-decoration:none;}
+  @media screen and (min-width: $wwMedium){
+    overflow: hidden;
+    iframe{ 
+      float: left;  margin: 0 20px 10px 0;
+      width: 60%; height: 31.725vw;
+    }
+  }
 
-a.mapMarker:hover,
-a.mapMarker:focus{border-color:#186c7d;box-shadow:#186c7d 0 0 3px;outline:none;}
-
-
-
-
-
-
-
-
-.videoPlay{width:96%;margin:0 auto;}
-
-@media screen and (max-width:1000px) {
-	.LatestIssue .contents{-moz-column-count:1;-moz-column-gap:1em;-webkit-column-count:1;-webkit-column-gap:1em;column-count:1;column-gap:1em;}
-
-
-	.seeAlso ul li a{display:block;padding:.8em 0 .2em;border-bottom:1px dotted $borderColor;}
-	.seeAlso{margin:30px auto;}
-
+  @media screen and (min-width: $wwNormal){
+    margin: 30px auto;
+    iframe{
+      width: 57.6vw; height: 32.4vw; 
+      max-width: 640px; max-height: 360px;}
+  }
 }
-@media screen and (max-width:800px) {
-	// .cpArticle{width:92vw;margin:0 auto;}
-	
-	.videoPlay{padding:15px;}
-	.videoPlay object{display:block;max-width:100%;float:none;margin:0 auto 2em;border-bottom:3px solid #bbb;}
-
-	/* 2022
-		.pubInfo ul{font-size:.67em;}
-		.pubInfo li em{font-size:1.25em;} 
-	*/
-
-
-}
-@media screen and (max-width:600px) {
-	.cpArticle figure{float:none;width:100%;margin:0 auto 2em;box-sizing:border-box;}
-	.cpArticle figcaption{font-size:.88em;}
-	.cpArticle figure img{width:100%;}
-	.cpArticle th[scope="row"]{width:auto;}
-	.cpArticle ul, .cpArticle ol{clear:both;}
-	.cpArticle li{word-break:break-all;}
-
-	.cpArticle .list  table{border:none;}
-	.cpArticle .list td{border:none;border-bottom:1px dotted #ccc;}
-	/* 2022
-		.pubInfo ul{font-size:.67em;}
-		.pubInfo li{white-space:normal}
-		.pubInfo li em{font-size:1.25em;} 
-	*/
-}
-
-
-
-// .extraBtn a:hover{background:#639100;color:#fff;}
-// .extraBtn a:focus{background:#639100;color:#fff;}
-// .note .extraBtn a{background-color:#f80;color:#fff;}
-// .note .extraBtn a:hover{background-color:#e60;}
-// .note .extraBtn a:focus{background-color:#e60;}
-// .note a{word-break:break-all;}
-
-/* 意見信箱進度查詢*/
-// .note{margin:0 0 2.5em;padding:2.5em 3% 2.5em;border-width:1px;line-height:1.8;background:#fe8;}
-// .note h2{font-size:1.2em;margin:0 0 1em;}
-// .note li{margin-bottom:1.2em;}
-// .note a{color:#f50;text-decoration:underline;}
-
+///////////////////////////////////////////////////////////////////////////////
 

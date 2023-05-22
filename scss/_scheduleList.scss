@@ -1,5 +1,8 @@
+// 市長行程
 .scheduleList{
-  margin: 20px 3vw 25px;
+
+  @extend %innerWidth;
+  margin: 20px auto;
   &>table{
     border-collapse: collapse;
     width: 100%; margin: 0 auto;
@@ -55,7 +58,7 @@
   }
 
   @media screen and (min-width: $wwMedium){
-    padding:20px 12px; 
+    padding:25px 12px; 
     box-shadow: $borderColorLight 0 0 7px 1px;border-radius: 12px;
     &>table{
       tbody{
@@ -78,7 +81,7 @@
   }
 
   @media screen and (min-width: $wwNormal){
-    padding-left: 20px; padding-right: 20px; margin-left: 0; margin-right: 0;
+    padding-left: 20px; padding-right: 20px;
     &>table{
       td:first-child{width: 12%;}
     }

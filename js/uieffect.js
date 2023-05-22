@@ -255,6 +255,27 @@ $(function(){
   ////////////////////////////////////////////////////////
 
 
+  // 分享 ////////////////////////////////////////////////////////
+  var _share = $('.share');
+  var _shareTo = _share.find('li');
+  _share.addClass('reveal');
+  setTimeout( function(){	_share.removeClass('reveal')} , 3000);
+  _share.hover(
+    function(){
+      $(this).addClass('reveal');
+    },
+    function(){
+      $(this).removeClass('reveal');
+    }
+  )
+  _shareTo.find('a').focus(function(){
+    _share.addClass('reveal');
+  })
+  _shareTo.last().find('a').blur(function(){
+    _share.removeClass('reveal');
+  })
+  ////////////////////////////////////////////////////////
+
 
 
 
@@ -626,7 +647,7 @@ $(function(){
   var _welAnchorTarget = $('.welfContent').find('.welGroup');
 
 
-  // 常用便民系統
+  // 常用便民系統 ////////////////////////////////////
   var _eServices = $('.eServices');
   var _esvNav = _eServices.find('.servNav');
   var _esvCate = _esvNav.find('ul');
@@ -685,7 +706,7 @@ $(function(){
   
   
   
-  // 「常用便民系統」分類選項在行動可收合
+  // 「常用便民系統」分類選項在行動可收合 ////////////////////////////////////
   var servNavTimeID;
   function servNavShowHide() {
     if (ww < wwMedium) {
@@ -703,7 +724,7 @@ $(function(){
   })
   
 
-  // 行動版資料大類開合
+  // 行動版資料大類開合 ////////////////////////////////////
 	var _category = $('.category');
 	_category.each( function(){
 		let _this = $(this);
@@ -739,6 +760,25 @@ $(function(){
 	})
 
 
+
+  // 表格條列手機顯示模式 ////////////////////////////////////
+  var _listTable = $('.list').find('table');
+  function rwdTable(){	
+    _listTable.each(function(){
+      _this = $(this);
+      let _row = $(this).find('tr');
+      rowCount = _row.length;
+      for ( var n=1; n<=rowCount ; n++ ) {
+        _this.find('th').each(function(index) {
+          _row.eq(n).find('td').eq(index).attr('data-title',  $(this).text());
+        });
+      }
+    });
+  }
+  rwdTable();
+  
+
+  
   // resize window ////////////////////////////////////
   var winResizeTimer;
   _window.resize(function () {

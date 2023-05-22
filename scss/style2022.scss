@@ -18,6 +18,7 @@
 @import "_preface"; // 前言、後記 
 @import "_cp";
 @import "_attachment"; // 附件下載、相關圖檔、相關連結（通常在 cp 頁中）
+@import "_metaTable"; // 表格形式的詳細資料
 @import "_np"; //20230321
 @import "_category"; // 資料大類 20230321
 @import "_lp"; //20230321
@@ -25,8 +26,11 @@
 @import "_listOrg"; // 機關通訊錄 20230511
 @import "_appList"; // APP專區 20230515
 @import "_thumbnail"; // 縮圖瀏覽 20230511
+@import "_cpPhoto.scss"; // 相簿內容頁 20230519
 @import "_subscribeAndNote"; // 訂閱、取消訂閱電子報 20230515
 @import "_scheduleList"; // 行程表
+@import "_sitemap"; // 網站導覽
+
 // ------------------------------------------------------------- //
 // @import "../2017/metaTable.css"; /* 表格型資料 */
 // @import "../2017/cpPhoto.css";   /* 表格型資料 */
