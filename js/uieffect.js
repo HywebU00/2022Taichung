@@ -6,7 +6,7 @@ $(function(){
 
   var ww = _window.width();
   // var wh = _window.height();
-  // var wwNew = ww;
+  var wwNew = ww;
 
   const wwSlim = 480;
   const wwMedium = 700; //此值以下是手機
@@ -289,8 +289,8 @@ $(function(){
   _lightbox.before('<div class="coverAll"></div>');
   _lightbox.append('<button type="button" class="skip"></button>');
   var _cover = $('.coverAll');
-  var _skipToClose = _lightbox.find('.skip');
 
+  var _skipToClose = _lightbox.find('.skip'); // 此元件 get focus時要回到關燈箱的元件
   _skipToClose.focus( function () {
     _hideLightbox.focus();
   })
@@ -301,6 +301,7 @@ $(function(){
     _targetLbx.stop(true, false).fadeOut(lbxSpeed);
     _targetLbx.prev(_cover).fadeOut(lbxSpeed);
     _body.removeClass('noScroll');
+
   })
 
   _cover.click(function(){
@@ -309,6 +310,131 @@ $(function(){
     _body.removeClass('noScroll');
     _targetLbx.stop(true, false).fadeOut(lbxSpeed);
   })
+  //----------------------//
+
+  // cp 頁相關圖檔以燈箱開啟看大圖 //////////////////////////////////////////////////////////
+  // 寬版時正常顯示(flex 排版)；手機螢幕時顯示單張，以左右箭頭控制逐張檢視
+  var _slideAreaAtta = $('.attachment').find('.slideArea');
+  _slideAreaAtta.each( function () {
+    let _this = $(this);
+    let _slideList = _this.find('.images');
+    let _slideItem = _slideList.children('li');
+    let count = _slideItem.length;
+    let _slideBtnPrev = _this.find('.slideBtn.prev');
+    let _slideBtnNext = _this.find('.slideBtn.next');
+    let i = 0;
+    _this.append(`<span class="imgCount"><em>` + (i + 1) + `</em> / ` + count + `</span>`);
+    let _imgCount = _this.find('.imgCount>em');
+
+    for (let n = 0; n < count; n++) {
+      _slideItem.eq(n).attr('data-index', n);
+    }
+    if (count < 2) { _slideBtnPrev.add(_slideBtnNext).hide() }
+    _slideBtnNext.on('click', function () {
+      _slideList.animate({ 'left': '-100%' }, 400, function () {
+        _slideItem.eq(i).appendTo(_slideList);
+        _slideList.css('left', 0);
+        i = (i + 1) % count;
+        _imgCount.text(i + 1);
+      });
+    })
+    _slideBtnPrev.on('click', function () {
+      i = (i - 1 + count) % count;
+      _slideItem.eq(i).prependTo(_slideList);
+      _slideList.css('left', '-100%');
+      _slideList.animate({ 'left': 0 }, 400, function () {
+        _imgCount.text(i + 1);
+      });
+    })
+
+    // 非手機版時，還原縮圖排序
+    let wwOrg = _window.width();
+    function rerank() {
+      for (let i = 0; i < count; i++) {
+        _slideItem.eq(i).appendTo(_slideList);
+      }
+      i = 0;
+      _imgCount.text('1');
+    }
+
+    // 改變 _window 寬度時，判斷_window 寬度是否大於最小斷點 wwSlim
+    let ttt;
+    _window.resize ( function () {
+      clearTimeout(ttt);
+      ttt = setTimeout(function () {
+        if (wwOrg < wwSlim && _window.width() >= wwSlim) {
+          rerank();
+        }
+        wwOrg = _window.width();
+      }, 200);
+    });
+
+  })
+
+
+  // cp 頁大圖燈箱
+  var _bigPhotos = _lightbox.filter('.bigPhotos');
+  var _showBibphotoLbx = $('.attachment').find('.images').find('.showLightbox'); // 開大圖燈箱元件
+  var bpIndex;
+  var _ItemKeep;
+
+  // 點擊開大圖燈箱元件
+  _showBibphotoLbx.on('click', function () {
+    _ItemKeep = $(this);
+    _bigPhotos.add(_cover).stop(true, false).fadeIn(lbxSpeed);
+    _bigPhotos.find(_hideLightbox).trigger('focus');
+    _body.addClass('noScroll');
+
+    bpIndex = Number($(this).parent('li').attr('data-index'));
+    preserveIndex = bpIndex;
+    _bigPhotos.find('.imgCount>em').text(bpIndex + 1);
+    _bigPhotos.find('.slideArea').find('li').eq(bpIndex).addClass('show');
+    
+  })
+
+  // 有大圖的燈箱
+  _bigPhotos.each(function () {
+    let _this = $(this);
+    let _slideArea = _this.find('.slideArea');
+    let _slideItem = _slideArea.find('li');
+    let bpCount = _slideItem.length;
+    let _slideBtnPrev = _slideArea.find('.slideBtn.prev');
+    let _slideBtnNext = _slideArea.find('.slideBtn.next');
+    let _hideLightbox = _this.find('.closeThis');
+    // 為大圖燈箱加圖片計數器
+    _slideArea.append(`<span class="imgCount"><em></em> / ` + bpCount + `</span>`);
+    _imgCount = _slideArea.find('.imgCount>em');
+    _slideItem.eq(bpIndex).addClass('show');
+    if (bpCount < 2) {
+      _slideBtnNext.add(_slideBtnPrev).hide();
+    }
+    _hideLightbox.add(_cover).on('click', function () {
+      _slideItem.removeClass('show');
+      _ItemKeep.focus();
+    })
+
+
+
+    // 下一張圖
+    _slideBtnNext.on('click', function () {
+      bpIndex = (bpIndex + 1) % bpCount;
+      _slideItem.removeClass('show').eq(bpIndex).addClass('show');
+      _imgCount.text(bpIndex + 1);
+    })
+    // 上一張圖
+    _slideBtnPrev.on('click', function () {
+      bpIndex = (bpIndex - 1 + bpCount) % bpCount;
+      _slideItem.removeClass('show').eq(bpIndex).addClass('show');
+      _imgCount.text(bpIndex + 1);
+    })
+  })
+
+
+  
+
+
+
+
 
 
 
@@ -784,9 +910,9 @@ $(function(){
   _window.resize(function () {
     clearTimeout(winResizeTimer);
     winResizeTime = setTimeout(function () {
-      ww = _window.width();
-      if (ww >= wwMedium) { _category.find('ul').removeAttr('style'); }
-      if(ww >= wwNormal ) {
+      wwNew = _window.width();
+      if (wwNew >= wwMedium) { _category.find('ul').removeAttr('style'); }
+      if (wwNew >= wwNormal ) {
         _window.on('scroll.fixHeader' , fixHeader);
         if (_sidebar.hasClass('reveal')) {
           _sidebarMask.hide(10, function(){
@@ -801,6 +927,7 @@ $(function(){
       }
       getOffsetTop();
       servNavShowHide();
+      ww = wwNew;
     }, 200);
   });
 

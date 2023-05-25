@@ -131,7 +131,7 @@ button.closeThis{
   height: 48px; width: 48px; padding: 0; margin: 0;
   text-indent: -20em; overflow: hidden;
   background-color: rgba(100,100,100,.6);
-  box-shadow: none; border: none; outline: none;
+  box-shadow: none; border: none; outline: none; border-radius: 0;
   cursor: pointer; transition: .2s;
   &::before, &::after{
     content: ''; position: absolute; left: 10px; top: 23px;
@@ -144,11 +144,8 @@ button.closeThis{
     transform: rotate(-45deg);
   }
 
-  &:hover, &:focus{ background-color: rgba(255,255,255,.7); box-shadow: none;
-    &::before, &::after{ background-color: #000;}
-  }
-  &:focus{
-    &:hover{ background-color:#fff}
+  &:hover, &:focus{ 
+    background-color: $warning; box-shadow: none;
   }
 }
 
@@ -166,7 +163,7 @@ button.closeThis{
   &::before{
     content: ''; position: absolute; width: 28px; height: 28px;
     left: 50%; top: 50%; margin-top: -15px;
-    border: 2px solid #000;border-top: none; border-right: none;
+    border: 2px solid $black; border-top: none; border-right: none;
     transform: rotate(45deg);
   }
   &.slick-prev{ left: 0; 
@@ -213,6 +210,21 @@ button.closeThis{
   }
 }
 
+
+// 燈箱內大圖切換左右箭頭  ////////////////////////////////////
+.slideBtn{ 
+  position: absolute; top: 50%; width: 48px; height: 72px; text-indent: -10em; overflow: hidden;border: none; border-radius: 4px; margin:-36px 0 0; cursor: pointer; background-color: rgba(0,0,0,.6);z-index: 9; transition: .2s;
+  &:hover{background-color: rgba(0,0,0,1);}
+  &:focus{background-color: rgba(0,0,0,1); box-shadow: $borderColor 0 0 0 1px, $black 0 0 0 5px;}
+  &::before{ content: '';position: absolute; width: 24px; height: 24px; border: 2px solid $white; border-top: none; border-right: none;top: 50%; margin-top: -13px; }
+  &.prev{ left: 5px;}
+  &.next{ right: 5px;}
+  &.prev::before{ left: 17px;transform: rotate(45deg);}
+  &.next::before{ right: 18px;transform: rotate(225deg);}
+}
+// 圖片計數器 
+.imgCount{ line-height: 1;padding: 4px 10px; border-radius: 2em; background-color: rgba(255,255,255,.8); color: $fontColorLight;}
+.imgCount em{font-size: 1.2em; color:$fontColor; font-weight: bold;}
 
 
 

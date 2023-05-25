@@ -3,7 +3,7 @@
   display: none;
   position:fixed;top:5vw;left:5vw;
   width:90vw; height: calc(100vh - 10vw); z-index:998;
-  padding:50px 0 0; margin:0 auto; overflow: auto;overflow-y: auto;
+  padding:0; margin:0 auto; overflow: auto;overflow-y: auto;
   background:#000; box-shadow:rgba(0,0,0,.6) 0 0 28px;
   color: #fff;
 
@@ -19,14 +19,13 @@
   }
  
   @media screen and (min-width:$wwNormal){
-    height: auto; max-height: calc(100vh - #{$wwNormal}*.06);
-    top: 50%; transform: translateY(-50%);
-
+    height: calc(100vh - 10vw);
     .closeThis{position: absolute; right: 0; top: 0;}
   }
   
   @media screen and (min-width: $wwMaximum ){
     width: $wwMaximum*.9; left:calc(50vw - #{$wwMaximum}*.45);
+    top: $wwMaximum*.05; height: calc(100vh - $wwMaximum*.1);
 
   }
 
@@ -38,7 +37,7 @@
   display: none; 
   z-index: 995;
   position: fixed; left: 0;right: 0;top: 0;bottom: 0;
-  background: rgba(160,160,160,.65);
+  background: rgba(0,0,0,.8);
 }
 
 

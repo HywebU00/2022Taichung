@@ -325,9 +325,9 @@
         </tr>
       </table>
       <div class="gmap">
-        <iframe title="google 地圖，顯示位置：臺中市豐原區陽明街36號" width="490" height="320" frameborder="0" scrolling="no"
+        <!-- <iframe title="google 地圖，顯示位置：臺中市豐原區陽明街36號" width="490" height="320" frameborder="0" scrolling="no"
           marginheight="0" marginwidth="0"
-          src=http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=24.2467384,120.7206229(臺中市豐原區陽明街36號)&z=15&output=embed&t=></iframe>
+          src=http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=24.2467384,120.7206229(臺中市豐原區陽明街36號)&z=15&output=embed&t=></iframe> -->
       </div>
     </article>
 
@@ -367,32 +367,58 @@
             KB</span></li>
       </ul>
     </section>
+
     <section class="attachment">
       <h3>相關圖檔</h3>
-      <ul class="images">
-        <li><a href="#"><img src="publicData/ph11.jpg" alt="替代文字">
-            <p>一二三四五六七八九十一二</p>
-          </a></li>
-        <li><a href="#"><img src="publicData/ph01.jpg" alt="替代文字">
-            <p>一二三四五六七八九十一二</p>
-          </a></li>
-        <li><a href="#"><img src="publicData/ph02.jpg" alt="替代文字">
-            <p>一二三四五六七八九十一二三四五</p>
-          </a></li>
-        <li><a href="#"><img src="publicData/ph03.jpg" alt="替代文字">
-            <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
-          </a></li>
-        <li><a href="#"><img src="publicData/ph04.jpg" alt="替代文字">
-            <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
-          </a></li>
-        <li><a href="#"><img src="publicData/ph05.jpg" alt="替代文字">
-            <p>一二三四五六</p>
-          </a></li>
-        <li><a href="#"><img src="publicData/ph06.jpg" alt="替代文字">
-            <p>一二三四五六七八九十一二三四五六</p>
-          </a></li>
-      </ul>
+      <div class="slideArea">
+        <ul class="images">
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph11.jpg" alt="替代文字">
+              <p>一二三四五六七八九十一二</p>
+            </a></li>
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph01.jpg" alt="替代文字">
+              <p>一二三四五六七八九十一二</p>
+            </a></li>
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph02.jpg" alt="替代文字">
+              <p>一二三四五六七八九十一二三四五</p>
+            </a></li>
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph03.jpg" alt="替代文字">
+              <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+            </a></li>
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph04.jpg" alt="替代文字">
+              <p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p>
+            </a></li>
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph05.jpg" alt="替代文字">
+              <p>一二三四五六</p>
+            </a></li>
+          <li><a href="javascript:;" class="showLightbox"><img src="publicData/ph06.jpg" alt="替代文字">
+              <p>一二三四五六七八九十一二三四五六</p>
+            </a></li>
+        </ul>
+        <button type="button" class="slideBtn prev">上一張</button>
+        <button type="button" class="slideBtn next">下一張</button>    
+      </div>
     </section>
+
+
+    <!-- 大圖燈箱 -->
+    <section class="lightbox bigPhotos" role="dialog">
+      <button type="button" title="關閉燈箱" class="closeThis"></button>
+      <div class="slideArea">
+        <ul class="images">
+          <li class="show"><img src="publicData/ph11.jpg" alt=""><p>一二三四五六七八九十一二</p></li>
+          <li><img src="publicData/ph01.jpg" alt=""><p>一二三四五六七八九十一二</p></li>
+          <li><img src="publicData/ph02.jpg" alt=""><p>一二三四五六七八九十一二三四五</p></li>
+          <li><img src="publicData/ph03.jpg" alt=""><p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p></li>
+          <li><img src="publicData/ph04.jpg" alt=""><p>一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十</p></li>
+          <li><img src="publicData/ph05.jpg" alt=""><p>一二三四五六</p></li>
+          <li><img src="publicData/ph06.jpg" alt=""><p>一二三四五六七八九十一二三四五六</p></li>
+        </ul>
+        <button type="button" class="slideBtn prev">上一張</button>
+        <button type="button" class="slideBtn next">下一張</button>
+      </div>
+    </section>
+    
+
     <section class="seeAlso">
       <h3>相關連結（或延伸閱讀）</h3>
       <ul>
