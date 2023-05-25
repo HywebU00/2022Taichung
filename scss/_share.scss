@@ -2,7 +2,7 @@
 .share{display: none;}
 @media screen and (min-width: $wwNormal){
 	.share{
-		display: block;padding:0; z-index:9000;
+		display: block;padding:0; z-index:900;
 		position:fixed;right:0;top:200px;text-align:center;
 		box-shadow:rgba(0,0,0,0) 0 0 10px;
 		transform: translateX(100%); transition: .8s;

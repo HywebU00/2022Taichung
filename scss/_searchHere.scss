@@ -1,0 +1,61 @@
+// 列表頁上方的查詢區，
+.searchHere{
+  background-color: $grayLight;
+  box-shadow: transparentize($grayDark, .7) 0 0 12px inset; 
+  .header{ 
+    margin:0 0 0 3vw; padding-right: 60px;
+    font-size: 1.25em; min-height: 53px; line-height: 53px;
+  }
+  
+  .drawerHandle{ right: 6px; top: 6px; }
+  .tray{display: none; padding: 12px 3vw 30px;}
+
+  @media screen and (min-width: $wwNormal){
+    width: 96%; margin-left: auto; margin-right: auto;
+    border-radius: 6px;
+    .header { margin-left: 20px;}
+    .tray{ padding-left:30px; padding-right:30px;}
+  }
+  
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum*.96;
+  }
+}
+
+
+
+// 可開合區
+.drawer{ position: relative; }
+
+// 控制開合區的按鈕
+button.drawerHandle{
+  position: absolute; height: 40px; width: 40px; line-height: 40px; padding-left: 0;
+  overflow: hidden;border-radius: 1.5em;
+  border: none; margin: 0; box-shadow: none;
+  background-color: transparent; color: $fontInvert;
+  transition: .3s;
+  &::before{
+    content: ''; position: absolute; right: 13px; top: calc(50% - 10px);
+    width: 12px; height: 12px;
+    border: 2px solid $fontColor; border-left: none; border-top: none;
+    transform: rotate(45deg); transition: .3s;
+  }
+  &::after{
+    content: attr(title); position: absolute; top: calc(50% - .5em); right: 100%; 
+    width: 4em; line-height: 1;font-size: .95rem; white-space: nowrap;
+    transition: .2s;
+  }
+  &:hover, &:focus{
+    width: calc(4.8em + 40px); background-color: $primaryColor;
+    &::before{border-color: $fontInvert;}
+    &::after{right: 40px;}
+  }
+  &:focus{
+    box-shadow: $primaryColor 0 0 0 2px;
+  }
+
+  &.closeIt{
+    &::before { transform: rotate(225deg); top: calc(50% - 4px);}
+  }
+
+}

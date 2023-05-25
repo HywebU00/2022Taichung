@@ -1,14 +1,14 @@
 // 燈箱（.lightbox）//////////////////////////////
 .lightbox{ 
   display: none;
-  position:fixed;top:5vw;left:5vw;
-  width:90vw; height: calc(100vh - 10vw); z-index:998;
+  position:fixed;top:5vw;left:0;
+  width:100vw; height: calc(100vh - 10vw); z-index:998;
   padding:0; margin:0 auto; overflow: auto;overflow-y: auto;
   background:#000; box-shadow:rgba(0,0,0,.6) 0 0 28px;
   color: #fff;
 
   .closeThis{
-    position: fixed; right:5vw; top: 5vw; z-index:999;
+    position: fixed; right:0; top: 5vw; z-index:999;
   }
 
 
@@ -18,13 +18,13 @@
     background-color: transparent; border: none; box-shadow: none;
   }
  
-  @media screen and (min-width:$wwNormal){
-    height: calc(100vh - 10vw);
+  @media screen and (min-width:$wwMedium){
+    width:94vw; height: calc(100vh - 10vw); left: 3vw;
     .closeThis{position: absolute; right: 0; top: 0;}
   }
   
   @media screen and (min-width: $wwMaximum ){
-    width: $wwMaximum*.9; left:calc(50vw - #{$wwMaximum}*.45);
+    width: $wwMaximum*.94; left:calc(50vw - #{$wwMaximum}*.47);
     top: $wwMaximum*.05; height: calc(100vh - $wwMaximum*.1);
 
   }
@@ -37,7 +37,7 @@
   display: none; 
   z-index: 995;
   position: fixed; left: 0;right: 0;top: 0;bottom: 0;
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,.7);
 }
 
 

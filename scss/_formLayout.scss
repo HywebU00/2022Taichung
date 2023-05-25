@@ -74,33 +74,20 @@ table.formLayout {
 // -----------------------------------------------------------------
 // 日期區間 ////////////////////////////////////////////////////////
 .duration {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex;flex-wrap: wrap; max-width: 36em;
   &::before {
-      flex: 0 0 1.5em;
-      width: 1.5em;
-      content: '~';
-      height: 2em;
-      line-height: 3.4em;
-      order: 1;
-      text-align: center;
+    content: '～';
+    flex: 0 0 1.5em;width: 1.5em;height: 2em;line-height: 3.4em;
+    order: 1;text-align: center;
   }
-  input {
-      flex: 0 1 calc(100% - 2em);
-  }
-  input:last-child {
-      order: 2;
+  input {flex: 0 1 calc(100% - 2em);
+    &:last-child {order: 2;}
   }
   @media screen and (min-width: 360px) {
-      flex-wrap: nowrap;
-      input {
-          flex: 1 1 calc(50% - 3em);
-          cursor: pointer;
-          min-width: 0;
-      }
+    flex-wrap: nowrap;
+    input {flex: 1 1 calc(50% - 3em);min-width: 0;}
   }
 }
-
 // -----------------------------------------------------------------
 // 單選、複選 //////////////////////////////////////////////////////
 .optionPool {

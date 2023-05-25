@@ -219,17 +219,24 @@ $(function(){
   _drawer = $('.drawer');
   _drawer.each(function () {
     let _this = $(this);
-    let _handle = _this.find('.handle');
+    let _handle = _this.find('.drawerHandle');
     let _tray = _this.find('.tray');
+    let _header = _this.find('.header');
     const speed = 500;
-
-    _handle.click(function () {
+    
+    _tray.is(':hidden') ? _handle.attr('title', '展開查詢') : _handle.attr('title', '收合') ;
+    _header.on("mouseenter", function() {
+      _handle.trigger('focus');
+    }).on('mouseleave', function(){
+      _handle.trigger('blur');
+    })
+    _handle.add(_header).click(function () {
       if (_tray.is(':hidden')) {
         _tray.stop(true, false).slideDown(speed);
-        _handle.removeClass('openIt');
+        _handle.addClass('closeIt').attr('title', '收合');
       } else {
         _tray.stop(true, false).slideUp(speed, function(){
-          _handle.addClass('openIt');
+          _handle.removeClass('closeIt').attr('title', '展開查詢');
         })
       }
     })
@@ -281,7 +288,7 @@ $(function(){
 
 
   //////////////////////////////////////////////
-  // 燈箱 ////////////////////////////
+  // 燈箱 //////////////////////////////////////
   var _lightbox = $('.lightbox');
   var _hideLightbox = _lightbox.find('.closeThis');
   const lbxSpeed = 400;
@@ -301,7 +308,6 @@ $(function(){
     _targetLbx.stop(true, false).fadeOut(lbxSpeed);
     _targetLbx.prev(_cover).fadeOut(lbxSpeed);
     _body.removeClass('noScroll');
-
   })
 
   _cover.click(function(){
@@ -355,6 +361,7 @@ $(function(){
       }
       i = 0;
       _imgCount.text('1');
+      _slideItem.removeClass('show');
     }
 
     // 改變 _window 寬度時，判斷_window 寬度是否大於最小斷點 wwSlim
@@ -370,7 +377,6 @@ $(function(){
     });
 
   })
-
 
   // cp 頁大圖燈箱
   var _bigPhotos = _lightbox.filter('.bigPhotos');
@@ -413,8 +419,6 @@ $(function(){
       _ItemKeep.focus();
     })
 
-
-
     // 下一張圖
     _slideBtnNext.on('click', function () {
       bpIndex = (bpIndex + 1) % bpCount;
@@ -429,8 +433,7 @@ $(function(){
     })
   })
 
-
-  
+ 
 
 
 
