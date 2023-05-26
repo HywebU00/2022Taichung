@@ -225,11 +225,11 @@ $(function(){
     const speed = 500;
     
     _tray.is(':hidden') ? _handle.attr('title', '展開查詢') : _handle.attr('title', '收合') ;
-    _header.on("mouseenter", function() {
-      _handle.trigger('focus');
-    }).on('mouseleave', function(){
-      _handle.trigger('blur');
-    })
+    // _header.on("mouseenter", function() {
+    //   _handle.trigger('focus');
+    // }).on('mouseleave', function(){
+    //   _handle.trigger('blur');
+    // })
     _handle.add(_header).click(function () {
       if (_tray.is(':hidden')) {
         _tray.stop(true, false).slideDown(speed);

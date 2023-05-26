@@ -17,15 +17,16 @@
     select{
       font-weight:bold;vertical-align:middle; outline: none;
       margin:0 3px 3px;border:1px solid #bbb; width:auto; height:2em; line-height:2;
+      background-position: right 5px top .4em;
       &:hover, &:focus{ border-color: $primaryColor; box-shadow: $primaryColor 0 0 0 1px;}
       & + input[type="submit"],
       & + input[type="button"]{
-        height:2em; line-height:2;padding: 0 7px;
-        border-radius: 4px; border: none; cursor: pointer;
-        background:#7c8785;color: #fff;outline: none;transition: .15s;
-        &:hover, &:focus{box-shadow: #7c8785 0 0 0 2px;}
-        &:focus{ background-color: #384241;}
-    }
+        height:2em; line-height:2;padding: 0 7px; margin: -4px 0 0 0;
+        border-radius: 0; border: none; cursor: pointer; 
+        background:$btnBg1;color: $fontInvert;outline: none;transition: .15s;
+        &:hover, &:focus{ background-color: $btnBg2;}
+        &:focus{box-shadow: $btnBg2 0 0 0 2px;}
+      }
     }
     ul{display:inline-block;list-style:none;padding:5px;vertical-align:middle; margin:0;
       line-height:1;text-align:center;}

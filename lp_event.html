@@ -16,13 +16,12 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="slick/slick.min.js"></script><!-- slick 套件 -->
   <script src="js/uieffect.js"></script>
-
 </head>
 
 <body>
   <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
 
-  <!-- *** 20220620 added: 版頭 -->
+  <!-- *** 2022 added: 版頭 -->
   <header class="webHeader">
     <a class="accesskey" href="#aU" id="aU" accesskey="U" title="upper block">:::</a>
     <h1><a href="mp.html"><img src="images/h1.png" alt="台中市政府文化局"></a></h1>
@@ -236,16 +235,11 @@
 
   </header>
 
-  <!--*** 20220620 added: 行動版側欄 -->
-  <aside class="sidebar">
-  </aside>
-
-
   <main class="main">
     <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
 
     <section class="navbar">
-      <h2>節點頁節點頁節點頁節</h2>
+      <h2>活動行事曆</h2>
       <div class="back"><a href="javascript:history.go(-1)">返回</a></div>
     </section>
 
@@ -253,152 +247,276 @@
       <section class="path"><span class="before">現在位置</span><a href="mp.html" title="Home">首頁</a> &gt; 本頁標題</section>
       <section class="function">
         <ul>
-          <li><a class="print" href="#">友善列印</a>
-            <noscript> 當script無法執行時，請點選瀏覽器功能選單<span class="command">檔案／列印</span>來列印網頁 </noscript>
-          </li>
+          <li><a class="print" href="#">友善列印</a></li>
           <li><a class="forward" href="#">轉寄友人</a></li>
-          <li><a class="back" href="javascript:history.back();">回上一頁</a>
-            <noscript> 當script無法執行時，可按鍵盤<span class="key">alt</span> + <span class="key">←</span>回到上一頁，或點選瀏覽器提供的上、下頁功能
-            </noscript>
-          </li>
+          <li><a class="back" href="javascript:history.back();">回上一頁</a></li>
         </ul>
-      </section>
+      </section><!-- /.function-->
     </section>
 
     <div class="nodeHeader">
-      <h2>市政新聞</h2>
+      <h2>活動行事曆</h2>
     </div>
 
-    <section class="preface">
-      頁頭前言，頁頭前言，頁頭前言，頁頭前言，頁頭前言，頁頭前言，頁頭前言，頁頭前言，頁頭前言，頁頭前言。作訴行包而舞不立？仍不一到子打下地中是醫種，把走排操無字康成滿德。 <p>
-        園早原、動放共不當列動在，來人基？那意甚想，上等只當者經品空學心屋呢的接還對區樣母；因改手生聽部去深近請生看業賣請氣</p>
-      <ul>
-        <li>天及傳百人今相親學光多。因華同程我親三一如。那觀變，的多說消樣臺沒太課對馬。</li>
-        <li>庭心不錢？轉里的舞大形滿然們寫同，不了加類從優？不看口師賽高部學反往金雖青說！濟天會我英地，隨臺一灣如覺動的去地坡西半務白上然住視由得！必和信石方是後古過家了心收先也事她明進十種傷光</li>
-      </ul>
-      <ol>
-        <li>四才以易這品少在表，為文花點才了技</li>
-        <li>準的去地坡西半務白上然住視由得！必和信石方是後古過家了心收先也事她明進十種傷光</li>
-      </ol>
-    </section>
-
-    <nav class="category" title="資料大類">
-      <ul>
-        <li><a href="#">全部</a></li>
-        <li><a href="#">教育文化</a></li>
-        <li class="here"><a href="#">宣導活動</a></li>
-        <li><a href="#">便民服務</a></li>
-        <li><a href="#">一般行政</a></li>
-        <li><a href="#">政令政策</a></li>
-        <li><a href="#">生活資訊</a></li>
-        <li><a href="#">資訊管理</a></li>
-        <li><a href="#">資訊管理</a></li>
-        <li><a href="#">資訊管理</a></li>
-        <li><a href="#">資訊管理</a></li>
-      </ul>
-    </nav>
-
-    <section class="page" title="分頁功能">
-      <p>共 430 筆資料，第<abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
-        <select name="perPage" id="perPage">
-          <option value="10">10</option>
-          <option value="30">30</option>
-        </select>
-        <input type="button" value="確定">
-      </p>
-      <ul>
-        <li class="first"><a href="#">第一頁</a></li>
-        <li class="prev"><a href="#">上一頁</a></li>
-        <li class="prevTen"><a href="#">上10頁</a></li>
-        <li><a href="#">11</a></li>
-        <li><a href="#">12</a></li>
-        <li><a href="#">13</a></li>
-        <li><a href="#">14</a></li>
-        <li><a href="#">15</a></li>
-        <li><a href="#">16</a></li>
-        <li><a href="#">17</a></li>
-        <li><a href="#">18</a></li>
-        <li class="here"><a href="#">19</a></li>
-        <li><a href="#">20</a></li>
-        <li class="nextTen"><a href="#">下10頁</a></li>
-        <li class="next"><a href="#">下一頁</a></li>
-        <li class="last"><a href="#">最後一頁</a></li>
-      </ul>
-    </section>
-
+    <section class="eventSearch">
+      <form>
+        <div class="oneDay">
+          <div class="label">單日瀏覽</div>
+          <button type="button" class="moreDayPrev">往前七天</button>
+          <button type="button">12/25<span class="day">日</span></button>
+          <!-- class="current" 是目前點到並顯示的那天 -->
+          <button type="button" class="">12/26<span class="day">一</span></button>
+          <button type="button">12/27<span class="day">二</span></button>
+          <button type="button">12/28<span class="day">三</span></button>
+          <button type="button" class="">12/29<span class="day">四</span></button>
+          <button type="button" class="today current">12/30<span class="day">五</span></button>
+          <button type="button" class="">12/31<span class="day">六</span></button>
+          <button class="moreDayNext" type="button">往後七天</button>
+        </div>
+        <div class="drawer">
+          <button type="button" class="drawerHandle"></button>
+          <div class="header">活動查詢</div>
+          <div class="tray">
+            <div class="moreFilter">
+              <div class="filters">
+                <select id="topcats" name="topcats">
+                  <option value="">活動類型...</option>
+                  <option value="01">觀光休閒</option>
+                  <option value="06">藝文展演</option>
+                  <option value="07">教育研習</option>
+                  <option value="05">運動健康</option>
+                  <option value="04">其他</option>
+                </select>
+                <select id="topcat" name="topcat">
+                  <option value="">地區...</option>
+                  <option value="001">中區</option>
+                  <option value="002">東區</option>
+                  <option value="003">南區</option>
+                  <option value="004">西區</option>
+                  <option value="005">北區</option>
+                  <option value="006">北屯區</option>
+                  <option value="007">西屯區</option>
+                  <option value="008">南屯區</option>
+                  <option value="010">豐原區</option>
+                  <option value="011">大里區</option>
+                  <option value="012">太平區</option>
+                  <option value="013">東勢區</option>
+                  <option value="014">大甲區</option>
+                  <option value="015">清水區</option>
+                  <option value="016">沙鹿區</option>
+                  <option value="017">梧棲區</option>
+                  <option value="018">后里區</option>
+                  <option value="019">神岡區</option>
+                  <option value="020">潭子區</option>
+                  <option value="021">大雅區</option>
+                  <option value="022">新社區</option>
+                  <option value="023">石岡區</option>
+                  <option value="024">外埔區</option>
+                  <option value="025">大安區</option>
+                  <option value="026">烏日區</option>
+                  <option value="027">大肚區</option>
+                  <option value="028">龍井區</option>
+                  <option value="029">霧峰區</option>
+                  <option value="030">和平區</option>
+                </select>
+                <input type="text" name="keyword" placeholder="請輸入查詢關鍵字" />
+              </div>
+              <div class="timeSpan">
+                <label>日期區間</label>
+                <input value="2023-05-26" type="text" id="DateS" title="日期起日" placeholder="yyyy-mm-dd" class="datepicker hasDatepicker">
+                <input value="" type="hidden" id="htx_xpostDateS" name="htx_xpostDateS">
+                ～
+                <input value="2023-06-26" type="text" id="DateE" title="日期迄日" placeholder="yyyy-mm-dd" class="datepicker hasDatepicker">
+                <input value="" id="htx_xpostDateE" name="htx_xpostDateE" type="hidden">
+              </div>
     
+              <!-- <div class="pickDate">
+                <label for="eventCalendarDate">日期區間</label>
+                <div class="duration">
+                  <input type="text" id="eventCalendarDate" name="eventCalendarDateS" placeholder="2023/5/28" readonly />
+                  <input type="text" id="eventCalendarDate" name="eventCalendarDateE" placeholder="2023/12/25" readonly />
+                </div>
+              </div> -->
+              <div class="btnDv">
+                <input type="submit" value="查詢" />
+                <input type="reset" value="清除" onclick="javascript:resetData()"/>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section class="list">
-      <ul>
-        <li><a href="#"><span class="numb">1</span>中市產業4.0旗艦計畫第3棒，逢大與紐倫堡大學簽科技合作計畫意向書<time>2015-09-09</time><abbr
-              class="stress" title="重要"></abbr></a></li>
-        <li><a href="#"><span class="numb">2</span>市府邀日本大分縣代表騎乘自行車體驗后豐風光，為十大自行車經典路線拉票<time>2015-09-08</time><abbr
-              class="stress" title="New"></abbr>
-          </a></li>
-        <li><a href="#"><span
-              class="numb">3</span>有效偵測空氣汙染物及來源，環保局將在國安國小及永安國小設空污監測車。有效偵測空氣汙染物及來源，環保局將在國安國小及永安國小設空污監測車。有效偵測空氣汙染物及來源，環保局將在國安國小及永安國小設空污監測車。
-            <time>2015-09-08</time><abbr class="stress" title="New"></abbr>
-          </a></li>
-        <li><a href="#"><span class="numb">4</span>台中版「海角七號」中市府搭橋辦台日跨海視訊圓日師夢想 <time>2015-09-08</time>
-          </a></li>
-        <li><a href="#"><span class="numb">5</span>松柏漁港泥沙淤積，市府已向中央爭取編列明年經費護岸 <time>2015-09-08</time>
-          </a></li>
-        <li><a href="#"><span class="numb">6</span>孔子誕辰2565週年釋奠典禮參禮證 9/10開放索取 <time>2015-09-08</time>
-          </a></li>
-        <li><a href="#"><span class="numb">77</span>環保台中攝影比賽收件期限展延至 9/25，歡迎踴躍參賽 <time>2015-09-08</time>
-          </a></li>
-        <li><a href="#"><span class="numb">888</span>iBike興大租賃站9/9啟用，暢遊興大綠園道等知名景點更方便 <time>2015-09-08</time>
-          </a></li>
-        <li><a href="#"><span class="numb">9</span>改善旱溪排水康橋計畫水質，水利局持續辦理東南區污水用戶接管 <time>2015-09-08</time>
-          </a></li>
-        <li><a href="#"><span class="numb">10</span>瑪利亞籌措校車基金，張副市長邀認購月餅做公益 <time>2015-09-08</time>
-          </a></li>
-      </ul>
-      <span class="nextPage"><a href="lp.html">下一頁</a></span>
+      </form>
     </section>
 
-    <section class="page" title="分頁功能">
-      <p>共 430 筆資料，第 <abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
-        <select name="perPage" id="perPage">
-          <option value="10">10</option>
-          <option value="30">30</option>
-        </select>
-        <input type="submit" value="確定">
-      </p>
-      <ul>
-        <li class="first"><a href="#">第一頁</a></li>
-        <li class="prev"><a href="#">上一頁</a></li>
-        <li class="prevTen"><a href="#">上10頁</a></li>
-        <li><a href="#">11</a></li>
-        <li><a href="#">12</a></li>
-        <li><a href="#">13</a></li>
-        <li><a href="#">14</a></li>
-        <li><a href="#">15</a></li>
-        <li><a href="#">16</a></li>
-        <li><a href="#">17</a></li>
-        <li><a href="#">18</a></li>
-        <li class="here"><a href="#">19</a></li>
-        <li><a href="#">20</a></li>
-        <li class="nextTen"><a href="#">下10頁</a></li>
-        <li class="next"><a href="#">下一頁</a></li>
-        <li class="last"><a href="#">最後一頁</a></li>
-      </ul>
+
+    <section class="list event">
+      <table>
+        <tr>
+          <th scope="col">活動類型</th>
+          <th scope="col">地區</th>
+          <th scope="col">活動時間</th>
+          <th scope="col">活動主題</th>
+        </tr>
+        <tr>
+          <td><span class="eventType t01">實體活動</span></td>
+          <td>中區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">石是高天海的漸加比到世濟推等時這會或己先</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t02">展覽</span></td>
+          <td>東區</td>
+          <td>全天</td>
+          <td><a href="#">銷向水裡古平受率的花於太師什念不了得步直讓</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t03">講座</span></td>
+          <td>全區</td>
+          <td>全天</td>
+          <td><a href="#">可組府一在失筆始：夠發家以</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其它</span></td>
+          <td>南區</td>
+          <td>14:00-16:00</td>
+          <td><a href="#">大單定出正所，政產樂世快下</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t05">網路活動</span></td>
+          <td>北區</td>
+          <td>全天</td>
+          <td><a href="#">山他格品示家位</a></td>
+        </tr>
+
+        <tr>
+          <td><span class="eventType t06">預留類別一</span></td>
+          <td>西屯區</td>
+          <td>08:00-17:00</td>
+          <td><a href="#">「週末家庭同樂會」大手牽小手-週末家庭同樂趣</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t07">預留類別二</span></td>
+          <td>南屯區</td>
+          <td>08:00-17:00</td>
+          <td><a href="#">本局於105年1月至3月舉辦多場勞動基準法令宣導會，歡迎踴躍報名參加</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t08">預留類別三</span></td>
+          <td>北屯區</td>
+          <td>08:00-17:00</td>
+          <td><a href="#">臺中市太平區戶政事務所藝廊於105年1月4日至105年2月26日</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t09">預留類別四</span></td>
+          <td>豐原區</td>
+          <td>08:00-17:00</td>
+          <td><a href="#">「2016醉石創藝協會會員聯展」2/20港區藝術中心登場</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t10">預留類別五</span></td>
+          <td>大里區 </td>
+          <td>08:00-17:00</td>
+          <td><a href="#">105年1、2月份犬貓狂犬病疫苗及寵物晶片巡迴注射活動</a></td>
+        </tr>
+
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>神岡區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">地方稅務局民權分局於105年2月21日下午1時30分至4時30分，在東協廣場辦理「歡慶元宵~~統一發票推行暨租稅宣導」活動<time>13:30-16:30</time></a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="eventType t05">網路活動</span></td>
+          <td>梧棲區 </td>
+          <td>17:30-21:30</td>
+          <td><a href="#">地方稅務局大智分局於105年2月21日（星期日）配合臺中市東區樂成宮歡樂元宵信眾點燈抽大獎聯歡晚會辦理統一發票推行暨租稅宣導活動</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td> 烏日區</td>
+          <td>18:00-21:00</td>
+          <td><a href="#">地方稅務局大智分局於105年2月21日（星期日）配合臺中市南區醒修宮元宵節聯歡晚會辦理統一發票推行暨租稅宣導活動</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>大肚區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">北區衛生所於2/26(五) 8:30-11:00辦理成人健檢及四大癌症篩檢(中國附醫協辦)</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t05">網路活動</span></td>
+          <td>東勢區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">性病匿名篩檢詢問單---台中市北區衛生所關心您</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>大甲區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">北區衛生所於2/27(六)8:30-11:00辦理免費癌症篩檢</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t02">展覽</span></td>
+          <td>清水區 </td>
+          <td>08:30-11:30</td>
+          <td><a href="#">豐原漆藝館¬於105年1月14日至105年2月28日展出「金猴戲漆-2015漆藝館研習班師生聯展(二)」，歡迎各位前來共享漆藝之美。</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>沙鹿區 </td>
+          <td>08:30-11:30</td>
+          <td><a href="#">大里區105年二月份免費癌症篩檢活動</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t02">展覽</span></td>
+          <td>太平區 </td>
+          <td>08:30-11:30</td>
+          <td><a href="#">美的饗宴─劉玉英油畫個展</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t02">展覽</span></td>
+          <td>大雅區 </td>
+          <td>08:30-11:30</td>
+          <td><a href="#">原生畫會105年度聯展</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>潭子區</td>
+          <td>10:00-22:00</td>
+          <td><a href="#">東勢分局105年2月21日配合「2016臺中東勢新丁粄節」辦理租稅宣導活動</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t02">展覽</span></td>
+          <td>霧峰區 </td>
+          <td>08:30-11:30</td>
+          <td><a href="#">假日藝賞~臺中市港區藝術中心定目劇場</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>后里區 </td>
+          <td>08:30-11:30</td>
+          <td><a href="#">105年02月21日免費癌症篩檢</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t01">實體活動</span></td>
+          <td>西區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">105年后里泰安賞櫻活動，開跑囉！</a></td>
+        </tr>
+        <tr>
+          <td><span class="eventType t04">其他</span></td>
+          <td>龍井區</td>
+          <td>08:30-11:30</td>
+          <td><a href="#">烏日區衛生所2月21日南北里新南宮免費健康篩檢<time>08:30-11:00</time></a></td>
+        </tr>
+      </table>
     </section>
-    
-    <section class="preface"> 頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字，頁尾說明文字。 <p>
-        園早原、動放共不當列動在，來人基？那意甚想，上等只當者經品空學心屋呢的接還對區樣母；因改手生聽部去深近請生看業賣請氣</p>
-      <ul>
-        <li>天及傳百人今相親學光多。因華同程我親三一如。那觀變，的多說消樣臺沒太課對馬。</li>
-        <li>庭心不錢？轉里的舞大形滿然們寫同，不了加類從優？不看口師賽高部學反往金雖青說！濟天會我英地，隨臺一灣如覺動</li>
-      </ul>
-      <ol>
-        <li>四才以易這品少在表，為文花點才了技</li>
-        <li>準的去地坡西半務白上然住視由得！必和信石方是後古過家了心收先也事她明進十種傷光</li>
-      </ol>
-    </section>
+
+
   </main>
 
-
+  <!-- *** 2022 added: 頁尾 -->
   <footer class="webFooter">
     <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
     <button type="button" class="fatFootCtrl" data-alttext="開啟">收合</button>
@@ -622,15 +740,11 @@
 
   <button type="button" class="goTop">回頁首</button>
 
-  <!-- 20220620 removed
-  <script type="text/javascript" src="2017/js/jquery-1.11.3.min.js"></script> 
-  -->
+  <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>  -->
   <!-- <script type="text/javascript" src="2017/js/rwdTable.js"></script>
-  <script type="text/javascript" src="2017/js/jquery.jscroll.js"></script>
-  <script type="text/javascript" src="2017/js/slide.js"></script>
-  <script type="text/javascript" src="2017/js/effect.js"></script> -->
-
-
+    <script type="text/javascript" src="2017/js/jquery.jscroll.js"></script>
+    <script type="text/javascript" src="2017/js/effect.js"></script>
+    <script type="text/javascript" src="2017/js/slide.js"></script> -->
 </body>
 
 </html>

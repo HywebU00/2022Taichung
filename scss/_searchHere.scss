@@ -25,7 +25,9 @@
 
 
 // 可開合區
-.drawer{ position: relative; }
+.drawer{ position: relative; 
+  .header{cursor: pointer; }
+}
 
 // 控制開合區的按鈕
 button.drawerHandle{
