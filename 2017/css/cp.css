@@ -1,9 +1,8 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 /* CSS Document 台中機關網 */
-@import url("metaTable.css"); /* 表格型資料 */
+@import url("metaTable.css"); /*  表格型資料 */
 @import url("cpPhoto.css"); /* 表格型資料 */
-@import url("share.css"); 		/* 分享 */
-
+@import url("share.css");  /* 分享 */
 
 .cpArticle{
 	margin:0 auto;padding:16px 0 0;line-height:1.7;font-size:1.1em;overflow:hidden;

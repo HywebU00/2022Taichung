@@ -347,8 +347,9 @@ function photoShow(){//相簿內頁
 		_photoList.append('<div title="上一張" class="arbtn left"></div><div title="下一張" class="arbtn right"></div>');
 
 		_photoThumb.first().addClass('active');
-		_photoShow.find('.caption').hide().end().find('a').css('z-index', 0);
-		_photoShow.first().find('img').show().parent('a').css('z-index', 88).next('.caption').show();
+		// _photoShow.find('.caption').hide().end().find('a').css('z-index', -1);
+		// _photoShow.first().find('img').show().parent('a').css('z-index', 0).next('.caption').show();
+		_photoShow.hide().css('z-index', -1).first().show().css('z-index', 0);
 
 		_photoList.after('<div class="ppause"></div>');
 
@@ -367,8 +368,8 @@ function photoShow(){//相簿內頁
 			})
 		};
 
-		var i = 0;
-		var _btnNext = _photoList.find('.right'),
+		let i = 0;
+		let _btnNext = _photoList.find('.right'),
 				_btnPrev = _photoList.find('.left');
 
 		_btnNext.click(function(){i = (i+1) % photoCount; showPhoto();});
@@ -416,9 +417,14 @@ function photoShow(){//相簿內頁
 		}
 		function showPhoto(){
 			_photoThumb.eq(i).addClass('active').siblings().removeClass('active');
-			_photoShow.find('.caption').hide().prev('a').css('z-index', 0);
-			_photoShow.eq(i).find('img').stop(true,false).fadeIn().parent('a').css('z-index', 88).next('.caption').fadeIn();
-			_photoShow.eq(i).siblings().find('img').stop(true,false).fadeOut();
+			// _photoShow.find('.caption').hide().prev('a').css('z-index', -1);
+			// _photoShow.eq(i).find('img').stop(true,false).fadeIn().parent('a').css('z-index', 0).next('.caption').fadeIn();
+			// _photoShow.eq(i).siblings().find('img').stop(true,false).fadeOut();
+			// _photoShow.hide().css('z-index', -1);
+			_photoShow.stop(true,false).fadeOut().css('z-index', -1).eq(i).stop(true,false).fadeIn().css('z-index', 0);
+
+
+
 			if(i <= -1){
 				_photoCounter.text(i+photoCount+1);
 			} else {
