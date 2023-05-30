@@ -1,101 +1,138 @@
-// 相簿內容頁 
-.album{
-  margin: 0 auto;
-  ul, ol{list-style: none; margin: 0; padding: 0;}
-  .ppause {
-    position:absolute;left:50%; top: 100vw; margin:10px auto 0 -26px;
-  }
-}
+// photoSlide 相簿內容頁
+.photoSlide{ 
+  position: relative; 
+ 	padding: 0; margin: 0 auto;
 
-.photoThumb{display:none;}
+  .slider-for{ 
+    .slick-slide{ 
+			position: relative; cursor: pointer;
+			a{ 
+				display: block; color: $fontColor;
+				&::before{
+					opacity: 0;
+					content: ''; position: absolute; left: 0;right: 0;top: 0; bottom: 0;
+					box-shadow: $fontColor 0 0 0 3px inset;
+					transition: .25s;
 
-.photoShow{
-  position: relative;padding:0;background:#333;transition: .3s;
-  ul{list-style:none;margin:0;padding:0;text-align:center;}
-  li{
-    position:absolute;top:0;left:0;width: 100vw; height: 100vw; margin:0;padding:0;line-height:1.6;
-    a{display: block; z-index: 0; width: 100%; height: 100%; transition:.3s;}
-    img{display:none;height:calc(100% - 20px); width:calc(100% - 20px);margin:10px auto;object-fit:contain;}
-    .caption {
-      position: absolute; left: 0; right: 0; bottom: 0; padding:50px 10px 10px;
-      min-height:3em; line-height: 1.4;
-      background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0) 0%, rgba(51, 51, 51, .9) 80%);
-      color:#fff;
+				}
+				&:focus{
+					&::before{ opacity: 1; z-index: 9;}
+				}
+			}
+
+      img{ 
+        display: block; margin: 0 auto;
+        width: 100%; height: 100vw;max-height: 640px; object-fit: contain;
+      }
+
+      .caption{
+        position: absolute; bottom: 0; left: 0;right: 0;text-align: center;
+        padding:.6em 16px .4em; margin: 0; line-height: 1.6; max-height: 4em;overflow: hidden;
+        display: -webkit-inline-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+        background: rgba(255,255,255,.8);
+        transition: .6s;
+      }
+      &:hover{
+        .caption{ transform: translateY(100%);}
+      }
+
+      &::before{
+        content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+        box-shadow: $fontColor 0 0 0 2px inset; z-index: -1;  display: none;
+      }
+      &:focus{
+        &::before{display: block;z-index: 9;}
+      }
     }
-    &:first-child {display:list-item;
-      img, .photoCount{display:block;}
-    }
-  }
-  .photoCount{
-    position:absolute;right:10px;top:10px;border-radius:2em;padding:0 .4em 0 .7em;font-size:.85em;height:1.8em;line-height:1.3;background:rgba(240,243,244,.7);color:#333;border:1px solid #fff;z-index: 90;
-    em{font-size:1.25em;}
+
   }
   
-  .arbtn{width:44px;height:60px;position:absolute;top:50%;cursor:pointer;z-index:99;}
-  .arbtn:hover,
-  .arbtn:focus{background:rgba(0,0,0,.6);}
-  .arbtn:before{border-color:#fff;}
+  .slider-nav{ 
+    margin: 0 auto; padding: 16px 0;
+		background-color: $grayDark;
+    box-shadow: rgba(0,0,0,.5) 0 0 15px inset;
+    &::before, &::after{
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px;
+      z-index: 2;
+    }
+    &::before{left: 0;  background-image: linear-gradient(to right, transparentize($grayDark, .1) 20%, transparentize($grayDark, 1) 100%);}
+    &::after{right: 0;  background-image: linear-gradient(to left, transparentize($grayDark, .1) 20%, transparentize($grayDark, 1) 100%);}
+    .slick-slide{
+      cursor: pointer;display: block;
+      height: 128px;padding: 0; margin:5px 4px;
+      box-shadow: $borderColorLight 0 0 0 1px;
+      img{ display: block; height: 100%; width: auto; object-fit: contain;}
+
+      &.slick-current{ box-shadow:$black 0 0 0 1px, $white 0 0 0 5px; }
+    }
+  }
+
+
+  // 相片張數
+  .photoCount{
+    position: absolute; right: 12px; top: 12px; z-index: 9;
+  }
+
+	.description{line-height: 1.8; padding: 1em 3vw;}
+
+  @media screen and (min-width: $wwNormal){
+		width: 96%;margin-bottom: 50px;
+		// box-shadow: $borderColor 0 0 0 1px;
+
+    .slider-for{ 
+      margin-bottom: 10px;
+      .slick-slide{
+        img{ height: 640px;}
+        .caption{ position: static; width: 100%;}
+        &:hover .caption{transform: none;}
+      }
+    }
+
+		.description{ padding-left: 0; padding-right: 0;}
+  }
+
+
+  @media screen and (min-width: $wwMaximum){
+		width: $wwMaximum*.96;
+  }
 }
 
 
 
-.ppause{display:block;width:52px;height:52px;margin:0 auto;background:rgba(0,0,0,.4);border-radius:50%;transition:.3s;}
-.ppause:hover{box-shadow:rgba(250,0,0,.4) 0 0 0 4px;background-color:rgba(200,0,0,.8) }
-.ppause:before,
-.ppause:after {content:'';position:absolute;top:17px;left:18px;width:5px;height:18px;background:#fff}
-.ppause:after {left:30px}
-.ppause.pplay{background-color: rgba(200,0,0,.8);}
-.ppause.pplay:before{ border:10px solid transparent;border-left:16px solid #fff;height:18px;box-sizing:border-box;background:transparent;left:21px}
-.ppause.pplay:after{display:none;}
-
-.album article{padding: 2em 2vw; background-color: #e3f3f3;}
-
-@media screen and (min-width:601px) {
-	.photoShow {
-		width:100%;height:560px;margin:0 auto; padding:0;
-		background:#fff;
-	}
-	.photoShow:hover{background: #fff;}
-	.photoShow li{position:absolute;top:20px;left:60px;height:calc(100% - 40px);width:calc(100% - 120px);}
-	.photoShow li>a {display: block; height: 100%;}
-	.photoShow li img {
-		position: relative; top: 50%; transform: translateY(-50%);
-	  width: auto;height: auto; margin: 0 auto;
-		max-width: calc(100% - 10px);  max-height: calc(100% - 10px);
-	  border: 5px solid #fff; box-shadow: rgba(0, 0, 0, .3) 0 0 9px;
-	  transition: box-shadow .3s;
-	}
-	.photoShow a:hover img{box-shadow:rgba(0,0,0,.6) 0 0 24px;}
-
-	.photoShow li .caption{
-		display: block;
-		position: static; padding:8px 0; background-image: none; color:#000;
-		white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-	}
-
-	.photoShow li a:focus img{border-color: #333}
-
-	.photoShow .arbtn{background:rgba(0,0,0,.3);}
-	.photoShow .arbtn.left{left:10px;}
-	.photoShow .arbtn.right{right:10px;}
-
-	.photoThumb{display: block;margin:40px auto 0;padding:8px;background:#333;}
-	.photoThumb ul{padding:1px 2px;text-align:center;overflow:hidden;}
-	.photoThumb li{position:relative;margin: 1px 0;float:left;}
-	.photoThumb li a{display:block;outline:none;}
-	.photoThumb li img {display:block;width:76px;height:76px;object-fit:cover;margin:0;padding:0;border: 1px solid #333;}
-	.photoThumb li.active:before {
-	  content: '';position: absolute;left: 0;top: 0;z-index: 99;
-	  width: 76px;height: 76px;
-		box-shadow: #c9f91d 0 0 0 2px;
-	}
-
-	.album .ppause { display: none}
-	.album article{padding-top: 2em;}
+// 照片張數 .photoCount
+.photoCount{ 
+	line-height: 1.35; height: 1.6em; padding: 0 .6em; border-radius: 1em;
+	background: rgba(230, 230, 230, .8); color: $fontColor;
+  span{ display: inline-block; vertical-align: baseline;}
+  .total{ 
+    &::before{content: '/'; margin-right: 4px; display: inline-block;}
+  }
+  .current{ font-size: 1.25em; margin-right: 4px;}
 }
-@media screen and (min-width:1001px) {
-	.album{width: 96%;}
-	.photoShow{margin-top: -15px}
-  .album article{padding: 2em 20px; }
 
+
+
+
+
+
+
+
+// 燈箱中的大圖瀏覽
+.albumPhoto{
+  .photo{ 
+		position: relative; height: 100%;
+    img{ display: block; width: 100%; height: 100%; object-fit: contain;}
+    .caption{
+      position: absolute; bottom: 0;left: 0; right: 0;
+      padding:80px 15px 10px; margin: 0; line-height: 1.5;
+      color: $fontInvert; text-align: left;
+      background-image: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 50px, rgba(0,0,0,1) 90%);
+      transition: .6s;
+
+      &:hover{
+        .caption{ transform: translateY(100%);}
+      }
+    }
+  }
 }
+

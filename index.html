@@ -12,6 +12,7 @@
       font-size: 18px;
       background: #fff;
     }
+    *{ box-sizing: border-box;}
 
     h1 {
       text-align: center;
@@ -22,6 +23,8 @@
       font-size: 22px;
       font-family: Georgia, 'Times New Roman', Times, serif
     }
+
+    article{ margin: 20px auto; padding: 20px;max-width: 1400px;width: 96%; background: #cde; }
 
     table {
       counter-reset: item;
@@ -75,12 +78,12 @@
     td:nth-last-child(3) {
       font-size: .9em;
     }
-    td:nth-last-child(1), td:nth-last-child(2) {
+    td:nth-last-child(1) {
      text-align: center;
     }
-    td:nth-last-child(1) a, td:nth-last-child(2) a {
+    /* td:nth-last-child(1) a, td:nth-last-child(2) a {
      display: block;
-    }
+    } */
 
 
     td:first-child:before {
@@ -197,6 +200,30 @@
 
 <h1>臺中市政府	2022~2023 文化局版 gui 清單</h1>
 
+<article>
+  <h3>內頁 HTML 修改摘要，共同部分</h3>
+  <ul>
+    <li>
+      原舊版內頁 html 需刪除 <code>＜head＞</code> 元件內
+      <code><pre>
+＜link href="2017/css/layout.css" rel="stylesheet" type="text/css"＞
+＜link href="2017/css/styleB.css" rel="stylesheet" type="text/css"＞
+＜link media="print" href="2017/css/print.css" rel="stylesheet" type="text/css"＞     
+      </pre></code>
+    </li>
+    <li>
+      原舊版內頁 html 需刪除 <code>＜/body＞</code> 之前
+      <code><pre>
+＜script type="text/javascript" src="2017/js/jquery-1.11.3.min.js"＞＜/script＞ 
+＜script type="text/javascript" src="2017/js/rwdTable.js"＞＜/script＞
+＜script type="text/javascript" src="2017/js/jquery.jscroll.js"＞＜/script＞
+＜script type="text/javascript" src="2017/js/slide.js"＞＜/script＞
+＜script type="text/javascript" src="2017/js/effect.js"＞＜/script＞
+</pre></code>
+    </li>
+    <li>拆除此層 <code>＜div class="center" id="center"＞＜/div＞</code> </li>
+  </ul>
+</article>
 
 <section class="list">
   <table>
@@ -204,113 +231,106 @@
       <th style="width: 2em;">序號</th>
       <th>頁面名稱</th>
       <th>檔名／連結</th>
-      <th>2023 備註</th>
-      <th>2022 備註</th>
+      <th>備註 2023</th>
+      <th>備註 2022</th>
     </tr>
 		<tr>
       <td></td>
       <td>首頁</td>
       <td><a href="mp.html">mp.html</a></td>
       <td></td>
-      <td>6/17 完成</td>
+      <td>2022/6/17 完成</td>
     </tr>
 		<tr>
       <td></td>
       <td>節點頁</td>
       <td><a href="np.html">np.html</a></td>
       <td>html 修改完成</td>
-      <td>6/20 完成</td>
+      <td>2022/6/20 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>項目條列頁</td>
       <td><a href="lp.html">lp.html</a></td>
       <td>html 修改完成</td>
-      <td>6/20 完成</td>
+      <td>2022/6/20 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>表格條列頁</td>
       <td><a href="lp_table.html">lp_table.html</a></td>
-      <td>2023/5/22 補上方「條件查詢」</td>
-      <td>6/21 完成</td>
+      <td>5/22 補上方「條件查詢」</td>
+      <td>2022/6/21 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>相簿縮圖瀏覽</td>
       <td><a href="lp_photo.html">lp_photo.html</a></td>
-      <td>2023/5/19 完成<!-- 。html 重新編輯，套版請注意。 --></td>
-      <td>6/21 完成</td>
+      <td>5/19 完成<!-- 。html 重新編輯，套版請注意。 --></td>
+      <td>2022/6/21 完成</td>
     </tr>
-    <!-- <tr>
-      <td></td>
-      <td>影音專區縮圖瀏覽</td>
-      <td><a href="lp_video.html">lp_video.html</a></td>
-      <td>html 重新編輯，套版請注意</td>
-      <td>6/22 完成</td>
-    </tr> -->
     <tr>
       <td></td>
       <td>機關通訊錄</td>
       <td><a href="lp_address.html">lp_address.html</a></td>
-      <td></td>
-      <td>6/21 完成</td>
+      <td>5/19 完成</td>
+      <td>2022/6/21 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>機關首長條列頁</td>
       <td><a href="lp_chief.html">lp_chief.html</a></td>
-      <td></td>
-      <td>6/22 完成</td>
+      <td>5/21 完成</td>
+      <td>2022/6/22 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>RSS訂閱和JSON下載條列頁</td>
       <td><a href="lp_openData.html">lp_openData.html</a></td>
-      <td></td>
-      <td>6/22 完成</td>
+      <td>5/21 完成</td>
+      <td>2022/6/22 完成</td>
     </tr>
 		<tr>
       <td></td>
       <td>圖文內頁</td>
       <td><a href="cp.html">cp.html</a></td>
-      <td>2023/5/21 「相關圖檔」改為燈箱顯示</td>
-      <td>6/22 完成</td>
+      <td>5/26 「相關圖檔」改為燈箱顯示</td>
+      <td>2022/6/22 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>相簿內頁</td>
-      <td>cp_photo.html<!-- <a href="cp_photo.html">cp_photo.html</a> --></td>
-      <td>＊待重新編輯</td>
-      <td>6/22 完成</td>
+      <td><a href="cp_photo.html">cp_photo.html</a></td>
+      <td>5/30 重新編輯完成</td>
+      <td>2022/6/22 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>首長簡介內頁</td>
       <td><a href="cp_resume.html">cp_resume.html</a></td>
-      <td></td>
-      <td>6/22 完成</td>
+      <td>5/22 完成</td>
+      <td>2022/6/22 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>表格形式內頁</td>
       <td><a href="cp_table.html">cp_table.html</a></td>
-      <td></td>
-      <td>6/22 完成</td>
+      <td>5/22 完成</td>
+      <td>2022/6/22 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>影音播放內頁</td>
       <td><a href="cp_video.html">cp_video.html</a></td>
-      <td></td>
-      <td>6/22 完成</td>
+      <td>5/22 完成</td>
+      <td>2022/6/22 完成</td>
     </tr>
     <tr>
       <td></td>
       <td>網站導覽頁</td>
       <td><a href="sitemap.html">sitemap.html</a></td>
-      <td></td>
-  		<td>6/21 完成</td>
+      <td>5/22 完成</td>
+  		<td>2022/6/21 完成</td>
 	</tr>
   <tr>
     <td colspan="5" style="background-color: #ddd">以下是新增的頁面，依據中市府主站中文版內頁版型編輯</td>
@@ -348,7 +368,7 @@
     <td></td>
     <td>活動行事曆</td>
     <td><a href="lp_event.html">lp_event.html</a></td>
-    <td>5/26 完成</td>
+    <td>5/26 完成。<br>上方單日瀏覽與查詢區html有多處修改</td>
     <td>-</td>
   </tr>
   <tr>
@@ -362,7 +382,7 @@
     <td></td>
     <td>機關通訊錄</td>
     <td><a href="lp_address.html">lp_address.html</a></td>
-    <td>5/16 完成</td>
+    <td>5/19 完成</td>
     <td>-</td>
   </tr>
   <tr>
@@ -395,6 +415,8 @@
   </tr>
 </table>
 </section>
+
+
 
 
 </body>

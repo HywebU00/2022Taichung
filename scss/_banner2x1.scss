@@ -30,8 +30,8 @@
       }
     }
     .slick-arrow{
-      &.slick-prev { left: -14vw;}
-      &.slick-next { right: -14vw;}
+      &.slick-prev { left: calc(-14vw + 5px); }
+      &.slick-next { right: calc(-14vw + 5px); }
     }
 
   }
@@ -46,8 +46,8 @@
       }
     }
     .slick-arrow{
-      &.slick-prev { left: -25vw;}
-      &.slick-next { right: -25vw;}
+      &.slick-prev { left: calc(-25vw + 5px);}
+      &.slick-next { right: calc(-25vw + 5px);}
     }
   }
 

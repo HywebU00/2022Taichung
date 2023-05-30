@@ -131,8 +131,48 @@ $(function(){
     ]
   });
 
+
+  // 相簿內頁
+  var _photoSlide = $('.photoSlide');
+  var _asNav = _photoSlide.find('.slider-nav');
+  var _asNavFor = _photoSlide.find('.slider-for');
+  _asNavFor.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    asNavFor: _asNav
+  });
+  _asNav.slick({
+    variableWidth: true,
+    slidesToShow: 3,  
+    slidesToScroll: 1,
+    centerPadding: 0,
+    dots: false,
+    centerMode: true,
+    focusOnSelect: true,
+    asNavFor: _asNavFor
+  });
+
   // slick 參數設定：結束 ////////////////////////////
 
+  // 計算相簿內容頁照片張數 ////////////////////////////
+  _photoSlide.prepend('<div class="photoCount"><span class="current" title="目前位置"></span><span class="total" title="總張數"></span></div>');
+  var _photoCount = _photoSlide.find('.photoCount');
+  var _currentPhoto = _photoCount.find('.current');
+  var _totalPhoto = _photoCount.find('.total');
+
+  _totalPhoto.text( _asNavFor.find('.slick-slide').length );
+  _currentPhoto.text( _asNavFor.find('.slick-current').index()+1 );
+
+  _photoSlide.find('.slick-arrow').click( function(){
+    _currentPhoto.text( _asNavFor.find('.slick-current').index()+1);
+  })
+
+  _asNav.find('.slick-slide').click( function(){
+    _currentPhoto.text( _asNavFor.find('.slick-current').index()+1);
+  })
+  ////////////////////////////////////////////////////////
 
 
   // font size 和 cookie ////////////////////////////
@@ -292,30 +332,30 @@ $(function(){
   var _lightbox = $('.lightbox');
   var _hideLightbox = _lightbox.find('.closeThis');
   const lbxSpeed = 400;
+  var _lbxTriger; // 暫存開啟燈箱的元件
 
-  _lightbox.before('<div class="coverAll"></div>');
-  _lightbox.append('<button type="button" class="skip"></button>');
+  _lightbox.before('<div class="coverAll"></div>'); // 每個燈箱專用遮罩
+  _lightbox.append('<button type="button" class="skip"></button>'); // 隱藏的元件，get focus時要回到關燈箱的元件
   var _cover = $('.coverAll');
+  var _skipToClose = _lightbox.find('.skip');
 
-  var _skipToClose = _lightbox.find('.skip'); // 此元件 get focus時要回到關燈箱的元件
-  _skipToClose.focus( function () {
-    _hideLightbox.focus();
-  })
+  _skipToClose.focus( function () { _hideLightbox.focus(); })
 
-  // 關燈箱
   _hideLightbox.click(function(){
-    let _targetLbx = $(this).parents('.lightbox');
-    _targetLbx.stop(true, false).fadeOut(lbxSpeed);
-    _targetLbx.prev(_cover).fadeOut(lbxSpeed);
-    _body.removeClass('noScroll');
+    closeLightbox();
   })
-
+  
   _cover.click(function(){
-    let _targetLbx = $(this).next('.lightbox');
-    $(this).fadeOut(lbxSpeed);
-    _body.removeClass('noScroll');
-    _targetLbx.stop(true, false).fadeOut(lbxSpeed);
+    closeLightbox();
   })
+  
+  // 關燈箱
+  function closeLightbox() {
+    _lightbox.filter(":visible").stop(true, false).fadeOut(lbxSpeed);
+    _cover.filter(":visible").stop(true, false).fadeOut(lbxSpeed);
+    _body.removeClass('noScroll');
+    _lbxTriger.focus();   
+  }
   //----------------------//
 
   // cp 頁相關圖檔以燈箱開啟看大圖 //////////////////////////////////////////////////////////
@@ -380,13 +420,14 @@ $(function(){
 
   // cp 頁大圖燈箱
   var _bigPhotos = _lightbox.filter('.bigPhotos');
-  var _showBibphotoLbx = $('.attachment').find('.images').find('.showLightbox'); // 開大圖燈箱元件
+  var _showBigPhotoLbx = $('.attachment').find('.images').find('.showLightbox'); // 開大圖燈箱元件
   var bpIndex;
   var _ItemKeep;
 
   // 點擊開大圖燈箱元件
-  _showBibphotoLbx.on('click', function () {
-    _ItemKeep = $(this);
+  _showBigPhotoLbx.click( function () {
+    // _ItemKeep = $(this);
+    _lbxTriger = $(this);
     _bigPhotos.add(_cover).stop(true, false).fadeIn(lbxSpeed);
     _bigPhotos.find(_hideLightbox).trigger('focus');
     _body.addClass('noScroll');
@@ -416,7 +457,7 @@ $(function(){
     }
     _hideLightbox.add(_cover).on('click', function () {
       _slideItem.removeClass('show');
-      _ItemKeep.focus();
+      // _ItemKeep.focus();
     })
 
     // 下一張圖
@@ -433,14 +474,24 @@ $(function(){
     })
   })
 
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
+
+  // cp_photo 相簿內容頁燈箱：點擊大圖檔以燈箱開啟看更大圖 /////////////////////////////////////////////
+  // var _showAlbumPhotoLightbox = _asNavFor.find('.showLightbox');
+  var _albumPhotoLbx = _lightbox.filter('.albumPhoto');
+
+  _asNavFor.find('.showLightbox').click( function(){
+    _lbxTriger = $(this);
+    _albumPhotoLbx.add(_cover).stop(true, false).fadeIn(lbxSpeed);
+    _albumPhotoLbx.find(_hideLightbox).trigger('focus');
+    _body.addClass('noScroll');
+  })
+  
  
-
-
-
-
-
-
-
 
 
 

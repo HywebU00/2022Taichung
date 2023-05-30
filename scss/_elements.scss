@@ -1,7 +1,6 @@
 a:focus{outline: none;}
 
 
-
 // 快捷鍵 ////////////////////////////////////
 .accesskey{ display: none; }
 @media screen and (min-width: $wwNormal){
@@ -19,7 +18,7 @@ a:focus{outline: none;}
 }
 
 
-//  ////////////////////////////////////
+// .more ////////////////////////////////////
 .more{
   text-align: center; margin: 1.5em auto 0;
   a{
@@ -37,7 +36,7 @@ a:focus{outline: none;}
 }
 
 
-// 跳至內容區 ----------------------------------------------
+// 跳至內容區 ////////////////////////////////////
 a.goCenter{
   display: none;
   @media screen and (min-width: $wwNormal){
@@ -120,9 +119,9 @@ a.goCenter{
 
 // 側欄遮罩  ////////////////////////////////////
 .sidebarMask {
-  display: none;z-index: 980;
+  display: none;z-index: 870;
   position: fixed;left: 0;right: 0;top: 0;bottom: 0;
-  background-color: rgba(100,100,100,.8);
+  background-color: rgba(200,200,200,.8);
 }
 
 // 關閉 「X」 ////////////////////////////////////
@@ -151,8 +150,8 @@ button.closeThis{
 
 
 
-
-// slick套件  ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// slick套件  //////////////////////////////////////////////////////////
 // slick套件: 左右箭頭
 .slick-arrow{
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 9;
@@ -166,20 +165,20 @@ button.closeThis{
     border: 2px solid $black; border-top: none; border-right: none;
     transform: rotate(45deg);
   }
-  &.slick-prev{ left: 0; 
+  &.slick-prev{ left: 5px; 
     &::before{ margin-left: -5px; }
   }
-  &.slick-next{ right: 0;
+  &.slick-next{ right: 5px;
       &::before{transform: rotate(225deg); margin-left: -22px;}
   }
 
   &:hover {
-    background-color: rgba(255,255,255,.88);
+    background-color: rgba(255,255,255,.9);
     box-shadow: rgba(0,0,0,.3) 0 0 9px;
   }
   &:focus{
-    background-color: rgba(0,0,0,.88);
-    box-shadow:#fff 0 0 0 1px inset, rgba(0,0,0,.3) 0 0 9px;
+    background-color: rgba(0,0,0,.9);
+    box-shadow:#fff 0 0 0 1px, #000 0 0 0 5px;
     &:before{border-color: #fff;}
   }
 }
@@ -211,12 +210,15 @@ button.closeThis{
 }
 
 
-// 燈箱內大圖切換左右箭頭  ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// 燈箱內大圖切換左右箭頭  /////////////////////////////////////////////
 .slideBtn{ 
-  position: absolute; top: 50%; width: 48px; height: 72px; text-indent: -10em; overflow: hidden;border: none; border-radius: 4px; margin:-36px 0 0; cursor: pointer; background-color: rgba(0,0,0,.5);z-index: 9; transition: .2s;
-  &:hover{background-color: rgba(0,0,0,1);}
-  &:focus{background-color: rgba(0,0,0,1); box-shadow: $borderColor 0 0 0 1px, $black 0 0 0 5px;}
-  &::before{ content: '';position: absolute; width: 24px; height: 24px; border: 2px solid $white; border-top: none; border-right: none;top: 50%; margin-top: -13px; }
+  position: absolute; top: 50%; width: 48px; height: 72px; text-indent: -10em; overflow: hidden;border: none; border-radius: 4px; margin:-36px 0 0; cursor: pointer; background-color: rgba(255,255,255,.4);z-index: 9; transition: .2s;
+  &::before{ content: '';position: absolute; width: 24px; height: 24px; border: 2px solid $black; border-top: none; border-right: none;top: 50%; margin-top: -13px; }
+  &:hover{background-color: rgba(255,255,255,.9); box-shadow: rgba(0,0,0,.3) 0 0 9px;}
+  &:focus{background-color: $black; box-shadow: $white 0 0 0 1px, $black 0 0 0 5px;
+    &::before{border-color: $white;}
+  }
   &.prev{ left: 5px;}
   &.next{ right: 5px;}
   &.prev::before{ left: 18px;transform: rotate(45deg);}
@@ -258,15 +260,9 @@ button.closeThis{
 
   &.show{bottom: 30px;}
 
-  @media screen and (min-width: $wwNormal){
-    // right: 0;
-  }
-
   @media screen and (min-width: calc($wwMaximum*.96 + 40px + 2.56rem)){
     right: calc(50vw - #{$wwMaximum}*.48 - 10px - 1.28rem);
   }
-
-
 
 }
 

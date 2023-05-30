@@ -44,8 +44,8 @@
   }
   .slick-arrow{
     margin-top: -24px;
-    &.slick-prev { left: -9.5vw;}
-    &.slick-next { right: -9.5vw;}
+    &.slick-prev { left: calc(-9.5vw + 5px);}
+    &.slick-next { right: calc(-9.5vw + 5px);}
   }
   .slick-dots{padding-top: 10px;}
 
@@ -62,20 +62,16 @@
     }
 
     .slick-arrow{
-      &.slick-prev { left: -20vw;}
-      &.slick-next { right: -20vw;}
+      &.slick-prev { left: calc(-20vw + 5px);}
+      &.slick-next { right: calc(-20vw + 5px);}
     }
   }
 
   @media screen and (min-width: $wwNormal){
     .slick-slide{
       margin-top: 30px;
-      a{
-        &::before{
-          box-shadow: #fff 0 0 0 8px inset;
-        }
-      }
-    }    
+      a::before{box-shadow: #fff 0 0 0 8px inset;}
+    }
   }
   @media screen and (min-width: $wwMaximum){
     .flow{ width: 720px; }
@@ -90,8 +86,8 @@
     }
 
     .slick-arrow{
-      &.slick-prev { left: calc( 360px - 50vw );}
-      &.slick-next { right: calc( 360px - 50vw );}
+      &.slick-prev { left: calc( 365px - 50vw );}
+      &.slick-next { right: calc( 365px - 50vw );}
     }
 
   }

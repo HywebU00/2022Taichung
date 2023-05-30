@@ -4,13 +4,11 @@
   position:fixed;top:5vw;left:0;
   width:100vw; height: calc(100vh - 10vw); z-index:998;
   padding:0; margin:0 auto; overflow: auto;overflow-y: auto;
-  background:#000; box-shadow:rgba(0,0,0,.6) 0 0 28px;
-  color: #fff;
+  background:$black;color: $white; box-shadow:rgba(0,0,0,.6) 0 0 28px;
 
   .closeThis{
     position: fixed; right:0; top: 5vw; z-index:999;
   }
-
 
   .skip{
     position: absolute; right: 0; bottom: 0;
@@ -19,14 +17,20 @@
   }
  
   @media screen and (min-width:$wwMedium){
-    width:94vw; height: calc(100vh - 10vw); left: 3vw;
+    width:96vw;left: 2vw; height: calc(100vh - 10vw); 
     .closeThis{position: absolute; right: 0; top: 0;}
   }
-  
-  @media screen and (min-width: $wwMaximum ){
-    width: $wwMaximum*.94; left:calc(50vw - #{$wwMaximum}*.47);
-    top: $wwMaximum*.05; height: calc(100vh - $wwMaximum*.1);
 
+  @media screen and (min-width: $wwNormal){
+    top: 70px; height: calc(100vh - 100px);
+  }
+  
+  // @media screen and (min-width: $wwMaximum ){
+  //   // width: $wwMaximum*.96; left:calc(50vw - #{$wwMaximum}*.48);
+  //   // top: $wwMaximum*.05; height: calc(100vh - $wwMaximum*.1);
+  // }
+  @media screen and (min-width: 1600px ){
+    width: 1536px; left: calc(50% - 768px);
   }
 
 }
@@ -37,7 +41,7 @@
   display: none; 
   z-index: 995;
   position: fixed; left: 0;right: 0;top: 0;bottom: 0;
-  background: rgba(0,0,0,.7);
+  background: rgba(200,200,200,.8);
 }
 
 
