@@ -22,7 +22,6 @@
 <body>
   <a class="goCenter" href="#aC" tabindex="0">按 Enter 到主內容區</a>
 
-  <!-- *** 2022 added: 版頭 -->
   <header class="webHeader">
     <a class="accesskey" href="#aU" id="aU" accesskey="U" title="upper block">:::</a>
     <h1><a href="mp.html"><img src="images/h1.png" alt="台中市政府文化局"></a></h1>
@@ -252,8 +251,8 @@
           <li><a class="forward" href="#">轉寄友人</a></li>
           <li><a class="back" href="javascript:history.back();">回上一頁</a></li>
         </ul>
-      </section><!-- /.function-->
-    </section><!-- /.friendly-->
+      </section>
+    </section>
 
     <div class="nodeHeader">
       <h2>資料開放</h2>
@@ -274,30 +273,32 @@
 
     <section class="page" title="分頁功能">
       <p>共 430 筆資料，第<abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
-        <select name="perPage" id="perPage" onchange="perPageChange(this.value);">
+        <select name="perPage" id="perPage">
           <option value="10">10</option>
           <option value="30">30</option>
-        </select> 筆
+        </select>
+        <input type="button" value="確定">
       </p>
       <ul>
         <li class="first"><a href="#">第一頁</a></li>
         <li class="prev"><a href="#">上一頁</a></li>
         <li class="prevTen"><a href="#">上10頁</a></li>
-        <li><a href="#">11</a></li>
-        <li><a href="#">12</a></li>
-        <li><a href="#">13</a></li>
-        <li><a href="#">14</a></li>
-        <li><a href="#">15</a></li>
-        <li><a href="#">16</a></li>
-        <li><a href="#">17</a></li>
-        <li><a href="#">18</a></li>
-        <li class="here"><a href="#">19</a></li>
-        <li><a href="#">20</a></li>
+        <li><a href="#">1</a></li>
+        <li class="here"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
         <li class="nextTen"><a href="#">下10頁</a></li>
         <li class="next"><a href="#">下一頁</a></li>
         <li class="last"><a href="#">最後一頁</a></li>
       </ul>
     </section>
+
     <section class="list openData">
       <table>
         <tr>
@@ -306,7 +307,7 @@
           <th scope="col">訂閱與下載</th>
         </tr>
         <tr>
-          <td><a href="#">最新消息</a></td>
+          <td><a class="cateLink" href="#">最新消息</a></td>
           <td class="title">簡易摘要說明(說明頻率、資料包括欄位等)<br>
             本市107年度附屬單位預算綜計表之編製，係依據預算法第45條、第46條及第96條等規定，配合施政計畫加強為民服務，增進市民福利及市政建設為主要目標。以收支平衡，減輕本府年度負擔之原則下，依據各基金主管機關編造107年度附屬單位預算案，綜合彙編完成，並隨同本市總預算案送請市議會審議。
           </td>
@@ -318,7 +319,7 @@
           </td>
         </tr>
         <tr>
-          <td><a href="#">活動訊息</a></td>
+          <td><a class="cateLink" href="#">活動訊息</a></td>
           <td class="title">簡易摘要說明(說明頻率、資料包括欄位等)<br>
             本市107年度附屬單位預算綜計表之編製，係依據預算法第45條、第46條及第96條等規定，配合施政計畫加強為民服務，增進市民福利及市政建設為主要目標。以收支平衡，減輕本府年度負擔之原則下，依據各基金主管機關編造107年度附屬單位預算案，綜合彙編完成，並隨同本市總預算案送請市議會審議。
           </td>
@@ -330,7 +331,7 @@
           </td>
         </tr>
         <tr>
-          <td><a href="#">行事曆</a></td>
+          <td><a class="cateLink" href="#">行事曆</a></td>
           <td class="title">簡易摘要說明(說明頻率、資料包括欄位等)<br>
             本市107年度附屬單位預算綜計表之編製，係依據預算法第45條、第46條及第96條等規定，配合施政計畫加強為民服務，增進市民福利及市政建設為主要目標。以收支平衡，減輕本府年度負擔之原則下，依據各基金主管機關編造107年度附屬單位預算案，綜合彙編完成，並隨同本市總預算案送請市議會審議。
           </td>
@@ -342,7 +343,7 @@
           </td>
         </tr>
         <tr>
-          <td><a href="#">垃圾車</a></td>
+          <td><a class="cateLink" href="#">垃圾車</a></td>
           <td class="title">簡易摘要說明(說明頻率、資料包括欄位等)<br>
             本市107年度附屬單位預算綜計表之編製，係依據預算法第45條、第46條及第96條等規定，配合施政計畫加強為民服務，增進市民福利及市政建設為主要目標。以收支平衡，減輕本府年度負擔之原則下，依據各基金主管機關編造107年度附屬單位預算案，綜合彙編完成，並隨同本市總預算案送請市議會審議。
           </td>
@@ -354,7 +355,7 @@
           </td>
         </tr>
         <tr>
-          <td><a href="#">空氣品質</a></td>
+          <td><a class="cateLink" href="#">空氣品質</a></td>
           <td class="title">簡易摘要說明(說明頻率、資料包括欄位等)<br>
             本市107年度附屬單位預算綜計表之編製，係依據預算法第45條、第46條及第96條等規定，配合施政計畫加強為民服務，增進市民福利及市政建設為主要目標。以收支平衡，減輕本府年度負擔之原則下，依據各基金主管機關編造107年度附屬單位預算案，綜合彙編完成，並隨同本市總預算案送請市議會審議。
           </td>
@@ -366,38 +367,38 @@
           </td>
         </tr>
       </table>
-      <span class="nextPage"><a href="lp_openData.html">下一頁</a></span>
+      <!-- <span class="nextPage"><a href="lp_openData.html">下一頁</a></span> -->
     </section>
+
     <section class="page" title="分頁功能">
       <p>共 430 筆資料，第<abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
-        <select name="perPage" id="perPage" onchange="perPageChange(this.value);">
+        <select name="perPage" id="perPage">
           <option value="10">10</option>
           <option value="30">30</option>
-        </select> 筆
+        </select>
+        <input type="button" value="確定">
       </p>
       <ul>
         <li class="first"><a href="#">第一頁</a></li>
         <li class="prev"><a href="#">上一頁</a></li>
         <li class="prevTen"><a href="#">上10頁</a></li>
-        <li><a href="#">11</a></li>
-        <li><a href="#">12</a></li>
-        <li><a href="#">13</a></li>
-        <li><a href="#">14</a></li>
-        <li><a href="#">15</a></li>
-        <li><a href="#">16</a></li>
-        <li><a href="#">17</a></li>
-        <li><a href="#">18</a></li>
-        <li class="here"><a href="#">19</a></li>
-        <li><a href="#">20</a></li>
+        <li><a href="#">1</a></li>
+        <li class="here"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
         <li class="nextTen"><a href="#">下10頁</a></li>
         <li class="next"><a href="#">下一頁</a></li>
         <li class="last"><a href="#">最後一頁</a></li>
       </ul>
     </section>
   </main>
-  <!--/.main-->
 
-  <!-- *** 2022 added: 頁尾 -->
   <footer class="webFooter">
     <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
     <button type="button" class="fatFootCtrl" data-alttext="開啟">收合</button>
@@ -585,35 +586,7 @@
         <span class="qrCode"><img src="publicData/QRcode_image.svg" alt=""></span>
       </div>
 
-      <!-- 國家災害防救科技中心災害示警資訊 -->
-      <div id="CapModule_T300100_Extreme_66" style="margin:0 auto;width:300px;">
-        <ul id="portfolio" class="innerfade" style="position: relative; height: 100px;">
-          <li style="z-index: 18; position: absolute; display: list-item;">
-            <div class="alertCAP_banner alertCAP_banner01 bannerYellow banner300X100"
-              style="width:535px;margin: 0px auto;display: block;">
-              <div class="block_up" style="background-color:#d0b685;color:#ffffff;height:30px;">
-                <div class="alertCAP_Area">臺中市</div>
-                <div class="alertCAP_titleicon" style="background-color:#d0b685;height:30px;">
-                  <img
-                    src="https://alerts.ncdr.nat.gov.tw/Images/calamityIcon150Black_TC_roadConstruction.png?version=1"
-                    ;' title="道路施工" alt="道路施工">
-                  <span class="alertCAP_title" style="background-color:#d0b685;height:30px;font-size:16px">道路施工</span>
-                </div>
-              </div>
-              <div class="block_down" style="background-color:#0d5261;color:#ffffff;height:95px;font-size:12px">
-                <div class="alertCAP_logo"><a href="https://www.ncdr.nat.gov.tw/" title="連結到國家災害防救科技中心(另開新視窗)"
-                    target="_blank"> <img alt="連結到國家災害防救科技中心" title="國家災害防救科技中心(另開新視窗)"
-                      src="https://alerts.ncdr.nat.gov.tw/Images/banner_logo.jpg"></a>
-                </div>
-                <div class="alertCAP_con" style="background-color:#0d5261;color:#ffffff;">
-                  地下漏水、路面漏水、路面下陷、既有用戶無水處理。施工地點:雙十路一段 (87號)
-                  <div class="alertCAP_time" style="color:#7fbbc6;font-size:12px;">2022-06-16, 00:01│臺中市政府建設局</div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+
 
 
     </div>
@@ -621,13 +594,6 @@
 
   <button type="button" class="goTop">回頁首</button>
 
-
-
-  <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>  -->
-  <!-- <script type="text/javascript" src="2017/js/rwdTable.js"></script>
-  <script type="text/javascript" src="2017/js/jquery.jscroll.js"></script>
-  <script type="text/javascript" src="2017/js/effect.js"></script>
-  <script type="text/javascript" src="2017/js/slide.js"></script> -->
 </body>
 
 </html>

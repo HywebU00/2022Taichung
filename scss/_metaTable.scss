@@ -1,14 +1,25 @@
-// 表格形式的詳細資料
+////////////////////////////////////////////////////////////
+// 表格資料 ////////////////////////////////////////////////
+.cpTable {
+  @extend %innerWidth; margin: 3vw auto;
+  @media screen and (min-width: $wwNormal){
+    margin-top: 0; margin-bottom: 30px;
+  }
+}
+
+////////////////////////////////////////////////////////////
+// 表格形式的詳細資料 //////////////////////////////////////
 table.meta{
-  margin: 0 auto;
-  width:100%;border-collapse:collapse;line-height:1.8;border:2px solid $borderColor;font-size:1em;
+  margin: 0 auto;width:100%;
+  border-collapse:collapse;border:2px solid $borderColor;
+  font-size:1em;line-height:1.8;
   a{
     display:inline-block;
     &:hover{ text-decoration: none;}
     &:focus{box-shadow:$linkColor 0 0 0 2px;outline:none;text-decoration: none;}
   }
 
-  th, td{vertical-align:top;padding:.7em .5em .6em;border:1px solid $borderColor;}
+  th, td{vertical-align:top;padding:12px 8px;border:1px solid $borderColor;}
   th{width:5.5em;text-align:right;font-weight:normal;color:$fontColorLight;}
   td{
     vertical-align:top; word-break: break-all;
@@ -21,23 +32,21 @@ table.meta{
       &:first-child{margin-top: 0;}
       &:last-child{margin-bottom: 0;}
     }
-    // ul{ list-style: none;
-    //   li{ 
-    //     position: relative; margin:0;padding:.6em 0 .5em 16px;border-bottom:1px solid $borderColorLight;
-    //     &:first-child{border-top:1px solid $borderColorLight;}
-    //     &::before{ content: ''; position: absolute; left: 4px; top: 1.2em; width: 5px;height: 5px; background-color: $fontColor;}
-    //     em{
-    //       color:$fontColorDark;margin-left:.1em;font-weight:normal;
-    //       &::before{content:'：';color:$fontColorLight;}
-    //     }
-    //   }
-    // }
-    // ol{
-    //   margin-left: 1.5em;
-    //   li{
-    //   }
-    // }
     
+  }
+
+  @media screen and (max-width: $wwSlim){
+    tr{ display: block;border-bottom:1px solid $borderColor;padding:12px 8px;
+      &:last-child{border-bottom: none;}
+    }
+    th, td{ border: none; }
+    th{ 
+      display: inline-block; border: none; width: auto; 
+      margin: -6px 4px 3px -8px; padding: 5px 14px 2px 8px;
+      background: $fontColorLight; color: $fontInvert; border-radius: 0 2em 2em 0;
+      // &::after{ content: '：';}
+    }
+    td{display: inline; padding: 0;}
   }
 
   @media screen and (min-width: $wwNormal){
@@ -46,9 +55,14 @@ table.meta{
 
 
 }
+.cpArticle .meta{clear: both;width: 100%;border-top: 1px solid transparent;
+  table{border:2px solid $borderColor;}
+  tr:first-child{border: none;}
+}
 
 
-// 首長學經歷
+////////////////////////////////////////////////////////////
+// 首長學經歷 //////////////////////////////////////////////
 .resume{
   @extend %innerWidth; margin: 3vw auto;
   figure{
@@ -56,7 +70,6 @@ table.meta{
     img{display:block; width: 100%;}
     figcaption{ display: block; margin: 12px 0 5px;}
   }
-
 
   @media screen and (min-width: $wwMedium){
     display: flex; flex-flow: row nowrap; align-items: flex-start;
@@ -67,20 +80,5 @@ table.meta{
   @media screen and (min-width: $wwNormal){
     margin-top: 0; margin-bottom: 20px;
   }
-}
 
-
-// 表格資料
-.cpTable {
-  @extend %innerWidth; margin: 3vw auto;
-  @media screen and (min-width: $wwNormal){
-    margin-top: 0; margin-bottom: 30px;
-  }
-}
-
-
-
-.cpArticle .meta{clear: both;width: 100%;border-top: 1px solid transparent;
-  table{border:2px solid #999;}
-  tr:first-child{border: none;}
 }

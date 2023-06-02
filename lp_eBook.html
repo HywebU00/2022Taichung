@@ -5,11 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>台中市政府機關網 2022</title>
-<!-- <link href="2017/css/layout.css" rel="stylesheet" type="text/css"> -->
-<!-- <link href="2017/css/styleB.css" rel="stylesheet" type="text/css"> -->
-<!-- <link media="print" href="2017/css/print.css" rel="stylesheet" type="text/css"> -->
-
-<!-- 2022 -->
 <link rel="stylesheet" href="slick/slick.css"/><!-- slick 套件 -->
 <link rel="stylesheet" href="css/style2022.css">
 
@@ -311,12 +306,12 @@
       <ul>
         <li>
           <a target="_blank" href="#" title="">
-            <span class="image">
+            <div class="image">
               <img title="文化臺中NO.48" src="https://www.taichung.gov.tw/ebook/e2093971/e2093971-0001-i.jpg">
-            </span>
-            <h3>文化臺中NO.48</h3>
+            </div>
+            <div class="bookTitle">文化臺中NO.48</div>
           </a>
-          <p class="downloadPdf"><a href="xxx.pdf" target="_blank" title="文化臺中NO.48.pdf 另開新視窗.">下載PDF檔</a></p>
+          <div class="downloadPdf"><a href="xxx.pdf">下載PDF檔</a></div>
           <ol class="tbInfo">
             <li class="from">出版單位：<em>臺中市政府文化局‧文化研究科第二股</em></li>
             <li>出版日期：<time>2022-7-5</time></li>
@@ -333,9 +328,9 @@
             <span class="image">
               <img title="文化臺中NO.47" src="https://www.taichung.gov.tw/ebook/e2025045/e2025045-0001-i.jpg">
             </span>
-            <h3>文化臺中NO.47</h3>
+            <div class="bookTitle">文化臺中NO.47</div>
           </a>
-          <p class="downloadPdf"><a href="xxx.pdf" target="_blank" title="文化臺中NO.47.pdf 另開新視窗.">下載PDF檔</a></p>
+          <div class="downloadPdf"><a href="xxx.pdf">下載PDF檔</a></div>
           <ol class="tbInfo">
             <li class="from">出版單位：<em>臺中市政府文化局‧文化研究科第二股</em></li>
             <li>出版日期：<time>2022-4-6</time></li>
@@ -347,9 +342,9 @@
             <span class="image">
               <img title="文化臺中NO.47" src="https://www.taichung.gov.tw/ebook/e2324379/e2324379-0001-i.jpg">
             </span>
-            <h3>文化臺中NO.47</h3>
+            <div class="bookTitle">文化臺中NO.47</div>
           </a>
-          <p class="downloadPdf"><a href="xxx.pdf" target="_blank" title="文化臺中NO.47.pdf 另開新視窗.">下載PDF檔</a></p>
+          <div class="downloadPdf"><a href="xxx.pdf">下載PDF檔</a></div>
           <ol class="tbInfo">
             <li class="from">出版單位：<em>臺中市政府文化局‧文化研究科第二股</em></li>
             <li>出版日期：<time>2022-4-6</time></li>
@@ -361,9 +356,9 @@
             <span class="image">
               <img title="文化臺中NO.47" src="https://www.taichung.gov.tw/ebook/e2278498/e2278498-0001-i.jpg">
             </span>
-            <h3>文化臺中NO.47</h3>
+            <div class="bookTitle">文化臺中NO.47</div>
           </a>
-          <p class="downloadPdf"><a href="xxx.pdf" target="_blank" title="文化臺中NO.47.pdf 另開新視窗.">下載PDF檔</a></p>
+          <div class="downloadPdf"><a href="xxx.pdf">下載PDF檔</a></div>
           <ol class="tbInfo">
             <li class="from">出版單位：<em>臺中市政府文化局‧文化研究科第二股</em></li>
             <li>出版日期：<time>2022-4-6</time></li>
@@ -379,7 +374,7 @@
             <span class="image">
               <img src="https://www.taichung.gov.tw/ebook/e2267686/e2267686-0001-i.jpg" alt="">
             </span>
-            <h3>2021臺中市都市發展年報-城鄉美學進化論</h3>
+            <div class="bookTitle">2021臺中市都市發展年報-城鄉美學進化論</div>
           </a>
           <div class="downloadPdf"><a href="臺中市都市發展年報-城鄉美學進化論.pdf">下載PDF檔</a></div>
           <ol class="tbInfo">
@@ -395,14 +390,15 @@
       </ul>
     </section>
   
-  
-  
     <section class="page" title="分頁功能">
-      <p>共 430 筆資料，第<abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
-        <select name="perPage" id="perPage" onchange="perPageChange(this.value);">
+      <p>共<em>307</em>筆資料，第
+        <abbr title="目前在第1頁，總共31頁">1/31</abbr>頁，
+        <label for="perPage">每頁顯示筆數</label>
+        <select name="perPage" id="perPage">
           <option value="10">10</option>
           <option value="30">30</option>
-        </select> 筆
+        </select>筆
+        <input type="button" value="確定" onclick="">
       </p>
       <ul>
         <li class="first"><a href="#">第一頁</a></li>
@@ -423,7 +419,6 @@
         <li class="last"><a href="#">最後一頁</a></li>
       </ul>
     </section>
-    <!--/.center-->
   </main>
 
   <footer class="webFooter">

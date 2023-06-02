@@ -1,5 +1,14 @@
-a:focus{outline: none;}
+a, a:focus{outline: none;}
 
+
+// 鍵盤按鍵樣式 ////////////////////////////////////////////////////////
+kbd {
+  display: inline-block; vertical-align: middle; 
+  margin: 0 .1em; padding: 0 .4em; height: 1.7em; line-height: 1.6;
+  font-size: .938em; font-family: sans-serif; font-weight: bold; 
+  border: 1px solid $borderColor; border-radius: 0.2em; 
+  color: $fontColor; background: $fontInvert; 
+}
 
 // 快捷鍵 ////////////////////////////////////
 .accesskey{ display: none; }
@@ -224,9 +233,12 @@ button.closeThis{
   &.prev::before{ left: 18px;transform: rotate(45deg);}
   &.next::before{ right: 18px;transform: rotate(225deg);}
 }
-// 圖片計數器 
-.imgCount{ line-height: 1;padding: 4px 10px; border-radius: 2em; background-color: rgba(255,255,255,.8); color: $fontColorLight;}
-.imgCount em{font-size: 1.2em; color:$fontColor; font-weight: bold;}
+
+
+// 圖片計數器 /////////////////////////////////////////////
+.imgCount{ line-height: 1;padding: 4px 10px; border-radius: 2em; background-color: rgba(255,255,255,.8); color: $fontColorLight;
+  em{font-size: 1.2em; color:$fontColor; font-weight: bold;}
+}
 
 
 
@@ -267,12 +279,108 @@ button.closeThis{
 }
 
 
+// linkBtn ////////////////////////////////////
+.linkBtn {
+  display: inline-block;margin: 5px 0;
+  font-size: 13px;line-height: 1.4;
+  a {
+    display: block;padding: .8em 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    background: $grayLight;color: $fontInvert;
+    // box-shadow: rgba(0, 0, 0, .4) 0 1px 4px;
+    &:hover {
+      background: $grayDark;
+    }
+  }
+}
 
-// 鍵盤按鍵樣式 ////////////////////////////////////////////////////////
-kbd {
-  display: inline-block; vertical-align: middle; 
-  margin: 0 .1em; padding: 0 .4em; height: 1.7em; line-height: 1.6;
-  font-size: .938em; font-family: sans-serif; font-weight: bold; 
-  border: 1px solid $borderColor; border-radius: 0.2em; 
-  color: $fontColor; background: $fontInvert; 
+// 訊息條列重要標示 ////////////////////////////////////////////////////////////////////////
+$stress: #f40; 
+.stress {
+  position: relative;display: inline-block !important;
+  height: 36px;width: 36px;line-height: 29px;margin: -5px 0 -3px 10px;padding: 0;
+  text-decoration: none;text-align: center;vertical-align: middle;font-size: 13px;
+  border-radius: 50%;border: 2px solid $stress;
+  background: $white;color: $stress;
+  box-shadow: rgba(0, 0, 0, .4) 1px 1px 4px;
+  &::before {
+    content: '';position: absolute;left: -9px;top: 50%;
+    margin-top: -7px;width: 0;height: 0;
+    border-style: solid; border-width: 7px 9px 7px 0;
+    border-color: transparent $stress transparent transparent;
+  }
+  &::after {
+    content: attr(title); line-height: 34px;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+// 附件檔案格式與檔案大小 //////////////////////////////
+.fileType, .fileSize {
+  display: inline-block; vertical-align: middle;text-align: center;
+  margin: 0 3px;padding: 0 .4em;min-width: 2.4em;
+  height: 1.8em;line-height: 1.8em;font-size: 1em;
+  border-radius: 4px;
+}
+// 檔案大小
+.fileSize {
+  color: $fontColorLight;border: 1px solid $borderColorLight;
+}
+// 檔案格式（小方塊）
+.fileType {
+  font-family: monospace, "Courier New", Courier, monospace;
+  font-weight: normal; color: $fontInvert;
+  &.zip{background:#333;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #333 0 0 0 2px;}    
+  }
+  &.pdf{background:#c00;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #c00 0 0 0 2px;}
+  }
+  &.doc, &.docx, &.odt{background:#0d67bb;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #0d67bb 0 0 0 2px;}
+  }
+  &.xls, &.xlsx, &.csv {background:#297c17;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #297c17 0 0 0 2px;}
+  }
+  &.ppt, &.pptx, &.odp{background:#ec7500;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #ec7500 0 0 0 2px;}
+  }
+  &.jpg, &.JPEG, &.jpe{background:#6e8e05;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #6e8e05 0 0 0 2px;}
+  }
+  &.mp3{background:#6747b1;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #6747b1 0 0 0 2px;}
+  }
+  &.mov{background:#238098;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #238098 0 0 0 2px;}
+  }
+  &.txt{background:#607584;
+    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #607584 0 0 0 2px;}
+  }
+  &.other{background:#ddd;color:#444;
+    &:hover, &:focus{ box-shadow:#555 0 0 0 1px inset, #bbb 0 0 0 2px;}
+  }
+}
+a.fileType{ 
+  display: inline-block;
+  color: $fontInvert !important; text-decoration: none !important;
+  transition: .15s;
+  &:hover{text-decoration: none;}
+  &.other{ color: $fontColor !important;}
+}
+
+// 在表格條列中的檔案下載
+// 用於 bureauG2/qp+lp_table.html，標示副檔名
+ol.attIcons{
+  list-style: none; margin: 0;padding: 0;
+  overflow: hidden; display: inline-block;
+  font-size: 1rem !important;
+  &>li{
+    float: left;margin:2px 0;
+    border:none; background: none !important;
+    &>a{
+      padding: 0 5px;text-decoration: none;
+    }
+  }
 }

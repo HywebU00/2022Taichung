@@ -1,4 +1,5 @@
-// 縮圖瀏覽
+////////////////////////////////////////////////////////////
+// 縮圖瀏覽 ////////////////////////////////////////////////
 .thumbnail{
   @extend %innerWidth;
   
@@ -19,7 +20,7 @@
           &:focus{box-shadow:$borderColorDark 0 0 0 2px}
         }
         &:hover{
-          h3, p{ text-decoration: underline;}
+          h3, p, .bookTitle { text-decoration: underline;}
         }
 
         ol.info{ padding-bottom: 0;}
@@ -109,8 +110,8 @@
 }
 
 
-//////////////////////////////////////////////////
-// 相簿條列頁
+////////////////////////////////////////////////////////////
+// 相簿條列頁 //////////////////////////////////////////////
 .thumbnail.photos{
   @media screen and (min-width: $wwMedium){
     ul>li{
@@ -122,7 +123,6 @@
       .image { max-height: calc(47vw - 28px); 
         img{object-fit: contain;}
       }
-
       ol{margin-top: auto;} // 靠下對齊的技巧
     }
   }
@@ -141,8 +141,8 @@
 }
 
 
-//////////////////////////////////////////////////
-// 影音專區
+////////////////////////////////////////////////////////////
+// 影音專區 ////////////////////////////////////////////////
 .thumbnail.videos{
   ul>li{
     .image{ 
@@ -166,7 +166,6 @@
 
   @media screen and (min-width: $wwMedium){
     ul>li{
-      
       .image{ height: 26vw;}
       &>a{
         display: flex; flex-flow: column nowrap; justify-content:center;
@@ -174,7 +173,6 @@
         &::before{ top: calc(13vw - 17px);}
         ol.info{margin-top: auto; width: 100%;}
       }
-
     }
   }
 
@@ -182,7 +180,7 @@
     ul>li{
       .image{ height: 18vw;}
       &>a{
-        &::before{ top: calc(9vw - 17px)}
+        &::before{ top: calc(9vw - 17px);}
       }
     }
   }
@@ -191,15 +189,15 @@
     ul>li{
       .image{ height: calc( ($wwMaximum*.32 - 14px )*9/16);}
       &>a{
-        &::before{ top: calc(($wwMaximum*.32 - 14px )*9/32 - 17px)}
+        &::before{ top: calc(($wwMaximum*.32 - 14px )*9/32 - 17px);}
       }
     }
   }
 }
 
 
-//////////////////////////////////////////////////
-// 電子書
+////////////////////////////////////////////////////////////
+// 電子書 //////////////////////////////////////////////////
 .thumbnail.eBooks{
   ul>li{
     padding-bottom: 9px;
@@ -208,16 +206,15 @@
       &:hover , &:focus {
         .image{box-shadow: $borderColorDark 0 0 0 1px, rgba(0,0,0,.5) 0 0 12px;}
       }
-      &:hover p{ text-decoration: underline; }
       &:focus{ box-shadow: $borderColorDark 0 0 0 2px;}
     }
     .image{
       box-shadow:$borderColor 0 0 0 1px; transition: .2s;
       img{width:100%;height:auto;}
     }
-    h3{margin:12px 0 5px;}
+    h3, .bookTitle{margin:12px 0 5px; font-weight: bold; font-size:1.05rem;}
 
-    // 下載PDF檔按鈕
+    // 下載 PDF 檔按鈕
     .downloadPdf{
       margin:10px auto;padding:5px; width: 55%; min-width: 10em;
       text-align:center;
@@ -258,20 +255,11 @@
       ol.tbInfo{margin-top: auto;}
     }
   }
-
-
-  @media screen and (min-width: $wwNormal){
-  }
-
-  @media screen and (min-width: $wwMaximum){
-  }
-  
-  
 }
 
 
-//////////////////////////////////////////////////
-// 電子期刊
+////////////////////////////////////////////////////////////
+// 電子期刊 ////////////////////////////////////////////////
 .thumbnail.eMags{
   ul>li{
     padding-bottom: 9px;
@@ -283,7 +271,10 @@
       }
       &:focus{ box-shadow: $borderColorDark 0 0 0 2px;}
     }
-    h3{ white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+    h3, .bookTitle{ 
+      white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+      font-weight: bold; margin: 12px 0 5px; font-size: 1.05rem;
+    }
     p{
       margin-bottom: 0; overflow: hidden;
       display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
@@ -306,8 +297,6 @@
     }
   }
 
-  @media screen and (min-width: $wwNormal){
-  }
 }
 
 
