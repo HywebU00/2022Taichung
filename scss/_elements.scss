@@ -350,31 +350,31 @@ a.fileType{
   &.other{ color: $fontColor !important;}
 
   &.zip{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #333 0 0 0 2px;}    
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #333 0 0 0 2px;}    
   }
   &.pdf{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #c00 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #c00 0 0 0 2px;}
   }
   &.doc, &.docx, &.odt{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #0d67bb 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #0d67bb 0 0 0 2px;}
   }
   &.xls, &.xlsx, &.csv {
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #297c17 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #297c17 0 0 0 2px;}
   }
   &.ppt, &.pptx, &.odp{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #ec7500 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #ec7500 0 0 0 2px;}
   }
   &.jpg, &.JPEG, &.jpe{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #6e8e05 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #6e8e05 0 0 0 2px;}
   }
   &.mp3{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #6747b1 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #6747b1 0 0 0 2px;}
   }
   &.mov{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #238098 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #238098 0 0 0 2px;}
   }
   &.txt{
-    &:hover, &:focus{ box-shadow:#fff 0 0 0 1px inset, #607584 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #607584 0 0 0 2px;}
   }
   &.other{
     &:hover, &:focus{ box-shadow:#555 0 0 0 1px inset, #bbb 0 0 0 2px;}
