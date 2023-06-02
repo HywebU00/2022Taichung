@@ -2,7 +2,7 @@
 .search {
 	display: none;flex-flow: row nowrap;
 	position: absolute;z-index: 19;left: 0;top: auto;width: 100vw;padding: 16px;
-	background-color: rgba(243, 243, 243, 0.88);
+	background-color: $gray;
 	transform: translateX(100%);
 	transition: .5s;
 	&.reveal {
@@ -17,29 +17,24 @@
 		padding: 0 2.8em 0 0;
 		margin: 0;
 		overflow: hidden;
-		background: #fff;
+		background: $white;
 	}
 	input[type="text"],
 	input[type="button"],
 	input[type="submit"] {
-		margin: 0;
+		margin: 0;height: 2.8em;line-height: 2.8;
+		border: none;border-radius: 0;box-shadow: none;outline: none;
 		font-size: 1rem;
-		height: 2.8em;
-		line-height: 2.8;
-		border: none;
-		border-radius: 0;
-		box-shadow: none;
-		outline: none;
 	}
 	input[type="text"] {
 		width: 100%;
 		padding: 0 .6em;
 		background-color: transparent;
 		&:hover {
-			box-shadow: $hiLight 0 0 0 1px inset;
+			box-shadow: $focusColor 0 0 0 1px inset;
 		}
 		&:focus {
-			box-shadow: $hiLight 0 0 0 1px inset;
+			box-shadow: $focusColor 0 0 0 2px inset;
 		}
 	}
 	input[type="button"],
@@ -53,39 +48,26 @@
 		cursor: pointer;
 		background: url(../images/icon_search.svg) no-repeat center center;
 		background-size: 60%;
-		&:hover {
-			box-shadow: $hiLight 0 0 0 1px inset;
-		}
-		&:focus {
-			background-color: $hiLight;
+		&:hover, &:focus {
+			background-color: $hiLight2;
 		}
 	}
 	// 熱門關鍵字
 	.hotKeywords {
 		flex: 0 0 auto;
-		display: inline-block;
+		display: inline-block;margin: 0 10px;padding: 0;
 		vertical-align: top;
-		list-style: none;
-		margin: 0 10px;
-		padding: 0;
-		line-height: 1.1;
+		list-style: none;line-height: 1.1;
 		li {
-			margin: 0;
-			padding: 0;
-			display: inline-block;
+			display: inline-block;margin: 0;padding: 0;
 			&+li {
 				margin-left: .3em;
 			}
 			a {
-				display: block;
-				text-decoration: none;
-				cursor: pointer;
-				height: 2.8em;
-				line-height: 2.8;
-				&:hover,
-				&:focus {
-					text-decoration: underline;
-				}
+				display: block;height: 2.8em;line-height: 2.8;
+				text-decoration: none;cursor: pointer;
+				&:hover {text-decoration: underline;}
+				&:focus{ box-shadow: $focusColor 0 0 0 2px; text-decoration: none;}
 			}
 		}
 	}
@@ -95,76 +77,54 @@
 		font-size: 1rem;
 		margin: 0;
 		a {
-			display: block;
-			padding: 0 .6em;
-			height: 2.8em;
-			line-height: 2.9;
-			background-color: $secondaryColor;
-			color: $fontInvert;
-			border-radius: 0;
-			text-decoration: none;
+			display: block;padding: 0 .6em;height: 2.8em;line-height: 2.9;
+			border-radius: 0;text-decoration: none;box-shadow: none;
+			background-color: $secondaryColor;color: $fontInvert;
 			transition: .2s;
-			box-shadow: none;
-			&:hover,
-			&:focus {
-				background-color: $primaryColor;
-			}
-			&:focus {
-				box-shadow: $primaryColor 0 0 0 1px;
-			}
+			&:hover, &:focus {background-color: $primaryColor;}
+			&:focus {box-shadow: $primaryColor 0 0 0 1px;}
 		}
 	}
 	@media screen and (min-width: $wwNormal) {
 		display: flex;justify-content: flex-end;align-items: center;
-		position: static;
-		width: auto;
-		transform: none;
-		margin: 0 2vw 0 50vw;padding: 26px 0;
+		margin: 0 2vw 0 50vw;padding: 20px 0;
+		position: static;width: auto;transform: none;
+		background: none;
 		form {
 			flex: 0 0 auto;
 			width: 220px;
-			padding-right: 2em;
+			padding-right: 2.4em;
 		}
 		input[type="text"],
 		input[type="button"],
 		input[type="submit"] {
-			height: 2em;
-			line-height: 2;
-			width: 2em;
+			height: 2.4em;line-height: 2.4;
 		}
+		input[type="button"], input[type="submit"] {width: 2.4em;}
 		input[type="text"] {
-			width: 100%;
-			padding: 0 .6em;
-			background-color: transparent;
+			width: 100%; padding: 0 .6em;
+			// background-color: transparent;
 			&:hover {
-				box-shadow: $borderColor 0 0 0 1px inset;
+				box-shadow: $focusColor 0 0 0 1px inset;
 			}
-			//&:focus {
-			//   box-shadow: $borderColorDark 0 0 0 1px inset;
-			//}
 			&:focus:not(:focus-visible) {
 				box-shadow: $borderColorDark 0 0 0 1px inset;
 				outline: none;
 			}
 			&:focus-visible {
-				box-shadow: rgba(211, 0, 0, .5) 0 0 0 3px inset;
+				box-shadow: $focusColor 0 0 0 2px inset;
 			}
 		}
 		.hotKeywords {
 			li a {
-				height: 2em;
-				line-height: 2;
+				height: 2em;line-height: 2;
 			}
 		}
 		.linkBtn {
-			a {
-				height: 2em;
-				line-height: 2;
-				width: auto;
-			}
+			a {height: 2.4em;line-height: 2.4;width: auto;}
 		}
 	}
 	@media screen and (min-width: $wwMaximum) {
-		margin-right: calc(50vw - #{$wwMaximum}*.48)
+		margin-right: calc(50vw - $wwMaximum*.48)
 	}
 }

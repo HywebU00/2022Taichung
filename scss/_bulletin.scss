@@ -37,7 +37,7 @@
       a{
         display: block; position: relative; overflow: hidden;
         padding: 6px 0 0;
-        color: $fontColor; background: #fff; text-decoration: none;
+        color: $fontColor; background: $white; text-decoration: none;
         box-shadow: rgba(0,0,0,.15) 5px 5px 30px;
         &::before{
           content: ''; z-index: 9;
@@ -70,7 +70,7 @@
 
         img{
           float: none; display: block; width: 100%;
-          height: calc(#{$mobileWidth}/3 - 10px);
+          height: calc($mobileWidth/3 - 10px);
 
           &+header{
             width: 100%; float: none; padding: 24px 20px 20px; 
@@ -103,7 +103,7 @@
 
         img{
           float: none; display: block; width: 100%;
-          height: calc(#{$normalWidth}/4 - 12px);
+          height: calc($normalWidth/4 - 12px);
         }
         article{
           -webkit-line-clamp: 6;
@@ -120,7 +120,7 @@
       width: $wwMaximum * (calc($normalWidth / 100vw));
       &>li{
         img{
-          height: calc( #{$wwMaximum }*.205 - 12px)
+          height: calc( $wwMaximum*.205 - 12px)
         }
       } 
     }

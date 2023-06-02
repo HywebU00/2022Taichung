@@ -12,7 +12,7 @@
         color: $fontColor;
         transition: .2s;
         &:hover, &:focus {
-          background-color: $primaryColor;border-color: $primaryColor;color: #fff;
+          background-color: $primaryColor;border-color: $primaryColor;color: $fontInvert;
           background-position: right -184px;
           box-shadow: rgba(0, 0, 0, .45) 0 9px 8px -6px;
         }

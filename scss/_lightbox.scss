@@ -25,10 +25,6 @@
     top: 70px; height: calc(100vh - 100px);
   }
   
-  // @media screen and (min-width: $wwMaximum ){
-  //   // width: $wwMaximum*.96; left:calc(50vw - #{$wwMaximum}*.48);
-  //   // top: $wwMaximum*.05; height: calc(100vh - $wwMaximum*.1);
-  // }
   @media screen and (min-width: 1600px ){
     width: 1536px; left: calc(50% - 768px);
   }

@@ -10,11 +10,11 @@
 }
 
 .path{
-  color:#999;margin:0;
-  .before::after{content:'';display:inline-block;width:.55em;height:.55em;margin:0 .5em 0 0;border:2px solid #7faf0b;border-bottom:none;border-left:none;transform:rotate(45deg);}
-  a{text-decoration:none;color:#444;
-    &:hover{color:#000;text-decoration:underline;}
-    &:focus{color:#000;text-decoration:underline;}
+  color:$fontColorLight;margin:0;
+  .before::after{content:'';display:inline-block;width:.55em;height:.55em;margin:0 .5em 0 0;border:2px solid $primaryColor;border-bottom:none;border-left:none;transform:rotate(45deg);}
+  a{text-decoration:none;color:$fontColor;
+    &:hover{color:$fontColorDark;text-decoration:underline;}
+    &:focus{color:$fontColorDark;text-decoration:underline;}
   }
 }
 
@@ -22,14 +22,14 @@
   overflow:hidden;margin:-1.5em 0 0 0;float:right;
   ul{font-size:13px;line-height:1;overflow:hidden; list-style: none; margin: 0; padding: 0;}
   li{float:left;position:relative; padding:1.7em 0 0;margin:4px;
-    a{display:block;text-indent:-3000px;width:44px;height:44px;border-radius:50%;text-decoration:none;background:#dee4e5 url(../images/function.png) no-repeat center 0;outline:none;transition:box-shadow .2s , background-color .2s;
+    a{display:block;text-indent:-3000px;width:44px;height:44px;border-radius:50%;text-decoration:none;background:$grayLight url(../images/function.png) no-repeat center 0;outline:none;transition:box-shadow .2s , background-color .2s;
       &:hover, &:focus {
         background-color: $primaryColor;
       }
 
       &::before{display:block;text-indent:0;position:absolute;top:24px;width:44px;height:1.1em; padding:2px 0 0;color:transparent;text-align:center;transition:top .3s, color .3s;}
       &:hover:before,
-      &:focus:before{color:#899094;top:0;}
+      &:focus:before{color:$fontColorLight;top:0;}
 
       &.print{background-position:center 3px;
         &:hover,
@@ -50,15 +50,6 @@
   }
   
   
-  // .bopomofo a,
-  // .read a{background: #8cb7b1 url(../images/function2.png) no-repeat center 0;background-size: 44px auto;}
-  // .read a{background-position: center -68px;}
-  // .bopomofo a:before{content:'注音';}
-  // .read a:before{content:'朗讀';}
-  // .bopomofo a:hover,
-  // .read a:hover,
-  // .bopomofo a:focus,
-  // .read a:focus{background-color:#18959a;box-shadow:#18959a 0 0 0 2px;}
 }
 .no-js {
   .function li{height:auto
@@ -80,7 +71,7 @@
       &:hover{background-color: rgba(0,0,0,.3);}
     }
   }
-  .back a::before{content:'';position:absolute;width:20px;height:20px;border:3px solid #fff;transform:rotate(45deg);border-top:none;border-right:none;left:50%;top:50%;margin:-11px auto auto -5px;}
+  .back a::before{content:'';position:absolute;width:20px;height:20px;border:3px solid $white;transform:rotate(45deg);border-top:none;border-right:none;left:50%;top:50%;margin:-11px auto auto -5px;}
   .shareThis{left:auto;right:0;
     a{background:url(../images/icon_share.png) no-repeat center center;background-size: 34px;}
   }

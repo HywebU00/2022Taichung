@@ -137,7 +137,7 @@
                 border-left: none; border-bottom: none; transform: rotate(45deg);
               }
               &:hover, &:focus{
-                &::after{ border-color: #000; }
+                &::after{ border-color: $black; }
               }
             }
 
@@ -157,13 +157,13 @@
       transition:none; box-shadow: none; border: none;
       &::before{
         content: ''; position: absolute; width: 8px; height: 8px; top: 50%; left: 50%;
-        border: 2px solid #000; border-left: none; border-top: none;
+        border: 2px solid $black; border-left: none; border-top: none;
         transform: translate(-4px, -6px) rotate(45deg);
       }
 
       &:hover, &:focus{
         background-color: $primaryColor;
-        &::before{border-color: #fff;}
+        &::before{border-color: $white;}
       }
     }
   }
@@ -175,10 +175,3 @@
   }
   
 }
-
-// *** 20220630 *** //
-// @media screen and (min-width: $wwMaximum){
-//   .webHeader.fixed .menu .xButton {
-//     transform: translateX( calc( -100% - 4px - 50vw + #{$wwMaximum}*.5 ) );
-//   }
-// }

@@ -31,7 +31,7 @@
   }
 
   @media screen and (min-width: $wwMaximum){
-    &::before{ width: calc(50vw - #{$wwMaximum}*.41 - 40px);}
+    &::before{ width: calc(50vw - $wwMaximum*.41 - 40px);}
     .contentBox{
       width: $wwMaximum*.82;
     }

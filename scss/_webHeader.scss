@@ -28,10 +28,10 @@
 
   // 行動版側欄開關和快速查詢區開關  
   .searchCtrl, .sidebarCtrl{
-     position: absolute; top: 4px;
+     position: absolute; top: 1px;
   }
-  .sidebarCtrl{left: 4px;z-index: 880;}
-  .searchCtrl{ right: 4px; z-index: 860;}
+  .sidebarCtrl{left: 1px;z-index: 880;}
+  .searchCtrl{ right: 1px; z-index: 860;}
 
 
   @media screen and (min-width: $wwNormal){

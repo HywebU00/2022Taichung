@@ -9,14 +9,14 @@
   }
   .slick-slide{
     position: relative; margin: 20px 6px 0; padding: 0; width: 66vw;
-    background-color: #fff;box-shadow: rgba(0, 0, 0, .25) 0 0 6px;
+    background-color: $white;box-shadow: rgba(0, 0, 0, .25) 0 0 6px;
     transition: .6s;
     a, img{ display: block;}
     a{
       text-decoration: none; transition: .2s;
       &::before{
         content: ''; position: absolute; left: 0;right: 0;top: 0;bottom: 0;
-        box-shadow: #fff 0 0 0 5px inset;
+        box-shadow: $white 0 0 0 5px inset;
       }
       &:hover{box-shadow: $secondaryColor 0 0 0 1px;}
       &:focus{box-shadow: $secondaryColor 0 0 0 2px;}
@@ -70,7 +70,7 @@
   @media screen and (min-width: $wwNormal){
     .slick-slide{
       margin-top: 30px;
-      a::before{box-shadow: #fff 0 0 0 8px inset;}
+      a::before{box-shadow: $white 0 0 0 8px inset;}
     }
   }
   @media screen and (min-width: $wwMaximum){

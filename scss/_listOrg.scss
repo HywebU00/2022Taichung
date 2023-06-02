@@ -17,7 +17,7 @@
 
 .list.org{
   td{
-    border-top:1px solid #999;border-bottom:none;padding:.45em 8px .4em;
+    border-top:1px solid $borderColor;border-bottom:none;padding:.45em 8px .4em;
     &:first-child{
       font-size:1.2em;text-align:left;width:33%;
       &>a{
@@ -25,19 +25,9 @@
         &:hover{ background-color: $primaryColor ; color: $fontInvert;}
       }
     }
-
-    // &[data-title*="信箱"] a,
-    // &[data-title*="簡介"] a { 
-    //   display:inline-block;width:38px;height:30px;background:url(../images/icon_mail.png) no-repeat center center;background-size:30px auto;font-size:0;border-radius:6px;vertical-align:5px;outline:none;
-    // }
-    // &[data-title*="機關簡介"] a { 
-    //   background-image:url(../images/icon_detail.png);background-size:36px auto;
-    //   border-radius:6px;
-    // }
-
   }
   .org2nd td{
-    border-top:1px dotted #ccc;
+    border-top:1px dotted $borderColor;
     &:first-child{padding-left:2.5em;font-size:1em;
       &>a{border-radius:2em;padding:.3em 1em .2em;}
     }
@@ -48,11 +38,6 @@
   tr:hover {
     td a:hover,
     td a:focus{text-decoration:none;outline:none;}
-  
-    // td[data-title*="信箱"] a:hover,
-    // td[data-title*="簡介"] a:hover,
-    // td[data-title*="信箱"] a:focus,
-    // td[data-title*="簡介"] a:focus{outline:none;}
   }
 
   @media screen and (max-width:800px){
@@ -68,7 +53,7 @@
     }
     td:first-child,
     .org2nd td:first-child,
-    tr:last-child td:first-child{display:block;width:100%;border-bottom:1px solid #ccc;padding-left:0;padding-right:0;}
+    tr:last-child td:first-child{display:block;width:100%;border-bottom:1px solid $borderColor;padding-left:0;padding-right:0;}
   
   }
   

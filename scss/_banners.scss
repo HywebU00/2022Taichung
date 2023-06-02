@@ -8,7 +8,7 @@
 
     .slick-slide{
       margin: 0 12px; overflow: hidden;outline: none;
-      background-color: #fff; box-shadow: rgba(0,0,0,.15) 0 5px 15px;
+      background-color: $white; box-shadow: rgba(0,0,0,.15) 0 5px 15px;
       transition: .3s;
       img{
         width: 100%; height: calc((50vw - 36px)*5/13); object-fit: fill; 
@@ -69,12 +69,12 @@
 
     .bannerloop {
       position: relative;
-      width:calc(#{$normalWidth} + 48px);
+      width:calc($normalWidth + 48px);
   
       .slick-slide {
         box-shadow: rgba(0, 0, 0, .2) 0 6px 24px -8px;
         img {
-          height: calc((#{$normalWidth}*5 - 240px)/39);
+          height: calc(($normalWidth*5 - 240px)/39);
         }
 
         &[aria-hidden="true"]{ box-shadow: none;}
@@ -87,14 +87,14 @@
   }
 
   @media screen and (min-width: $wwMaximum){
-    &::before{ left: calc(50vw - #{$wwMaximum}*.41 + 200px);}
+    &::before{ left: calc(50vw - $wwMaximum*.41 + 200px);}
 
     .bannerloop {
-      width: calc(#{$wwMaximum}*.82 + 48px);
+      width: calc($wwMaximum*.82 + 48px);
 
       .slick-slide {
         img{
-          height: calc((#{$wwMaximum}*4.1 - 240px)/39);
+          height: calc(($wwMaximum*4.1 - 240px)/39);
         }
       }
     }

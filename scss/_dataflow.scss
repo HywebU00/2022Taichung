@@ -20,7 +20,7 @@
         padding: 4rem 30px 30px; margin: 0;
         list-style: 1.2;
         background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1) 85%);
-        color: #fff; font-size: 2.3em;
+        color: $fontInvert; font-size: 2.3em;
       }
 
       &::after{
@@ -80,12 +80,12 @@
   @media screen and (min-width: $wwMaximum){
     width: $wwMaximum;
     .flowList{
-      height: calc(#{$wwMaximum}*.45 + 70px);
+      height: calc( $wwMaximum*.45 + 70px);
       .flowItem{
-        width: calc(#{$wwMaximum}*.45 - 20px);
-        img{ height: calc(#{$wwMaximum}*.45 - 140px); }
+        width: calc( $wwMaximum*.45 - 20px);
+        img{ height: calc( $wwMaximum*.45 - 140px); }
         &.slick-current{
-          img{height: calc(#{$wwMaximum}*.45 - 20px);}
+          img{height: calc( $wwMaximum*.45 - 20px);}
         }
       }
       .slick-arrow{ top: $wwMaximum*.22;}

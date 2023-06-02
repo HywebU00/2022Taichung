@@ -4,7 +4,7 @@
   .note, .formA{ margin: 0 auto; padding: 40px 4vw;}
   .formA{
     width: auto; padding-bottom: 60px;border-radius: 0; box-shadow: none;
-    background: #eef5f3; 
+    background: $grayLight; 
     .hint{ float: right;}
     .formLayout{
       clear: both; width: 100%; margin: 0 auto;
@@ -32,15 +32,8 @@
 }
 
 
-// .extraBtn a:hover{background:#639100;color:#fff;}
-// .extraBtn a:focus{background:#639100;color:#fff;}
-// .note .extraBtn a{background-color:#f80;color:#fff;}
-// .note .extraBtn a:hover{background-color:#e60;}
-// .note .extraBtn a:focus{background-color:#e60;}
-// .note a{word-break:break-all;}
-
 // 訂閱注意事項
-.note{margin:0;padding:30px;border-width:1px;line-height:1.8;background:#eaeecb;
+.note{margin:0;padding:30px;border-width:1px;line-height:1.8;background:#e9ecc8;
   h3{font-size:1.2em;margin:0 0 1em;}
   li{margin-bottom:1.2em;}
   &>a, p>a, li>a{

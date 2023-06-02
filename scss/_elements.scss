@@ -20,7 +20,7 @@ kbd {
   }
   .center  .accesskey{left: -1.5em;}
   .webFooter .accesskey{
-    &:focus, &:hover { box-shadow: #fff 0 0 0 2px inset;}
+    &:focus, &:hover { box-shadow: $white 0 0 0 2px inset;}
   }
 }
 @media screen and (min-width: $wwMaximum){
@@ -60,7 +60,7 @@ a.goCenter{
     &:hover, &:focus{  opacity: 1; color: $fontInvert;}
   }
   @media screen and (min-width: $wwMaximum){
-    left: calc(50vw  - #{$wwMaximum}*.5);
+    left: calc(50vw  - $wwMaximum*.5);
   }
 }
 
@@ -73,10 +73,10 @@ a.goCenter{
   cursor: pointer; transition: .2s;
 
   &:hover, &:focus{
-    background-color: rgba(0,0,0,.7);
+    background-color: $grayDark;
   }
   &:focus{
-    box-shadow: rgba(0,0,0,.7) 0 0 0 4px;
+    box-shadow: $grayDark 0 0 0 4px;
   }
 }
 .searchCtrl{ 
@@ -85,42 +85,61 @@ a.goCenter{
   }
   &::before{
     left: calc(50% - 12px); top: calc(50% - 12px);
-    width: 16px; height: 16px; border: 2px solid #000; border-radius: 50%;
+    width: 16px; height: 16px; border: 2px solid $black; border-radius: 50%;
   }
   &::after{
-    width: 12px; height: 3px; background-color: #000; border-radius: 0 2px 2px 0;
+    width: 12px; height: 3px; background-color: $black; border-radius: 0 2px 2px 0;
     left: calc(50% + 2px); top: calc(50% + 6px);
     transform: rotate(45deg);
   }
 
   &:hover, &:focus{
-    &::before{ border-color: #fff;}
-    &::after{ background-color: #fff;}
+    &::before{ border-color: $white;}
+    &::after{ background-color: $white;}
   }
 
   @media screen and (min-width: $wwNormal){
     width: 42px; height: 42px;
-    &::before{ border-color: #fff;}
-    &::after{background: #fff;}
+    &::before{ border-color: $white;}
+    &::after{background: $white;}
   }
 }
 
 
 // 行動版側欄開關  ////////////////////////////////////
 .sidebarCtrl{
+  &::before, &::after { content: ''; position: absolute;height: 2px; width: 24px;}
   &::before{
-    content: ''; position: absolute; left: 14px;top: 16px;
-    height: 2px; width: 24px; 
-    background: #000; box-shadow: #000 0 9px 0, #000 0 18px 0;
-    transition: .2s;
+    left: 14px;top: 25px; z-index: 2;
+    background-color: $black; box-shadow: $black 0 9px 0, $black 0 -9px 0;
+    transition: background-color .2s .2s, box-shadow .2s .2s, transform .2s 0s;
+  }
+  &::after{ 
+    left: 14px; top: 25px;
+    background-color:$white;transform: rotate(0deg);
+    transition: background-color .1s .3s , transform .3s 0s;
+    
   }
   &:hover, &:focus{ 
-    &::before{background: #fff; box-shadow: #fff 0 9px 0, #fff 0 18px 0;}
+    &::before{
+      background: $white; box-shadow: $white 0 9px 0, $white 0 -9px 0;
+    }
   }
-
+  &:hover::before{ transition:.2s;}
+  &:focus::before{transition: background-color .2s .2s, box-shadow .2s .2s, transform .2s 0s;}
+  
   &.closeIt{
-    background-color: $secondaryColor;
-    &::before{background: #fff; box-shadow: #fff 0 9px 0, #fff 0 18px 0;}
+    background-color: $grayDark;
+    &::after{ 
+      transform: rotate(45deg);
+      transition: background-color .1s .3s , transform .3s .3s;
+    }
+    &::before{
+      background-color: $white; box-shadow: $white 0 0 0, $white 0 0 0;
+      transform: rotate(-45deg);
+      transition: background-color .2s 0s , box-shadow .2s 0s, transform .3s .3s;
+
+    }
   }
 
 }
@@ -143,7 +162,7 @@ button.closeThis{
   cursor: pointer; transition: .2s;
   &::before, &::after{
     content: ''; position: absolute; left: 10px; top: 23px;
-    width: 28px; height: 2px; background-color: #fff;
+    width: 28px; height: 2px; background-color: $white;
   }
   &::before{
     transform: rotate(45deg);
@@ -187,8 +206,8 @@ button.closeThis{
   }
   &:focus{
     background-color: rgba(0,0,0,.9);
-    box-shadow:#fff 0 0 0 1px, #000 0 0 0 5px;
-    &:before{border-color: #fff;}
+    box-shadow:$white 0 0 0 1px, $black 0 0 0 5px;
+    &:before{border-color: $white;}
   }
 }
 
@@ -256,7 +275,7 @@ button.closeThis{
     box-shadow:$primaryColor 0 0 5px 1px;
   }
   &:focus{
-    box-shadow:$primaryColor 0 0 0 2px, #fff 0 0 0 3px;
+    box-shadow:$primaryColor 0 0 0 2px, $white 0 0 0 3px;
   }
 
   &::before, &::after{content: ''; position: absolute;}
@@ -273,7 +292,7 @@ button.closeThis{
   &.show{bottom: 30px;}
 
   @media screen and (min-width: calc($wwMaximum*.96 + 40px + 2.56rem)){
-    right: calc(50vw - #{$wwMaximum}*.48 - 10px - 1.28rem);
+    right: calc(50vw - $wwMaximum*.48 - 10px - 1.28rem);
   }
 
 }

@@ -11,12 +11,12 @@
 
     p{display:block;margin:0 0 5px;padding: 0;line-height:1.1;}
     em,
-    abbr{margin:0 .3em;color:#000;font-weight: bold;display: inline-block;}
+    abbr{margin:0 .3em;color:$fontColorDark;font-weight: bold;display: inline-block;}
     input, select{ font-size: 1rem;}
     option{font-weight:bold;}
     select{
       font-weight:bold;vertical-align:middle; outline: none;
-      margin:0 3px 3px;border:1px solid #bbb; width:auto; height:2em; line-height:2;
+      margin:0 3px 3px;border:1px solid $borderColor; width:auto; height:2em; line-height:2;
       background-position: right 5px top .4em;
       &:hover, &:focus{ border-color: $primaryColor; box-shadow: $primaryColor 0 0 0 1px;}
       & + input[type="submit"],
@@ -34,17 +34,17 @@
       margin:3px 1px 3px 0;padding:0;float:left;
       a{
         display:block;min-width: 3.1rem;height: 3rem;line-height: 3.1;padding: 0;
-        box-shadow: #ccc 0 0 0 1px; color: $fontColor; text-decoration: none;
+        box-shadow: $borderColor 0 0 0 1px; color: $fontColor; text-decoration: none;
         transition:.15s;
         &:hover,
-        &:focus{background:#1f7a8c; color: $fontInvert; text-decoration:none;outline:none;}
+        &:focus{background:$btnBg1; color: $fontInvert; text-decoration:none;outline:none;}
       }
       &.here{
         position:relative;z-index:29;
         a{
           cursor:default; 
-          color:$fontInvert;background:#1f7a8c;box-shadow:#1f7a8c 0 0 0 3px ;
-          &:focus, &:hover{box-shadow:#fff 0 0 0 1px ,#1f7a8c 0 0 0 3px;}
+          color:$fontInvert;background:$primaryColor;box-shadow:$primaryColor 0 0 0 3px ;
+          &:focus, &:hover{box-shadow:$white 0 0 0 1px ,$primaryColor 0 0 0 3px;}
         }
       }
   
@@ -57,20 +57,20 @@
         font-size: 0;
         a{ 
           position: relative; border-radius: 4px;
-          background-color: #7c8785;box-shadow: #7c8785 0 0 0 1px;
+          background-color: darken($gray, 20%); 
+          // box-shadow: $gray 0 0 0 1px;
           &::before, &::after{content: ''; position: absolute; top: 50%;}
           &::after{
             width:10px; height:10px; margin-top: -6px;
-            border: 2px solid $fontInvert; border-top: none; border-right: none;
+            border: 2px solid $white; border-top: none; border-right: none;
           }
-
-          &:hover, &:focus{box-shadow: #7c8785 0 0 0 2px;}
-          &:focus{ background-color: #384241;}
+          &:hover, &:focus{ background-color: $grayDark;}
+          &:focus{box-shadow: $borderColorDark 0 0 0 2px;}
         }
       }
       &.first , &.last{
         a::before{
-          width: 2px; height: 18px; transform: translateY(-50%);background:$fontInvert;
+          width: 2px; height: 18px; transform: translateY(-50%);background:$white;
         }
       }
       &.first, &.prev{
@@ -89,7 +89,7 @@
       &.prevTen, &.nextTen{
         a::before{
           width:10px; height:10px; margin-top: -6px; position: absolute;left: 18px; 
-          border: 2px solid $fontInvert; border-top: none; border-right: none;
+          border: 2px solid $white; border-top: none; border-right: none;
         }
         a::after{ left: 25px;}
       }

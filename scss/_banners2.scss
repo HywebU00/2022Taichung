@@ -88,11 +88,11 @@
 
     .bannerloop {
       position: relative;
-      width:calc(#{$normalWidth} + 48px);
+      width:calc($normalWidth + 48px);
 
       .slick-slide {
         img {
-          height: calc((#{$normalWidth}*5 - 240px)/39);
+          height: calc(($normalWidth*5 - 240px)/39);
         }
 
         &[aria-hidden="true"]{ box-shadow: none;}
@@ -106,11 +106,11 @@
 
   @media screen and (min-width: $wwMaximum){
     .bannerloop {
-      width: calc(#{$wwMaximum}*.82 + 48px);
+      width: calc($wwMaximum*.82 + 48px);
 
       .slick-slide {
         img{
-          height: calc((#{$wwMaximum}*4.1 - 240px)/39);
+          height: calc(($wwMaximum*4.1 - 240px)/39);
         }
       }
     }
