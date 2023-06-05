@@ -231,6 +231,10 @@
 
   </header>
 
+  <!-- 行動版側欄 -->
+  <aside class="sidebar">
+  </aside>
+
   <main class="main">
     <a class="accesskey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
 
@@ -319,13 +323,15 @@
               </div>
               <div class="timeSpan">
                 <label>日期區間</label>
-                <input value="2023-05-26" type="text" id="DateS" title="日期起日" placeholder="yyyy-mm-dd" class="datepicker hasDatepicker">
+                <input value="2023-05-26" type="text" id="DateS" title="日期起日" placeholder="yyyy-mm-dd"
+                  class="datepicker hasDatepicker">
                 <input value="" type="hidden" id="htx_xpostDateS" name="htx_xpostDateS">
                 ～
-                <input value="2023-06-26" type="text" id="DateE" title="日期迄日" placeholder="yyyy-mm-dd" class="datepicker hasDatepicker">
+                <input value="2023-06-26" type="text" id="DateE" title="日期迄日" placeholder="yyyy-mm-dd"
+                  class="datepicker hasDatepicker">
                 <input value="" id="htx_xpostDateE" name="htx_xpostDateE" type="hidden">
               </div>
-    
+
               <!-- <div class="pickDate">
                 <label for="eventCalendarDate">日期區間</label>
                 <div class="duration">
@@ -335,7 +341,7 @@
               </div> -->
               <div class="btnDv">
                 <input type="submit" value="查詢" />
-                <input type="reset" value="清除" onclick="javascript:resetData()"/>
+                <input type="reset" value="清除" onclick="javascript:resetData()" />
               </div>
             </div>
           </div>

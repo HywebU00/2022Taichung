@@ -264,19 +264,15 @@ $(function(){
     let _header = _this.find('.header');
     const speed = 500;
     
-    _tray.is(':hidden') ? _handle.attr('title', '展開查詢') : _handle.attr('title', '收合') ;
-    // _header.on("mouseenter", function() {
-    //   _handle.trigger('focus');
-    // }).on('mouseleave', function(){
-    //   _handle.trigger('blur');
-    // })
+    _tray.is(':hidden') ? _handle.text('展開查詢') : _handle.text('收合') ;
+
     _handle.add(_header).click(function () {
       if (_tray.is(':hidden')) {
         _tray.stop(true, false).slideDown(speed);
-        _handle.addClass('closeIt').attr('title', '收合');
+        _handle.addClass('closeIt').text('收合');
       } else {
         _tray.stop(true, false).slideUp(speed, function(){
-          _handle.removeClass('closeIt').attr('title', '展開查詢');
+          _handle.removeClass('closeIt').text('展開查詢');
         })
       }
     })
@@ -610,12 +606,11 @@ $(function(){
 
   // 複製「主選單」到側欄給行動版用
   _menu.clone().prependTo(_sidebar);
-
   $('.topLinks').clone().appendTo(_sidebar);
-  var _sidebarMenu = _sidebar.find('.menu');
-  var _hasChild = _sidebarMenu.find('.hasChild>a');
+  // var _sidebarMenu = _sidebar.find('.menu');
+  var _sbmHasChild = _sidebar.find('.menu').find('.hasChild>a');
   var _sidebarMask = $('.sidebarMask');
-  _hasChild.click(
+  _sbmHasChild.click(
     function(e){
       e.preventDefault();
 
@@ -637,10 +632,11 @@ $(function(){
     if (_sidebar.hasClass('reveal')) {
       _sidebar.removeClass('reveal');
       _sidebarCtrl.removeClass('closeIt');
-      _sidebarMask.fadeOut(400);
+      _sidebarMask.fadeOut(400, function(){_sidebar.hide()} );
       _body.removeClass('noScroll');
     } else {
-      _sidebar.addClass('reveal');
+      _sidebar.show();
+      setTimeout( function(){_sidebar.addClass('reveal')}, 20);
       _sidebarCtrl.addClass('closeIt');
       _sidebarMask.fadeIn(400);
       _body.addClass('noScroll')
@@ -650,8 +646,14 @@ $(function(){
     _sidebar.removeClass('reveal');
     _sidebarCtrl.removeClass('closeIt');
     _body.removeClass('noScroll');
-    $(this).fadeOut(400);
+    $(this).fadeOut(400, function(){_sidebar.hide()});
   })
+
+  _sidebar.find('.topLinks').find('li:last-child>a').blur( function(){
+    _sidebarCtrl.focus();
+  })
+
+
 
 
   // 查詢區開合 //////////////////////////////
@@ -910,14 +912,14 @@ $(function(){
 	var _category = $('.category');
 	_category.each( function(){
 		let _this = $(this);
-		_this.append('<button class="cateCtrl"></button>');
+		_this.append('<button type="button" class="cateCtrl">資料大類 展開／收合</button>');
 		_this.prepend('<span class="cateNow"></span>');
 		let _cateCtrl = _this.find('.cateCtrl');
 		let	_cateNow = _this.find('.cateNow');
 		_cateNow.text(_this.find('.here a').text());
 		let	_cateList = _category.find('ul');
 		const speed = 400;
-		_cateCtrl.add(_cateNow).click(function(){
+		_cateCtrl.add(_cateNow).click(function(e){
 			if (_cateList.is(':hidden')) {
 				_cateCtrl.addClass('close');
 				_cateList.stop(true, false).slideDown();
@@ -928,15 +930,15 @@ $(function(){
 				_cateNow.stop(true, false).slideDown();
 			}
 		})
-		_cateList.find('li>a').click(function(){
+		_cateList.find('li>a').click(function(e){
 			_cateNow.text($(this).text());
 			$(this).parent('li').addClass('here').siblings().removeAttr('class');
 			if (ww <= wwMedium) {
-				_cateCtrl.removeClass('close');
 				_cateList.stop(true, false).slideUp(speed, function(){
 					$(this).removeAttr('style');
 				});
 				_cateNow.stop(true, false).slideDown();
+        _cateCtrl.removeClass('close').focus();
 			}
 		})
 	})
