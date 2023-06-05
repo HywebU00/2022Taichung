@@ -270,13 +270,9 @@ button.closeThis{
   background: rgba(255,255,255,.5); color: $fontColor;
   transition:bottom 1s, box-shadow .3s;
 
-  &:hover{
-    background: rgba(255,255,255,.8);
-    box-shadow:$primaryColor 0 0 5px 1px;
-  }
-  &:focus{
-    box-shadow:$primaryColor 0 0 0 2px, $white 0 0 0 3px;
-  }
+  &:hover, &:focus{background: rgba(255,255,255,.85);}
+  &:hover{box-shadow:$primaryColor 0 0 5px 1px;}
+  &:focus{box-shadow:$primaryColor 0 0 0 2px, $white 0 0 0 3px;}
 
   &::before, &::after{content: ''; position: absolute;}
   &::before{
@@ -307,7 +303,6 @@ button.closeThis{
     border-radius: 5px;
     text-decoration: none;
     background: $grayLight;color: $fontInvert;
-    // box-shadow: rgba(0, 0, 0, .4) 0 1px 4px;
     &:hover {
       background: $grayDark;
     }
