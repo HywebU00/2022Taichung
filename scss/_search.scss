@@ -89,7 +89,7 @@
 		display: flex;justify-content: flex-end;align-items: center;
 		margin: 0 2vw 0 50vw;padding: 20px 0;
 		position: static;width: auto;transform: none;
-		background: none;
+		background: none; transition: none;
 		form {
 			flex: 0 0 auto;
 			width: 220px;

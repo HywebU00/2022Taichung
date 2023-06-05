@@ -661,13 +661,13 @@ $(function(){
   _searchCtrl.click(function(){
     if( _search.hasClass('reveal')) {
       _search.removeClass('reveal');
-      setTimeout(function(){_search.removeAttr('style')}, srSpeed);
+      setTimeout(function(){ _search.removeAttr('style'); }, srSpeed);
     } else {
       _search.css('display', 'flex');
       setTimeout (function(){ _search.addClass('reveal')}, 10);
     }
   })
-
+  _search.find('.linkBtn>a').blur( function(){_searchCtrl.focus()})
   // --end of-- 查詢區 //////////////////////////////
 
 
@@ -678,6 +678,8 @@ $(function(){
         _html.stop(true,false).animate({scrollTop: 0}, 400, function(){
           _search.find('input[type="text"]').focus();
         });
+      } else {
+        _search.find('input[type="text"]').focus();
       }
     }
   })
