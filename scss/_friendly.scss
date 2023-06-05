@@ -22,28 +22,34 @@
   overflow:hidden;margin:-1.5em 0 0 0;float:right;
   ul{font-size:13px;line-height:1;overflow:hidden; list-style: none; margin: 0; padding: 0;}
   li{float:left;position:relative; padding:1.7em 0 0;margin:4px;
-    a{display:block;text-indent:-3000px;width:44px;height:44px;border-radius:50%;text-decoration:none;background:$grayLight url(../images/function.png) no-repeat center 0;outline:none;transition:box-shadow .2s , background-color .2s;
+    a{display:block;text-indent:-3000px;width:48px;height:48px;border-radius:50%;text-decoration:none;background:$grayLight url(../images/function.png) no-repeat center 0;outline:none;transition:box-shadow .2s , background-color .2s;
       &:hover, &:focus {
         background-color: $primaryColor;
       }
 
-      &::before{display:block;text-indent:0;position:absolute;top:24px;width:44px;height:1.1em; padding:2px 0 0;color:transparent;text-align:center;transition:top .3s, color .3s;}
+      &::before {
+        display: block;text-indent: 0; text-align: center;
+        position: absolute;top: 24px;
+        width: 48px;height: 1.1em;padding: 2px 0 0;
+        color: transparent;
+        transition: top .3s, color .3s;
+      }
       &:hover:before,
-      &:focus:before{color:$fontColorLight;top:0;}
+      &:focus:before{color:$fontColor;top:3px;}
 
-      &.print{background-position:center 3px;
+      &.print{background-position:center 5px;
         &:hover,
-        &:focus{background-position:center -147px;}
+        &:focus{background-position:center -145px;}
         &::before{content:'列印';}
       }
-      &.forward{background-position:center -47px;
+      &.forward{background-position:center -45px;
         &:hover,
-        &:focus{background-position:center -197px;}
+        &:focus{background-position:center -195px;}
         &::before{content:'轉寄';}
       }
-      &.back{background-position:center -96px;
+      &.back{background-position:center -94px;
         &:hover,
-        &:focus{background-position:center -246px;}
+        &:focus{background-position:center -244px;}
         &::before{content:'返回';}
       }
     }
