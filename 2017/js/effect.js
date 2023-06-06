@@ -349,8 +349,9 @@ function photoShow(){//相簿內頁
 		_photoList.append('<div title="上一張" class="arbtn left"></div><div title="下一張" class="arbtn right"></div>');
 
 		_photoThumb.first().addClass('active');
-		_photoShow.find('.caption').hide().end().find('a').css('z-index', 0);
-		_photoShow.first().find('img').show().parent('a').css('z-index', 88).next('.caption').show();
+		// _photoShow.find('.caption').hide().end().find('a').css('z-index', -1);
+		// _photoShow.first().find('img').show().parent('a').css('z-index', 0).next('.caption').show();
+		_photoShow.hide().css('z-index', -1).first().show().css('z-index', 0);
 
 		_photoList.after('<div class="ppause"></div>');
 
