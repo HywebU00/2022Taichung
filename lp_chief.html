@@ -255,9 +255,11 @@
       </section>
       <!-- /.friendly-->
     </section>
+
     <div class="nodeHeader">
       <h2>機關首長介紹</h2>
     </div>
+
     <section class="page" title="分頁功能">
       <p>共 430 筆資料，第<abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
         <select name="perPage" id="perPage" onchange="perPageChange(this.value);">
@@ -278,38 +280,43 @@
     
     <section class="list">
       <table summary="機關首長列表">
-        <tr>
-          <th scope="col">單位名稱</th>
-          <th scope="col">姓名</th>
-          <th scope="col">職稱</th>
-        </tr>
-        <tr>
-          <td data-title="單位名稱">臺中市政府秘書處</td>
-          <td data-title="姓名"><a href="#">李如芳</a><img src="2017/images/icon_sex2F.png" alt="女" /></td>
-          <td data-title="職稱">處長</td>
-        </tr>
-        <tr>
-          <td data-title="單位名稱">臺中市政府秘書處</td>
-          <td data-title="姓名"><a href="#">郭振益</a><img src="2017/images/icon_sex2M.png" alt="男" /></td>
-          <td data-title="職稱">副處長</td>
-        </tr>
-        <tr>
-          <td data-title="單位名稱">臺中市政府秘書處</td>
-          <td data-title="姓名"><a href="#">黃正芳</a><img src="2017/images/icon_sex2M.png" alt="男" /></td>
-          <td data-title="職稱">主任秘書</td>
-        </tr>
-        <tr>
-          <td data-title="單位名稱">臺中市政府秘書處</td>
-          <td data-title="姓名"><a href="#">倪嘉君</a><img src="2017/images/icon_sex2F.png" alt="女" /></td>
-          <td data-title="職稱">專門委員</td>
-        </tr>
-        <tr>
-          <td data-title="單位名稱">臺中市政府秘書處</td>
-          <td data-title="姓名"><a href="#">曾大榮</a><img src="2017/images/icon_sex2M.png" alt="男" /></td>
-          <td data-title="職稱">專門委員</td>
-        </tr>
+        <thead>
+          <tr>
+            <th scope="col">單位名稱</th>
+            <th scope="col">姓名</th>
+            <th scope="col">職稱</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-title="單位名稱">臺中市政府秘書處</td>
+            <td data-title="姓名"><a href="#">李如芳</a><img src="2017/images/icon_sex2F.png" alt="女" /></td>
+            <td data-title="職稱">處長</td>
+          </tr>
+          <tr>
+            <td data-title="單位名稱">臺中市政府秘書處</td>
+            <td data-title="姓名"><a href="#">郭振益</a><img src="2017/images/icon_sex2M.png" alt="男" /></td>
+            <td data-title="職稱">副處長</td>
+          </tr>
+          <tr>
+            <td data-title="單位名稱">臺中市政府秘書處</td>
+            <td data-title="姓名"><a href="#">黃正芳</a><img src="2017/images/icon_sex2M.png" alt="男" /></td>
+            <td data-title="職稱">主任秘書</td>
+          </tr>
+          <tr>
+            <td data-title="單位名稱">臺中市政府秘書處</td>
+            <td data-title="姓名"><a href="#">倪嘉君</a><img src="2017/images/icon_sex2F.png" alt="女" /></td>
+            <td data-title="職稱">專門委員</td>
+          </tr>
+          <tr>
+            <td data-title="單位名稱">臺中市政府秘書處</td>
+            <td data-title="姓名"><a href="#">曾大榮</a><img src="2017/images/icon_sex2M.png" alt="男" /></td>
+            <td data-title="職稱">專門委員</td>
+          </tr>
+        </tbody>
       </table>
     </section>
+
     <section class="page" title="分頁功能">
       <p>共 430 筆資料，第<abbr title="目前在第19頁，總共43頁">19/43</abbr>頁， <label for="perPage">每頁顯示筆數</label>
         <select name="perPage" id="perPage" onchange="perPageChange(this.value);">
@@ -330,7 +337,7 @@
         <li class="last"><a href="#">最後一頁</a></li>
       </ul>
     </section>
-    <!--/.center-->
+
   </main>
 
   <footer class="webFooter">

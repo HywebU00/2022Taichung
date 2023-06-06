@@ -50,15 +50,15 @@ $rowHover: lighten($hiLight, 12%); // hover 橫列換色
   table {padding:0;margin:0;width:100%;border-collapse:collapse;line-height:150%;}
   tr{
     &:first-child th{white-space:nowrap;}
-    &:nth-child(odd) {background:$alternate;}
+    &:nth-child(even) {background:$alternate;}
     &:last-child td{border-bottom:none;}
-    &:hover{ background-color: lighten($hiLight, 12%);}
+    &:hover{ background-color: $rowHover;}
   }
 
   th, td{padding:12px 8px ;vertical-align:middle;text-align:center;}
-  th{border-bottom:1px solid $borderColor; background-color: $grayLight;}
+  th{border-bottom:1px solid $borderColor; background-color: darken($alternate, 5%);}
   td{
-    border-bottom:1px solid $borderColorLight;max-width:300px;
+    border-bottom:1px solid $borderColorLight; max-width:300px;
     &>a{
       text-decoration:underline;color:$fontColor;
       &:hover, &:focus{text-decoration:none;}
@@ -67,7 +67,18 @@ $rowHover: lighten($hiLight, 12%); // hover 橫列換色
         color: $fontInvert;
         &:hover, &:focus{ text-decoration: none;}
       }
+
+      &.cateLink {
+        display: inline-block;white-space: nowrap;text-decoration: none;
+        padding: 0 .8em;margin: 0 .2em;height: 2.2em;line-height: 2.3em;
+        font-size: 1.05em;text-decoration: none;
+        border-radius: 2em;box-shadow: $borderColor 0 0 0 1px;
+        transition: .2s;
+        &:hover{ box-shadow: $primaryColor 0 0 0 2px;text-decoration: none;}
+        &:focus{ background-color: $primaryColor; box-shadow: $primaryColor 0 0 0 2px;color: $fontInvert;}
+      }
     }
+
     &.title>a:only-child{
       display: block;padding:8px; margin: -8px 0;
       &:focus{ box-shadow: $focusColor 0 0 0 2px inset;}
@@ -93,10 +104,14 @@ $rowHover: lighten($hiLight, 12%); // hover 橫列換色
 
   @media screen and (max-width:$wwMedium){
   
-    table{line-height:1.6em;}
+    table{line-height:1.6em;
+      &>thead{ display: none;}
+      &>tbody:first-child>tr:first-child{display:none;}
+    }
+    
     tr{
       display:block;position:relative;border:2px solid $borderColor;padding:0;margin:0 0 15px;
-      &:first-child{display:none;}
+      // &:first-child{display:none;}
       &:last-child td{
         border-bottom:1px solid $borderColorLight;
         &:last-child{border:none}
@@ -104,7 +119,6 @@ $rowHover: lighten($hiLight, 12%); // hover 橫列換色
       &:nth-child(odd){background-color: transparent;}
       &:hover{background-color: transparent;}
     }
-    th{display:none;}
     td{
       display:block;padding:.7em .5em .5em;margin:0;text-align:left;max-width: none;
       &:last-child{border:none;}
@@ -146,33 +160,18 @@ $rowHover: lighten($hiLight, 12%); // hover 橫列換色
 // RSS、JSON 訂閱與下載
 .dsIcon {
   list-style: none;white-space: nowrap;
-  li{display: inline-block;margin:2px 1px;font-size:.8em;border: none;background: none !important;
+  li{display: inline-block;margin:2px;font-size:.8em;border: none;background: none !important;
     a{
       display: block;width: 3.8em;height: 3.8em;line-height: 4em;padding: 0;
       border-radius: 50%;text-align: center;text-decoration: none;outline: none;
       background-color: $btnBg1;color: $fontInvert;box-shadow:none;
       transition: .2s;
-      &:hover{background-color: $btnBg2;}
-      &:focus{ box-shadow:$btnBg2 0 0 0 2px; background-color: $btnBg2;}
+      &:hover{background-color: $btnBg2; text-decoration: none;}
+      &:focus{ box-shadow:$white 0 0 0 1px, $btnBg2 0 0 0 4px; background-color: $btnBg2;}
     }
   }
 }
-// .openData 資料開放 //////////////////////////////////////////////////////
-.list.openData{
-  td{
-    a {text-decoration: none;}
 
-    a.cateLink {
-      display: inline-block;white-space: nowrap;
-      padding: 0 .8em;margin: 0 .2em;height: 2.2em;line-height: 2.3em;
-      font-size: 1.05em;text-decoration: none;
-      border-radius: 2em;box-shadow: $borderColor 0 0 0 1px;
-      transition: .2s;
-      &:hover{ box-shadow: $primaryColor 0 0 0 2px;text-decoration: none;}
-      &:focus{ background-color: $primaryColor; box-shadow: $primaryColor 0 0 0 2px;color: $fontInvert;}
-    }
-  }
-}
 
 
 

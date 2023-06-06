@@ -1,32 +1,38 @@
 // 活動行事曆列表 /////////////////////////
 .list.event{
+  margin-bottom: 40px;
   td[data-title="活動主題"] a{
    display: inline-block;margin: 0 auto;text-align: left;
   }
   @media screen and (min-width: $wwMedium){
     td[data-title="活動主題"] a{ display: block;}
+    td[data-title="活動類型"]{ text-align: left;}
   }
 }
 
 .eventType{
-  display: inline-block !important;
+  display: inline-block !important; position: relative;
   font-size: 1rem;
-  padding: 0 .8em 0;line-height: 1.9em;height: 1.8em;
-  border-radius: 4em;
-  background-color: $gray;color: $fontInvert;
-  box-shadow: $white 0 0 0 2px;
+  padding: 0 .6em 0 1.2em;line-height: 1.8;height: 1.9em;
+  border-radius: 2em 12px 12px 2em;border: 2px solid $gray ;
+  background-color: $white;color: $fontColor;
+  &::before{
+    content: ''; position: absolute; left: .34em; top: calc(50% - 5px);
+    width: 10px; height: 10px; border-radius: 50%;
+    background-color: $gray;
+  }
   
-  &.t01{ background-color:#6a0;}
-  &.t02{ background-color:#d50082;}
-  &.t03{ background-color:#f70;}
-  &.t04{background-color:#8f9fa1;}
-  &.t05{ background-color:#00bfef;}
+  &.t01{ border-color:#84b401; &::before{background-color: #84b401;}}
+  &.t02{ border-color:#dc4ccc; &::before{background-color: #dc4ccc;}}
+  &.t03{ border-color:#f46500; &::before{background-color: #f46500;}}
+  &.t04{ border-color:#656f71; &::before{background-color: #656f71;}}
+  &.t05{ border-color:#0cb9ec; &::before{background-color: #0cb9ec;}}
   // 預留活動類別
-  &.t06{ background-color:#e22011;}
-  &.t07{ background-color:#984fb0;}
-  &.t08{ background-color:#08b8b2;}
-  &.t09{ background-color:#1a6bbd;}
-  &.t10{ background-color:#a36136;}
+  &.t06{ border-color:#cf1b0e; &::before{background-color: #cf1b0e;}}
+  &.t07{ border-color:#7047b7; &::before{background-color: #7047b7;}}
+  &.t08{ border-color:#049696; &::before{background-color: #049696;}}
+  &.t09{ border-color:#1a6bbd; &::before{background-color: #1a6bbd;}}
+  &.t10{ border-color:#ee9900; &::before{background-color: #ee9900;}}
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -77,7 +83,7 @@
       &:focus{ box-shadow: $btnBg2 0 0 0 2px;}
     }
     &.moreDayPrev{
-      &::before{border-right: none; border-top: none; left: calc(50% - 5px);}
+      &::before{border-right: none; border-top: none; left: calc(50% - 2px);}
     }
     &.moreDayNext{
       &::before{border-left: none; border-bottom: none;left: calc(50% - 7px);}
@@ -161,19 +167,26 @@
 
 // 活動行事曆瀏覽、查詢區
 .eventSearch{
+  // border: 1px solid red;
+  margin: 5px auto;
   .drawer{
-    background-color: $grayLight;
-    .header{ font-size: 1.2rem; height: 2.4em; line-height: 2.4; margin:0 3vw;}
-    .drawerHandle{ font-size: .92rem;right: 2vw; top: 3px;
+    background-color: $grayLight; box-shadow: rgba(0,0,0,.3) 0 0 8px inset;
+    .header{ font-size: 1.2rem; height: 2.5em; line-height: 2.5; margin:0 2vw;}
+    .drawerHandle{ font-size: .92rem;right: 2vw; top: 4px;
       &:hover, &:focus{ width: calc(4em + 60px);}
     }
     .tray{ display: none;}
   }
 
+  @media screen and (min-width: $wwMedium){
+    width: 94%;
+    .drawer{ border-radius: 8px;}
+  }
+
   @media screen and (min-width: $wwNormal){
     width: 96%; margin: 0 auto 20px;
     .drawer{
-      background: none;
+      background: none; box-shadow: none;
       .header, .drawerHandle{ display: none;}
       .tray{ display: block !important;}
     }

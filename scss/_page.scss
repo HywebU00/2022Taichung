@@ -71,13 +71,16 @@
       a::after{ transform: rotate(45deg);left: 21px;} 
     }
     &.first{
-      a::before{ left: 17px;}
+      a::before{ left: 20px;}
+      a::after{ left: 24px;}
     }
     &.next, &.last{
       a::after{ transform: rotate(225deg); left: auto; right: 21px;}
     }
     &.last {
-      a::before{right: 16px;}
+      a::before{right: 20px;}
+      a::after{ right: 24px;}
+
     }
 
     &.prevTen, &.nextTen{
