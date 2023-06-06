@@ -23,8 +23,6 @@ kbd {
     &:focus, &:hover { box-shadow: $white 0 0 0 2px inset;}
   }
 }
-@media screen and (min-width: $wwMaximum){
-}
 
 
 // .more ////////////////////////////////////
@@ -72,12 +70,8 @@ a.goCenter{
   border-radius: 0; background-color: transparent; border: none;
   cursor: pointer; transition: .2s;
 
-  &:hover, &:focus{
-    background-color: $grayDark;
-  }
-  &:focus{
-    box-shadow: $grayDark 0 0 0 4px;
-  }
+  &:hover, &:focus{background-color: $grayDark;}
+  &:focus{box-shadow: $grayDark 0 0 0 4px;}
 }
 .searchCtrl{ 
   &::before, &::after{
@@ -155,23 +149,18 @@ button.closeThis{
   position: relative;
   height: 48px; width: 48px; padding: 0; margin: 0;
   text-indent: -20em; overflow: hidden;
-  background-color: rgba(100,100,100,.6);
+  background-color: transparentize($grayDark, .2);
   box-shadow: none; border: none; outline: none; border-radius: 0;
   cursor: pointer; transition: .2s;
   &::before, &::after{
     content: ''; position: absolute; left: 10px; top: 23px;
     width: 28px; height: 2px; background-color: $white;
   }
-  &::before{
-    transform: rotate(45deg);
-  }
-  &::after{
-    transform: rotate(-45deg);
-  }
+  &::before{transform: rotate(45deg);}
+  &::after{transform: rotate(-45deg);}
 
-  &:hover, &:focus{ 
-    background-color: $warning; box-shadow: none;
-  }
+  &:hover, &:focus{ background-color: $black;}
+  &:focus{box-shadow: $focusColor 0 0 0 3px inset;}
 }
 
 
@@ -341,18 +330,30 @@ $stress: #f40;
 }
 // 檔案格式（小方塊）
 .fileType {
+  --color-pdf: #9d0e0e;
+  --color-doc: #065a9a;
+  --color-xls: #126c45;
+  --color-ppt: #d36300;
+  --color-jpg: #508702;
+  --color-zip: #333333;
+  --color-mp3: #493083;
+  --color-mov: #3379a9;
+  --color-txt: #56636f;
+  --color-other: #dddddd;
+
+
   font-family: monospace, "Courier New", Courier, monospace;
   font-weight: normal; color: $fontInvert;
-  &.zip{background:#333;}
-  &.pdf{background:#c00;}
-  &.doc, &.docx, &.odt{background:#0d67bb;}
-  &.xls, &.xlsx, &.csv {background:#297c17;}
-  &.ppt, &.pptx, &.odp{background:#ec7500;}
-  &.jpg, &.JPEG, &.jpe{background:#6e8e05;}
-  &.mp3{background:#6747b1;}
-  &.mov{background:#238098;}
-  &.txt{background:#607584;}
-  &.other{background:#ddd;color:#444;}
+  &.pdf{background:var(--color-pdf);}
+  &.doc, &.docx, &.odt{background:var(--color-doc);}
+  &.xls, &.xlsx, &.csv {background:var(--color-xls);}
+  &.ppt, &.pptx, &.odp{background:var(--color-ppt);}
+  &.jpg, &.JPEG, &.jpe{background:var(--color-jpg);}
+  &.zip{background:var(--color-zip);}
+  &.mp3{background:var(--color-mp3);}
+  &.mov{background:var(--color-mov);}
+  &.txt{background:var(--color-txt);}
+  &.other{background:var(--color-other);color:$fontColor;}
 }
 a.fileType{ 
   display: inline-block;
@@ -361,35 +362,35 @@ a.fileType{
   &:hover{text-decoration: none;}
   &.other{ color: $fontColor !important;}
 
-  &.zip{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #333 0 0 0 2px;}    
-  }
   &.pdf{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #c00 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-pdf) 0 0 0 2px;}
   }
   &.doc, &.docx, &.odt{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #0d67bb 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-doc) 0 0 0 2px;}
   }
   &.xls, &.xlsx, &.csv {
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #297c17 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-xls) 0 0 0 2px;}
   }
   &.ppt, &.pptx, &.odp{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #ec7500 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-ppt) 0 0 0 2px;}
   }
   &.jpg, &.JPEG, &.jpe{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #6e8e05 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-jpg) 0 0 0 2px;}
+  }
+  &.zip{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-zip) 0 0 0 2px;}    
   }
   &.mp3{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #6747b1 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-mp3) 0 0 0 2px;}
   }
   &.mov{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #238098 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-mov) 0 0 0 2px;}
   }
   &.txt{
-    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, #607584 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-txt) 0 0 0 2px;}
   }
   &.other{
-    &:hover, &:focus{ box-shadow:#555 0 0 0 1px inset, #bbb 0 0 0 2px;}
+    &:hover, &:focus{ box-shadow:$fontColor 0 0 0 1px inset, var(--color-other) 0 0 0 2px;}
   }
 
 }

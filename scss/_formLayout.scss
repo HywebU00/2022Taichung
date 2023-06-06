@@ -48,10 +48,14 @@ table.formLayout {
     }
   }
 }
-// -----------------------------------------------------------------
+
+
+
+
 ////////////////////////////////////////////////////////////////////
 /////////////////////////// 表單模組 ///////////////////////////////
 ////////////////////////////////////////////////////////////////////
+
 // 送出、清除等按鈕 ////////////////////////////////////////////////
 .btnDv {
   text-align: center;
@@ -226,7 +230,7 @@ table.formLayout {
   margin: 0;
 }
 
-// -----------------------------------------------------------------
+// 打勾同意 ///////////////////////////////////////////////////////
 .agreeCheck {
   display: block;
   position: relative;
@@ -241,27 +245,30 @@ table.formLayout {
   }
 }
 
+/////////////////////////////////////////////////////////
+// 必填欄位星號
+.required {
+  font-size: 1.3em;line-height: .6;
+  margin-right: 3px; text-decoration: none; 
+  color: $notice;
+}
+
+
+
+
+
 // 表單樣式A ///////////////////////////////////////////////////////
 .formA {
   @extend %mainWidth;
-  padding: 20px 3vw 40px;
-  margin-bottom: 50px;
-  box-shadow: rgba(0, 0, 0, .2) 0 0 16px;
-  border-radius: 12px;
+  padding: 20px 3vw 40px;margin-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, .2) 0 0 16px; border-radius: 12px;
   h3 {
       margin: 10px 0 2rem;
       font-size: 1.4rem;
       border-bottom: 3px solid $borderColor;
   }
   p{margin: 0;}
-  // 必填欄位星號
-  .required {
-      font-size: 1.3em;
-      line-height: .6;
-      margin-right: 3px;
-      text-decoration: none;
-      color: $notice;
-  }
+
   // 註：
   .note {
       text-align: right;
@@ -273,6 +280,7 @@ table.formLayout {
   }
 }
 
+
 // -----------------------------------------------------------------
 // 提示訊息文字
 .hint,
@@ -280,7 +288,6 @@ table.formLayout {
 .error {
   position: relative; line-height: 1.6;
 }
-
 
 .error {
   color: $notice;
@@ -303,12 +310,4 @@ td:nth-child(even) {
   text-align: left!important;
   background-color: $white;
   padding: .5em 1em .5em !important;
-}
-
-
-// -----------------------------------------------------------------
-// 必填欄位星號
-.required {
-  line-height: .6; margin-right: 3px; text-decoration: none; 
-  color: $notice;
 }

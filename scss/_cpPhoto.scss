@@ -101,7 +101,7 @@
 // 照片張數 .photoCount
 .photoCount{ 
 	line-height: 1.35; height: 1.6em; padding: 0 .6em; border-radius: 1em;
-	background: rgba(230, 230, 230, .8); color: $fontColor;
+	background: rgba(255, 255, 255, .8); color: $fontColor;
   span{ display: inline-block; vertical-align: baseline;}
   .total{ 
     &::before{content: '/'; margin-right: 4px; display: inline-block;}

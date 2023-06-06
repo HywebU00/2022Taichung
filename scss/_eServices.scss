@@ -7,6 +7,7 @@
 	--secondary: #54a1d0 ; //var(--secondary)
 
 	--assistant: #f67006 ;
+	--assistantDim: #dd6003 ;
 	--assistantDark: #9b5621 ;
 	--assistant2: #fe8;
 
@@ -23,7 +24,6 @@
 	a{text-decoration:none;color:var(--linkText);}
 }
 
-$assistant: #f67006;
 
 
 // 本單元查詢和外站連結
@@ -69,14 +69,16 @@ $assistant: #f67006;
 			padding:0 38px 0 16px;height:2.7em;line-height:2.8em;
 			border-radius:2em;outline:none;
 			background:var(--assistant);color:var(--white);
-			box-shadow:var(--assistantDark) 0 4px 0 1px, rgba(0,0,0,.8) 0 5px 5px;
+			box-shadow:var(--assistantDark) 0 4px 0 1px, rgba(0,0,0,.7) 0 6px 6px;
 			transition: .2s;
 			&::before{
 				content:'';position:absolute;top:50%;right:22px;
 				margin-top:-8px;width:14px;height:14px;
 				border:3px solid var(--white);transform:rotate(45deg);border-left:none;border-bottom:none;transition:.2s;}
 			&:hover::before, &:focus::before{ right:18px; }
-			&:focus{transform: translateY(2px); background: darken( $assistant, 8%);}
+			&:focus{transform: translateY(2px); background: var(--assistantDim);
+				box-shadow:var(--assistantDark) 0 3px 0 1px, rgba(0,0,0,1) 0 5px 2px;
+			}
 		}
 	}
 

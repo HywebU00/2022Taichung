@@ -1,44 +1,40 @@
-//  台中市 2022
+//  台中市 2023（原文化局版擴充內頁版型）
 ///////////////////////////////////////////////////////////////////
 
 @import "_variables"; // RWD 斷點、長度常數、顏色變數
 // ------------------------------------------------------------- //
-@import "_default";
-@import "_elements";
-@import "_form"; //
-@import "_formLayout"; //
-@import "_webHeader";
-@import "_webFooter";
-@import "_menu";
-@import "_bigBanner";
-@import "_mp";
+@import "_default"; // body 等預設值
+@import "_elements"; // 自訂元件樣式庫
+@import "_form"; // 表單元件基本樣式
+@import "_formLayout"; // 表單排版表格
+@import "_webHeader"; // 全站頁首
+@import "_webFooter"; // 全站頁尾
+@import "_menu"; // 主選單
+@import "_bigBanner"; // 大圖輪播
+@import "_mp";  // 首頁
 @import "_lightbox"; // 燈箱
 @import "_friendly"; // 瀏覽路徑、友善列印、返回上頁 
 @import "_share"; // 分享到社群媒體 
 @import "_preface"; // 前言、後記 
-@import "_cp";
+@import "_cp"; // 圖文內容頁
 @import "_attachment"; // 附件下載、相關圖檔、相關連結（通常在 cp 頁中）
 @import "_metaTable"; // 表格形式的詳細資料
-@import "_np"; //20230321
+@import "_np"; // 節點頁
 @import "_category"; // 資料大類 20230321
-@import "_lp"; //20230321
+@import "_lp"; // 項目和表格條列 20230321
 @import "_listOrg"; // 機關通訊錄 20230511
 @import "_appList"; // APP專區 20230515
 @import "_eventList"; // 活動行事曆
 @import "_thumbnail"; // 縮圖瀏覽 20230511
-@import "_page"; //20230321
+@import "_page"; //分頁
 @import "_searchHere"; // 列表頁上方的查詢區，可開合 20230525
 @import "_cpPhoto.scss"; // 相簿內容頁 20230519
 @import "_subscribeAndNote"; // 訂閱、取消訂閱電子報 20230515
 @import "_scheduleList"; // 行程表
 @import "_sitemap"; // 網站導覽
 
-// ------------------------------------------------------------- //
-// @import "../2017/metaTable.css"; /* 表格型資料 */
-// @import "../2017/cpPhoto.css";   /* 表格型資料 */
-// @import "../2017/css/share.css"; /* 分享 */
 
 // ------------------------------------------------------------- //
-// 2023 市府主站頁面轉移 ---------------------------------------- //
+// 2023 市府主站特殊頁面轉移 ---------------------------------------- //
 @import "_welfare"; // 福利及照護
 @import "_eServices"; // 常用便民系統

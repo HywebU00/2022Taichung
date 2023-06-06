@@ -1,8 +1,7 @@
 // 市長行程
 .scheduleList{
-
-  @extend %innerWidth;
-  margin: 20px auto;
+  @extend %innerWidth;margin: 20px auto;
+  
   &>table{
     border-collapse: collapse;
     width: 100%; margin: 0 auto;
@@ -28,7 +27,7 @@
     .dayAndDate{
       display: block; text-align: center; line-height: 1;
       padding: 1em .8em .8em;
-      .day, .date{ display: block; vertical-align: middle; white-space: nowrap;}
+      .day, .date{ display: block; white-space: nowrap;}
       .day{ font-size: 1.2em; font-weight: bold; margin: 0 0 .5em;}
       .date{ letter-spacing: 1px;min-width: 5em;}
     }
@@ -86,7 +85,5 @@
       td:first-child{width: 12%;}
     }
   }
-
-
 
 }

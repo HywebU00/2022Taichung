@@ -45,7 +45,7 @@
     }
 
 
-    // -----
+    // --- 前一筆、後一筆；第一筆、最後一筆；前十筆、後十筆 --- //
     &.first, &.prev, &.prevTen{margin-right: 5px;}
     &.next, &.last, &.nextTen{ margin-left: 5px;}
     &.first, &.prev, &.prevTen, &.next, &.last, &.nextTen{
