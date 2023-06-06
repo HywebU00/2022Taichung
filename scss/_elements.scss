@@ -118,7 +118,6 @@ a.goCenter{
     left: 14px; top: 25px;
     background-color:$white;transform: rotate(0deg);
     transition: background-color .1s .3s , transform .3s 0s;
-    
   }
   &:hover, &:focus{ 
     &::before{
@@ -126,19 +125,18 @@ a.goCenter{
     }
   }
   &:hover::before{ transition:.2s;}
-  &:focus::before{transition: background-color .2s .2s, box-shadow .2s .2s, transform .2s 0s;}
+  &:focus::before{ transition: background-color .2s .2s, box-shadow .2s .2s, transform .2s 0s;}
   
   &.closeIt{
     background-color: $grayDark;
-    &::after{ 
-      transform: rotate(45deg);
-      transition: background-color .1s .3s , transform .3s .3s;
-    }
     &::before{
       background-color: $white; box-shadow: $white 0 0 0, $white 0 0 0;
       transform: rotate(-45deg);
       transition: background-color .2s 0s , box-shadow .2s 0s, transform .3s .3s;
-
+    }
+    &::after{ 
+      transform: rotate(45deg);
+      transition: background-color .1s .3s , transform .3s .3s;
     }
   }
 
