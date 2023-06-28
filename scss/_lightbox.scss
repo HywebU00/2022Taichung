@@ -12,7 +12,8 @@
 
   .skip{
     position: absolute; right: 0; bottom: 0;
-    width: 1px; height: 1px; padding: 0;
+    width: 1px; height: 1px; padding: 0; 
+    text-indent: -20em; overflow: hidden;
     background-color: transparent; border: none; box-shadow: none;
   }
  
