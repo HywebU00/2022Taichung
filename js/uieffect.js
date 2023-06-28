@@ -485,6 +485,7 @@ $(function(){
     _albumPhotoLbx.add(_cover).stop(true, false).fadeIn(lbxSpeed);
     _albumPhotoLbx.find(_hideLightbox).trigger('focus');
     _body.addClass('noScroll');
+    $("#albumPhotoImg").html($(this).html() + $(this).next().html());
   })
   
  
