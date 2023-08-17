@@ -331,7 +331,7 @@ $(function(){
   var _lbxTriger; // 暫存開啟燈箱的元件
 
   _lightbox.before('<div class="coverAll"></div>'); // 每個燈箱專用遮罩
-  _lightbox.append('<button type="button" class="skip">跳到【關閉燈箱】</button>'); // 隱藏的元件，get focus時要回到關燈箱的元件
+  _lightbox.append('<button type="button" class="skip" aria-label="跳到【關閉燈箱】">跳到【關閉燈箱】</button>'); // 隱藏的元件，get focus時要回到關燈箱的元件
   var _cover = $('.coverAll');
   var _skipToClose = _lightbox.find('.skip');
 
