@@ -266,7 +266,7 @@ $(function(){
   const lbxSpeed = 400;
 
   _lightbox.before('<div class="coverAll"></div>');
-  _lightbox.append('<button type="button" class="skip"></button>');
+  _lightbox.append('<button type="button" class="skip" aria-label="跳到【關閉燈箱】">跳到【關閉燈箱】</button>');
   var _cover = $('.coverAll');
   var _skipToClose = _lightbox.find('.skip');
 
