@@ -1,6 +1,14 @@
-a:focus{outline: none;}
+a, a:focus{outline: none;}
 
 
+// 鍵盤按鍵樣式 ////////////////////////////////////////////////////////
+kbd {
+  display: inline-block; vertical-align: middle; 
+  margin: 0 .1em; padding: 0 .4em; height: 1.7em; line-height: 1.6;
+  font-size: .938em; font-family: sans-serif; font-weight: bold; 
+  border: 1px solid $borderColor; border-radius: 0.2em; 
+  color: $fontColor; background: $fontInvert; 
+}
 
 // 快捷鍵 ////////////////////////////////////
 .accesskey{ display: none; }
@@ -10,15 +18,14 @@ a:focus{outline: none;}
     text-decoration: none; padding: 3px;
     &:focus, &:hover { box-shadow: $primaryColor 0 0 0 2px inset;}
   }
+  .center  .accesskey{left: -1.5em;}
   .webFooter .accesskey{
-    &:focus, &:hover { box-shadow: #fff 0 0 0 2px inset;}
+    &:focus, &:hover { box-shadow: $white 0 0 0 2px inset;}
   }
 }
-@media screen and (min-width: $wwMaximum){
-}
 
 
-//  ////////////////////////////////////
+// .more ////////////////////////////////////
 .more{
   text-align: center; margin: 1.5em auto 0;
   a{
@@ -36,7 +43,7 @@ a:focus{outline: none;}
 }
 
 
-// 跳至內容區 ----------------------------------------------
+// 跳至內容區 ////////////////////////////////////
 a.goCenter{
   display: none;
   @media screen and (min-width: $wwNormal){
@@ -51,7 +58,7 @@ a.goCenter{
     &:hover, &:focus{  opacity: 1; color: $fontInvert;}
   }
   @media screen and (min-width: $wwMaximum){
-    left: calc(50vw  - #{$wwMaximum}*.5);
+    left: calc(50vw  - $wwMaximum*.5);
   }
 }
 
@@ -63,12 +70,8 @@ a.goCenter{
   border-radius: 0; background-color: transparent; border: none;
   cursor: pointer; transition: .2s;
 
-  &:hover, &:focus{
-    background-color: rgba(0,0,0,.7);
-  }
-  &:focus{
-    box-shadow: rgba(0,0,0,.7) 0 0 0 4px;
-  }
+  &:hover, &:focus{background-color: $grayDark;}
+  &:focus{box-shadow: $grayDark 0 0 0 4px;}
 }
 .searchCtrl{ 
   &::before, &::after{
@@ -76,42 +79,59 @@ a.goCenter{
   }
   &::before{
     left: calc(50% - 12px); top: calc(50% - 12px);
-    width: 16px; height: 16px; border: 2px solid #000; border-radius: 50%;
+    width: 16px; height: 16px; border: 2px solid $black; border-radius: 50%;
   }
   &::after{
-    width: 12px; height: 3px; background-color: #000; border-radius: 0 2px 2px 0;
+    width: 12px; height: 3px; background-color: $black; border-radius: 0 2px 2px 0;
     left: calc(50% + 2px); top: calc(50% + 6px);
     transform: rotate(45deg);
   }
 
   &:hover, &:focus{
-    &::before{ border-color: #fff;}
-    &::after{ background-color: #fff;}
+    &::before{ border-color: $white;}
+    &::after{ background-color: $white;}
   }
 
   @media screen and (min-width: $wwNormal){
     width: 42px; height: 42px;
-    &::before{ border-color: #fff;}
-    &::after{background: #fff;}
+    &::before{ border-color: $white;}
+    &::after{background: $white;}
   }
 }
 
 
 // 行動版側欄開關  ////////////////////////////////////
 .sidebarCtrl{
+  &::before, &::after { content: ''; position: absolute;height: 2px; width: 24px;}
   &::before{
-    content: ''; position: absolute; left: 14px;top: 16px;
-    height: 2px; width: 24px; 
-    background: #000; box-shadow: #000 0 9px 0, #000 0 18px 0;
-    transition: .2s;
+    left: 14px;top: 25px; z-index: 2;
+    background-color: $black; box-shadow: $black 0 9px 0, $black 0 -9px 0;
+    transition: background-color .2s .2s, box-shadow .2s .2s, transform .2s 0s;
+  }
+  &::after{ 
+    left: 14px; top: 25px;
+    background-color:$white;transform: rotate(0deg);
+    transition: background-color .1s .3s , transform .3s 0s;
   }
   &:hover, &:focus{ 
-    &::before{background: #fff; box-shadow: #fff 0 9px 0, #fff 0 18px 0;}
+    &::before{
+      background: $white; box-shadow: $white 0 9px 0, $white 0 -9px 0;
+    }
   }
-
+  &:hover::before{ transition:.2s;}
+  &:focus::before{ transition: background-color .2s .2s, box-shadow .2s .2s, transform .2s 0s;}
+  
   &.closeIt{
-    background-color: $secondaryColor;
-    &::before{background: #fff; box-shadow: #fff 0 9px 0, #fff 0 18px 0;}
+    background-color: $grayDark;
+    &::before{
+      background-color: $white; box-shadow: $white 0 0 0, $white 0 0 0;
+      transform: rotate(-45deg);
+      transition: background-color .2s 0s , box-shadow .2s 0s, transform .3s .3s;
+    }
+    &::after{ 
+      transform: rotate(45deg);
+      transition: background-color .1s .3s , transform .3s .3s;
+    }
   }
 
 }
@@ -119,9 +139,9 @@ a.goCenter{
 
 // 側欄遮罩  ////////////////////////////////////
 .sidebarMask {
-  display: none;z-index: 980;
+  display: none;z-index: 870;
   position: fixed;left: 0;right: 0;top: 0;bottom: 0;
-  background-color: rgba(100,100,100,.8);
+  background-color: rgba(200,200,200,.8);
 }
 
 // 關閉 「X」 ////////////////////////////////////
@@ -129,32 +149,24 @@ button.closeThis{
   position: relative;
   height: 48px; width: 48px; padding: 0; margin: 0;
   text-indent: -20em; overflow: hidden;
-  background-color: rgba(100,100,100,.6);
-  box-shadow: none; border: none; outline: none;
+  background-color: transparentize($grayDark, .2);
+  box-shadow: none; border: none; outline: none; border-radius: 0;
   cursor: pointer; transition: .2s;
   &::before, &::after{
     content: ''; position: absolute; left: 10px; top: 23px;
-    width: 28px; height: 2px; background-color: #fff;
+    width: 28px; height: 2px; background-color: $white;
   }
-  &::before{
-    transform: rotate(45deg);
-  }
-  &::after{
-    transform: rotate(-45deg);
-  }
+  &::before{transform: rotate(45deg);}
+  &::after{transform: rotate(-45deg);}
 
-  &:hover, &:focus{ background-color: rgba(255,255,255,.7); box-shadow: none;
-    &::before, &::after{ background-color: #000;}
-  }
-  &:focus{
-    &:hover{ background-color:#fff}
-  }
+  &:hover, &:focus{ background-color: $black;}
+  &:focus{box-shadow: $focusColor 0 0 0 3px inset;}
 }
 
 
 
-
-// slick套件  ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// slick套件  //////////////////////////////////////////////////////////
 // slick套件: 左右箭頭
 .slick-arrow{
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 9;
@@ -165,24 +177,24 @@ button.closeThis{
   &::before{
     content: ''; position: absolute; width: 28px; height: 28px;
     left: 50%; top: 50%; margin-top: -15px;
-    border: 2px solid #000;border-top: none; border-right: none;
+    border: 2px solid $black; border-top: none; border-right: none;
     transform: rotate(45deg);
   }
-  &.slick-prev{ left: 0; 
+  &.slick-prev{ left: 5px; 
     &::before{ margin-left: -5px; }
   }
-  &.slick-next{ right: 0;
+  &.slick-next{ right: 5px;
       &::before{transform: rotate(225deg); margin-left: -22px;}
   }
 
   &:hover {
-    background-color: rgba(255,255,255,.88);
+    background-color: rgba(255,255,255,.9);
     box-shadow: rgba(0,0,0,.3) 0 0 9px;
   }
   &:focus{
-    background-color: rgba(0,0,0,.88);
-    box-shadow:#fff 0 0 0 1px inset, rgba(0,0,0,.3) 0 0 9px;
-    &:before{border-color: #fff;}
+    background-color: rgba(0,0,0,.9);
+    box-shadow:$white 0 0 0 1px, $black 0 0 0 5px;
+    &:before{border-color: $white;}
   }
 }
 
@@ -197,7 +209,9 @@ button.closeThis{
     button{
       width: $dotDia; height: $dotDia; border-radius: 50%;
       padding: 0; margin: 0; font-size: 0; border: none; box-shadow: none;
-      background: darken($gray, 10%); transition: .3s;
+      background: rgba(0,0,0,.4); 
+      box-shadow: $white 0 0 0 1px;
+      transition: .3s;
       cursor: pointer; outline: none;
       &:focus, &:hover{
         box-shadow:$mainBg 0 0 0 1px, $fontColor 0 0 0 3px;
@@ -213,6 +227,27 @@ button.closeThis{
 }
 
 
+////////////////////////////////////////////////////////////////////////
+// 燈箱內大圖切換左右箭頭  /////////////////////////////////////////////
+.slideBtn{ 
+  position: absolute; top: 50%; width: 48px; height: 72px; text-indent: -10em; overflow: hidden;border: none; border-radius: 4px; margin:-36px 0 0; cursor: pointer; background-color: rgba(255,255,255,.4);z-index: 9; transition: .2s;
+  &::before{ content: '';position: absolute; width: 24px; height: 24px; border: 2px solid $black; border-top: none; border-right: none;top: 50%; margin-top: -13px; }
+  &:hover{background-color: rgba(255,255,255,.9); box-shadow: rgba(0,0,0,.3) 0 0 9px;}
+  &:focus{background-color: $black; box-shadow: $white 0 0 0 1px, $black 0 0 0 5px;
+    &::before{border-color: $white;}
+  }
+  &.prev{ left: 5px;}
+  &.next{ right: 5px;}
+  &.prev::before{ left: 18px;transform: rotate(45deg);}
+  &.next::before{ right: 18px;transform: rotate(225deg);}
+}
+
+
+// 圖片計數器 /////////////////////////////////////////////
+.imgCount{ line-height: 1;padding: 4px 10px; border-radius: 2em; background-color: rgba(255,255,255,.8); color: $fontColorLight;
+  em{font-size: 1.2em; color:$fontColor; font-weight: bold;}
+}
+
 
 
 // 回頁面最上方 ////////////////////////////////////
@@ -224,13 +259,9 @@ button.closeThis{
   background: rgba(255,255,255,.5); color: $fontColor;
   transition:bottom 1s, box-shadow .3s;
 
-  &:hover{
-    background: rgba(255,255,255,.8);
-    box-shadow:$primaryColor 0 0 5px 1px;
-  }
-  &:focus{
-    box-shadow:$primaryColor 0 0 0 2px, #fff 0 0 0 3px;
-  }
+  &:hover, &:focus{background: rgba(255,255,255,.85);}
+  &:hover{box-shadow:$primaryColor 0 0 5px 1px;}
+  &:focus{box-shadow:$primaryColor 0 0 0 2px, $white 0 0 0 3px;}
 
   &::before, &::after{content: ''; position: absolute;}
   &::before{
@@ -245,14 +276,138 @@ button.closeThis{
 
   &.show{bottom: 30px;}
 
-  @media screen and (min-width: $wwNormal){
-    // right: 0;
-  }
-
   @media screen and (min-width: calc($wwMaximum*.96 + 40px + 2.56rem)){
-    right: calc(50vw - #{$wwMaximum}*.48 - 10px - 1.28rem);
+    right: calc(50vw - $wwMaximum*.48 - 10px - 1.28rem);
   }
 
+}
 
 
+// linkBtn ////////////////////////////////////
+.linkBtn {
+  display: inline-block;margin: 5px 0;
+  font-size: 13px;line-height: 1.4;
+  a {
+    display: block;padding: .8em 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    background: $grayLight;color: $fontInvert;
+    &:hover {
+      background: $grayDark;
+    }
+  }
+}
+
+// 訊息條列重要標示 ////////////////////////////////////////////////////////////////////////
+$stress: #f40; 
+.stress {
+  position: relative;display: inline-block !important;
+  height: 36px;width: 36px;line-height: 29px;margin: -5px 0 -3px 10px;padding: 0;
+  text-decoration: none;text-align: center;vertical-align: middle;font-size: 13px;
+  border-radius: 50%;border: 2px solid $stress;
+  background: $white;color: $stress;
+  box-shadow: rgba(0, 0, 0, .4) 1px 1px 4px;
+  &::before {
+    content: '';position: absolute;left: -9px;top: 50%;
+    margin-top: -7px;width: 0;height: 0;
+    border-style: solid; border-width: 7px 9px 7px 0;
+    border-color: transparent $stress transparent transparent;
+  }
+  &::after {
+    content: attr(title); line-height: 34px;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+// 附件檔案格式與檔案大小 //////////////////////////////
+.fileType, .fileSize {
+  display: inline-block; vertical-align: middle;text-align: center;
+  margin: 0 3px;padding: 0 .4em;min-width: 2.4em;
+  height: 1.8em;line-height: 1.8em;font-size: 1em;
+  border-radius: 4px;
+}
+// 檔案大小
+.fileSize {
+  color: $fontColorLight;border: 1px solid $borderColorLight;
+}
+// 檔案格式（小方塊）
+.fileType {
+  --color-pdf: #9d0e0e;
+  --color-doc: #065a9a;
+  --color-xls: #126c45;
+  --color-ppt: #d36300;
+  --color-jpg: #508702;
+  --color-zip: #333333;
+  --color-mp3: #493083;
+  --color-mov: #3379a9;
+  --color-txt: #56636f;
+  --color-other: #dddddd;
+
+
+  font-family: monospace, "Courier New", Courier, monospace;
+  font-weight: normal; color: $fontInvert;
+  &.pdf{background:var(--color-pdf);}
+  &.doc, &.docx, &.odt{background:var(--color-doc);}
+  &.xls, &.xlsx, &.csv {background:var(--color-xls);}
+  &.ppt, &.pptx, &.odp{background:var(--color-ppt);}
+  &.jpg, &.JPEG, &.jpe{background:var(--color-jpg);}
+  &.zip{background:var(--color-zip);}
+  &.mp3{background:var(--color-mp3);}
+  &.mov{background:var(--color-mov);}
+  &.txt{background:var(--color-txt);}
+  &.other{background:var(--color-other);color:$fontColor;}
+}
+a.fileType{ 
+  display: inline-block;
+  color: $fontInvert !important; text-decoration: none !important;
+  transition: .15s;
+  &:hover{text-decoration: none;}
+  &.other{ color: $fontColor !important;}
+
+  &.pdf{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-pdf) 0 0 0 2px;}
+  }
+  &.doc, &.docx, &.odt{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-doc) 0 0 0 2px;}
+  }
+  &.xls, &.xlsx, &.csv {
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-xls) 0 0 0 2px;}
+  }
+  &.ppt, &.pptx, &.odp{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-ppt) 0 0 0 2px;}
+  }
+  &.jpg, &.JPEG, &.jpe{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-jpg) 0 0 0 2px;}
+  }
+  &.zip{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-zip) 0 0 0 2px;}    
+  }
+  &.mp3{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-mp3) 0 0 0 2px;}
+  }
+  &.mov{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-mov) 0 0 0 2px;}
+  }
+  &.txt{
+    &:hover, &:focus{ box-shadow:$white 0 0 0 1px inset, var(--color-txt) 0 0 0 2px;}
+  }
+  &.other{
+    &:hover, &:focus{ box-shadow:$fontColor 0 0 0 1px inset, var(--color-other) 0 0 0 2px;}
+  }
+
+}
+
+// 在表格條列中的檔案下載
+// 用於 bureauG2/qp+lp_table.html，標示副檔名
+ol.attIcons{
+  list-style: none; margin: 0;padding: 0;
+  overflow: hidden; display: inline-block;
+  font-size: 1rem !important;
+  &>li{
+    float: left;margin:2px 0;
+    border:none; background: none !important;
+    &>a{
+      padding: 0 5px;text-decoration: none;
+    }
+  }
 }

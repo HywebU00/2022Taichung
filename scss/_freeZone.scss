@@ -8,8 +8,10 @@
       display: block; max-width: 100%; margin: 1.5em auto;
     }
     table{
+      margin: 1em auto; width: 100%;
+      border-collapse: collapse; 
       border: 2px solid $borderColor; line-height: 1.5;
-      border-collapse: collapse; margin: 1em auto; width: 100%;
+      background-color: $white;
       th, td{
         padding: .5em;border: 1px solid $borderColorLight;
       }
@@ -20,18 +22,18 @@
   }
 
   @media screen and (min-width: $wwNormal){
-    &::before{
-      content: ''; position: absolute; top: 0; bottom: 0; right: 0;
-      width: calc(9vw - 40px);
-      background: url(../images/fz_bg.jpg) no-repeat center 0;
-    }
+      &::before{
+        content: ''; position: absolute; top: 0; bottom: 0; right: 0;
+        width: calc(9vw - 40px);
+        background: url(../images/fz_bg.jpg) no-repeat center 0;
+      }
     .contentBox{
       width: $normalWidth;
     }
   }
 
   @media screen and (min-width: $wwMaximum){
-    &::before{ width: calc(50vw - #{$wwMaximum}*.41 - 40px);}
+    &::before{ width: calc(50vw - $wwMaximum*.41 - 40px);}
     .contentBox{
       width: $wwMaximum*.82;
     }

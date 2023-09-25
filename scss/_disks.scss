@@ -11,7 +11,7 @@
       img{
         display: block; width: 100px; height: 100px; border-radius: 50%;
         margin: 0 auto .4em;
-        background-color: #fff;
+        background-color: $white;
         box-shadow:transparent 0 0 0 1px inset, transparent 0 0 0 3px, rgba(0,10,20,.2) 0 10px 30px;
         transition: .2s;
       }
@@ -29,13 +29,11 @@
 
   &.invert{
     ul li{
-      img{
-        background-color: $primaryColor;
-      }
+      img{background-color: $primaryColor; }
       a{
         &:hover, &:focus{
           img{
-            box-shadow: #fff 0 0 0 1px inset, $primaryColor 0 0 0 3px, rgba(0,10,20,.4) 0 0 36px;
+            box-shadow: $white 0 0 0 1px inset, $primaryColor 0 0 0 3px, rgba(0,10,20,.4) 0 0 36px;
           }
         }
       }
@@ -77,5 +75,6 @@
 @media screen and (min-width: $wwNormal){
   .news + .disks{
     margin-top: -82px;
+    &.bgc1, &.bgc2, &.bgc3, .bgc4{ margin-top: 0;}
   }
 }

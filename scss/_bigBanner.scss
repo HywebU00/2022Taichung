@@ -1,13 +1,18 @@
 // 版頭區大圖輪播
 .bigBanner {
   position: relative; padding: 0 0 30px;
-  background-color:$assistant ;
+  background-color:$assistant;
   &::before{
     content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 80px; 
     background:url(../images/webHeader_bg.jpg) no-repeat center bottom;
     background-size: auto ;
-  }
+  }  
   a{ display: block; text-decoration: none; width: 100%; height: 100%; margin: 0 auto;}
+
+  &.bgc0{
+    background-color: transparent;
+    &::before{display: none;}
+  }
   
   .slick-slide{
     width: 100vw; height: 64vw;

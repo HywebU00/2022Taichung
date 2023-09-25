@@ -14,7 +14,7 @@ $wwMaximum: 1200px;
 // ---------- RWD 斷點 ----------- //
 
 
-// ---------- 主要內容寬度設定 ----------- //
+// ---------- 【首頁】主要內容寬度設定 ----------- //
 %mainWidth {
   width: $mobileWidth; margin: 0 auto;
   @media screen and (min-width: $wwNormal){
@@ -24,7 +24,19 @@ $wwMaximum: 1200px;
     width: $wwMaximum*(calc($normalWidth / 100vw));
   }
 }
-// ---------- 主要內容寬度設定 ----------- //
+// ---------- 【首頁】主要內容寬度設定 ----------- //
+
+// ---------- 【內頁】主要內容寬度設定 ----------- //
+%innerWidth {
+  width: 94vw; margin: 0 auto;
+  @media screen and (min-width: $wwNormal){
+    width:96%;
+  }
+  @media screen and (min-width: $wwMaximum){
+    width: $wwMaximum*.96
+  }
+}
+// ---------- 【內頁】主要內容寬度設定 ----------- //
 
 
 // ---------- 顏色變數 ----------- //
@@ -32,27 +44,32 @@ $primaryColor:#0e677c;
 $secondaryColor: #222;
 $assistant: #f3f3f3;
 $hiLight:#a7e1e8;
-$hiLight2:#d6c41b;
-$notice: #d00;
+$hiLight2:#ffea4e;
+$notice: #c00;
+$warning: #f40;
 
 $fontColor: #222;
+$fontColorDark: #000;
 $fontColorLight: #666;
 $fontInvert: #fff;
-$linkColor: #0c688d;
+$linkColor: #005b93;
+$focusColor: #0093c8;
 $mainBg: #fff;
 
-$borderColor: #c1c4c6;
+$borderColor: #a3a8a9;
 $borderColorLight: #d2d2d2;
 $borderColorDark:#434242;
 
-$gray: #d3d5d6;
-$grayLight: #f3f3f3;
-$grayDark: #424344;
-
-$btnBg1: $primaryColor;
-$btnBg2: darken($primaryColor, 12%);
+$btnBg1: #3d8399;
+$btnBg2: #084e6a;
 
 $footerBg: #217385;
 $sidebarBg: $primaryColor;
+
+$gray: #d0d3d4;
+$grayLight: #edf1f3;
+$grayDark: #404546;
+$white:#fff;
+$black:#000;
 
 // ---------- 顏色變數 ----------- //
