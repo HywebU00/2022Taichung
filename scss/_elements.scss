@@ -209,7 +209,9 @@ button.closeThis{
     button{
       width: $dotDia; height: $dotDia; border-radius: 50%;
       padding: 0; margin: 0; font-size: 0; border: none; box-shadow: none;
-      background: darken($gray, 10%); transition: .3s;
+      background: rgba(0,0,0,.4); 
+      box-shadow: $white 0 0 0 1px;
+      transition: .3s;
       cursor: pointer; outline: none;
       &:focus, &:hover{
         box-shadow:$mainBg 0 0 0 1px, $fontColor 0 0 0 3px;

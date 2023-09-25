@@ -1,0 +1,42 @@
+// 2023 sep.
+// 首頁區塊背景色
+$mpSecBgc1: #f5cfbb;
+$mpSecBgc2: #fcfcc0;
+$mpSecBgc3: #dfeda3;
+$mpSecBgc4: #93c6c9;
+// --------------------------------------------- //
+
+// 首頁區塊
+.news,
+.disks,
+.disk.invert,
+.links,
+.freeZone,
+.bulletin,
+.banner2x1,
+.albumsFlow,
+.banners2,
+.banners {
+  &.bgc1{ background: $mpSecBgc1;}
+  &.bgc2{ background: $mpSecBgc2;}
+  &.bgc3{ background: $mpSecBgc3;}
+  &.bgc4{ background: $mpSecBgc4;}
+
+}
+
+@media screen and (min-width: $wwNormal){
+  .news,
+  .freeZone,
+  .bulletin,
+  .banners {
+    // 2023 去除背景圖
+    &.bgc1, &.bgc2, &.bgc3, &.bgc4 {
+      &::before{display: none;}
+    }
+    
+    // 後端自訂背景色時，原來的背景圖要隱藏
+    &[style^="background"]{
+      &::before{display: none;}
+    }
+  }
+}

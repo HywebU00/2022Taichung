@@ -29,9 +29,7 @@
 
   &.invert{
     ul li{
-      img{
-        background-color: $primaryColor;
-      }
+      img{background-color: $primaryColor; }
       a{
         &:hover, &:focus{
           img{
@@ -77,5 +75,6 @@
 @media screen and (min-width: $wwNormal){
   .news + .disks{
     margin-top: -82px;
+    &.bgc1, &.bgc2, &.bgc3, .bgc4{ margin-top: 0;}
   }
 }
