@@ -694,16 +694,24 @@ $(function(){
   // fatfooter 開合 //////////////////////////////
   var _fatFootCtrl = $('.fatFootCtrl');
   var _footSiteTree = $('.fatFooter').find('.siteTree>ul>li>ul');
-  const text1 = _fatFootCtrl.text();
-  const text2 = _fatFootCtrl.attr('data-altText');
+  // ---------- 2024/5 無障礙修改 ---------- //
+  // const text1 = _fatFootCtrl.text();
+  // const text2 = _fatFootCtrl.attr('data-altText');
+  _fatFootCtrl.text('');
+
+  if (_footSiteTree.first().is(':visible')) {
+		_fatFootCtrl.removeClass('close').attr('aria-expanded', true);
+	} else {
+		_fatFootCtrl.addClass('close').attr('aria-expanded', false);
+	}
 
   _fatFootCtrl.click(function(){
     if ( _footSiteTree.is(':visible')) {
       _footSiteTree.slideUp();
-      $(this).addClass('closed').text(text2);
+      $(this).addClass('closed').attr('aria-expanded', false);
     } else {
       _footSiteTree.slideDown();
-      $(this).removeClass('closed').text(text1);
+      $(this).removeClass('closed').attr('aria-expanded', true);
     }
   })
   // --end of-- fatfooter 開合 //////////////////////////////
