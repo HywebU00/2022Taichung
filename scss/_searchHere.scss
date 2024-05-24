@@ -34,6 +34,7 @@ button.drawerHandle{
   position: absolute; height: 40px; width:0; line-height: 40px; padding: 0 40px 0 0;
   text-indent: -6.5em;overflow: hidden;border-radius: 1.5em;
   border: none; margin: 0; box-shadow: none;
+  text-align: left;
   background-color: transparent; color: $fontInvert; text-align: center;
   transition: .3s;
   &::before{
@@ -45,7 +46,7 @@ button.drawerHandle{
 
   &:hover, &:focus{
     text-indent: 0;
-    width: calc(4.8em + 40px); padding-left: .8em; background-color: $primaryColor;
+    width: calc(2em + 60px); padding-left: 20px; background-color: $primaryColor;
     &::before{border-color: $fontInvert;}
   }
 
