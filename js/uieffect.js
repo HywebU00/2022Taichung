@@ -215,25 +215,44 @@ $(function(){
 
 
 
-  // 可收合區 ////////////////////////////
+  ////////////////////////////////////////////////////////
+  // 可收合區 
   _drawer = $('.drawer');
   _drawer.each(function () {
     let _this = $(this);
-    let _handle = _this.find('.handle');
+    let _handle = _this.find('.drawerHandle');
     let _tray = _this.find('.tray');
+    let _header = _this.find('.header');
     const speed = 500;
+    
+    _tray.is(':hidden') ? _handle.text('展開').attr('aria-expanded', false) : _handle.text('收合').attr('aria-expanded', true) ;
 
-    _handle.click(function () {
+    _handle.add(_header).click(function () {
       if (_tray.is(':hidden')) {
         _tray.stop(true, false).slideDown(speed);
-        _handle.removeClass('openIt');
+        _handle.addClass('closeIt').text('收合').attr('aria-expanded', true);
       } else {
         _tray.stop(true, false).slideUp(speed, function(){
-          _handle.addClass('openIt');
+          _handle.removeClass('closeIt').text('展開').attr('aria-expanded', false);
         })
       }
     })
   })
+  ////////////////////////////////////////////////////////
+
+
+  ////////////////////////////////////////////////////////
+  // 查詢 aria-label 值
+  var _searchTable = $('.searchHere').find('table.formLayout');
+  var _seachItem = _searchTable.find('td:nth-child(even)').children('input:only-child, select:only-child');
+  _seachItem.each( function(){
+    $(this).attr('aria-label', $(this).parent('td').prev().text());
+  })
+
+  // 日期區間
+  var _duration = _searchTable.find('.duration');
+  _duration.children('input:first-child').attr('aria-label', '起始日期');
+  _duration.children('input:last-child').attr('aria-label', '結束日期');
   ////////////////////////////////////////////////////////
 
   // rwd Table ////////////////////////////
