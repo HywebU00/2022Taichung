@@ -1,7 +1,7 @@
 //  天氣與空氣品質。 2024JUN 新增
 .weatherSum{
   position: relative; overflow: hidden;
-  width: $mobileWidth; margin: 10px auto 30px; padding: 13px 4vw;
+  width: $mobileWidth; margin: 10px auto 30px; padding: 13px 3vw;
   border-radius: 5px; border: 1px solid #c7c7c7;
   color: #414141;
   background-image: linear-gradient(160deg, #f3f3f3 20%, #eee 90%);
@@ -37,8 +37,8 @@
     display: flex; flex-flow: row wrap; justify-content: space-between;
 
     .heading{ flex: 0 0 100%;}
-    .weatherIcon {flex-basis: 0 0 64px; margin-left: auto; margin-right: 8px;}
-    &>.first{flex: 0 0 auto;margin-right: 4px;}
+    .weatherIcon {flex-basis: 0 0 64px; margin-left: auto; margin-right: 6px;}
+    &>.first{flex: 0 0 auto;}
 
     // 空氣品質
     .aqi{
@@ -56,8 +56,11 @@
         &.extremelyPoor{color: #842285;}
         &.hazardous{color: #7c003e;}
       }
-      p{margin:4px 0 4px 2.6em; line-height: 1.2; white-space: nowrap;color: #595959;}
-    }
+        p {
+          margin: 4px 0 5px 2.6em;
+          line-height: 1.2; font-size: .95em; color: #595959;
+        }
+      }
 
     // 氣溫
     .temperature{
@@ -67,7 +70,7 @@
       }
       .tempNow{
         display: block; margin: 0 auto 3px;
-        font-size: 3.4em; line-height: .9; font-weight: bold;
+        font-size: 2.8em; line-height: .9; font-weight: bold;
       }
    
       .tempHigh, .tempLow{
@@ -86,6 +89,15 @@
   }
 
   .forecast {display: none;}
+
+  @media screen and (min-width: $wwSlim){
+    .currently{
+      .temperature{
+        .tempNow{font-size: 3.2em;}
+      }
+      .weatherIcon{margin-right: 12px;}
+    }
+  }
   
   @media screen and (min-width: $wwMedium){
     padding: 20px 3vw;
