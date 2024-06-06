@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+
+  <title>天氣圖示對應</title>
+
+  <style>
+    table{border-collapse: collapse; margin: 0 auto; min-width: 600px; background-color: #f0f0f0; }
+    tr{ border-bottom: 1px solid #bbb}
+    th, td {padding: 10px;}
+    td img{ width: 64px; display: block;margin: 0 auto;}
+    table caption{font-size: 1.5em; padding: 0.5em 0;}
+
+  </style>
+</head>
+
+<body>
+  <table>
+    <caption>天氣圖示對照表</caption>
+    <tr>
+      <th>天氣描述</th>
+      <th>白天圖示</th>
+      <th>夜晚圖示</th>
+    </tr>
+    <tr>
+      <td>晴天</td>
+      <td><img src="publicData/weatherIcons/weatherIcon-sunny.png"></td>
+      <td><img src="publicData/weatherIcons/weatherIcon-moon.png"></td>
+    </tr>
+    <tr>
+      <td>晴時多雲/多雲時晴</td>
+      <td><img src="publicData/weatherIcons/weatherIcon-sunnyCloudy.png"></td>
+      <td><img src="publicData/weatherIcons/weatherIcon-moonCloudy.png"></td>
+    </tr>
+    <tr>
+      <td>晴時多雲雷陣雨</td>
+      <td><img src="publicData/weatherIcons/weatherIcon-sunnyCloudyRain.png"></td>
+      <td><img src="publicData/weatherIcons/weatherIcon-moonCloudyRain.png"></td>
+    </tr>
+    <tr>
+      <td>多雲，陰天</td>
+      <td><img src="publicData/weatherIcons/weatherIcon-cloudy.png"></td>
+      <td><img src="publicData/weatherIcons/weatherIcon-cloudy.png"></td>
+    </tr>
+    <tr>
+      <td>多雲陣雨</td>
+      <td><img src="publicData/weatherIcons/weatherIcon-rain.png"></td>
+      <td><img src="publicData/weatherIcons/weatherIcon-rain.png"></td>
+    </tr>
+    <tr>
+      <td>多雲陣雨或雷雨</td>
+      <td><img src="publicData/weatherIcons/weatherIcon-thundershowers.png"></td>
+      <td><img src="publicData/weatherIcons/weatherIcon-thundershowers.png"></td>
+    </tr>
+  </table>
+</body>
+
+</html>
