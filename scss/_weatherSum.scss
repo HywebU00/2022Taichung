@@ -25,10 +25,11 @@
 
   //降雨機率
   .precipitation{
-    display: block; padding: 2px 0 2px 24px; 
+    display: block; padding: 0 0 0 22px; 
     font-size: 1.1em; line-height: 1em;
-    background: url(../images/icon_drop.png) no-repeat 2px 0;
+    background: url(../images/icon_drop.png) no-repeat 2px center;
     background-size: auto 19px;
+    min-height: 22px; line-height: 22px;
   }
 
   // 目前
@@ -36,18 +37,26 @@
     display: flex; flex-flow: row wrap; justify-content: space-between;
 
     .heading{ flex: 0 0 100%;}
+    .weatherIcon {flex-basis: 0 0 64px; margin-left: auto; margin-right: 8px;}
     &>.first{flex: 0 0 auto;margin-right: 4px;}
-    .weatherIcon {flex-basis: 0 0 64px; margin-left: auto; margin-right: 2%;}
 
     // 空氣品質
     .aqi{
       overflow: hidden; margin: 0 0 4px;
       abbr{
-        float: left;width: 2.2em;
+        float: left;width: 2.1em;
         text-decoration: none;font-weight: bold; font-size: 1.1em;
       }
-      .data{color: #cb4d06;font-size: 1.1em;}
-      p{margin:4px 0 4px 2.6em; line-height: 1.2;color: #595959;}
+      .data{
+        font-size: 1.1em; padding: 0 3px;
+        &.good{color: #056e26;}
+        &.fair{background-color: #ffd70f; color: #333; border-radius: 3px;}
+        &.poor{color: #c34101;}
+        &.veryPoor{color: #d40000;}
+        &.extremelyPoor{color: #842285;}
+        &.hazardous{color: #7c003e;}
+      }
+      p{margin:4px 0 4px 2.6em; line-height: 1.2; white-space: nowrap;color: #595959;}
     }
 
     // 氣溫
@@ -58,7 +67,7 @@
       }
       .tempNow{
         display: block; margin: 0 auto 3px;
-        font-size: 3.5em; line-height: .9; font-weight: bold;
+        font-size: 3.4em; line-height: .9; font-weight: bold;
       }
    
       .tempHigh, .tempLow{
@@ -73,32 +82,32 @@
         }
       }
       .tempHigh::before {rotate: 180deg;}
-      
     }
   }
 
-
   .forecast {display: none;}
   
-  @media screen and (min-width: $wwNormal){
-    width: $normalWidth; padding: 20px 4vw;
-    display: flex;
-    justify-content: space-between;
+  @media screen and (min-width: $wwMedium){
+    padding: 20px 3vw;
+    display: flex; justify-content: space-between;
 
     .currently{
-      flex: 0 1 40%; margin-right: 2.5%;
-      .weatherIcon{ margin-right: 4px;}
+      position: relative;
+      flex: 0 1 41%; margin-right: 2.5%;
 
-      &+.forecast{margin-left: auto;}
-      &>.first{
-        flex: 0 1 calc(97% - 70px - 6em); width: auto;
+      .aqi{
+        p{display: inline; margin-left: 1em;}
       }
+
+      .precipitation{position: absolute; bottom: 18px;}
+
+      &>.first{flex: 0 0 100%;}
+      &+.forecast{margin-left: auto;}
     }
 
     .forecast {
-      display: block;position: relative;
-      flex: 0 0 27%; margin-left: 2.5%;
-      padding-right: 68px;padding-left: 3%;
+      display: block; position: relative; flex: 0 0 27%; 
+      margin-left: 2.4%;padding-left: 2.6%;
       border-left: 2px solid #e0e0e0;
       
       .heading{ font-size: 1.25em;}
@@ -111,20 +120,40 @@
           border-style: solid;border-width: 6px 4px 0 4px;
           border-color: #5a5a5a transparent transparent transparent;
         }
-
-        .celsius{ 
-          display: inline-block;font-size: .6em; margin-left: 1px;
-        }
+        .celsius{ display: inline-block;font-size: .6em; margin-left: 1px;}
       }
       .tempHigh::after { rotate: 180deg;}
     
-      .weatherIcon{ position: absolute; right: 0; top: 1.8em; }
+      .precipitation{ float: left;margin-top: 24px;}
+      .weatherIcon{ float: right;}
     }
   }
 
+  @media screen and (min-width: $wwNormal){
+    max-width: $wwMaximum*.82;
+    .currently{
+      .aqi{
+        p{ display: block; margin-left: 2.7em; font-size: .95em;}
+      }
+      .precipitation{position: static;}
+      .weatherIcon{ margin-right: 4px;}
 
-  @media screen and (min-width: $wwMaximum){
-    width: $wwMaximum*.82;
+      &>.first{
+        flex: 0 1 calc(97% - 70px - 6em); width: auto;
+      }
+    }
+
+    .forecast {
+      .precipitation{float: none; margin-top: 0;}
+    
+      .weatherIcon{float: none; position: absolute; right: 0; top: 1.8em; }
+    }
+
   }
+
+
+  // @media screen and (min-width: $wwMaximum){
+  //   width: $wwMaximum*.82;
+  // }
 
 }
