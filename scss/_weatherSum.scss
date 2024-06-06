@@ -148,16 +148,12 @@
         p{ display: block; margin-left: 2.7em; font-size: .95em;}
       }
       .precipitation{position: static;}
-      .weatherIcon{ margin-right: 4px;}
 
-      &>.first{
-        flex: 0 1 calc(97% - 70px - 6em); width: auto;
-      }
+      &>.first{flex: 0 1 calc(97% - 70px - 6em); width: auto;}
     }
 
     .forecast {
       .precipitation{float: none; margin-top: 0;}
-    
       .weatherIcon{float: none; position: absolute; right: 0; top: 1.8em; }
     }
 
