@@ -2,7 +2,7 @@
 .weatherSum{
   position: relative; overflow: hidden;
   width: $mobileWidth; margin: 10px auto 30px; padding: 13px 4vw;
-  border-radius: 4px; border: 1px solid #c7c7c7;
+  border-radius: 5px; border: 1px solid #c7c7c7;
   color: #414141;
   background-image: linear-gradient(160deg, #f3f3f3 20%, #eee 90%);
   box-shadow: rgb(0 0 0 / .2) 0 4px 7px -2px;
@@ -37,7 +37,7 @@
 
     .heading{ flex: 0 0 100%;}
     &>.first{flex: 0 0 auto;margin-right: 4px;}
-    .weatherIcon {flex-basis: 0 0 64px; margin-left: auto; margin-right: 1.5%;}
+    .weatherIcon {flex-basis: 0 0 64px; margin-left: auto; margin-right: 2%;}
 
     // 空氣品質
     .aqi{
@@ -84,10 +84,6 @@
     width: $normalWidth; padding: 20px 4vw;
     display: flex;
     justify-content: space-between;
-    
-    // &>*{outline: 1px dashed #00f8;outline-offset: -1px;}
-
-    // h2{flex: 0 0 100%;}
 
     .currently{
       flex: 0 1 40%; margin-right: 2.5%;
@@ -120,13 +116,9 @@
           display: inline-block;font-size: .6em; margin-left: 1px;
         }
       }
-      .tempHigh {
-        &::after { rotate: 180deg;}
-      }
+      .tempHigh::after { rotate: 180deg;}
     
-      .weatherIcon{
-        position: absolute; right: 0; top: 1.8em;
-      }
+      .weatherIcon{ position: absolute; right: 0; top: 1.8em; }
     }
   }
 
