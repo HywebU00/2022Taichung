@@ -24,4 +24,18 @@ h2.blockHeader{
 @import "_freeZone";      // html 編輯器產生的內容
 @import "_albumsFlow";      // 相簿輪播，2023Jan 新增
 @import "_banner2x1";      // 2:1 圖 slide，2023Jan 新增
-@import "_weatherSum";      // 天氣與空氣品質，2024JUN 新增
+
+
+// @import "_weatherSum";      // 天氣與空氣品質，2024JUN 新增
+// 20240611 改為以 iframe 嵌入
+iframe.weatherAndAQI{
+  display: block; width: 100%; height: 172px;
+  margin: 0 auto; padding: 0;border: none;
+  @media screen and (min-width: $wwMedium){
+    height: 234px;
+  }
+  @media screen and (min-width: $wwNormal){
+    height: 190px;
+  }
+}
+

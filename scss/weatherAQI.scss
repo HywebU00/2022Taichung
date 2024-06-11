@@ -1,5 +1,16 @@
+@import "_variables"; // RWD 斷點、長度常數、顏色變數
+
+// ------------------------------------------------------------ //
+// ------------------------------------------------------------ //
+// ------------------------------------------------------------ //
+body{ 
+  margin: 0; padding: 0;
+  font-size: 1em; font-family: Helvetica, Arial,'微軟正黑體', sans-serif;
+  *{box-sizing: border-box;}
+}
+
 //  天氣與空氣品質。 2024JUN 新增
-.weatherSum{
+.weatherAQI{
   position: relative; overflow: hidden;
   width: $mobileWidth; margin: 10px auto 30px; padding: 13px 3vw;
   border-radius: 5px; border: 1px solid #c7c7c7;
@@ -158,10 +169,5 @@
     }
 
   }
-
-
-  // @media screen and (min-width: $wwMaximum){
-  //   width: $wwMaximum*.82;
-  // }
 
 }
